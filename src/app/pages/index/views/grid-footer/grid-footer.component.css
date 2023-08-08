@@ -1,0 +1,5 @@
+.active{
+    background-color: rgb(156, 156, 156);
+    opacity: calc(100%);
+    color: white;
+}

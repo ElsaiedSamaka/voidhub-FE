@@ -1,0 +1,160 @@
+<div class="flex flex-col" [ngClass]="control.invalid && showErrors() ? 'error relative ' : 'relative'">
+  <ng-content selector="input-icon"></ng-content>
+  <!-- input -->
+  <ng-container [ngSwitch]="type">
+    <div *ngSwitchCase="'text'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-2xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+        
+    </div>
+    <div *ngSwitchCase="'number'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-2xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'tel'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
+      <input [id]="id" [name]="name" [formControl]="control" (keydown)="onKeyDown($event)" [placeholder]="placeholder"
+        [type]="type" [value]="value"
+        class="mt-1 rounded-2xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'search'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-2xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'password'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-2xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'checkbox'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-2xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'date'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-2xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern"
+        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'email'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        class="mt-1 rounded-2xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [minlength]="minlength" [required]="required"  [pattern]="pattern" [autocomplete]="autocomplete"
+        [autofocus]="autofocus" [title]="title" />
+    </div>
+    <div *ngSwitchCase="'textarea'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
+      <textarea class="mt-1 rounded-2xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [id]="id" [name]="name" [title]="title"
+        [formControl]="control" [autofocus]="autofocus" [size]="size" [maxlength]="maxlength" [minlength]="minlength"
+        [required]="required"  [placeholder]="placeholder"></textarea>
+    </div>
+    <div *ngSwitchCase="'select'">
+      <div class="flex">
+        <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+        <span *ngIf="required">*</span>
+      </div>
+      <select *ngSwitchCase="'select'"
+        class="mt-1 rounded-2xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-right w-full" [id]="id"
+        [formControl]="control">
+        <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
+      </select>
+    </div>
+    </ng-container>
+    <!-- validations -->
+  <div
+    class="absolute left-1/3 -top-1  z-10 px-3 py-0.5 text-xs font-medium border-2 border-red-500 text-red-500 rounded-3xl shadow-sm backdrop-blur-3xl tooltip"
+    *ngIf="showErrors() && control.errors!['required']">
+    <p class="text-xs  text-center" *ngIf="control.errors!['required']">
+      this field is required
+    </p>
+  </div>
+  <div
+    class="absolute left-1/3 -top-1  z-10 px-3 py-0.5 text-xs font-medium border-2 border-red-500 text-red-500 rounded-3xl shadow-sm backdrop-blur-3xl tooltip"
+    *ngIf="showErrors() && control.errors!['minlength']">
+    <p class=" text-xs  text-center" *ngIf="control.errors!['minlength']">
+      min length is {{control.errors!['minlength'].requiredLength}} char
+    </p>
+  </div>
+  <div
+    class="absolute left-1/3 -top-1  z-10 px-3 py-0.5 text-xs font-medium border-2 border-red-500 text-red-500 rounded-3xl shadow-sm backdrop-blur-3xl tooltip"
+    *ngIf="showErrors() && control.errors!['maxlength']">
+    <p class="text-xs  text-center" *ngIf="control.errors!['maxlength']">
+      max length is {{control.errors!['maxlength'].requiredLength}} char
+    </p>
+  </div>
+  <div
+    class="absolute left-1/3 -top-1  z-10 px-3 py-0.5 text-xs font-medium border-2 border-red-500 text-red-500 rounded-3xl shadow-sm backdrop-blur-3xl tooltip"
+    *ngIf="showErrors()&&control.errors!['pattern']">
+    <p class=" text-xs  text-center" *ngIf="control.errors!['pattern']">
+      incorrect input form
+    </p>
+  </div>
+  <div
+    class="absolute left-1/3 -top-1  z-10 px-3 py-0.5 text-xs font-medium border-2 border-red-500 text-red-500 rounded-3xl shadow-sm backdrop-blur-3xl tooltip"
+    *ngIf="showErrors()&&control.errors!['notEmailUnique']">
+    <p class=" text-xs  text-center" *ngIf="control.errors!['notEmailUnique']">
+      this mail is already inuse!
+    </p>
+  </div>
+  <div
+    class="absolute left-1/3 -top-1  z-10 px-3 py-0.5 text-xs font-medium border-2 border-red-500 text-red-500 rounded-3xl shadow-sm backdrop-blur-3xl tooltip"
+    *ngIf="showErrors()&&control.errors!['zeroOrNegative']">
+    <p class=" text-xs  text-center" *ngIf="control.errors!['zeroOrNegative']">
+      this input doesn't accept zero or negative value
+    </p>
+  </div>
+</div>
