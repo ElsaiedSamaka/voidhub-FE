@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 @import url('./styles/dark.theme');
 @import url('./styles/light.theme');
 @import 'tailwindcss/base';
@@ -22,6 +23,7 @@ body{
   scrollbar-color: gray white;
   /* border:1px solid red */
 }
+
 ::-moz-selection {
   color: #fff;
   background-color: #128644;
