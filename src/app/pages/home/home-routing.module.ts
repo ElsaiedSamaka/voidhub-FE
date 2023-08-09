@@ -11,23 +11,23 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
   },
-  {
-    path: 'all-products',
-    // component: AllProductsComponent,
-  },
-  {
-    path: 'not-found',
-    // component: NotFoundComponent,
-  },
-  {
-    path: ':id',
-    // component: ProductDetailsComponent,
-    // resolve: { product: ProductResolverService },
-  },
+  // {
+  //   path: 'all-products',
+  //   // component: AllProductsComponent,
+  // },
+  // {
+  //   path: 'not-found',
+  //   // component: NotFoundComponent,
+  // },
+  // {
+  //   path: ':id',
+  //   // component: ProductDetailsComponent,
+  //   // resolve: { product: ProductResolverService },
+  // },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class IndexRoutingModule {}
+export class HomeRoutingModule {}
