@@ -30,6 +30,12 @@ const routes: Routes = [
       import('./pages/settings/settings.module').then((m) => m.SettingsModule),
   },
   {
+    path: 'library',
+    // canLoad: [AuthGuard],
+    loadChildren: () =>
+      import('./pages/library/library.module').then((m) => m.LibraryModule),
+  },
+  {
     path: 'noperm',
     loadChildren: () =>
       import('./pages/noperm/noperm.module').then((m) => m.NopermModule),
