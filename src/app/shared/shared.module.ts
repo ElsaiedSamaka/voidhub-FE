@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AlertComponent } from './alert/alert.component';
 import { EmojiPickerComponent } from './emoji-picker/emoji-picker.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormComponent } from './form/form.component';
@@ -27,6 +28,7 @@ import { ToastComponent } from './toast/toast.component';
     SidebarComponent,
     HeaderComponent,
     FooterComponent,
+    AlertComponent,
   ],
   exports: [
     ModalComponent,
@@ -40,6 +42,7 @@ import { ToastComponent } from './toast/toast.component';
     SidebarComponent,
     HeaderComponent,
     FooterComponent,
+    AlertComponent,
   ],
 })
 export class SharedModule {}
