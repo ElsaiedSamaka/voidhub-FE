@@ -21,7 +21,6 @@ body{
   box-sizing: border-box;
   scrollbar-width: thin;
   scrollbar-color: gray white;
-  /* border:1px solid red */
 }
 
 ::-moz-selection {
@@ -35,7 +34,7 @@ body{
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -44,5 +43,5 @@ body{
 
 ::-webkit-scrollbar-thumb {
   background-color: gray;
-  border-radius: 20px;
+  /* border-radius: 20px; */
 }
