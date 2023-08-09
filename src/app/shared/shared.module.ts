@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmojiPickerComponent } from './emoji-picker/emoji-picker.component';
 import { FormComponent } from './form/form.component';
 import { InputComponent } from './input/input.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { ModalComponent } from './modal/modal.component';
 import { PopupComponent } from './popup/popup.component';
 import { ToastComponent } from './toast/toast.component';
@@ -15,6 +17,8 @@ import { ToastComponent } from './toast/toast.component';
     InputComponent,
     FormComponent,
     ToastComponent,
+    LoadingSpinnerComponent,
+    EmojiPickerComponent,
   ],
   exports: [
     ModalComponent,
@@ -22,6 +26,8 @@ import { ToastComponent } from './toast/toast.component';
     InputComponent,
     FormComponent,
     ToastComponent,
+    LoadingSpinnerComponent,
+    EmojiPickerComponent,
   ],
 })
 export class SharedModule {}
