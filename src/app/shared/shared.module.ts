@@ -6,6 +6,7 @@ import { FormComponent } from './form/form.component';
 import { InputComponent } from './input/input.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { ModalComponent } from './modal/modal.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { PopupComponent } from './popup/popup.component';
 import { ToastComponent } from './toast/toast.component';
 
@@ -19,6 +20,7 @@ import { ToastComponent } from './toast/toast.component';
     ToastComponent,
     LoadingSpinnerComponent,
     EmojiPickerComponent,
+    NavbarComponent,
   ],
   exports: [
     ModalComponent,
@@ -28,6 +30,7 @@ import { ToastComponent } from './toast/toast.component';
     ToastComponent,
     LoadingSpinnerComponent,
     EmojiPickerComponent,
+    NavbarComponent,
   ],
 })
 export class SharedModule {}
