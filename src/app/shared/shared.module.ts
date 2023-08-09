@@ -11,6 +11,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { ModalComponent } from './modal/modal.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PopupComponent } from './popup/popup.component';
+import { ProseComponent } from './prose/prose.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToastComponent } from './toast/toast.component';
 
@@ -29,6 +30,7 @@ import { ToastComponent } from './toast/toast.component';
     HeaderComponent,
     FooterComponent,
     AlertComponent,
+    ProseComponent,
   ],
   exports: [
     ModalComponent,
@@ -43,6 +45,7 @@ import { ToastComponent } from './toast/toast.component';
     HeaderComponent,
     FooterComponent,
     AlertComponent,
+    ProseComponent,
   ],
 })
 export class SharedModule {}
