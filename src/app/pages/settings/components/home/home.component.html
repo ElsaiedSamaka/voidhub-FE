@@ -1,432 +1,693 @@
-<div class="w-full">
-  <div class="h-full lg:ml-72 xl:ml-80">
-    <header class="contents lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex">
-      <div
-        class="contents lg:pointer-events-auto lg:block lg:w-72 lg:overflow-y-auto lg:border-r lg:border-zinc-900/10 lg:px-6 lg:pb-8 lg:pt-4 lg::border-white/10 xl:w-80">
-        <div class="hidden lg:flex"><a aria-label="Home" href="/"><svg viewBox="0 0 99 24" aria-hidden="true"
-              class="h-6">
-              <path class="fill-emerald-400"
-                d="M16 8a5 5 0 0 0-5-5H5a5 5 0 0 0-5 5v13.927a1 1 0 0 0 1.623.782l3.684-2.93a4 4 0 0 1 2.49-.87H11a5 5 0 0 0 5-5V8Z">
+<div class="grid grid-cols-1 px-4 pt-6 xl:grid-cols-3 xl:gap-4 dark:bg-gray-900">
+  <div class="mb-4 col-span-full xl:mb-2">
+    <nav class="flex mb-5" aria-label="Breadcrumb">
+      <ol class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
+        <li class="inline-flex items-center">
+          <a href="#"
+            class="inline-flex items-center text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-white">
+            <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
               </path>
-              <path class="fill-zinc-900 :fill-white"
-                d="M26.538 18h2.654v-3.999h2.576c2.672 0 4.456-1.723 4.456-4.333V9.65c0-2.61-1.784-4.333-4.456-4.333h-5.23V18Zm4.58-10.582c1.52 0 2.416.8 2.416 2.241v.018c0 1.441-.896 2.25-2.417 2.25h-1.925V7.418h1.925ZM38.051 18h2.566v-5.414c0-1.371.923-2.206 2.382-2.206.396 0 .791.061 1.178.15V8.287a3.843 3.843 0 0 0-.958-.123c-1.257 0-2.136.615-2.443 1.661h-.159V8.323h-2.566V18Zm11.55.202c2.979 0 4.772-1.88 4.772-5.036v-.018c0-3.128-1.82-5.036-4.773-5.036-2.953 0-4.772 1.916-4.772 5.036v.018c0 3.146 1.793 5.036 4.772 5.036Zm0-2.013c-1.372 0-2.145-1.116-2.145-3.023v-.018c0-1.89.782-3.023 2.144-3.023 1.354 0 2.145 1.134 2.145 3.023v.018c0 1.907-.782 3.023-2.145 3.023Zm10.52 1.846c.492 0 .967-.053 1.283-.114v-1.907a6.057 6.057 0 0 1-.755.044c-.87 0-1.24-.387-1.24-1.257v-4.544h1.995V8.323H59.41V6.012h-2.592v2.311h-1.495v1.934h1.495v5.133c0 1.88.949 2.645 3.304 2.645Zm7.287.167c2.98 0 4.772-1.88 4.772-5.036v-.018c0-3.128-1.82-5.036-4.772-5.036-2.954 0-4.773 1.916-4.773 5.036v.018c0 3.146 1.793 5.036 4.773 5.036Zm0-2.013c-1.372 0-2.145-1.116-2.145-3.023v-.018c0-1.89.782-3.023 2.145-3.023 1.353 0 2.144 1.134 2.144 3.023v.018c0 1.907-.782 3.023-2.144 3.023Zm10.767 2.013c2.522 0 4.034-1.353 4.297-3.463l.01-.053h-2.374l-.017.036c-.229.966-.853 1.467-1.908 1.467-1.37 0-2.135-1.08-2.135-3.04v-.018c0-1.934.755-3.006 2.135-3.006 1.099 0 1.74.615 1.908 1.556l.008.017h2.391v-.026c-.228-2.162-1.749-3.56-4.315-3.56-3.033 0-4.738 1.837-4.738 5.019v.017c0 3.217 1.714 5.054 4.738 5.054Zm10.257 0c2.98 0 4.772-1.88 4.772-5.036v-.018c0-3.128-1.82-5.036-4.772-5.036-2.953 0-4.773 1.916-4.773 5.036v.018c0 3.146 1.793 5.036 4.773 5.036Zm0-2.013c-1.371 0-2.145-1.116-2.145-3.023v-.018c0-1.89.782-3.023 2.145-3.023 1.353 0 2.144 1.134 2.144 3.023v.018c0 1.907-.782 3.023-2.144 3.023ZM95.025 18h2.566V4.623h-2.566V18Z">
-              </path>
-            </svg></a></div>
-        <div
-          class="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between gap-12 px-4 transition sm:px-6 lg:left-72 lg:z-30 lg:px-8 xl:left-80 backdrop-blur-sm :backdrop-blur lg:left-72 xl:left-80 bg-white/[var(--bg-opacity-light)] :bg-zinc-900/[var(--bg-opacity-)]"
-          style="--bg-opacity-light: 0.5; --bg-opacity-: 0.2;">
-          <div class="absolute inset-x-0 top-full h-px transition bg-zinc-900/7.5 :bg-white/7.5"></div>
-          <div class="hidden lg:block lg:max-w-md lg:flex-auto"><button type="button"
-              class="hidden h-8 w-full items-center gap-2 rounded-full bg-white pl-2 pr-3 text-sm text-zinc-500 ring-1 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none :bg-white/5 :text-zinc-400 :ring-inset :ring-white/10 :hover:ring-white/20 lg:flex"><svg
-                viewBox="0 0 20 20" fill="none" aria-hidden="true" class="h-5 w-5 stroke-current">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M12.01 12a4.25 4.25 0 1 0-6.02-6 4.25 4.25 0 0 0 6.02 6Zm0 0 3.24 3.25"></path>
-              </svg>Find something...<kbd class="ml-auto text-2xs text-zinc-400 :text-zinc-500"><kbd
-                  class="font-sans">Ctrl </kbd><kbd class="font-sans">K</kbd></kbd></button></div>
-          <div class="flex items-center gap-5 lg:hidden"><button type="button"
-              class="flex h-6 w-6 items-center justify-center rounded-md transition hover:bg-zinc-900/5 :hover:bg-white/5"
-              aria-label="Toggle navigation"><svg viewBox="0 0 10 9" fill="none" stroke-linecap="round"
-                aria-hidden="true" class="w-2.5 stroke-zinc-900 :stroke-white">
-                <path d="M.5 1h9M.5 8h9M.5 4.5h9"></path>
-              </svg></button><a aria-label="Home" href="/"><svg viewBox="0 0 99 24" aria-hidden="true" class="h-6">
-                <path class="fill-emerald-400"
-                  d="M16 8a5 5 0 0 0-5-5H5a5 5 0 0 0-5 5v13.927a1 1 0 0 0 1.623.782l3.684-2.93a4 4 0 0 1 2.49-.87H11a5 5 0 0 0 5-5V8Z">
+            </svg>
+            Home
+          </a>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <a href="#"
+              class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">Users</a>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span class="ml-1 text-gray-400 md:ml-2 dark:text-gray-500" aria-current="page">Settings</span>
+          </div>
+          </li>
+          </ol>
+          </nav>
+          <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">User settings</h1>
+          </div>
+          <!-- Right Content -->
+          <div class="col-span-full xl:col-auto">
+    <div
+      class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+      <div class="items-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
+        <img class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0" src="/images/users/bonnie-green-2x.png"
+          alt="Jese picture">
+        <div>
+          <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Profile picture</h3>
+          <div class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+            JPG, GIF or PNG. Max size of 800K
+          </div>
+          <div class="flex items-center space-x-4">
+            <button type="button"
+              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+              <svg class="w-4 h-4 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z">
                 </path>
-                <path class="fill-zinc-900 :fill-white"
-                  d="M26.538 18h2.654v-3.999h2.576c2.672 0 4.456-1.723 4.456-4.333V9.65c0-2.61-1.784-4.333-4.456-4.333h-5.23V18Zm4.58-10.582c1.52 0 2.416.8 2.416 2.241v.018c0 1.441-.896 2.25-2.417 2.25h-1.925V7.418h1.925ZM38.051 18h2.566v-5.414c0-1.371.923-2.206 2.382-2.206.396 0 .791.061 1.178.15V8.287a3.843 3.843 0 0 0-.958-.123c-1.257 0-2.136.615-2.443 1.661h-.159V8.323h-2.566V18Zm11.55.202c2.979 0 4.772-1.88 4.772-5.036v-.018c0-3.128-1.82-5.036-4.773-5.036-2.953 0-4.772 1.916-4.772 5.036v.018c0 3.146 1.793 5.036 4.772 5.036Zm0-2.013c-1.372 0-2.145-1.116-2.145-3.023v-.018c0-1.89.782-3.023 2.144-3.023 1.354 0 2.145 1.134 2.145 3.023v.018c0 1.907-.782 3.023-2.145 3.023Zm10.52 1.846c.492 0 .967-.053 1.283-.114v-1.907a6.057 6.057 0 0 1-.755.044c-.87 0-1.24-.387-1.24-1.257v-4.544h1.995V8.323H59.41V6.012h-2.592v2.311h-1.495v1.934h1.495v5.133c0 1.88.949 2.645 3.304 2.645Zm7.287.167c2.98 0 4.772-1.88 4.772-5.036v-.018c0-3.128-1.82-5.036-4.772-5.036-2.954 0-4.773 1.916-4.773 5.036v.018c0 3.146 1.793 5.036 4.773 5.036Zm0-2.013c-1.372 0-2.145-1.116-2.145-3.023v-.018c0-1.89.782-3.023 2.145-3.023 1.353 0 2.144 1.134 2.144 3.023v.018c0 1.907-.782 3.023-2.144 3.023Zm10.767 2.013c2.522 0 4.034-1.353 4.297-3.463l.01-.053h-2.374l-.017.036c-.229.966-.853 1.467-1.908 1.467-1.37 0-2.135-1.08-2.135-3.04v-.018c0-1.934.755-3.006 2.135-3.006 1.099 0 1.74.615 1.908 1.556l.008.017h2.391v-.026c-.228-2.162-1.749-3.56-4.315-3.56-3.033 0-4.738 1.837-4.738 5.019v.017c0 3.217 1.714 5.054 4.738 5.054Zm10.257 0c2.98 0 4.772-1.88 4.772-5.036v-.018c0-3.128-1.82-5.036-4.772-5.036-2.953 0-4.773 1.916-4.773 5.036v.018c0 3.146 1.793 5.036 4.773 5.036Zm0-2.013c-1.371 0-2.145-1.116-2.145-3.023v-.018c0-1.89.782-3.023 2.145-3.023 1.353 0 2.144 1.134 2.144 3.023v.018c0 1.907-.782 3.023-2.144 3.023ZM95.025 18h2.566V4.623h-2.566V18Z">
-                </path>
-              </svg></a></div>
-          <div class="flex items-center gap-5">
-            <nav class="hidden md:block">
-              <ul role="list" class="flex items-center gap-8">
-                <li><a
-                    class="text-sm leading-5 text-zinc-600 transition hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                    href="/">API</a></li>
-                <li><a
-                    class="text-sm leading-5 text-zinc-600 transition hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                    >Documentation</a></li>
-                <li><a
-                    class="text-sm leading-5 text-zinc-600 transition hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                    >Support</a></li>
-              </ul>
-            </nav>
-            <div class="hidden md:block md:h-5 md:w-px md:bg-zinc-900/10 md::bg-white/15"></div>
-            <div class="flex gap-4">
-              <div class="contents lg:hidden"><button type="button"
-                  class="flex h-6 w-6 items-center justify-center rounded-md transition hover:bg-zinc-900/5 ui-not-focus-visible:outline-none :hover:bg-white/5 lg:hidden"
-                  aria-label="Find something..."><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"
-                    class="h-5 w-5 stroke-zinc-900 :stroke-white">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M12.01 12a4.25 4.25 0 1 0-6.02-6 4.25 4.25 0 0 0 6.02 6Zm0 0 3.24 3.25"></path>
-                  </svg></button></div><button type="button"
-                class="flex h-6 w-6 items-center justify-center rounded-md transition hover:bg-zinc-900/5 :hover:bg-white/5"
-                aria-label="Switch to light theme"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"
-                  class="h-5 w-5 stroke-zinc-900 :hidden">
-                  <path d="M12.5 10a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"></path>
-                  <path stroke-linecap="round"
-                    d="M10 5.5v-1M13.182 6.818l.707-.707M14.5 10h1M13.182 13.182l.707.707M10 15.5v-1M6.11 13.889l.708-.707M4.5 10h1M6.11 6.111l.708.707">
-                  </path>
-                </svg><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"
-                  class="hidden h-5 w-5 stroke-white :block">
-                  <path d="M15.224 11.724a5.5 5.5 0 0 1-6.949-6.949 5.5 5.5 0 1 0 6.949 6.949Z"></path>
-                </svg></button>
-            </div>
-            <div class="hidden min-[416px]:contents"><a
-                class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition rounded-full bg-zinc-900 py-1 px-3 text-white hover:bg-zinc-700 :bg-emerald-400/10 :text-emerald-400 :ring-1 :ring-inset :ring-emerald-400/20 :hover:bg-emerald-400/10 :hover:text-emerald-300 :hover:ring-emerald-300"
-                >Sign in</a></div>
+                <path d="M9 13h2v5a1 1 0 11-2 0v-5z"></path>
+              </svg>
+              Upload picture
+            </button>
+            <button type="button"
+              class="py-2 px-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+              Delete
+            </button>
           </div>
         </div>
-        <nav class="hidden lg:mt-10 lg:block">
-          <ul role="list">
-            <li class="md:hidden"><a
-                class="block py-1 text-sm text-zinc-600 transition hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                href="/">API</a></li>
-            <li class="md:hidden"><a
-                class="block py-1 text-sm text-zinc-600 transition hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                >Documentation</a></li>
-            <li class="md:hidden"><a
-                class="block py-1 text-sm text-zinc-600 transition hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                >Support</a></li>
-            <li class="relative mt-6 md:mt-0">
-              <h2 class="text-xs font-semibold text-zinc-900 :text-white">Guides</h2>
-              <div class="relative mt-3 pl-2">
-                <div class="absolute inset-x-0 top-0 bg-zinc-800/2.5 will-change-transform :bg-white/2.5"
-                  data-projection-id="12"
-                  style="height: 96px; top: 32px; border-radius: 3.34728% / 8.33333%; opacity: 1; transform: none; transform-origin: 50% 50% 0px;">
-                </div>
-                <div class="absolute inset-y-0 left-2 w-px bg-zinc-900/10 :bg-white/5"
-                  style="transform: none; transform-origin: 50% 50% 0px;"></div>
-                <div class="absolute left-2 h-6 w-px bg-emerald-500" data-projection-id="13"
-                  style="top: 36px; opacity: 1;"></div>
-                <ul role="list" class="border-l border-transparent">
-                  <li class="relative"><a
-                      class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                      href="/"><span class="truncate">Introduction</span></a></li>
-                  <li class="relative"><a
-                      class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-900 :text-white"
-                      href="/quickstart" aria-current="page"><span class="truncate">Quickstart</span></a>
-                    <ul role="list" data-projection-id="14" style="opacity: 1;">
-                      <li><a
-                          class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-7 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                          href="/quickstart#choose-your-client"><span class="truncate">Choose your client</span></a>
-                      </li>
-                      <li><a
-                          class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-7 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                          href="/quickstart#making-your-first-api-request"><span class="truncate">Making your first API
-                            request</span></a></li>
-                      <li><a
-                          class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-7 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                          href="/quickstart#whats-next"><span class="truncate">What's next?</span></a></li>
-                    </ul>
-                  </li>
-                  <li class="relative" style="transform: none; transform-origin: 50% 50% 0px;"><a
-                      class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                      href="/sdks"><span class="truncate">SDKs</span></a></li>
-                  <li class="relative" style="transform: none; transform-origin: 50% 50% 0px;"><a
-                      class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                      href="/authentication"><span class="truncate">Authentication</span></a></li>
-                  <li class="relative" style="transform: none; transform-origin: 50% 50% 0px;"><a
-                      class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                      href="/pagination"><span class="truncate">Pagination</span></a></li>
-                  <li class="relative" style="transform: none; transform-origin: 50% 50% 0px;"><a
-                      class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                      href="/errors"><span class="truncate">Errors</span></a></li>
-                  <li class="relative" style="transform: none; transform-origin: 50% 50% 0px;"><a
-                      class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                      href="/webhooks"><span class="truncate">Webhooks</span></a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="relative mt-6">
-              <h2 class="text-xs font-semibold text-zinc-900 :text-white"
-                style="transform: none; transform-origin: 50% 50% 0px;">Resources</h2>
-              <div class="relative mt-3 pl-2">
-                <div class="absolute inset-y-0 left-2 w-px bg-zinc-900/10 :bg-white/5"
-                  style="transform: none; transform-origin: 50% 50% 0px;"></div>
-                <ul role="list" class="border-l border-transparent">
-                  <li class="relative" style="transform: none; transform-origin: 50% 50% 0px;"><a
-                      class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                      href="/contacts"><span class="truncate">Contacts</span></a></li>
-                  <li class="relative" style="transform: none; transform-origin: 50% 50% 0px;"><a
-                      class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                      href="/conversations"><span class="truncate">Conversations</span></a></li>
-                  <li class="relative" style="transform: none; transform-origin: 50% 50% 0px;"><a
-                      class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                      href="/messages"><span class="truncate">Messages</span></a></li>
-                  <li class="relative" style="transform: none; transform-origin: 50% 50% 0px;"><a
-                      class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                      href="/groups"><span class="truncate">Groups</span></a></li>
-                  <li class="relative" style="transform: none; transform-origin: 50% 50% 0px;"><a
-                      class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-600 hover:text-zinc-900 :text-zinc-400 :hover:text-white"
-                      href="/attachments"><span class="truncate">Attachments</span></a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="sticky bottom-0 z-10 mt-6 min-[416px]:hidden"><a
-                class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition rounded-full bg-zinc-900 py-1 px-3 text-white hover:bg-zinc-700 :bg-emerald-500 :text-white :hover:bg-emerald-400 w-full"
-                >Sign in</a></li>
-          </ul>
-        </nav>
       </div>
-    </header>
-    <div class="relative flex h-full flex-col px-4 pt-14 sm:px-6 lg:px-8">
-      <main class="flex-auto">
-        <article class="flex h-full flex-col pb-10 pt-16">
-          <div class="flex-auto prose :prose-invert">
-            <h1>Quickstart</h1>
-            <p class="lead">This guide will get you all set up and ready to use the Protocol API. We'll cover how to get
-              started using one of our API clients and how to make your first API request. We'll also look at where to
-              go next to find all the information you need to take full advantage of our powerful REST API.</p>
-            <div
-              class="my-6 flex gap-2.5 rounded-2xl border border-emerald-500/20 bg-emerald-50/50 p-4 leading-6 text-emerald-900 :border-emerald-500/30 :bg-emerald-500/5 :text-emerald-200 :[--tw-prose-links-hover:theme(colors.emerald.300)] :[--tw-prose-links:theme(colors.white)]">
-              <svg viewBox="0 0 16 16" aria-hidden="true"
-                class="mt-1 h-4 w-4 flex-none fill-emerald-500 stroke-white :fill-emerald-200/20 :stroke-emerald-200">
-                <circle cx="8" cy="8" r="8" stroke-width="0"></circle>
-                <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                  d="M6.75 7.75h1.5v3.5"></path>
-                <circle cx="8" cy="4" r=".5" fill="none"></circle>
-              </svg>
-              <div class="[&amp;>:first-child]:mt-0 [&amp;>:last-child]:mb-0">
-                <p>Before you can make requests to the Protocol API, you will need to grab your
-                  API key from your dashboard. You find it under <a>Settings » API</a>.</p>
-              </div>
-            </div>
-            <h2 id="choose-your-client" class="scroll-mt-24"><a
-                class="group text-inherit no-underline hover:text-inherit" href="#choose-your-client">
-                <div
-                  class="absolute ml-[calc(-1*var(--width))] mt-1 hidden w-[var(--width)] opacity-0 transition [--width:calc(2.625rem+0.5px+50%-min(50%,calc(theme(maxWidth.lg)+theme(spacing.8))))] group-hover:opacity-100 group-focus:opacity-100 md:block lg:z-50 2xl:[--width:theme(spacing.10)]">
-                  <div
-                    class="group/anchor block h-5 w-5 rounded-lg bg-zinc-50 ring-1 ring-inset ring-zinc-300 transition hover:ring-zinc-500 :bg-zinc-800 :ring-zinc-700 :hover:bg-zinc-700 :hover:ring-zinc-600">
-                    <svg viewBox="0 0 20 20" fill="none" stroke-linecap="round" aria-hidden="true"
-                      class="h-5 w-5 stroke-zinc-500 transition :stroke-zinc-400 :group-hover/anchor:stroke-white">
-                      <path
-                        d="m6.5 11.5-.964-.964a3.535 3.535 0 1 1 5-5l.964.964m2 2 .964.964a3.536 3.536 0 0 1-5 5L8.5 13.5m0-5 3 3">
-                      </path>
-                    </svg>
-                  </div>
-                </div>Choose your client
-              </a></h2>
-            <p>Before making your first API request, you need to pick which API client you will use. In addition to good
-              ol' cURL HTTP requests, Protocol offers clients for JavaScript, Python, and PHP. In the following example,
-              you can see how to install each client.</p>
-            <div
-              class="not-prose my-6 overflow-hidden rounded-2xl bg-zinc-900 shadow-md :ring-1 :ring-white/10">
-              <div
-                class="flex min-h-[calc(theme(spacing.12)+1px)] flex-wrap items-start gap-x-4 border-b border-zinc-700 bg-zinc-800 px-4 :border-zinc-800 :bg-transparent">
-                <div class="-mb-px flex gap-4 text-xs font-medium" role="tablist" aria-orientation="horizontal"><button
-                    class="border-b py-3 transition ui-not-focus-visible:outline-none border-transparent text-zinc-400 hover:text-zinc-300"
-                    id="headlessui-tabs-tab-:r8u:" role="tab" type="button" aria-selected="false" tabindex="-1"
-                    data-headlessui-state="" aria-controls="headlessui-tabs-panel-:r92:">cURL</button><button
-                    class="border-b py-3 transition ui-not-focus-visible:outline-none border-transparent text-zinc-400 hover:text-zinc-300"
-                    id="headlessui-tabs-tab-:r8v:" role="tab" type="button" aria-selected="false" tabindex="-1"
-                    data-headlessui-state="" aria-controls="headlessui-tabs-panel-:r93:">JavaScript</button><button
-                    class="border-b py-3 transition ui-not-focus-visible:outline-none border-transparent text-zinc-400 hover:text-zinc-300"
-                    id="headlessui-tabs-tab-:r90:" role="tab" type="button" aria-selected="false" tabindex="-1"
-                    data-headlessui-state="" aria-controls="headlessui-tabs-panel-:r94:">Python</button><button
-                    class="border-b py-3 transition ui-not-focus-visible:outline-none border-emerald-500 text-emerald-400"
-                    id="headlessui-tabs-tab-:r91:" role="tab" type="button" aria-selected="true" tabindex="0"
-                    data-headlessui-state="selected" aria-controls="headlessui-tabs-panel-:r95:">PHP</button></div>
-              </div>
-              <div><span id="headlessui-tabs-panel-:r92:" role="tabpanel" tabindex="-1"
-                  aria-labelledby="headlessui-tabs-tab-:r8u:"
-                  style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;"></span><span
-                  id="headlessui-tabs-panel-:r93:" role="tabpanel" tabindex="-1"
-                  aria-labelledby="headlessui-tabs-tab-:r8v:"
-                  style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;"></span><span
-                  id="headlessui-tabs-panel-:r94:" role="tabpanel" tabindex="-1"
-                  aria-labelledby="headlessui-tabs-tab-:r90:"
-                  style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;"></span>
-                <div id="headlessui-tabs-panel-:r95:" role="tabpanel" tabindex="0" data-headlessui-state="selected"
-                  aria-labelledby="headlessui-tabs-tab-:r91:">
-                  <div class="group :bg-white/2.5">
-                    <div class="relative">
-                      <pre class="overflow-x-auto p-4 text-xs text-white"><code class="language-bash"><span><span style="color: var(--shiki-token-comment)"># Install the Protocol PHP SDK</span></span>
-<span><span style="color: var(--shiki-color-text)">composer require protocol/sdk</span></span>
-<span></span></code></pre><button type="button"
-                        class="group/button absolute right-4 top-3.5 overflow-hidden rounded-full py-1 pl-2 pr-3 text-2xs font-medium opacity-0 backdrop-blur transition focus:opacity-100 group-hover:opacity-100 bg-white/5 hover:bg-white/7.5 :bg-white/2.5 :hover:bg-white/5"><span
-                          aria-hidden="false"
-                          class="pointer-events-none flex items-center gap-0.5 text-zinc-400 transition duration-300"><svg
-                            viewBox="0 0 20 20" aria-hidden="true"
-                            class="h-5 w-5 fill-zinc-500/20 stroke-zinc-500 transition-colors group-hover/button:stroke-zinc-400">
-                            <path stroke-width="0"
-                              d="M5.5 13.5v-5a2 2 0 0 1 2-2l.447-.894A2 2 0 0 1 9.737 4.5h.527a2 2 0 0 1 1.789 1.106l.447.894a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2Z">
-                            </path>
-                            <path fill="none" stroke-linejoin="round"
-                              d="M12.5 6.5a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2m5 0-.447-.894a2 2 0 0 0-1.79-1.106h-.527a2 2 0 0 0-1.789 1.106L7.5 6.5m5 0-1 1h-3l-1-1">
-                            </path>
-                          </svg>Copy</span><span aria-hidden="true"
-                          class="pointer-events-none absolute inset-0 flex items-center justify-center text-emerald-400 transition duration-300 translate-y-1.5 opacity-0">Copied!</span></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="not-prose"><a
-                class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition text-emerald-500 hover:text-emerald-600 :text-emerald-400 :hover:text-emerald-500"
-                href="/sdks">Check out our list of first-party SDKs<svg viewBox="0 0 20 20" fill="none"
-                  aria-hidden="true" class="mt-0.5 h-5 w-5 relative top-px -mr-1">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    d="m11.5 6.5 3 3.5m0 0-3 3.5m3-3.5h-9"></path>
-                </svg></a></div>
-            <h2 id="making-your-first-api-request" class="scroll-mt-24"><a
-                class="group text-inherit no-underline hover:text-inherit" href="#making-your-first-api-request">
-                <div
-                  class="absolute ml-[calc(-1*var(--width))] mt-1 hidden w-[var(--width)] opacity-0 transition [--width:calc(2.625rem+0.5px+50%-min(50%,calc(theme(maxWidth.lg)+theme(spacing.8))))] group-hover:opacity-100 group-focus:opacity-100 md:block lg:z-50 2xl:[--width:theme(spacing.10)]">
-                  <div
-                    class="group/anchor block h-5 w-5 rounded-lg bg-zinc-50 ring-1 ring-inset ring-zinc-300 transition hover:ring-zinc-500 :bg-zinc-800 :ring-zinc-700 :hover:bg-zinc-700 :hover:ring-zinc-600">
-                    <svg viewBox="0 0 20 20" fill="none" stroke-linecap="round" aria-hidden="true"
-                      class="h-5 w-5 stroke-zinc-500 transition :stroke-zinc-400 :group-hover/anchor:stroke-white">
-                      <path
-                        d="m6.5 11.5-.964-.964a3.535 3.535 0 1 1 5-5l.964.964m2 2 .964.964a3.536 3.536 0 0 1-5 5L8.5 13.5m0-5 3 3">
-                      </path>
-                    </svg>
-                  </div>
-                </div>Making your first API request
-              </a></h2>
-            <p>After picking your preferred client, you are ready to make your first call to the Protocol API. Below,
-              you can see how to send a GET request to the Conversations endpoint to get a list of all your
-              conversations. In the cURL example, results are limited to ten conversations, the default page length for
-              each client.</p>
-            <div
-              class="not-prose my-6 overflow-hidden rounded-2xl bg-zinc-900 shadow-md :ring-1 :ring-white/10">
-              <div
-                class="flex min-h-[calc(theme(spacing.12)+1px)] flex-wrap items-start gap-x-4 border-b border-zinc-700 bg-zinc-800 px-4 :border-zinc-800 :bg-transparent">
-                <div class="-mb-px flex gap-4 text-xs font-medium" role="tablist" aria-orientation="horizontal"><button
-                    class="border-b py-3 transition ui-not-focus-visible:outline-none border-transparent text-zinc-400 hover:text-zinc-300"
-                    id="headlessui-tabs-tab-:r96:" role="tab" type="button" aria-selected="false" tabindex="-1"
-                    data-headlessui-state="" aria-controls="headlessui-tabs-panel-:r9a:">cURL</button><button
-                    class="border-b py-3 transition ui-not-focus-visible:outline-none border-transparent text-zinc-400 hover:text-zinc-300"
-                    id="headlessui-tabs-tab-:r97:" role="tab" type="button" aria-selected="false" tabindex="-1"
-                    data-headlessui-state="" aria-controls="headlessui-tabs-panel-:r9b:">JavaScript</button><button
-                    class="border-b py-3 transition ui-not-focus-visible:outline-none border-transparent text-zinc-400 hover:text-zinc-300"
-                    id="headlessui-tabs-tab-:r98:" role="tab" type="button" aria-selected="false" tabindex="-1"
-                    data-headlessui-state="" aria-controls="headlessui-tabs-panel-:r9c:">Python</button><button
-                    class="border-b py-3 transition ui-not-focus-visible:outline-none border-emerald-500 text-emerald-400"
-                    id="headlessui-tabs-tab-:r99:" role="tab" type="button" aria-selected="true" tabindex="0"
-                    data-headlessui-state="selected" aria-controls="headlessui-tabs-panel-:r9d:">PHP</button></div>
-              </div>
-              <div><span id="headlessui-tabs-panel-:r9a:" role="tabpanel" tabindex="-1"
-                  aria-labelledby="headlessui-tabs-tab-:r96:"
-                  style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;"></span><span
-                  id="headlessui-tabs-panel-:r9b:" role="tabpanel" tabindex="-1"
-                  aria-labelledby="headlessui-tabs-tab-:r97:"
-                  style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;"></span><span
-                  id="headlessui-tabs-panel-:r9c:" role="tabpanel" tabindex="-1"
-                  aria-labelledby="headlessui-tabs-tab-:r98:"
-                  style="position: fixed; top: 1px; left: 1px; width: 1px; height: 0px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px;"></span>
-                <div id="headlessui-tabs-panel-:r9d:" role="tabpanel" tabindex="0" data-headlessui-state="selected"
-                  aria-labelledby="headlessui-tabs-tab-:r99:">
-                  <div class="group :bg-white/2.5">
-                    <div
-                      class="flex h-9 items-center gap-2 border-y border-b-white/7.5 border-t-transparent bg-white/2.5 bg-zinc-900 px-4 :border-b-white/5 :bg-white/1">
-                      <div class=" flex"><span
-                          class="font-mono text-[0.625rem] font-semibold leading-6 text-emerald-500 :text-emerald-400">GET</span>
-                      </div><span class="h-0.5 w-0.5 rounded-full bg-zinc-500"></span><span
-                        class="font-mono text-xs text-zinc-400">/v1/conversations</span>
-                    </div>
-                    <div class="relative">
-                      <pre class="overflow-x-auto p-4 text-xs text-white"><code class="language-php"><span><span style="color: var(--shiki-color-text)">$client </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">new</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-punctuation)">\</span><span style="color: var(--shiki-token-constant)">Protocol</span><span style="color: var(--shiki-token-punctuation)">\</span><span style="color: var(--shiki-token-constant)">ApiClient</span><span style="color: var(--shiki-color-text)">($token);</span></span>
-<span></span>
-<span><span style="color: var(--shiki-color-text)">$client</span><span style="color: var(--shiki-token-keyword)">-&gt;</span><span style="color: var(--shiki-color-text)">conversations</span><span style="color: var(--shiki-token-keyword)">-&gt;</span><span style="color: var(--shiki-token-function)">list</span><span style="color: var(--shiki-token-punctuation)">()</span><span style="color: var(--shiki-color-text)">;</span></span>
-<span></span></code></pre><button type="button"
-                        class="group/button absolute right-4 top-3.5 overflow-hidden rounded-full py-1 pl-2 pr-3 text-2xs font-medium opacity-0 backdrop-blur transition focus:opacity-100 group-hover:opacity-100 bg-white/5 hover:bg-white/7.5 :bg-white/2.5 :hover:bg-white/5"><span
-                          aria-hidden="false"
-                          class="pointer-events-none flex items-center gap-0.5 text-zinc-400 transition duration-300"><svg
-                            viewBox="0 0 20 20" aria-hidden="true"
-                            class="h-5 w-5 fill-zinc-500/20 stroke-zinc-500 transition-colors group-hover/button:stroke-zinc-400">
-                            <path stroke-width="0"
-                              d="M5.5 13.5v-5a2 2 0 0 1 2-2l.447-.894A2 2 0 0 1 9.737 4.5h.527a2 2 0 0 1 1.789 1.106l.447.894a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2Z">
-                            </path>
-                            <path fill="none" stroke-linejoin="round"
-                              d="M12.5 6.5a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2m5 0-.447-.894a2 2 0 0 0-1.79-1.106h-.527a2 2 0 0 0-1.789 1.106L7.5 6.5m5 0-1 1h-3l-1-1">
-                            </path>
-                          </svg>Copy</span><span aria-hidden="true"
-                          class="pointer-events-none absolute inset-0 flex items-center justify-center text-emerald-400 transition duration-300 translate-y-1.5 opacity-0">Copied!</span></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="not-prose"><a
-                class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition text-emerald-500 hover:text-emerald-600 :text-emerald-400 :hover:text-emerald-500"
-                href="/conversations">Read the docs for the Conversations endpoint<svg viewBox="0 0 20 20" fill="none"
-                  aria-hidden="true" class="mt-0.5 h-5 w-5 relative top-px -mr-1">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    d="m11.5 6.5 3 3.5m0 0-3 3.5m3-3.5h-9"></path>
-                </svg></a></div>
-            <h2 id="whats-next" class="scroll-mt-24"><a class="group text-inherit no-underline hover:text-inherit"
-                href="#whats-next">What's next?</a></h2>
-            <p>Great, you're now set up with an API client and have made your first request to the API. Here are a few
-              links that might be handy as you venture further into the Protocol API:</p>
-            <ul>
-              <li><a>Grab your API key from the Protocol dashboard</a></li>
-              <li><a href="/conversations">Check out the Conversations endpoint</a></li>
-              <li><a href="/errors">Learn about the different error messages in Protocol</a></li>
-            </ul>
+      </div>
+      <div
+        class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+        <h3 class="mb-4 text-xl font-semibold dark:text-white">Language & Time</h3>
+        <div class="mb-4">
+          <label for="settings-language" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+            language</label>
+          <select id="settings-language" name="countries"
+            class="bg-gray-50 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+            <option>English (US)</option>
+            <option>Italiano</option>
+            <option>Français (France)</option>
+            <option>正體字</option>
+            <option>Español (España)</option>
+            <option>Deutsch</option>
+            <option>Português (Brasil)</option>
+          </select>
+        </div>
+        <div class="mb-6">
+          <label for="settings-timezone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Time
+            Zone</label>
+          <select id="settings-timezone" name="countries"
+            class="bg-gray-50 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+            <option>GMT+0 Greenwich Mean Time (GMT)</option>
+            <option>GMT+1 Central European Time (CET)</option>
+            <option>GMT+2 Eastern European Time (EET)</option>
+            <option>GMT+3 Moscow Time (MSK)</option>
+          <option>GMT+5 Pakistan Standard Time (PKT)</option>
+          <option>GMT+8 China Standard Time (CST)</option>
+          <option>GMT+10 Eastern Australia Standard Time (AEST)</option>
+          </select>
           </div>
-          <footer class="mx-auto mt-16 w-full max-w-2xl lg:max-w-5xl">
-            <div class="relative h-8">
-              <form class="absolute inset-0 flex items-center justify-center gap-6 md:justify-start">
-                <p class="text-sm text-zinc-600 :text-zinc-400">Was this page helpful?</p>
-                <div
-                  class="group grid h-8 grid-cols-[1fr,1px,1fr] overflow-hidden rounded-full border border-zinc-900/10 :border-white/10">
-                  <button type="submit"
-                    class="px-3 text-sm font-medium text-zinc-600 transition hover:bg-zinc-900/2.5 hover:text-zinc-900 :text-zinc-400 :hover:bg-white/5 :hover:text-white"
-                    data-response="yes">Yes</button>
-                  <div class="bg-zinc-900/10 :bg-white/10"></div><button type="submit"
-                    class="px-3 text-sm font-medium text-zinc-600 transition hover:bg-zinc-900/2.5 hover:text-zinc-900 :text-zinc-400 :hover:bg-white/5 :hover:text-white"
-                    data-response="no">No</button>
+          <div>
+            <button
+              class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save
+              all</button>
+          </div>
+          </div>
+          <div
+            class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+            <div class="flow-root">
+              <h3 class="text-xl font-semibold dark:text-white">Social accounts</h3>
+              <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+                <li class="py-4">
+                  <div class="flex items-center space-x-4">
+              <div class="flex-shrink-0">
+                <svg class="w-5 h-5 dark:text-white" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f"
+                  role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                  <path fill="currentColor"
+                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
+                  </path>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <span class="block text-base font-semibold text-gray-900 truncate dark:text-white">
+                  Facebook account
+                </span>
+                <a href="#" class="block text-sm font-normal truncate text-primary-700 hover:underline dark:text-primary-500">
+                  www.facebook.com/themesberg
+                </a>
+              </div>
+              <div class="inline-flex items-center">
+                <a href="#"
+                  class="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Disconnect</a>
+                </div>
+                </div>
+                </li>
+                <li class="py-4">
+                  <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                      <svg class="w-5 h-5 dark:text-white" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter"
+                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path fill="currentColor"
+                          d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+                        </path>
+                      </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <span class="block text-base font-semibold text-gray-900 truncate dark:text-white">
+                        Twitter account
+                </span>
+                <a href="#" class="block text-sm font-normal truncate text-primary-700 hover:underline dark:text-primary-500">
+                  www.twitter.com/themesberg
+                </a>
+                </div>
+                <div class="inline-flex items-center">
+                  <a href="#"
+                    class="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Disconnect</a>
+                </div>
+                </div>
+                </li>
+                <li class="py-4">
+                  <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0">
+                      <svg class="w-5 h-5 dark:text-white" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
+                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                        <path fill="currentColor"
+                          d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                        </path>
+                      </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <span class="block text-base font-semibold text-gray-900 truncate dark:text-white">
+                        Github account
+                      </span>
+                      <span class="block text-sm font-normal text-gray-500 truncate dark:text-gray-400">
+                        Not connected
+                      </span>
+                    </div>
+                    <div class="inline-flex items-center">
+                <a href="#"
+                  class="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Connect</a>
+              </div>
+              </div>
+              </li>
+              <li class="pt-4 pb-6">
+                <div class="flex items-center space-x-4">
+                  <div class="flex-shrink-0">
+                    <svg class="w-5 h-5 dark:text-white" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="dribbble"
+                      role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                      <path fill="currentColor"
+                        d="M256 8C119.252 8 8 119.252 8 256s111.252 248 248 248 248-111.252 248-248S392.748 8 256 8zm163.97 114.366c29.503 36.046 47.369 81.957 47.835 131.955-6.984-1.477-77.018-15.682-147.502-6.818-5.752-14.041-11.181-26.393-18.617-41.614 78.321-31.977 113.818-77.482 118.284-83.523zM396.421 97.87c-3.81 5.427-35.697 48.286-111.021 76.519-34.712-63.776-73.185-116.168-79.04-124.008 67.176-16.193 137.966 1.27 190.061 47.489zm-230.48-33.25c5.585 7.659 43.438 60.116 78.537 122.509-99.087 26.313-186.36 25.934-195.834 25.809C62.38 147.205 106.678 92.573 165.941 64.62zM44.17 256.323c0-2.166.043-4.322.108-6.473 9.268.19 111.92 1.513 217.706-30.146 6.064 11.868 11.857 23.915 17.174 35.949-76.599 21.575-146.194 83.527-180.531 142.306C64.794 360.405 44.17 310.73 44.17 256.323zm81.807 167.113c22.127-45.233 82.178-103.622 167.579-132.756 29.74 77.283 42.039 142.053 45.189 160.638-68.112 29.013-150.015 21.053-212.768-27.882zm248.38 8.489c-2.171-12.886-13.446-74.897-41.152-151.033 66.38-10.626 124.7 6.768 131.947 9.055-9.442 58.941-43.273 109.844-90.795 141.978z">
+                      </path>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <span class="block text-base font-semibold text-gray-900 truncate dark:text-white">
+                      Dribbble account
+                    </span>
+                    <span class="block text-sm font-normal text-gray-500 truncate dark:text-gray-400">
+                      Not connected
+                    </span>
+                  </div>
+                  <div class="inline-flex items-center">
+                    <a href="#"
+                      class="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Connect</a>
+                  </div>
+                </div>
+              </li>
+              </ul>
+              <div>
+                <button
+                  class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save
+                  all</button>
+              </div>
+              </div>
+              </div>
+              <div
+                class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                <div class="flow-root">
+                  <h3 class="text-xl font-semibold dark:text-white">Other accounts</h3>
+                  <ul class="mb-6 divide-y divide-gray-200 dark:divide-gray-700">
+                    <li class="py-4">
+                      <div class="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
+                        <div class="flex space-x-4 xl:mb-4 2xl:mb-0">
+                          <div>
+                            <img class="w-6 h-6 rounded-full" src="/images/users/bonnie-green.png" alt="Bonnie image">
+                          </div>
+                          <div class="flex-1 min-w-0">
+                            <p class="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 dark:text-white">
+                              Bonnie Green
+                            </p>
+                            <p class="mb-1 text-sm font-normal truncate text-primary-700 dark:text-primary-500">
+                              New York, USA
+                            </p>
+                            <p class="text-xs font-medium text-gray-500 dark:text-gray-400">
+                              Last seen: 1 min ago
+                            </p>
+                          </div>
+                        </div>
+                        <div class="inline-flex items-center w-auto xl:w-full 2xl:w-auto">
+                          <a href="#"
+                            class="w-full px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Disconnect</a>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="py-4">
+                      <div class="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
+                        <div class="flex space-x-4 xl:mb-4 2xl:mb-0">
+                          <div>
+                            <img class="w-6 h-6 rounded-full" src="/images/users/jese-leos.png" alt="Jese image">
+                          </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 dark:text-white">
+                    Jese Leos
+                  </p>
+                  <p class="mb-1 text-sm font-normal truncate text-primary-700 dark:text-primary-500">
+                    California, USA
+                    </p>
+                    <p class="text-xs font-medium text-gray-500 dark:text-gray-400">
+                      Last seen: 2 min ago
+                    </p>
+                    </div>
+                    </div>
+                    <div class="inline-flex items-center w-auto xl:w-full 2xl:w-auto">
+                      <a href="#"
+                        class="w-full px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Disconnect</a>
+                    </div>
+                    </div>
+                    </li>
+                    <li class="py-4">
+                      <div class="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
+                        <div class="flex space-x-4 xl:mb-4 2xl:mb-0">
+                          <div>
+                            <img class="w-6 h-6 rounded-full" src="/images/users/thomas-lean.png" alt="Thomas image">
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 dark:text-white">
+                    Thomas Lean
+                  </p>
+                  <p class="mb-1 text-sm font-normal truncate text-primary-700 dark:text-primary-500">
+                    Texas, USA
+                  </p>
+                  <p class="text-xs font-medium text-gray-500 dark:text-gray-400">
+                    Last seen: 1 hour ago
+                  </p>
+                </div>
+              </div>
+              <div class="inline-flex items-center w-auto xl:w-full 2xl:w-auto">
+                <a href="#"
+                  class="w-full px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Disconnect</a>
+              </div>
+              </div>
+              </li>
+          <li class="pt-4">
+            <div class="flex justify-between xl:block 2xl:flex align-center 2xl:space-x-4">
+              <div class="flex space-x-4 xl:mb-4 2xl:mb-0">
+                <div>
+                  <img class="w-6 h-6 rounded-full" src="/images/users/lana-byrd.png" alt="Lana image">
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-base font-semibold text-gray-900 leading-none truncate mb-0.5 dark:text-white">
+                    Lana Byrd
+                  </p>
+                  <p class="mb-1 text-sm font-normal truncate text-primary-700 dark:text-primary-500">
+                    Texas, USA
+                  </p>
+                  <p class="text-xs font-medium text-gray-500 dark:text-gray-400">
+                    Last seen: 1 hour ago
+                  </p>
+                </div>
+              </div>
+              <div class="inline-flex items-center w-auto xl:w-full 2xl:w-auto">
+                <a href="#"
+                  class="w-full px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Disconnect</a>
+              </div>
+            </div>
+          </li>
+          </ul>
+          <div>
+            <button
+              class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save
+              all</button>
+          </div>
+      </div>
+    </div>
+    </div>
+    <div class="col-span-2">
+      <div
+        class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+        <h3 class="mb-4 text-xl font-semibold dark:text-white">General information</h3>
+        <form action="#">
+          <div class="grid grid-cols-6 gap-6">
+            <div class="col-span-6 sm:col-span-3">
+              <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First
+                Name</label>
+            <input type="text" name="first-name" id="first-name"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              placeholder="Bonnie" required>
+          </div>
+          <div class="col-span-6 sm:col-span-3">
+            <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last
+              Name</label>
+            <input type="text" name="last-name" id="last-name"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              placeholder="Green" required>
+          </div>
+          <div class="col-span-6 sm:col-span-3">
+            <label for="country" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Country</label>
+            <input type="text" name="country" id="country"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              placeholder="United States" required>
+          </div>
+          <div class="col-span-6 sm:col-span-3">
+            <label for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City</label>
+            <input type="text" name="city" id="city"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              placeholder="e.g. San Francisco" required>
+          </div>
+          <div class="col-span-6 sm:col-span-3">
+            <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
+            <input type="text" name="address" id="address"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              placeholder="e.g. California" required>
+          </div>
+          <div class="col-span-6 sm:col-span-3">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+            <input type="email" name="email" id="email"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              placeholder="example@company.com" required>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone
+                Number</label>
+              <input type="number" name="phone-number" id="phone-number"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="e.g. +(12)3456 789" required>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="birthday" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Birthday</label>
+              <input type="number" name="birthday" id="birthday"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="15/08/1990" required>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="organization" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Organization</label>
+              <input type="text" name="organization" id="organization"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Company Name" required>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
+              <input type="text" name="role" id="role"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="React Developer" required>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="department" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Department</label>
+              <input type="text" name="department" id="department"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Development" required>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="zip-code" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Zip/postal
+                code</label>
+              <input type="number" name="zip-code" id="zip-code"
+                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="123456" required>
+            </div>
+            <div class="col-span-6 sm:col-full">
+              <button
+                class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                type="submit">Save all</button>
+            </div>
+            </div>
+            </form>
+            </div>
+            <div
+              class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+              <h3 class="mb-4 text-xl font-semibold dark:text-white">Password information</h3>
+              <form action="#">
+                <div class="grid grid-cols-6 gap-6">
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="current-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Current
+                      password</label>
+                    <input type="text" name="current-password" id="current-password"
+                      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      placeholder="••••••••" required>
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New
+                      password</label>
+                    <input data-popover-target="popover-password" data-popover-placement="bottom" type="password" id="password"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="••••••••" required>
+                    <div data-popover id="popover-password" role="tooltip"
+                      class="absolute z-10 invisible inline-block text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
+                      <div class="p-3 space-y-2">
+                        <h3 class="font-semibold text-gray-900 dark:text-white">Must have at least 6 characters</h3>
+                        <div class="grid grid-cols-4 gap-2">
+                          <div class="h-1 bg-orange-300 dark:bg-orange-400"></div>
+                          <div class="h-1 bg-orange-300 dark:bg-orange-400"></div>
+                          <div class="h-1 bg-gray-200 dark:bg-gray-600"></div>
+                          <div class="h-1 bg-gray-200 dark:bg-gray-600"></div>
+                        </div>
+                        <p>It’s better to have:</p>
+                        <ul>
+                          <li class="flex items-center mb-1">
+                            <svg class="w-4 h-4 mr-2 text-green-400 dark:text-green-500" aria-hidden="true" fill="currentColor"
+                              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                            Upper & lower case letters
+                          </li>
+                          <li class="flex items-center mb-1">
+                            <svg class="w-4 h-4 mr-2 text-gray-300 dark:text-gray-400" aria-hidden="true" fill="currentColor"
+                              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                            A symbol (#$&)
+                          </li>
+                          <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-gray-300 dark:text-gray-400" aria-hidden="true" fill="currentColor"
+                              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                            </svg>
+                            A longer password (min. 12 chars.)
+                          </li>
+                        </ul>
+                      </div>
+                      <div data-popper-arrow></div>
+                    </div>
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm
+                      password</label>
+                    <input type="text" name="confirm-password" id="confirm-password"
+                      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      placeholder="••••••••" required>
+                  </div>
+                  <div class="col-span-6 sm:col-full">
+                    <button
+                      class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      type="submit">Save all</button>
+                  </div>
                 </div>
               </form>
             </div>
-          </footer>
-        </article>
-      </main>
-      <footer class="mx-auto w-full max-w-2xl space-y-10 pb-16 lg:max-w-5xl">
-        <div class="flex">
-          <div class="flex flex-col items-start gap-3"><a
-              class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition rounded-full bg-zinc-100 py-1 px-3 text-zinc-900 hover:bg-zinc-200 :bg-zinc-800/40 :text-zinc-400 :ring-1 :ring-inset :ring-zinc-800 :hover:bg-zinc-800 :hover:text-zinc-300"
-              aria-label="Previous: Introduction" href="/"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"
-                class="mt-0.5 h-5 w-5 -ml-1 rotate-180">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                  d="m11.5 6.5 3 3.5m0 0-3 3.5m3-3.5h-9"></path>
-              </svg>Previous</a><a tabindex="-1" aria-hidden="true"
-              class="text-base font-semibold text-zinc-900 transition hover:text-zinc-600 :text-white :hover:text-zinc-300"
-              href="/">Introduction</a></div>
-          <div class="ml-auto flex flex-col items-end gap-3"><a
-              class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition rounded-full bg-zinc-100 py-1 px-3 text-zinc-900 hover:bg-zinc-200 :bg-zinc-800/40 :text-zinc-400 :ring-1 :ring-inset :ring-zinc-800 :hover:bg-zinc-800 :hover:text-zinc-300"
-              aria-label="Next: SDKs" href="/sdks">Next<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"
-                class="mt-0.5 h-5 w-5 -mr-1">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                  d="m11.5 6.5 3 3.5m0 0-3 3.5m3-3.5h-9"></path>
-              </svg></a><a tabindex="-1" aria-hidden="true"
-              class="text-base font-semibold text-zinc-900 transition hover:text-zinc-600 :text-white :hover:text-zinc-300"
-              href="/sdks">SDKs</a></div>
+            <div
+              class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+              <div class="flow-root">
+                <h3 class="text-xl font-semibold dark:text-white">Sessions</h3>
+                <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+                  <li class="py-4">
+                    <div class="flex items-center space-x-4">
+                      <div class="flex-shrink-0">
+                        <svg class="w-6 h-6 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="flex-1 min-w-0">
+                        <p class="text-base font-semibold text-gray-900 truncate dark:text-white">
+                          California 123.123.123.123
+                        </p>
+                        <p class="text-sm font-normal text-gray-500 truncate dark:text-gray-400">
+                          Chrome on macOS
+                        </p>
+                      </div>
+                      <div class="inline-flex items-center">
+                        <a href="#"
+                  class="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Revoke</a>
+              </div>
+            </div>
+          </li>
+          <li class="pt-4 pb-6">
+            <div class="flex items-center space-x-4">
+              <div class="flex-shrink-0">
+                <svg class="w-6 h-6 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-base font-semibold text-gray-900 truncate dark:text-white">
+                  Rome 24.456.355.98
+                </p>
+                <p class="text-sm font-normal text-gray-500 truncate dark:text-gray-400">
+                  Safari on iPhone
+                </p>
+              </div>
+              <div class="inline-flex items-center">
+                <a href="#"
+                  class="px-3 py-2 mb-3 mr-3 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Revoke</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div>
+          <button
+            class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">See
+            more</button>
         </div>
-        <div
-          class="flex flex-col items-center justify-between gap-5 border-t border-zinc-900/5 pt-8 :border-white/5 sm:flex-row">
-          <p class="text-xs text-zinc-600 :text-zinc-400">© Copyright 2023. All rights reserved.</p>
-          <div class="flex gap-4"><a class="group"><span class="sr-only">Follow us on Twitter</span><svg
-                viewBox="0 0 20 20" aria-hidden="true"
-                class="h-5 w-5 fill-zinc-700 transition group-hover:fill-zinc-900 :group-hover:fill-zinc-500">
-                <path
-                  d="M16.712 6.652c.01.146.01.29.01.436 0 4.449-3.267 9.579-9.242 9.579v-.003a8.963 8.963 0 0 1-4.98-1.509 6.379 6.379 0 0 0 4.807-1.396c-1.39-.027-2.608-.966-3.035-2.337.487.097.99.077 1.467-.059-1.514-.316-2.606-1.696-2.606-3.3v-.041c.45.26.956.404 1.475.42C3.18 7.454 2.74 5.486 3.602 3.947c1.65 2.104 4.083 3.382 6.695 3.517a3.446 3.446 0 0 1 .94-3.217 3.172 3.172 0 0 1 4.596.148 6.38 6.38 0 0 0 2.063-.817 3.357 3.357 0 0 1-1.428 1.861 6.283 6.283 0 0 0 1.865-.53 6.735 6.735 0 0 1-1.62 1.744Z">
-                </path>
-              </svg></a><a class="group"><span class="sr-only">Follow us on GitHub</span><svg
-                viewBox="0 0 20 20" aria-hidden="true"
-                class="h-5 w-5 fill-zinc-700 transition group-hover:fill-zinc-900 :group-hover:fill-zinc-500">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M10 1.667c-4.605 0-8.334 3.823-8.334 8.544 0 3.78 2.385 6.974 5.698 8.106.417.075.573-.182.573-.406 0-.203-.011-.875-.011-1.592-2.093.397-2.635-.522-2.802-1.002-.094-.246-.5-1.005-.854-1.207-.291-.16-.708-.556-.01-.567.656-.01 1.124.62 1.281.876.75 1.292 1.948.93 2.427.705.073-.555.291-.93.531-1.143-1.854-.213-3.791-.95-3.791-4.218 0-.929.322-1.698.854-2.296-.083-.214-.375-1.09.083-2.265 0 0 .698-.224 2.292.876a7.576 7.576 0 0 1 2.083-.288c.709 0 1.417.096 2.084.288 1.593-1.11 2.291-.875 2.291-.875.459 1.174.167 2.05.084 2.263.53.599.854 1.357.854 2.297 0 3.278-1.948 4.005-3.802 4.219.302.266.563.78.563 1.58 0 1.143-.011 2.061-.011 2.35 0 .224.156.491.573.405a8.365 8.365 0 0 0 4.11-3.116 8.707 8.707 0 0 0 1.567-4.99c0-4.721-3.73-8.545-8.334-8.545Z">
-                </path>
-              </svg></a><a class="group"><span class="sr-only">Join our Discord server</span><svg
-                viewBox="0 0 20 20" aria-hidden="true"
-                class="h-5 w-5 fill-zinc-700 transition group-hover:fill-zinc-900 :group-hover:fill-zinc-500">
-                <path
-                  d="M16.238 4.515a14.842 14.842 0 0 0-3.664-1.136.055.055 0 0 0-.059.027 10.35 10.35 0 0 0-.456.938 13.702 13.702 0 0 0-4.115 0 9.479 9.479 0 0 0-.464-.938.058.058 0 0 0-.058-.027c-1.266.218-2.497.6-3.664 1.136a.052.052 0 0 0-.024.02C1.4 8.023.76 11.424 1.074 14.782a.062.062 0 0 0 .024.042 14.923 14.923 0 0 0 4.494 2.272.058.058 0 0 0 .064-.02c.346-.473.654-.972.92-1.496a.057.057 0 0 0-.032-.08 9.83 9.83 0 0 1-1.404-.669.058.058 0 0 1-.029-.046.058.058 0 0 1 .023-.05c.094-.07.189-.144.279-.218a.056.056 0 0 1 .058-.008c2.946 1.345 6.135 1.345 9.046 0a.056.056 0 0 1 .059.007c.09.074.184.149.28.22a.058.058 0 0 1 .023.049.059.059 0 0 1-.028.046 9.224 9.224 0 0 1-1.405.669.058.058 0 0 0-.033.033.056.056 0 0 0 .002.047c.27.523.58 1.022.92 1.495a.056.056 0 0 0 .062.021 14.878 14.878 0 0 0 4.502-2.272.055.055 0 0 0 .016-.018.056.056 0 0 0 .008-.023c.375-3.883-.63-7.256-2.662-10.246a.046.046 0 0 0-.023-.021Zm-9.223 8.221c-.887 0-1.618-.814-1.618-1.814s.717-1.814 1.618-1.814c.908 0 1.632.821 1.618 1.814 0 1-.717 1.814-1.618 1.814Zm5.981 0c-.887 0-1.618-.814-1.618-1.814s.717-1.814 1.618-1.814c.908 0 1.632.821 1.618 1.814 0 1-.71 1.814-1.618 1.814Z">
-                </path>
-              </svg></a></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="grid grid-cols-1 px-4 xl:grid-cols-2 xl:gap-4">
+  <div
+    class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800 xl:mb-0">
+    <div class="flow-root">
+      <h3 class="text-xl font-semibold dark:text-white">Alerts & Notifications</h3>
+      <p class="text-sm font-normal text-gray-500 dark:text-gray-400">You can set up Themesberg to get notifications</p>
+      <div class="divide-y divide-gray-200 dark:divide-gray-700">
+        <!-- Item 1 -->
+        <div class="flex items-center justify-between py-4">
+          <div class="flex flex-col flex-grow">
+            <div class="text-lg font-semibold text-gray-900 dark:text-white">Company News</div>
+            <div class="text-base font-normal text-gray-500 dark:text-gray-400">Get Themesberg news, announcements, and
+              product updates</div>
+          </div>
+          <label for="company-news" class="relative flex items-center cursor-pointer">
+            <input type="checkbox" id="company-news" class="sr-only">
+            <span
+              class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
+          </label>
         </div>
-      </footer>
+        <!-- Item 2 -->
+        <div class="flex items-center justify-between py-4">
+          <div class="flex flex-col flex-grow">
+            <div class="text-lg font-semibold text-gray-900 dark:text-white">Account Activity</div>
+            <div class="text-base font-normal text-gray-500 dark:text-gray-400">Get important notifications about you or
+              activity you've missed</div>
+          </div>
+          <label for="account-activity" class="relative flex items-center cursor-pointer">
+            <input type="checkbox" id="account-activity" class="sr-only" checked>
+            <span
+              class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
+          </label>
+        </div>
+        <!-- Item 3 -->
+        <div class="flex items-center justify-between py-4">
+          <div class="flex flex-col flex-grow">
+            <div class="text-lg font-semibold text-gray-900 dark:text-white">Meetups Near You</div>
+            <div class="text-base font-normal text-gray-500 dark:text-gray-400">Get an email when a Dribbble Meetup is
+              posted close to my location</div>
+          </div>
+          <label for="meetups" class="relative flex items-center cursor-pointer">
+            <input type="checkbox" id="meetups" class="sr-only" checked>
+            <span
+              class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
+          </label>
+        </div>
+        <!-- Item 4 -->
+        <div class="flex items-center justify-between pt-4">
+          <div class="flex flex-col flex-grow">
+            <div class="text-lg font-semibold text-gray-900 dark:text-white">New Messages</div>
+            <div class="text-base font-normal text-gray-500 dark:text-gray-400">Get Themsberg news, announcements, and
+              product updates</div>
+          </div>
+          <label for="new-messages" class="relative flex items-center cursor-pointer">
+            <input type="checkbox" id="new-messages" class="sr-only">
+            <span
+              class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
+          </label>
+        </div>
+      </div>
+      <div class="mt-6">
+        <button
+          class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save
+          all</button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800 xl:mb-0">
+    <div class="flow-root">
+      <h3 class="text-xl font-semibold dark:text-white">Email Notifications</h3>
+      <p class="text-sm font-normal text-gray-500 dark:text-gray-400">You can set up Themesberg to get email
+        notifications </p>
+      <div class="divide-y divide-gray-200 dark:divide-gray-700">
+        <!-- Item 1 -->
+        <div class="flex items-center justify-between py-4">
+          <div class="flex flex-col flex-grow">
+            <div class="text-lg font-semibold text-gray-900 dark:text-white">Rating reminders</div>
+            <div class="text-base font-normal text-gray-500 dark:text-gray-400">Send an email reminding me to rate an
+              item a week after purchase</div>
+          </div>
+          <label for="rating-reminders" class="relative flex items-center cursor-pointer">
+            <input type="checkbox" id="rating-reminders" class="sr-only">
+            <span
+              class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
+          </label>
+        </div>
+        <!-- Item 2 -->
+        <div class="flex items-center justify-between py-4">
+          <div class="flex flex-col flex-grow">
+            <div class="text-lg font-semibold text-gray-900 dark:text-white">Item update notifications</div>
+            <div class="text-base font-normal text-gray-500 dark:text-gray-400">Send user and product notifications for
+              you</div>
+          </div>
+          <label for="item-update" class="relative flex items-center cursor-pointer">
+            <input type="checkbox" id="item-update" class="sr-only" checked>
+            <span
+              class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
+          </label>
+        </div>
+        <!-- Item 3 -->
+        <div class="flex items-center justify-between py-4">
+          <div class="flex flex-col flex-grow">
+            <div class="text-lg font-semibold text-gray-900 dark:text-white">Item comment notifications</div>
+            <div class="text-base font-normal text-gray-500 dark:text-gray-400">Send me an email when someone comments
+              on one of my items</div>
+          </div>
+          <label for="item-comment" class="relative flex items-center cursor-pointer">
+            <input type="checkbox" id="item-comment" class="sr-only" checked>
+            <span
+              class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
+          </label>
+        </div>
+        <!-- Item 4 -->
+        <div class="flex items-center justify-between pt-4">
+          <div class="flex flex-col flex-grow">
+            <div class="text-lg font-semibold text-gray-900 dark:text-white">Buyer review notifications</div>
+            <div class="text-base font-normal text-gray-500 dark:text-gray-400">Send me an email when someone leaves a
+              review with their rating</div>
+          </div>
+          <label for="buyer-rev" class="relative flex items-center cursor-pointer">
+            <input type="checkbox" id="buyer-rev" class="sr-only">
+            <span
+              class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg dark:bg-gray-700 dark:border-gray-600"></span>
+          </label>
+        </div>
+      </div>
+      <div class="mt-6">
+        <button
+          class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save
+          all</button>
+      </div>
     </div>
   </div>
 </div>

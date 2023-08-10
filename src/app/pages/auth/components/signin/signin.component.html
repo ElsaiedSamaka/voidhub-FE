@@ -1,138 +1,44 @@
-<section class="container mx-auto my-20 relative">
-    <!-- animated blured divs -->
-    <div
-      class="absolute top-[1%]  right-[15%] w-24 h-40 rounded-full bg-[#252A34] mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000">
-    </div>
-    <div
-      class="absolute top-[15%] right-[11%]  w-40 h-40 rounded-full bg-[#08D9D6] mix-blend-multiply filter blur-3xl animation-delay-4000">
-    </div>
-    <div
-      class="absolute top-[25%] right-[17%] w-60 h-60 rounded-full bg-[#FF2E63] mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000">
-    </div>
-    <div
-      class="absolute top-[35%] right-[14%]  w-40 h-40 rounded-full bg-[#EAEAEA] mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000">
-    </div>
-    <!-- animated blured divs -->
-  <div class="lg:grid lg:grid-cols-12 rounded-3xl shadow-lg">
-    <section class="header-img relative flex h-40 items-end lg:col-span-5 lg:h-full xl:col-span-6">
-      <img alt="Night" src="../../../../../assets/images/side-void.png"
-        class="absolute inset-0 h-full w-full object-contain  lg:rounded-l-3xl " />
-
-      <div class="hidden lg:relative lg:block lg:p-12">
-        <a class="block text-white">
-          <span class="sr-only">Home</span>
-          <img src="../../../../../assets/images/angular.png" class="h-8 sm:h-10 shadow-md rounded-full" alt="">
-        </a>
-
-        <h2 class="mt-6 text-2xl font-bold text-white round text-left sm:text-3xl md:text-4xl bg-black px-2">
-          tools used
-        </h2>
-
-        <p class="mt-4 leading-relaxed text-white text-left bg-black px-2">
-          <span class="bg-red-500">Angular</span> - <span class="bg-blue-300"> Tailwind </span> - <span class="bg-green-700">
-            Node </span> - <span class="bg-white text-black"> Express </span> - <span class="bg-orange-500"> MySql
-            </span>
-        </p>
+<div class="flex flex-col items-center justify-center px-6 pt-8 mx-auto md:h-screen pt:mt-0 dark:bg-gray-900">
+  <a class="flex items-center justify-center mb-8 text-2xl font-semibold lg:mb-10
+    dark:text-white">
+    <img src="/images/logo.svg" class="mr-4 h-11" alt="FlowBite Logo">
+    <span>Flowbite</span>
+  </a>
+  <!-- Card -->
+  <div class="w-full max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow dark:bg-gray-800">
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+      Sign in to platform
+    </h2>
+    <form class="mt-8 space-y-6" action="#">
+      <div>
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+        <input type="email" name="email" id="email"
+          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+          placeholder="name@company.com" required>
       </div>
-    </section>
-
-    <main aria-label="Main"
-      class="flex items-center justify-center px-8 py-8 sm:px-12  lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6 backdrop-blur-lg">
-      <div class="max-w-xl lg:max-w-3xl">
-        <div class="relative mt-16 block lg:hidden">
-          <a class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white shadow text-blue-600 sm:h-20 sm:w-20">
-            <span class="sr-only">Home</span>
-            <!-- <img src="../../../../../assets/logo_2.jpg" class="h-max  rounded-full" alt=""> -->
-            <svg class="w-1/4 h-1/4 mx-auto block text-black" fill="none" stroke="currentColor" stroke-width="1.5"
-              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z">
-              </path>
-            </svg>
-          </a>
-
-          <h1 class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-            مرحبا بعودتك
-          </h1>
-
-          <p class="mt-4 leading-relaxed text-gray-500">
-            made with ❤️ by <i class="hover:underline text-gray-200"> <a href="https://www.linkedin.com/in/saied-samaka-513a0518b"
-                target="_blank"> Saied Samaka </a></i>
-          </p>
+      <div>
+        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
+        <input type="password" name="password" id="password" placeholder="••••••••"
+          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+          required>
+      </div>
+      <div class="flex items-start">
+        <div class="flex items-center h-5">
+          <input id="remember" aria-describedby="remember" name="remember" type="checkbox"
+            class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
+            required>
         </div>
-
-        <form class="mt-8 grid grid-cols-6 gap-6" [formGroup]="authForm" (ngSubmit)="onSubmit()">
-          <div class="col-span-6 hidden lg:block">
-            <!-- <img class="w-1/2 mx-auto" src="../../../../../assets/logo_2.jpg" alt=""> -->
-            <svg class="w-1/2 h-1/2 mx-auto block text-black" fill="current" stroke="currentColor" stroke-width="1.5"
-              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z">
-              </path>
-            </svg>
-            <p class="text-center font-extrabold"> مرحبا بعودتك </p>
-            <p class="mt-4 leading-relaxed text-gray-500 text-center ">
-              made with ❤️ by <i class="hover:underline text-gray-200"> <a href="https://www.linkedin.com/in/saied-samaka-513a0518b"
-                  target="_blank"> Saied Samaka
-                </a></i>
-            </p>
-          </div>
-
-          <div class="col-span-6 ">
-            <app-input [control]="authForm.get('email')" placeholder="email@mail.com" type="email"
-              label="البريد الالكتروني" size="50" maxlength="80" autofocus="true" required="true"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></app-input>
-          </div>
-          <div class="col-span-6">
-            <app-input [control]="authForm.get('password')" placeholder="********" [type]="showPassword ? 'text':'password'"
-              label="كلمة المرور" minlength="8" maxlength="25" required="true"  title="8 حروف او اكثر">
-              <svg class="absolute left-10 bottom-3 text-gray-400 hover:text-gray-900" fill="none" stroke="currentColor"
-                stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                (click)="togglePassword()" *ngIf="!showPassword" input-icon>
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z">
-                </path>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
-              <svg class="absolute left-10 bottom-3 text-gray-400 hover:text-gray-900" fill="none" stroke="currentColor"
-                stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                (click)="togglePassword()" *ngIf="showPassword" input-icon>
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88">
-                </path>
-              </svg>
-            </app-input>
-          </div>
-          <div class="col-span-6">
-            <label for="RememberAccept" class="flex flex-row-reverse gap-4">
-              <input type="checkbox" id="RememberAccept" name="remembering_accept"
-                class="h-5 w-5 rounded-3xl border-gray-200 bg-white shadow-sm" />
-
-              <span class="text-s text-gray-700 hover:underline">
-                تذكرني
-              </span>
-            </label>
-          </div>
-          
-          <div class="col-span-6">
-            <button
-              class="signin-button inline-block w-full shrink-0 rounded-md border border-green-600 bg-gradient-to-bl from-green-300 to-green-900  px-12 py-3 text-sm font-semibold text-white hover:text-gray-50 focus:outline-none active:text-white disabled:cursor-not-allowed"
-              type="submit" [disabled]="authForm.invalid">
-              تسجيل الدخول </button>
-          </div>
-          <div class="col-span-6">
-            <p class="text-sm text-gray-500 text-center">
-              <a class="text-gray-700 font-bold hover:underline block">
-                استعادة كلمة المرور </a>
-              <span class="mt-2">
-                لست مستخدم بالفعل ؟
-                <a class="text-blue-500 font-bold underline hover:text-blue-800 " routerLink="/signup">
-                  تسجيل جديد </a>
-              </span>
-            </p>
-          </div>
-        </form>
+        <div class="ml-3 text-sm">
+          <label for="remember" class="font-medium text-gray-900 dark:text-white">Remember me</label>
+        </div>
+        <a href="#" class="ml-auto text-sm text-primary-700 hover:underline dark:text-primary-500">Lost Password?</a>
+        </div>
+      <button type="submit"
+        class="w-full px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Login
+        to your account</button>
+      <div class="text-sm font-medium text-gray-500 dark:text-gray-400">
+        Not registered? <a class="text-primary-700 hover:underline dark:text-primary-500">Create account</a>
       </div>
-    </main>
-  </div>
-  </section>
-<!-- Toast -->
-<app-toast *ngIf="showToast" toastType="error" [toastMessage]="toastMessage" (dismiss)="toggleToast()"></app-toast>
+      </form>
+      </div>
+</div>
