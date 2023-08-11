@@ -3,16 +3,22 @@ import { RouterModule, Routes } from '@angular/router';
 // import { ProductResolverService } from 'src/core/resolvers/product-resolver.service';
 // import { AllProductsComponent } from './components/all-products/all-products.component';
 import { HomeComponent } from './components/home/home.component';
+import { IndexComponent } from './components/index/index.component';
+import { JobsComponent } from './components/jobs/jobs.component';
 // import { NotFoundComponent } from './components/not-found/not-found.component';
 // import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: IndexComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'jobs', component: JobsComponent },
+    ],
   },
   // {
-  //   path: 'all-products',
+  //   // path: 'jobs',
   //   // component: AllProductsComponent,
   // },
   // {
