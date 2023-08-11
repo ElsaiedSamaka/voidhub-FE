@@ -3,8 +3,8 @@
     <div class="overflow-y-auto py-5 ">
       <ul class="space-y-2">
         <li>
-          <a
-            class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg hover:bg-zinc-100 hover:cursor-pointer bg-zinc-100 group">
+          <a [routerLink]="['/index']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg hover:bg-zinc-100 hover:cursor-pointer  group">
             <svg class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 " fill="none" stroke="currentColor"
               stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -15,7 +15,7 @@
             </a>
             </li>
             <li>
-              <a
+              <a [routerLink]="['companies']" routerLinkActive="active"
                 class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
             <svg class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 " fill="none" stroke="currentColor"
               stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -27,7 +27,7 @@
             </a>
             </li>
             <li>
-              <a
+              <a [routerLink]="['jobs']" routerLinkActive="active"
                 class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
             <svg class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 " fill="none" stroke="currentColor"
               stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -39,7 +39,7 @@
             </a>
             </li>
             <li>
-              <a
+              <a [routerLink]="['messages']" routerLinkActive="active"
                 class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
             <svg class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 " fill="none" stroke="currentColor"
               stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -55,7 +55,7 @@
             </a>
             </li>
             <li>
-              <a
+              <a [routerLink]="['reading-list']" routerLinkActive="active"
                 class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 group">
             <svg class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 " fill="none" stroke="currentColor"
               stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

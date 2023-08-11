@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'index',
     // canLoad:[],
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule),
@@ -28,12 +28,6 @@ const routes: Routes = [
     // canLoad: [AuthGuard],
     loadChildren: () =>
       import('./pages/settings/settings.module').then((m) => m.SettingsModule),
-  },
-  {
-    path: 'library',
-    // canLoad: [AuthGuard],
-    loadChildren: () =>
-      import('./pages/library/library.module').then((m) => m.LibraryModule),
   },
   {
     path: 'noperm',

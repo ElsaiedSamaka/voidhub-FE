@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { AlertComponent } from './alert/alert.component';
 import { EmojiPickerComponent } from './emoji-picker/emoji-picker.component';
 import { FooterComponent } from './footer/footer.component';
@@ -16,7 +17,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule],
   declarations: [
     ModalComponent,
     PopupComponent,
