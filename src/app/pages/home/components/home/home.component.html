@@ -31,7 +31,7 @@
           </figure>
           <div class="flex flex-shrink-0 p-4 pb-0">
             <a class="flex-shrink-0 group block">
-              <div class="flex items-center">
+              <div class="flex items-center relative bg-blue-200">
                 <div>
                   <img class="inline-block h-10 w-10 rounded-full"
                     src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="" />
@@ -45,6 +45,46 @@
                     </span>
                   </p>
                 </div>
+                <!-- user popover -->
+                <div data-popover id="popover-user-profile" role="tooltip"
+                  class="absolute z-10 top-10 inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-100">
+                  <div class="p-3">
+                    <div class="flex items-center justify-between mb-2">
+                      <a>
+                        <img class="w-10 h-10 rounded-full"
+                          src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="Jese Leos">
+                      </a>
+                      <div>
+                        <button type="button"
+                          class="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:ring-emerald-300 font-medium rounded-lg text-xs px-3 py-1.5 :bg-blue-600 :hover:bg-blue-700 focus:outline-none :focus:ring-blue-800">Follow</button>
+                      </div>
+                    </div>
+                    <p class="text-base font-semibold leading-none text-gray-900 :text-white">
+                      <a>Jese Leos</a>
+                    </p>
+                    <p class="mb-3 text-sm font-normal">
+                      <a class="hover:underline">@jeseleos</a>
+                    </p>
+                    <p class="mb-4 text-sm">Open-source contributor. Building <a
+                        class="text-blue-600 :text-blue-500 hover:underline">flowbite.com</a>.</p>
+                    <ul class="flex text-sm">
+                      <li class="mr-2">
+                        <a class="hover:underline">
+                          <span class="font-semibold text-gray-900 :text-white">799</span>
+                          <span>Following</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="hover:underline">
+                          <span class="font-semibold text-gray-900 :text-white">3,758</span>
+                          <span>Followers</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div data-popper-arrow></div>
+                </div>
+                <!-- user popover -->
               </div>
             </a>
           </div>
@@ -692,7 +732,7 @@
                         d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                     </svg>
                     <p class="ml-2 text-sm font-bold text-gray-900">4.95</p>
-                    <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                    <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full :bg-gray-400"></span>
                     <a class="text-xs underline font-medium text-gray-900  hover:no-underline">73 reviews</a>
                   </div>
                 </span>
@@ -735,7 +775,7 @@
                           d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                       </svg>
                       <p class="ml-2 text-sm font-bold text-gray-900">4.95</p>
-                      <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                      <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full :bg-gray-400"></span>
                       <a class="text-xs underline font-medium text-gray-900  hover:no-underline">73 reviews</a>
                     </div>
                   </span>
