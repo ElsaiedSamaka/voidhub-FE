@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingService } from 'src/app/shared/services/loading.service';
+import { ThemeService } from 'src/app/shared/services/theme.service';
 import { AuthService } from 'src/core/services/auth.service';
 
 @Component({
@@ -10,10 +11,11 @@ import { AuthService } from 'src/core/services/auth.service';
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
-  loading$;
-  showPassword: boolean = false;
   showToast: boolean = false;
   toastMessage: string = '';
+  showPassword: boolean = false;
+  showLoader: boolean = false;
+  theme: string = '';
 
   authForm = new FormGroup({
     email: new FormControl('', [
@@ -29,23 +31,37 @@ export class SigninComponent implements OnInit {
     ]),
   });
   constructor(
+    private themeService: ThemeService,
     private authService: AuthService,
-    private router: Router,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private router: Router
   ) {
-    this.loading$ = this.loadingService.loading$;
+    this.getCurrentTheme();
   }
-  ngOnInit(): void {}
+
+  ngOnInit() {
+    this.loadingService.loading$.subscribe({
+      next: (value) => {
+        this.showLoader = value;
+      },
+    });
+    // Check if the user is already authenticated
+    this.authService.signedin$.subscribe((authenticated) => {
+      if (authenticated) {
+        // User is already authenticated, navigate to the index page
+        this.router.navigateByUrl('/index');
+      }
+    });
+  }
   onSubmit() {
     if (this.authForm.invalid) {
       return;
     }
+    this.loadingService.loading$.next(true);
     this.authService
       .signin(this.authForm.value.email!, this.authForm.value.password!)
       .subscribe({
-        next: (response) => {
-          localStorage.setItem('token', response.token);
-        },
+        next: (response) => {},
         error: (err) => {
           if (!err.status) {
             this.authForm.setErrors({ noConnection: true });
@@ -60,21 +76,28 @@ export class SigninComponent implements OnInit {
             this.authForm.setErrors({ unknownError: true });
             this.toastMessage = ' خطأ غير متوقع';
           }
+          this.loadingService.loading$.next(false);
           this.toggleToast();
         },
         complete: () => {
-          this.router.navigateByUrl('/index');
           this.loadingService.loading$.next(false);
+          // this.showLoader = false;
+          this.router.navigateByUrl('/index');
         },
       });
-  }
-  togglePassword() {
-    this.showPassword = !this.showPassword;
   }
   toggleToast() {
     this.showToast = !this.showToast;
     setTimeout(() => {
       this.showToast = false;
     }, 4000);
+  }
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+  getCurrentTheme() {
+    this.themeService.theme$.subscribe((theme) => {
+      this.theme = theme;
+    });
   }
 }

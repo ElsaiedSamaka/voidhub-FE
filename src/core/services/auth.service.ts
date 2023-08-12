@@ -25,24 +25,14 @@ export class AuthService {
   }
   // signup will be called when the user submits the signup form
   // we will send the user's credentials to the server
-  signup(
-    firstname: string,
-    lastname: string,
-    email: string,
-    password: string,
-    passwordConfirmation: string,
-    phonenumber: string
-  ) {
+  signup(email: string, password: string, passwordConfirmation: string) {
     return this.http
       .post<any>(
         `${this.api_url}/api/auth/signup`,
         {
-          firstname: firstname,
-          lastname: lastname,
           email: email,
           password: password,
           passwordConfirmation: passwordConfirmation,
-          phonenumber: phonenumber,
         },
         { withCredentials: true }
       )

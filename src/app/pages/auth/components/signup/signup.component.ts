@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoadingService } from 'src/app/shared/services/loading.service';
+import { ThemeService } from 'src/app/shared/services/theme.service';
 import { AuthService } from 'src/core/services/auth.service';
 import { MatchPassword } from 'src/core/validators/match-password';
 
@@ -10,22 +12,15 @@ import { MatchPassword } from 'src/core/validators/match-password';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-  showPassword: boolean = false;
-  showPasswordConfirmation: boolean = false;
   showToast: boolean = false;
   toastMessage: string = '';
+  showPassword: boolean = false;
+  showPasswordConfirmation = false;
+  showLoader: boolean = false;
+  theme: string = '';
+
   authForm = new FormGroup(
     {
-      firstname: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(20),
-      ]),
-      lastname: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(20),
-      ]),
       email: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
@@ -42,43 +37,31 @@ export class SignupComponent implements OnInit {
         Validators.minLength(8),
         Validators.maxLength(25),
       ]),
-      // TODO: Add country code
-      // countrycode: new FormControl('', [
-      //   Validators.required,
-      //   Validators.minLength(3),
-      //   Validators.maxLength(15),
-      // ]),
-      phonenumber: new FormControl('', [
-        Validators.required,
-        Validators.minLength(8),
-        Validators.maxLength(11),
-        Validators.pattern('^[0-9]*$'),
-      ]),
     },
     { validators: [this.matchPassword.validate] }
   );
-  ngOnInit(): void {}
   constructor(
     private matchPassword: MatchPassword,
     private authService: AuthService,
+    private themeService: ThemeService,
+    private loadingService: LoadingService,
     private router: Router
-  ) {}
+  ) {
+    this.getCurrentTheme();
+  }
   onSubmit() {
     if (this.authForm.invalid) {
       return;
     }
+    this.loadingService.loading$.next(true);
     this.authService
       .signup(
-        this.authForm.value.firstname,
-        this.authForm.value.lastname,
         this.authForm.value.email,
         this.authForm.value.password,
-        this.authForm.value.passwordConfirmation,
-        this.authForm.value.phonenumber
+        this.authForm.value.passwordConfirmation
       )
       .subscribe({
         next: (response) => {
-          localStorage.setItem('token', response.token);
           this.router.navigateByUrl('/index');
         },
         error: (err) => {
@@ -92,23 +75,37 @@ export class SignupComponent implements OnInit {
             this.authForm.setErrors({ unknownError: true });
             this.toastMessage = ' خطأ غير متوقع';
           }
+          this.loadingService.loading$.next(false);
           this.toggleToast();
+        },
+        complete: () => {
+          this.loadingService.loading$.next(false);
         },
       });
   }
-  loginWithGoogle() {
-    this.authService.googleLogin();
-  }
-  togglePassword() {
-    this.showPassword = !this.showPassword;
-  }
-  togglePasswordConfirmation() {
-    this.showPasswordConfirmation = !this.showPasswordConfirmation;
+
+  ngOnInit() {
+    this.loadingService.loading$.subscribe({
+      next: (value) => {
+        this.showLoader = value;
+      },
+    });
   }
   toggleToast() {
     this.showToast = !this.showToast;
     setTimeout(() => {
       this.showToast = false;
     }, 4000);
+  }
+  getCurrentTheme() {
+    this.themeService.theme$.subscribe((theme) => {
+      this.theme = theme;
+    });
+  }
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+  togglePasswordConfirmation() {
+    this.showPasswordConfirmation = !this.showPasswordConfirmation;
   }
 }
