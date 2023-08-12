@@ -1,5 +1,43 @@
 <section class="relative h-full w-full"
   [ngClass]="theme == 'dark'?'bg-[#1b1d1e] text-dark-secondary':'bg-gray-50  text-light-secondary'">
+  <div class="pointer-events-none">
+    <div
+      class="absolute inset-0 rounded-2xl transition duration-300 [mask-image:linear-gradient(white,transparent)] group-hover:opacity-50">
+      <svg aria-hidden="true"
+        class="absolute inset-x-0 inset-y-[-30%] h-[100%] w-full skew-y-[-18deg] fill-black/[0.02] stroke-black/5 :fill-white/1 :stroke-white/2.5">
+        <defs>
+          <pattern id=":rd:" width="72" height="56" patternUnits="userSpaceOnUse" x="50%" y="-6">
+            <path d="M.5 56V.5H72" fill="none"></path>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" stroke-width="0" fill="url(#:rd:)"></rect><svg x="50%" y="-6"
+          class="overflow-visible">
+          <rect stroke-width="0" width="73" height="57" x="-72" y="112"></rect>
+          <rect stroke-width="0" width="73" height="57" x="72" y="168"></rect>
+        </svg>
+      </svg>
+    </div>
+    <div
+      class="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#D7EDEA] to-[#F4FBDF] opacity-0 transition duration-300 group-hover:opacity-100 :from-[#202D2E] :to-[#303428]">
+    </div>
+    <div class="absolute inset-0 rounded-2xl opacity-0 mix-blend-overlay transition duration-300 group-hover:opacity-100">
+      <svg aria-hidden="true"
+        class="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-black/50 stroke-black/70 :fill-white/2.5 :stroke-white/10">
+        <defs>
+          <pattern id=":re:" width="72" height="56" patternUnits="userSpaceOnUse" x="50%" y="-6">
+            <path d="M.5 56V.5H72" fill="none"></path>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" stroke-width="0" fill="url(#:re:)"></rect><svg x="50%" y="-6"
+          class="overflow-visible">
+          <rect stroke-width="0" width="73" height="57" x="-72" y="112"></rect>
+          <rect stroke-width="0" width="73" height="57" x="72" y="168"></rect>
+        </svg>
+      </svg>
+    </div>
+    <div class="relative rounded-2xl ">
+    </div>
+  </div>
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
     <div class="flex flex-row items-center justify-center h-12 w-full my-2">
       <div class="flex items-center justify-center rounded-3xl  bg-green-100 h-10 w-10">
@@ -10,7 +48,7 @@
           </path>
         </svg>
       </div>
-      <div class="ml-2 font-bold text-2xl">VoidChat</div>
+      <div class="ml-2 font-bold text-2xl">VoidHub</div>
     </div>
     <div
     [ngClass]="theme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white  text-light-secondary'"
