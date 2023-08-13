@@ -32,7 +32,7 @@
       <div class="ml-2 font-bold text-2xl">VoidHub</div>
     </div>
     <div
-    [ngClass]="theme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white  text-light-secondary'"
+    [ngClass]="theme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white text-light-secondary'"
       class="w-full rounded-3xl shadow md:mt-0 sm:max-w-md xl:p-0">
       <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
         <h1 class="text-xl font-bold leading-tight tracking-tight  md:text-2xl ">
@@ -47,7 +47,8 @@
           <div>
             <app-input [control]="authForm.controls.password" placeholder="********" [type]="showPassword ? 'text':'password'"
               label="password" [minlength]="8" [maxlength]="25" [required]="true" title="8 حروف او اكثر">
-              <svg class="absolute right-5 bottom-2.5 w-5 h-5 text-gray-400 hover:text-gray-900" fill="none" stroke="currentColor"
+              <svg class="absolute right-5 bottom-2.5 w-5 h-5 text-gray-400 hover:text-gray-900 hover:cursor-pointer" fill="none"
+                stroke="currentColor"
                 stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                 (click)="togglePassword()" *ngIf="!showPassword" input-icon>
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -55,7 +56,8 @@
                 </path>
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
               </svg>
-              <svg class="absolute right-5  bottom-2.5 w-5 h-5 text-gray-400 hover:text-gray-900" fill="none" stroke="currentColor"
+              <svg class="absolute right-5  bottom-2.5 w-5 h-5 text-gray-400 hover:text-gray-900 hover:cursor-pointer" fill="none"
+                stroke="currentColor"
                 stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                 (click)="togglePassword()" *ngIf="showPassword" input-icon>
                 <path stroke-linecap="round" stroke-linejoin="round"
