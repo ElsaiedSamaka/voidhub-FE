@@ -9,7 +9,5 @@ export class NavbarComponent implements OnInit {
   @Input() currentUser: any = null;
   constructor() {}
 
-  ngOnInit() {
-    console.log('user', this.currentUser);
-  }
+  ngOnInit() {}
 }
