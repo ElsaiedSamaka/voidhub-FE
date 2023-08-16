@@ -15,6 +15,7 @@ import { PopupComponent } from './popup/popup.component';
 import { ProseComponent } from './prose/prose.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToastComponent } from './toast/toast.component';
+import { UserAvatarComponent } from './user-avatar/user-avatar.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
@@ -32,6 +33,7 @@ import { ToastComponent } from './toast/toast.component';
     FooterComponent,
     AlertComponent,
     ProseComponent,
+    UserAvatarComponent,
   ],
   exports: [
     ModalComponent,
@@ -47,6 +49,7 @@ import { ToastComponent } from './toast/toast.component';
     FooterComponent,
     AlertComponent,
     ProseComponent,
+    UserAvatarComponent,
   ],
 })
 export class SharedModule {}
