@@ -11,8 +11,8 @@ export class TruncatedTextComponent implements OnInit {
           I will post my code after completion. [07/100] #WomenWhoCode #CodeNewbie`;
 
   truncatedText: string;
-  isTruncated: boolean;
-  isExpanded: boolean;
+  isTruncated: boolean = false;
+  isExpanded: boolean = false;
 
   constructor() {
     this.truncateText();
@@ -22,7 +22,7 @@ export class TruncatedTextComponent implements OnInit {
   truncateText() {
     const words = this.text.split(' ');
     if (words.length > 12) {
-      this.isTruncated = true;
+      this.isTruncated = !this.isTruncated;
       this.truncatedText = words.slice(0, 12).join(' ') + '...';
     } else {
       this.isTruncated = false;
@@ -31,7 +31,8 @@ export class TruncatedTextComponent implements OnInit {
   }
 
   expandText() {
-    this.isExpanded = true;
+    this.isExpanded = !this.isExpanded;
+    this.isTruncated = false;
     this.truncatedText = this.text;
   }
 }
