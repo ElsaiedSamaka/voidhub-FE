@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AlertComponent } from './alert/alert.component';
+import { ArticleComponent } from './article/article.component';
 import { EmojiPickerComponent } from './emoji-picker/emoji-picker.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormComponent } from './form/form.component';
@@ -34,6 +35,7 @@ import { UserAvatarComponent } from './user-avatar/user-avatar.component';
     AlertComponent,
     ProseComponent,
     UserAvatarComponent,
+    ArticleComponent,
   ],
   exports: [
     ModalComponent,
@@ -50,6 +52,7 @@ import { UserAvatarComponent } from './user-avatar/user-avatar.component';
     AlertComponent,
     ProseComponent,
     UserAvatarComponent,
+    ArticleComponent,
   ],
 })
 export class SharedModule {}
