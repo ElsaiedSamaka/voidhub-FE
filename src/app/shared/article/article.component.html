@@ -11,14 +11,16 @@
         Flowbite?</p>
     </figcaption>
   </figure>
-  <div class="flex flex-shrink-0 p-4 pb-0">
-    <a class="flex-shrink-0 group block">
-      <div class="flex items-center relative">
+  <div class="flex flex-shrink-0 p-4 pb-0" (mouseenter)="toggleFollowingPopOver()"
+    (mouseleave)="toggleFollowingPopOver()">
+    <!-- user -->
+    <a class="flex-shrink-0 group block bg-red-400">
+      <div class="flex items-center relative ">
         <div>
           <img class="inline-block h-10 w-10 rounded-full"
             src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="" />
         </div>
-        <div class="ml-3">
+        <div class="ml-3 ">
           <p class="text-base leading-6 font-medium">
             Sonali Hirave
             <span
@@ -28,7 +30,7 @@
           </p>
         </div>
         <!-- user popover -->
-        <div data-popover id="popover-user-profile" role="tooltip"
+        <div *ngIf="showFollowingPopOver" data-popover id="popover-user-profile" role="tooltip"
           class="absolute z-10 top-10 inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-100">
           <div class="p-3">
             <div class="flex items-center justify-between mb-2">
@@ -69,6 +71,7 @@
         <!-- user popover -->
       </div>
     </a>
+    <!-- user -->
   </div>
   <div class="">
     <div class="pl-16">
