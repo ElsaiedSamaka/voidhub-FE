@@ -12,7 +12,6 @@ export class ArticleComponent implements OnInit {
   ngOnInit() {}
   toggleFollowingPopOver() {
     this.showFollowingPopOver = !this.showFollowingPopOver;
-    console.log('hover');
   }
   toggleCommentSection() {
     console.log('clicked');
