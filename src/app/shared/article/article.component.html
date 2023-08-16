@@ -14,7 +14,7 @@
   <div class="flex flex-shrink-0 p-4 pb-0">
     <!-- user -->
     <a class="flex-shrink-0 group block" (mouseenter)="toggleFollowingPopOver()"
-    (mouseleave)="toggleFollowingPopOver()">
+      (mouseleave)="toggleFollowingPopOver()">
       <div class="flex items-center relative ">
         <div>
           <img class="inline-block h-10 w-10 rounded-full"
@@ -75,13 +75,13 @@
   </div>
   <div class="">
     <div class="pl-16">
-    <app-truncated-text></app-truncated-text>
+      <app-truncated-text></app-truncated-text>
       <div class="flex">
         <div class="w-full">
           <div class="flex justify-start items-center">
             <div class="">
-              <a
-                class="w-12 mt-1 group flex items-center text-gray-500 px-3 py-2 text-base leading-6 font-medium rounded-full hover:bg-zinc-100 hover:text-gray-700">
+              <a (click)="toggleCommentSection()"
+                class="w-12 mt-1 bg-red-500 group flex items-center text-gray-500 px-3 py-2 text-base leading-6 font-medium rounded-full hover:bg-zinc-100 hover:text-gray-700">
                 <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   stroke="currentColor" viewBox="0 0 24 24">
                   <path
