@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleComponent implements OnInit {
   showFollowingPopOver: boolean = false;
+  showCommentInput: boolean = false;
   constructor() {}
 
   ngOnInit() {}
@@ -14,6 +15,6 @@ export class ArticleComponent implements OnInit {
     this.showFollowingPopOver = !this.showFollowingPopOver;
   }
   toggleCommentSection() {
-    console.log('clicked');
+    this.showCommentInput = !this.showCommentInput;
   }
 }
