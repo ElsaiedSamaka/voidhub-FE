@@ -24,7 +24,7 @@
       <div class="w-full max-w-md p-4 rounded-lg">
         <div class="flex items-center justify-between mb-4">
           <h5 class="text-xl font-bold leading-none text-gray-900">Latest Contacts</h5>
-          <a class="text-sm font-medium text-emerald-900 hover:underline hover:cursor-pointer">
+          <a [routerLink]="['messages']" class="text-sm font-medium text-emerald-900 hover:underline hover:cursor-pointer">
             View all
           </a>
         </div>
@@ -273,7 +273,7 @@
       <div class="w-full max-w-md p-4 rounded-lg">
         <div class="flex items-center justify-between mb-4">
           <h5 class="text-xl font-bold leading-none text-gray-900">Jobs FYI</h5>
-          <a class="text-sm font-medium text-emerald-900 hover:underline hover:cursor-pointer">
+          <a [routerLink]="['jobs']" class="text-sm font-medium text-emerald-900 hover:underline hover:cursor-pointer">
             View all
           </a>
         </div>
