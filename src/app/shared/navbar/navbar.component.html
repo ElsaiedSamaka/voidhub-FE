@@ -1,7 +1,10 @@
 <nav
   class="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between gap-12 px-4 transition sm:px-6 lg:left-72 lg:z-30 lg:px-8 xl:left-80 backdrop-blur-sm :backdrop-blur bg-white/[var(--bg-opacity-light)] border-b"
   >
+  <!-- border -->
   <div class="absolute inset-x-0 top-full h-px transition bg-zinc-900/7.5 :bg-white/7.5"></div>
+  <!-- border -->
+  <!-- searching for input -->
   <div class="hidden lg:block lg:max-w-md lg:flex-auto">
     <button type="button"
       class="hidden h-8 w-full items-center gap-2 rounded-full bg-white pl-2 pr-3 text-sm text-zinc-500 ring-1 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none lg:flex"><svg
@@ -11,6 +14,8 @@
       </svg>searching for...<kbd class="ml-auto text-2xs text-zinc-400 :text-zinc-500"><kbd class="font-sans">Ctrl
         </kbd><kbd class="font-sans">K</kbd></kbd></button>
       </div>
+  <!-- searching for input -->
+  <!-- Logo and title -->
   <div class="flex items-center gap-5 lg:hidden">
     <button type="button"
       class="flex h-6 w-6 items-center justify-center rounded-md transition hover:bg-zinc-900/5 :hover:bg-white/5"
@@ -27,8 +32,11 @@
       </svg>
     </a>
     </div>
+  <!-- Logo and title -->
+  <!-- nav items -->
   <div class="flex items-center gap-5">
-    <nav class="hidden md:block">
+    <!-- lang -->
+    <div class="hidden md:block">
       <div class="flex items-center md:order-2">
         <button type="button" data-dropdown-toggle="language-dropdown-menu"
           class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 :text-white rounded-lg cursor-pointer hover:bg-gray-100 :hover:bg-gray-700 :hover:text-white">
@@ -65,7 +73,7 @@
           id="language-dropdown-menu">
           <ul class="py-2 font-medium" role="none">
             <li>
-              <a href="#"
+              <a
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 :text-gray-400 :hover:bg-gray-600 :hover:text-white"
                 role="menuitem">
                 <div class="inline-flex items-center">
@@ -90,23 +98,9 @@
                 </div>
               </a>
             </li>
+          
             <li>
-              <a href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 :text-gray-400 :hover:bg-gray-600 :hover:text-white"
-                role="menuitem">
-                <div class="inline-flex items-center">
-                  <svg class="h-3.5 w-3.5 rounded-full mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    id="flag-icon-css-de" viewBox="0 0 512 512">
-                    <path fill="#ffce00" d="M0 341.3h512V512H0z" />
-                    <path d="M0 0h512v170.7H0z" />
-                    <path fill="#d00" d="M0 170.7h512v170.6H0z" />
-                  </svg>
-                  Deutsch
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#"
+              <a
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 :text-gray-400 :hover:bg-gray-600 :hover:text-white"
                 role="menuitem">
                 <div class="inline-flex items-center">
@@ -122,34 +116,15 @@
                 </div>
               </a>
             </li>
-            <li>
-              <a href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 :text-gray-400 :hover:bg-gray-600 :hover:text-white"
-                role="menuitem">
-                <div class="inline-flex items-center">
-                  <svg class="h-3.5 w-3.5 rounded-full mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 512 512">
-                    <defs>
-                      <path id="a" fill="#ffde00" d="M1-.3L-.7.8 0-1 .6.8-1-.3z" />
-                    </defs>
-                    <path fill="#de2910" d="M0 0h512v512H0z" />
-                    <use width="30" height="20" transform="matrix(76.8 0 0 76.8 128 128)" xlink:href="#a" />
-                    <use width="30" height="20" transform="rotate(-121 142.6 -47) scale(25.5827)" xlink:href="#a" />
-                    <use width="30" height="20" transform="rotate(-98.1 198 -82) scale(25.6)" xlink:href="#a" />
-                    <use width="30" height="20" transform="rotate(-74 272.4 -114) scale(25.6137)" xlink:href="#a" />
-                    <use width="30" height="20" transform="matrix(16 -19.968 19.968 16 256 230.4)" xlink:href="#a" />
-                  </svg>
-                  中文 (繁體)
-                </div>
-              </a>
-            </li>
           </ul>
-        </div>
+          </div>
       </div>
-    </nav>
+      </div>
+    <!-- lang -->
     <!-- vertical divider -->
     <div class="hidden md:block md:h-5 md:w-px md:bg-zinc-900/10 md::bg-white/15"></div>
     <!-- vertical divider -->
+    <!-- notification and dark mode -->
     <div class="flex gap-4">
       <svg class="h-6 w-6 stroke-zinc-900 transition hover:bg-zinc-900/5" fill="none" stroke="currentColor" stroke-width="1.5"
         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -180,6 +155,37 @@
         </svg>
       </button>
     </div>
+    <!-- notification and dark mode -->
+    <!-- user avatar -->
+    <div class="user-avatar relative">
+      <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start"
+        class="w-10 h-10 rounded-full cursor-pointer" src="/docs/images/people/profile-picture-5.jpg" alt="User dropdown">
+    
+      <!-- Dropdown menu -->
+      <div id="userDropdown" class="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+        <div class="px-4 py-3 text-sm text-gray-900 :text-white">
+          <div>Bonnie Green</div>
+          <div class="font-medium truncate">name@flowbite.com</div>
+        </div>
+        <ul class="py-2 text-sm text-gray-700 :text-gray-200" aria-labelledby="avatarButton">
+          <li>
+            <a class="block px-4 py-2 hover:bg-gray-100 :hover:bg-gray-600 :hover:text-white">Dashboard</a>
+          </li>
+          <li>
+            <a class="block px-4 py-2 hover:bg-gray-100 :hover:bg-gray-600 :hover:text-white">Settings</a>
+          </li>
+          <li>
+            <a class="block px-4 py-2 hover:bg-gray-100 :hover:bg-gray-600 :hover:text-white">Earnings</a>
+          </li>
+        </ul>
+        <div class="py-1">
+          <a
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 :hover:bg-gray-600 :text-gray-200 :hover:text-white">Sign
+            out</a>
+        </div>
+      </div>
+    </div>
+    <!-- user avatar -->
     <div class="hidden min-[416px]:contents"><a
         class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition rounded-full bg-zinc-900 py-1 px-3 text-white hover:bg-zinc-700 hover:cursor-pointer :bg-emerald-400/10 :text-emerald-400 :ring-1 :ring-inset :ring-emerald-400/20 :hover:bg-emerald-400/10 :hover:text-emerald-300 :hover:ring-emerald-300">Sign
         in</a></div>
@@ -187,4 +193,5 @@
         class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition rounded-full bg-white py-1 px-3 border hover:bg-gray-50 hover:cursor-pointer :bg-emerald-400/10 :text-emerald-400 :ring-1 :ring-inset :ring-emerald-400/20 :hover:bg-emerald-400/10 :hover:text-emerald-300 :hover:ring-emerald-300">Sign
         up</a></div>
   </div>
+  <!-- nav items -->
 </nav>
