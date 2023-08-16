@@ -13,7 +13,7 @@ export class AuthService {
   // This is not the best way to do this, but it is the easiest way to get started
   // We will need to change this public property to a private property
   signedin$ = new BehaviorSubject<boolean>(false);
-  USER$ = new BehaviorSubject(null);
+  USER$ = new BehaviorSubject<any>(null);
 
   constructor(private http: HttpClient) {}
   // emailAvailable will be called whenever the user types in the email field
@@ -37,9 +37,9 @@ export class AuthService {
         { withCredentials: true }
       )
       .pipe(
-        tap((res) => {
+        tap((newUser) => {
           this.signedin$.next(true);
-          this.USER$.next(res.newUser);
+          this.USER$.next(newUser);
         })
       );
   }
@@ -75,9 +75,9 @@ export class AuthService {
         { withCredentials: true }
       )
       .pipe(
-        tap((res) => {
+        tap((existingUser) => {
           this.signedin$.next(true);
-          this.USER$.next(res.existing_user);
+          this.USER$.next(existingUser);
         })
       );
   }
