@@ -12,9 +12,16 @@ export class AuthService {
   // TODO: Right now we are using a BehaviorSubject to store the signed in status of the user
   // This is not the best way to do this, but it is the easiest way to get started
   // We will need to change this public property to a private property
-  signedin$ = new BehaviorSubject<boolean>(false);
-  USER$ = new BehaviorSubject<any>(null);
+  private signedin$ = new BehaviorSubject<boolean>(false);
+  private USER$ = new BehaviorSubject<any>(null);
+  public currentUser$ = this.USER$.asObservable();
+  setCurrentUser(user: any): void {
+    this.USER$.next(user);
+  }
 
+  getCurrentUser(): any {
+    return this.USER$.value;
+  }
   constructor(private http: HttpClient) {}
   // emailAvailable will be called whenever the user types in the email field
   // we will send the email to the server and check if it is available
@@ -39,7 +46,7 @@ export class AuthService {
       .pipe(
         tap((newUser) => {
           this.signedin$.next(true);
-          this.USER$.next(newUser);
+          this.setCurrentUser(newUser);
         })
       );
   }
@@ -58,7 +65,7 @@ export class AuthService {
     return this.http.post<any>(`${this.api_url}/api/auth/signout`, {}).pipe(
       tap(() => {
         this.signedin$.next(false);
-        this.USER$.next(null);
+        this.setCurrentUser(null);
       })
     );
   }
@@ -77,7 +84,7 @@ export class AuthService {
       .pipe(
         tap((existingUser) => {
           this.signedin$.next(true);
-          this.USER$.next(existingUser);
+          this.setCurrentUser(existingUser);
         })
       );
   }
