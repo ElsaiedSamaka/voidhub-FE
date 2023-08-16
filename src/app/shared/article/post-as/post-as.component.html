@@ -9,34 +9,26 @@
   <div *ngIf="showPostAsPopOver" data-popover id="popover-default" role="tooltip"
     class="absolute top-11 -left-2 z-10 inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm :text-gray-400 :border-gray-600 :bg-gray-800">
     <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg :border-gray-600 :bg-gray-700">
-      <h3 class="font-semibold text-gray-900 :text-white">Post as</h3>
+      <h3 class="font-semibold text-gray-900 :text-white">Select what others will see</h3>
     </div>
     <div class="w-full">
       <!-- Dropdown menu -->
       <div id="dropdownRadioBgHover" class="z-10 w-full divide-y divide-gray-100 rounded-lg :bg-gray-700 :divide-gray-600">
-        <ul class="p-3 space-y-1 text-sm text-gray-700 :text-gray-200" aria-labelledby="dropdownRadioBgHoverButton">
-          <li>
-            <div class="flex items-center p-2 rounded hover:bg-gray-100 :hover:bg-gray-600">
+        <ul class="p-3 space-y-1 text-sm text-gray-700 hover:cursor-pointer" aria-labelledby="dropdownRadioBgHoverButton">
+          <li class="">
+            <div class="flex items-center p-2 rounded hover:bg-gray-100 ">
               <input id="default-radio-4" type="radio" value="" name="default-radio"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 :focus:ring-blue-600 :ring-offset-gray-700 :focus:ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500">
+                class="w-4 h-4 sr-only text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 :focus:ring-blue-600 :ring-offset-gray-700 :focus:ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500">
               <label for="default-radio-4"
-                class="w-full ml-2 text-sm font-medium text-gray-900 rounded :text-gray-300">Default radio</label>
+                class="w-full ml-2 text-sm font-medium text-gray-900 rounded :text-gray-300">as <span class="font-bold">saied samaka</span></label>
             </div>
           </li>
           <li>
             <div class="flex items-center p-2 rounded hover:bg-gray-100 :hover:bg-gray-600">
               <input checked id="default-radio-5" type="radio" value="" name="default-radio"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 :focus:ring-blue-600 :ring-offset-gray-700 :focus:ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500">
+                class="w-4 h-4 sr-only text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 :focus:ring-blue-600 :ring-offset-gray-700 :focus:ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500">
               <label for="default-radio-5"
-                class="w-full ml-2 text-sm font-medium text-gray-900 rounded :text-gray-300">Checked state</label>
-            </div>
-          </li>
-          <li>
-            <div class="flex items-center p-2 rounded hover:bg-gray-100 :hover:bg-gray-600">
-              <input id="default-radio-6" type="radio" value="" name="default-radio"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 :focus:ring-blue-600 :ring-offset-gray-700 :focus:ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500">
-              <label for="default-radio-6"
-                class="w-full ml-2 text-sm font-medium text-gray-900 rounded :text-gray-300">Default radio</label>
+                class="w-full ml-2 text-sm font-medium text-gray-900 rounded :text-gray-300">as <span class="font-bold">anonymous</span></label>
             </div>
           </li>
         </ul>
