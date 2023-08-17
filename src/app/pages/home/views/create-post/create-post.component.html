@@ -2,8 +2,52 @@
   <!-- post-as -->
   <app-post-as></app-post-as>
   <!-- post-as -->
-  <input type="text" placeholder="Post as saied samaka ..."
+  <input type="text" (click)="openCreateNewPostModal()" placeholder="Post as saied samaka ..."
     class=" h-11 w-full items-center gap-2 rounded-full bg-white pl-4 pr-3 text-sm text-zinc-500 ring-1 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none lg:flex">
   <button type="button"
     class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">Post</button>
 </div>
+<app-modal *ngIf="showCreateNewPostModal" (dismiss)="closeCreateNewPostModal()">
+  <div modal-header>
+    <div class="flex flex-row-reverse justify-between ">
+      <button type="button" (click)="closeCreateNewPostModal()"
+        [ngClass]="theme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white text-light-secondary'"
+        class="  hover:bg-gray-200 hover:text-gray-900 rounded-3xl text-sm p-1.5  inline-flex items-center"
+        data-modal-hide="popup-modal">
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg" (click)="true">
+          <path fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <span class="sr-only">Close modal</span>
+      </button>
+      <h3 class="text-xl font-semibold" [ngClass]="theme == 'dark'?' text-dark-secondary':' text-light-secondary'">
+        Create new post
+      </h3>
+    </div>
+  </div>
+  <div modal-body>
+    <div modal-body>
+      <app-form [fields]="[
+            { name: 'firstname', label: 'firstname', type: 'text', maxlength:15 , minlength:3, autofocus:true,required:true,  validators: [validators.required] },
+            { name: 'lastname', label: 'lastname', type: 'text', maxlength:15 , minlength:3, autofocus:false, required:true, validators: [validators.required] },
+            { name: 'phonenumber', label: 'phonenumber', type: 'tel', maxlength:15 , minlength:11, autofocus:false,required:true,  validators: [validators.required] },
+            { name: 'email', label: 'email', type: 'email', maxlength:30 , minlength:11 ,autofocus:false ,required:true, pattern:'[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$', validators: [validators.required, validators.email] },
+            { name: 'birthdate', label: 'birthdate', type: 'date' ,autofocus:false,required:true, validators: [validators.required] },
+            { name: 'address', label: 'address', type: 'textarea', maxlength:1000, minlength:12 , required:true, validators: [validators.required] },
+          ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
+        <ng-container form-actions>
+          <button (click)="closeAddUserModal()"
+            class="inline-block  shrink-0 rounded-2xl border border-gray-300 mx-1 px-6 py-2 text-sm font-semibold text-gray-500 hover:bg-gray-300 hover:text-black focus:outline-none active:text-white disabled:cursor-not-allowed">
+            cancel
+          </button>
+          <button type="submit" [disabled]="!isFormValid"
+            class="inline-block px-6 py-2 rounded-2xl text-gray-700 font-semibold border border-green-600 hover:bg-green-600 hover:text-white active:text-white disabled:cursor-not-allowed disabled:bg-gray-200 disabled:border-gray-300 disabled:text-gray-400">
+            save
+          </button>
+        </ng-container>
+      </app-form>
+    </div>
+  </div>
+</app-modal>
