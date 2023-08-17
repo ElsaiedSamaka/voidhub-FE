@@ -16,6 +16,7 @@ import { ModalComponent } from './modal/modal.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PopupComponent } from './popup/popup.component';
 import { ProseComponent } from './prose/prose.component';
+import { DataService } from './services/data.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToastComponent } from './toast/toast.component';
 import { UserAvatarComponent } from './user-avatar/user-avatar.component';
@@ -60,5 +61,6 @@ import { UserAvatarComponent } from './user-avatar/user-avatar.component';
     TruncatedTextComponent,
     PostAsComponent,
   ],
+  providers: [DataService],
 })
 export class SharedModule {}

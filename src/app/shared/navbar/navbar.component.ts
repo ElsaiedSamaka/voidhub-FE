@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   @Input() currentUser: any = null;
-  constructor() {}
+  showSideBar: boolean = true;
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {}
+  toggleSideBar() {
+    this.showSideBar = !this.showSideBar;
+    this.dataService.showSideBar.next(this.showSideBar);
+  }
 }

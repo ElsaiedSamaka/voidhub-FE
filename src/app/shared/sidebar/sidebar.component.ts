@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -33,7 +34,14 @@ export class SidebarComponent implements OnInit {
       label: 'Reading list',
     },
   ];
-  constructor() {}
+  showSideBar: boolean = false;
+  constructor(private dataService: DataService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.dataService.showSideBar.subscribe({
+      next: (res) => {
+        this.showSideBar = res;
+      },
+    });
+  }
 }
