@@ -8,6 +8,10 @@
             [type]=field.type [label]=field.label [maxlength]=field.maxlength
       [minlength]=field.minlength [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
       </div>
+      <div *ngSwitchCase="'file'">
+        <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name [type]=field.type [label]=field.label
+          [autofocus]=field.autofocus [required]=field.required></app-input>
+      </div>
       <div *ngSwitchCase="'email'">
         <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name [type]=field.type [label]=field.label
           [maxlength]=field.maxlength [minlength]=field.minlength [autofocus]=field.autofocus [required]=field.required
@@ -34,10 +38,6 @@
           [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
       </div>
       <div *ngSwitchCase="'search'"> <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name
-          [type]=field.type [label]=field.label [maxlength]=field.maxlength [minlength]=field.minlength
-          [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
-      </div>
-      <div *ngSwitchCase="'file'"> <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name
           [type]=field.type [label]=field.label [maxlength]=field.maxlength [minlength]=field.minlength
           [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
       </div>
