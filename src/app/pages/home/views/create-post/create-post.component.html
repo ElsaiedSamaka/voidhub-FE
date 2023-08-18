@@ -7,8 +7,8 @@
   <button type="button"
     class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">Post</button>
 </div>
-<app-wysiwyg></app-wysiwyg>
-<app-editor></app-editor>
+      <app-editor></app-editor>
+
 <app-modal *ngIf="showCreateNewPostModal" (dismiss)="closeCreateNewPostModal()">
   <div modal-header>
     <div class="flex flex-row-reverse justify-between ">
@@ -30,7 +30,6 @@
     </div>
   </div>
   <div modal-body>
-    <div modal-body>
       <app-form [fields]="[
             { name: 'cover', label: 'cover', type: 'file', required:false,  validators: [] },
             { name: 'title', label: 'title', type: 'text', maxlength:90 , minlength:12, autofocus:true, required:true, validators: [validators.required] },
@@ -48,6 +47,5 @@
           </button>
         </ng-container>
       </app-form>
-    </div>
   </div>
 </app-modal>
