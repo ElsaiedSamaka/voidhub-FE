@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NgxEditorModule } from 'ngx-editor';
 import { AlertComponent } from './alert/alert.component';
 import { ArticleComponent } from './article/article.component';
 import { PostAsComponent } from './article/post-as/post-as.component';
 import { TruncatedTextComponent } from './article/truncated-text/truncated-text.component';
+import { EditorComponent } from './editor/editor.component';
 import { EmojiPickerComponent } from './emoji-picker/emoji-picker.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormComponent } from './form/form.component';
@@ -24,7 +26,14 @@ import { UserAvatarComponent } from './user-avatar/user-avatar.component';
 import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, NgxEditorModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    AngularEditorModule,
+    RouterModule,
+    FormsModule,
+    NgxEditorModule,
+    ReactiveFormsModule,
+  ],
   declarations: [
     ModalComponent,
     PopupComponent,
@@ -44,6 +53,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     TruncatedTextComponent,
     PostAsComponent,
     WysiwygComponent,
+    EditorComponent,
   ],
   exports: [
     ModalComponent,
@@ -64,6 +74,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     TruncatedTextComponent,
     PostAsComponent,
     WysiwygComponent,
+    EditorComponent,
   ],
   providers: [DataService],
 })
