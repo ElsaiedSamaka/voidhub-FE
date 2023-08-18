@@ -19,4 +19,7 @@ export class CreatePostComponent implements OnInit {
   closeCreateNewPostModal() {
     this.showCreateNewPostModal = false;
   }
+  onFormSubmitted(value: any) {
+    console.log('value', value);
+  }
 }

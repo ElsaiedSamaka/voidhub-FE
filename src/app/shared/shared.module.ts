@@ -30,8 +30,8 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     CommonModule,
     AngularEditorModule,
     RouterModule,
-    FormsModule,
     NgxEditorModule,
+    FormsModule,
     ReactiveFormsModule,
   ],
   declarations: [

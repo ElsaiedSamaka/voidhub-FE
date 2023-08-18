@@ -7,7 +7,6 @@
   <button type="button"
     class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">Post</button>
 </div>
-      <app-editor></app-editor>
 
 <app-modal *ngIf="showCreateNewPostModal" (dismiss)="closeCreateNewPostModal()">
   <div modal-header>
@@ -36,7 +35,10 @@
             { name: 'tags', label: 'tags', type: 'text', maxlength:12 , minlength:2, autofocus:false,required:true,  validators: [validators.required] },
             { name: 'address', label: 'address', type: 'textarea', maxlength:1000, minlength:12 , required:true, validators: [validators.required] },
           ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
-        <ng-container form-actions>
+      <ng-container form-extensions>
+        <app-editor></app-editor>
+      </ng-container>
+          <ng-container form-actions>
           <button (click)="closeAddUserModal()"
             class="inline-block  shrink-0 rounded-2xl border border-gray-300 mx-1 px-6 py-2 text-sm font-semibold text-gray-500 hover:bg-gray-300 hover:text-black focus:outline-none active:text-white disabled:cursor-not-allowed">
             cancel
@@ -47,5 +49,6 @@
           </button>
         </ng-container>
       </app-form>
+
   </div>
 </app-modal>
