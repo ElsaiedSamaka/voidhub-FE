@@ -111,7 +111,7 @@
       </div>
       <textarea class="mt-1 rounded-2xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-left w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [id]="id" [name]="name" [title]="title"
-        [formControl]="control" [autofocus]="autofocus" [size]="size" [maxlength]="maxlength" [minlength]="minlength"
+        [formControl]="control" [autofocus]="autofocus" [maxlength]="maxlength" [minlength]="minlength"
         [required]="required"  [placeholder]="placeholder"></textarea>
     </div>
     <div *ngSwitchCase="'select'">

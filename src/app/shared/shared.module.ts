@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NgxEditorModule } from 'ngx-editor';
 import { AlertComponent } from './alert/alert.component';
 import { ArticleComponent } from './article/article.component';
 import { PostAsComponent } from './article/post-as/post-as.component';
@@ -20,9 +21,10 @@ import { DataService } from './services/data.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToastComponent } from './toast/toast.component';
 import { UserAvatarComponent } from './user-avatar/user-avatar.component';
+import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule, NgxEditorModule, ReactiveFormsModule],
   declarations: [
     ModalComponent,
     PopupComponent,
@@ -41,6 +43,7 @@ import { UserAvatarComponent } from './user-avatar/user-avatar.component';
     ArticleComponent,
     TruncatedTextComponent,
     PostAsComponent,
+    WysiwygComponent,
   ],
   exports: [
     ModalComponent,
@@ -60,6 +63,7 @@ import { UserAvatarComponent } from './user-avatar/user-avatar.component';
     ArticleComponent,
     TruncatedTextComponent,
     PostAsComponent,
+    WysiwygComponent,
   ],
   providers: [DataService],
 })
