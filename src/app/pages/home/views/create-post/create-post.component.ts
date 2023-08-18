@@ -22,4 +22,7 @@ export class CreatePostComponent implements OnInit {
   onFormSubmitted(value: any) {
     console.log('value', value);
   }
+  handleHTML(value: any) {
+    console.log('html', value);
+  }
 }

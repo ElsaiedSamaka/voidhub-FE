@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
@@ -7,6 +7,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
   styleUrls: ['./editor.component.css'],
 })
 export class EditorComponent implements OnInit {
+  @Output() html: EventEmitter<any> = new EventEmitter<any>();
   name = 'Angular 6';
   htmlContent = '';
 

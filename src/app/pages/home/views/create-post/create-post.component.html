@@ -35,7 +35,7 @@
             { name: 'tags', label: 'tags', type: 'text', maxlength:12 , minlength:2, autofocus:false,required:true,  validators: [validators.required] },
           ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
       <ng-container form-extensions>
-        <app-editor></app-editor>
+        <app-editor (html)="handleHTML($event)"></app-editor>
       </ng-container>
           <ng-container form-actions>
           <button (click)="closeAddUserModal()"
