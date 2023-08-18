@@ -1,6 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="submitForm()">
   <div
-    class="p-5 mt-4 border-2 border-gray-200 border-dashed  w-full h-full rounded-2xl">
+    class="p-5 w-full h-full rounded-2xl">
   <div *ngFor="let field of fields">
       <div [ngSwitch]="field.type">
         <div *ngSwitchCase="'text'">
@@ -55,7 +55,7 @@
       </div>
       </div>
 </div>
-<div class="">
+<div class="p-5">
   <ng-content select="[form-extensions]"></ng-content>
 </div>
 <div class="flex justify-end mt-4">

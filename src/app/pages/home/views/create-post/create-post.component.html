@@ -33,7 +33,6 @@
             { name: 'cover', label: 'cover', type: 'file', required:false,  validators: [] },
             { name: 'title', label: 'title', type: 'text', maxlength:90 , minlength:12, autofocus:true, required:true, validators: [validators.required] },
             { name: 'tags', label: 'tags', type: 'text', maxlength:12 , minlength:2, autofocus:false,required:true,  validators: [validators.required] },
-            { name: 'address', label: 'address', type: 'textarea', maxlength:1000, minlength:12 , required:true, validators: [validators.required] },
           ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
       <ng-container form-extensions>
         <app-editor></app-editor>
