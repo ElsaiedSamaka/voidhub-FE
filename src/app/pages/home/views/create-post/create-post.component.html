@@ -31,10 +31,8 @@
     <div modal-body>
       <app-form [fields]="[
             { name: 'cover', label: 'cover', type: 'file', required:false,  validators: [] },
-            { name: 'lastname', label: 'lastname', type: 'text', maxlength:15 , minlength:3, autofocus:false, required:true, validators: [validators.required] },
-            { name: 'phonenumber', label: 'phonenumber', type: 'tel', maxlength:15 , minlength:11, autofocus:false,required:true,  validators: [validators.required] },
-            { name: 'email', label: 'email', type: 'email', maxlength:30 , minlength:11 ,autofocus:false ,required:true, pattern:'[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$', validators: [validators.required, validators.email] },
-            { name: 'birthdate', label: 'birthdate', type: 'date' ,autofocus:false,required:true, validators: [validators.required] },
+            { name: 'title', label: 'title', type: 'text', maxlength:90 , minlength:12, autofocus:true, required:true, validators: [validators.required] },
+            { name: 'tags', label: 'tags', type: 'text', maxlength:12 , minlength:2, autofocus:false,required:true,  validators: [validators.required] },
             { name: 'address', label: 'address', type: 'textarea', maxlength:1000, minlength:12 , required:true, validators: [validators.required] },
           ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
         <ng-container form-actions>
