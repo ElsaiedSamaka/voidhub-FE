@@ -29,13 +29,13 @@ export class PostsService {
   //     })
   //   );
   // }
-  // post(item: any): Observable<any> {
-  //   return this.apiService.post('/api/posts', item).pipe(
-  //     tap((addedItem) => {
-  //       this.posts$.value.push(addedItem);
-  //     })
-  //   );
-  // }
+  post(item: any): Observable<any> {
+    return this.apiService.post('/api/posts', item).pipe(
+      tap((addedItem) => {
+        this.posts$.value.push(addedItem);
+      })
+    );
+  }
   // put(id: string, item: any): Observable<any> {
   //   return this.apiService.put(`/api/posts/${id}`, item).pipe(
   //     tap((updatedItem) => {

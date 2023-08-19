@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
+import { PostsService } from 'src/core/services/posts.service';
 
 @Component({
   selector: 'app-create-post',
@@ -11,7 +12,7 @@ export class CreatePostComponent implements OnInit {
   validators = Validators;
   isFormValid: boolean = false;
   receivedHTMLContent: string = '';
-  constructor() {}
+  constructor(private postsService: PostsService) {}
 
   ngOnInit() {}
   openCreateNewPostModal() {
@@ -39,5 +40,16 @@ export class CreatePostComponent implements OnInit {
   }
   handleHTML(value: any) {
     this.receivedHTMLContent = value;
+  }
+  post(): void {
+    this.postsService.post({}).subscribe({
+      next: (response) => {
+        console.log('response [post] CREATEPOSTCOMPONENT', response);
+      },
+      error: (err) => {
+        console.log('error [post] CREATEPOSTCOMPONENT', err);
+      },
+      complete: () => {},
+    });
   }
 }
