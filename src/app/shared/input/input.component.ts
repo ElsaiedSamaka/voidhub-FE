@@ -43,4 +43,10 @@ export class InputComponent implements OnInit {
       return;
     }
   }
+  handleFileChange(event: any): void {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      console.log('file', file);
+    }
+  }
 }
