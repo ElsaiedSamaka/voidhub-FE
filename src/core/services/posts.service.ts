@@ -6,14 +6,13 @@ import { ApiService } from './api.service';
   providedIn: 'root',
 })
 export class PostsService {
-  private posts$ = new BehaviorSubject<any[]>([]);
-  // posts = this.posts$.asObservable;
+  posts$ = new BehaviorSubject<any[]>([]);
   constructor(private apiService: ApiService) {}
   getAll(): Observable<any[]> {
     return this.apiService.get('/api/posts').pipe(
       tap((response) => {
-        console.log('posts service [getAll] response', response);
-        // this.posts$.next(items);
+        const { rows: posts } = response;
+        this.posts$.next(posts);
       })
     );
   }

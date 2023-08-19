@@ -7,6 +7,7 @@ import { PostsService } from 'src/core/services/posts.service';
   styleUrls: ['./timeline.component.css'],
 })
 export class TimelineComponent implements OnInit {
+  posts: any[] = [];
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {
@@ -15,9 +16,11 @@ export class TimelineComponent implements OnInit {
   getAll(): void {
     this.postsService.getAll().subscribe({
       next: (response) => {
-        console.log('timeline [getAll] response', response);
+        this.posts = this.postsService.posts$.value;
       },
-      error: (err) => {},
+      error: (err) => {
+        console.log('err on [getAll] TimelineComponent', err);
+      },
       complete: () => {},
     });
   }
