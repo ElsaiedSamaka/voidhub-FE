@@ -32,7 +32,6 @@ export class CreatePostComponent implements OnInit {
       default:
         break;
     }
-    console.log('formStatus', value);
   }
   onFormSubmitted(value: any) {
     console.log('formValue', value);
