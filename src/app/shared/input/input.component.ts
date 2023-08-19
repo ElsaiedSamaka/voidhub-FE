@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -26,7 +26,7 @@ export class InputComponent implements OnInit {
   @Input() name: string = '';
   @Input() id: string = '';
   @Input() options: any[] = [];
-
+  @Output() fileChange: EventEmitter<any> = new EventEmitter<any>();
   showErrors() {
     const { dirty, touched, errors } = this.control;
     return dirty && touched && errors;
@@ -46,7 +46,7 @@ export class InputComponent implements OnInit {
   handleFileChange(event: any): void {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log('file', file);
+      this.fileChange.emit(file);
     }
   }
 }

@@ -38,4 +38,7 @@ export class FormComponent implements OnInit {
       complete: () => {},
     });
   }
+  handleFileChange(event: any) {
+    console.log('event', event);
+  }
 }
