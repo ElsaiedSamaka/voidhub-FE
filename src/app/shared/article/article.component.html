@@ -3,12 +3,11 @@
     class="relative  max-h-xl  transition-all duration-300 cursor-pointer filter grayscale group-hover:grayscale-0">
     <a>
       <img class="object-fill w-full max-h-40"
-        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-3.png"
-        alt="image description">
+        [src]="article.cover"
+        [alt]="article.title">
     </a>
     <figcaption class="absolute px-4 text-lg text-white bottom-6 ">
-      <p class="font-bold shadow-3xl">Do you want to get notified when a new component is added to
-        Flowbite?</p>
+      <p class="font-bold shadow-3xl">{{article.title}}</p>
     </figcaption>
   </figure>
   <div class="flex flex-shrink-0 p-4 pb-0">
@@ -25,7 +24,7 @@
             Sonali Hirave
             <span
               class="text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150">
-              @ShonaDesign . 16 April
+              @ShonaDesign . {{article.createdAt |date}}
             </span>
           </p>
         </div>
