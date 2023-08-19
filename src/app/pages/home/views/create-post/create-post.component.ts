@@ -25,6 +25,5 @@ export class CreatePostComponent implements OnInit {
   }
   handleHTML(value: any) {
     this.receivedHTMLContent = value;
-    console.log('html', value);
   }
 }
