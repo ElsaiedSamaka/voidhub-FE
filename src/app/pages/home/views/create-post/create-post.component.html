@@ -30,7 +30,7 @@
   </div>
   <div modal-body>
       <app-form [fields]="[
-            { name: 'img', label: 'cover', id:'cover', type: 'file', required:false },
+            { name: 'file_img', label: 'file_img', id:'file_img', type: 'file', required:false },
             { name: 'title', label: 'title', type: 'text', maxlength:90 , minlength:12, autofocus:true, required:true, validators: [validators.required] },
             { name: 'tags', label: 'tags', type: 'text', maxlength:12 , minlength:2, autofocus:false,required:false,  validators: [] },
           ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">

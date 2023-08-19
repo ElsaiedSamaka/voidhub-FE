@@ -36,12 +36,13 @@ export class CreatePostComponent implements OnInit {
   }
   onFormSubmitted(value: any) {
     if (!this.isFormValid) return;
-    this.postArticle(value)
+    this.postArticle(value);
   }
   handleHTML(value: any) {
     this.receivedHTMLContent = value;
   }
-  postArticle(article:any): void {
+  postArticle(article: any): void {
+    console.log('article', article);
     this.postsService.post(article).subscribe({
       next: (response) => {
         console.log('response [post] CREATEPOSTCOMPONENT', response);

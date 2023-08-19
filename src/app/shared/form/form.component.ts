@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
     const group: any = {};
     this.fields.forEach((field) => {
       group[field.name] = [
-        field.value ,
+        field.value,
         Validators.compose(field.validators || []),
       ];
     });
@@ -25,7 +25,8 @@ export class FormComponent implements OnInit {
     this.emitFormStatus();
   }
   submitForm() {
-    if (this.form.valid) this.submitted.emit(this.form.value);
+    let model = this.prepareForm();
+    if (this.form.valid) this.submitted.emit(model);
   }
   emitFormStatus() {
     this.form.statusChanges.subscribe({
@@ -40,9 +41,18 @@ export class FormComponent implements OnInit {
   }
   handleFileChange(file: any) {
     this.form.patchValue({
-      img: file,
+      file_img: file,
     });
-    console.log('this.form ', this.form);
-    console.log('event', file);
+  }
+  prepareForm() {
+    let formData = new FormData();
+    Object.entries(this.form.value).forEach(([key, value]) => {
+      if (typeof value === 'string') {
+        formData.append(key, value);
+      } else if (value instanceof Blob) {
+        formData.append(key, value, value['name']);
+      }
+    });
+    return formData;
   }
 }
