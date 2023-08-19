@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="submitForm()">
+<form [formGroup]="form" (ngSubmit)="submitForm()" enctype="multipart/form-data">
   <div
     class="p-5 w-full h-full rounded-2xl">
   <div *ngFor="let field of fields">
@@ -9,7 +9,8 @@
       [minlength]=field.minlength [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
       </div>
       <div *ngSwitchCase="'file'">
-        <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name [type]=field.type [label]=field.label
+        <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name [maxlength]="2097152" [type]=field.type
+          [label]=field.label
           [autofocus]=field.autofocus [required]=field.required></app-input>
       </div>
       <div *ngSwitchCase="'email'">
