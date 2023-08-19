@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NgxEditorModule } from 'ngx-editor';
+import { SanitizeHtmlPipe } from 'src/core/pipes/SanitizeHtmlPipe.pipe';
 import { AlertComponent } from './alert/alert.component';
 import { ArticleComponent } from './article/article.component';
 import { PostAsComponent } from './article/post-as/post-as.component';
@@ -54,6 +55,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     PostAsComponent,
     WysiwygComponent,
     EditorComponent,
+    SanitizeHtmlPipe,
   ],
   exports: [
     ModalComponent,

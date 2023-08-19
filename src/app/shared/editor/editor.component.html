@@ -3,6 +3,5 @@
 <button class="w-full h-9 font-bold bg-emerald-300 hover:bg-emerald-500 hover:text-white"
   (click)="emitHTMLContent()">Save
   Content</button>
-<!-- <div class="html">
-  {{htmlContent}}
-  </div> -->
+<div class="html" [innerHTML]="htmlContent | sanitizeHtml">
+</div>
