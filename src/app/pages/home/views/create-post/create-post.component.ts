@@ -34,6 +34,7 @@ export class CreatePostComponent implements OnInit {
     }
   }
   onFormSubmitted(value: any) {
+    if (!this.isFormValid) return;
     console.log('formValue', value);
   }
   handleHTML(value: any) {
