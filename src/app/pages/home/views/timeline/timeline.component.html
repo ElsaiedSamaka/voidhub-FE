@@ -1,5 +1,8 @@
 <div class="p-1 h-[80vh] overflow-y-scroll">
-  <ng-container *ngFor="let post of posts">
-  <app-article></app-article>
+  <ng-container *ngIf="posts.length>0;else noarticles">
+    <app-article *ngFor="let post of posts" [article]="post"></app-article>
   </ng-container>
+  <ng-template #noarticles>
+    noarticles
+  </ng-template>
 </div>
