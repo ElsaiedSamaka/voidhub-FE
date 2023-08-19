@@ -16,15 +16,15 @@
     </div>
       <div *ngSwitchCase="'file'">
         <div class="flex">
-          <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">{{label}}</label>
+          <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">
+            <input [id]="id" [name]="name" [placeholder]="placeholder" [type]="type" (change)="handleFileChange($event)"
+              class="mt-1 rounded-2xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-left w-full"
+              [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+  [minlength]="minlength" [required]="required" [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+          </label>
           <span *ngIf="required">*</span>
         </div>
-        <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type"
-          (change)="handleFileChange($event)"
-          class="mt-1 rounded-2xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-left w-full"
-          [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
-          [minlength]="minlength" [required]="required" [autocomplete]="autocomplete"
-          [autofocus]="autofocus" [title]="title" />
+       
       
       </div>
     <div *ngSwitchCase="'number'">
