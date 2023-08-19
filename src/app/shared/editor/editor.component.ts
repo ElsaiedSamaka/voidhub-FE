@@ -8,16 +8,15 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 })
 export class EditorComponent implements OnInit {
   @Output() html: EventEmitter<any> = new EventEmitter<any>();
-  name = 'Angular 6';
-  htmlContent = '';
+  htmlContent: string = '';
 
   config: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
-    height: '15rem',
+    height: 'auto',
     minHeight: '5rem',
     placeholder: 'Enter text here...',
-    translate: 'no',
+    translate: 'yes',
     defaultParagraphSeparator: 'p',
     defaultFontName: 'Arial',
     toolbarHiddenButtons: [['bold']],
@@ -36,8 +35,15 @@ export class EditorComponent implements OnInit {
         tag: 'h1',
       },
     ],
+    uploadUrl: 'v1/image',
+    //  upload: (file: File) => { ... }
+    uploadWithCredentials: false,
+    sanitize: true,
   };
   constructor() {}
 
   ngOnInit() {}
+  emitHTMLContent() {
+    this.html.emit(this.htmlContent);
+  }
 }

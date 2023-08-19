@@ -10,6 +10,7 @@ export class CreatePostComponent implements OnInit {
   showCreateNewPostModal: boolean = false;
   validators = Validators;
   isFormValid: boolean = false;
+  receivedHTMLContent: string = '';
   constructor() {}
 
   ngOnInit() {}
@@ -23,6 +24,7 @@ export class CreatePostComponent implements OnInit {
     console.log('value', value);
   }
   handleHTML(value: any) {
+    this.receivedHTMLContent = value;
     console.log('html', value);
   }
 }
