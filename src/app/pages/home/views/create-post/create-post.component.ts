@@ -20,8 +20,22 @@ export class CreatePostComponent implements OnInit {
   closeCreateNewPostModal() {
     this.showCreateNewPostModal = false;
   }
+  checkFormStatus(value: any) {
+    switch (value) {
+      case 'INVALID':
+        this.isFormValid = false;
+        break;
+      case 'VALID':
+        this.isFormValid = true;
+        break;
+
+      default:
+        break;
+    }
+    console.log('formStatus', value);
+  }
   onFormSubmitted(value: any) {
-    console.log('value', value);
+    console.log('formValue', value);
   }
   handleHTML(value: any) {
     this.receivedHTMLContent = value;
