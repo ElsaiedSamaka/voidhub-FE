@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
     const group: any = {};
     this.fields.forEach((field) => {
       group[field.name] = [
-        field.value || '',
+        field.value ,
         Validators.compose(field.validators || []),
       ];
     });
@@ -38,7 +38,11 @@ export class FormComponent implements OnInit {
       complete: () => {},
     });
   }
-  handleFileChange(event: any) {
-    console.log('event', event);
+  handleFileChange(file: any) {
+    this.form.patchValue({
+      img: file,
+    });
+    console.log('this.form ', this.form);
+    console.log('event', file);
   }
 }
