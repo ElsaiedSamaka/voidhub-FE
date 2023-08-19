@@ -1,0 +1,48 @@
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { ApiService } from './api.service';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class PostsService {
+  private posts$ = new BehaviorSubject<any[]>([]);
+  // posts = this.posts$.asObservable;
+  constructor(private apiService: ApiService) {}
+  getAll(): Observable<any[]> {
+    return this.apiService.get('/api/posts').pipe(
+      tap((response) => {
+        console.log('posts service [getAll] response', response);
+        // this.posts$.next(items);
+      })
+    );
+  }
+  // getById(id: string): Observable<any> {
+  //   return this.apiService.get(`/api/posts/${id}`);
+  // }
+  // deleteById(id: string): Observable<any> {
+  //   return this.apiService.delete(`/api/posts/${id}`).pipe(
+  //     tap((deleteItem) => {
+  //       let updatedItems = this.posts$.value.filter(
+  //         (item) => item.id != deleteItem.id
+  //       );
+  //       this.posts$.next(updatedItems);
+  //     })
+  //   );
+  // }
+  // post(item: any): Observable<any> {
+  //   return this.apiService.post('/api/posts', item).pipe(
+  //     tap((addedItem) => {
+  //       this.posts$.value.push(addedItem);
+  //     })
+  //   );
+  // }
+  // put(id: string, item: any): Observable<any> {
+  //   return this.apiService.put(`/api/posts/${id}`, item).pipe(
+  //     tap((updatedItem) => {
+  //       const index = this.posts$.value.indexOf(id);
+  //       this.posts$.value.splice(index, 1, updatedItem);
+  //     })
+  //   );
+  // }
+}
