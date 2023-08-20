@@ -42,7 +42,6 @@ export class CreatePostComponent implements OnInit {
     this.receivedHTMLContent = value;
   }
   postArticle(article: any): void {
-    console.log('article', article);
     this.postsService.post(article).subscribe({
       next: (response) => {
         console.log('response [post] CREATEPOSTCOMPONENT', response);
