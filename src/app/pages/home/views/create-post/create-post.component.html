@@ -32,7 +32,7 @@
       <app-form [fields]="[
             { name: 'file_img', label: 'file_img', id:'file_img', type: 'file', required:false },
             { name: 'title', label: 'title', type: 'text', maxlength:90 , minlength:12, autofocus:true, required:true, validators: [validators.required] },
-            { name: 'tags', label: 'tags', type: 'text', maxlength:12 , minlength:2, autofocus:false,required:false,  validators: [] },
+            { name: 'tags', label: 'tags', type: 'text', maxlength:20 , minlength:2, autofocus:false,required:false,  validators: [] },
           ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
       <ng-container form-extensions>
         <app-editor (html)="handleHTML($event)"></app-editor>
