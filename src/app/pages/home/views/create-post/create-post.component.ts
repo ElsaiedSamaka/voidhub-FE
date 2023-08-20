@@ -51,8 +51,11 @@ export class CreatePostComponent implements OnInit {
       },
       error: (err) => {
         this.toggleToast('error', 'somthing went wrong !');
+        this.closeCreateNewPostModal();
       },
-      complete: () => {},
+      complete: () => {
+        this.closeCreateNewPostModal();
+      },
     });
   }
   toggleToast(toastType: any, toastMessage: any): void {
