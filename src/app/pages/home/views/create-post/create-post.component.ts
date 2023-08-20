@@ -12,6 +12,9 @@ export class CreatePostComponent implements OnInit {
   validators = Validators;
   isFormValid: boolean = false;
   receivedHTMLContent: string = '';
+  showToast: boolean = false;
+  toastMessage: string = '';
+  toastType: string = '';
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {}
@@ -44,12 +47,20 @@ export class CreatePostComponent implements OnInit {
   postArticle(article: any): void {
     this.postsService.post(article).subscribe({
       next: (response) => {
-        console.log('response [post] CREATEPOSTCOMPONENT', response);
+        this.toggleToast('success', 'post publish !');
       },
       error: (err) => {
-        console.log('error [post] CREATEPOSTCOMPONENT', err);
+        this.toggleToast('error', 'somthing went wrong !');
       },
       complete: () => {},
     });
+  }
+  toggleToast(toastType: any, toastMessage: any): void {
+    this.showToast = true;
+    this.toastType = toastType;
+    this.toastMessage = toastMessage;
+    setTimeout(() => {
+      this.showToast = false;
+    }, 3000);
   }
 }
