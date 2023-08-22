@@ -43,6 +43,7 @@ export class CreatePostComponent implements OnInit {
   }
   handleHTML(value: any) {
     this.receivedHTMLContent = value;
+    console.log('value', value);
   }
   postArticle(article: any): void {
     this.postsService.post(article).subscribe({
