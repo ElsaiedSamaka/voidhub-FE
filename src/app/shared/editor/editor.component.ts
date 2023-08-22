@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  EventEmitter,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
@@ -6,7 +12,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css'],
 })
-export class EditorComponent implements OnInit {
+export class EditorComponent implements OnInit, DoCheck {
   @Output() html: EventEmitter<any> = new EventEmitter<any>();
   htmlContent: string = '';
 
@@ -41,6 +47,11 @@ export class EditorComponent implements OnInit {
     sanitize: true,
   };
   constructor() {}
+  ngDoCheck(): void {
+    if (this.htmlContent != '') {
+      this.emitHTMLContent();
+    }
+  }
 
   ngOnInit() {}
   emitHTMLContent() {
