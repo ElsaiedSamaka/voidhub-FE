@@ -13,7 +13,7 @@
       <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
     </div>
     <div *ngSwitchCase="2">
-      <div class="html w-full" [innerHTML]="htmlContent | sanitizeHtml">
+      <div class="html w-full h-40 overflow-scroll" [innerHTML]="htmlContent | sanitizeHtml">
       </div>
     </div>
     </div>
