@@ -16,9 +16,9 @@ export class PostsService {
       })
     );
   }
-  // getById(id: string): Observable<any> {
-  //   return this.apiService.get(`/api/posts/${id}`);
-  // }
+  getById(id: string): Observable<any> {
+    return this.apiService.get(`/api/posts/${id}`);
+  }
   // deleteById(id: string): Observable<any> {
   //   return this.apiService.delete(`/api/posts/${id}`).pipe(
   //     tap((deleteItem) => {
