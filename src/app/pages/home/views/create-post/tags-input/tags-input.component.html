@@ -1,0 +1,31 @@
+<div class="tags-input">
+  <label class="block text-sm font-semibold text-gray-700" for="tags">tags*</label>
+  <input (input)="showTagsDropDown = true" type="search" name="tags" id="tags" [(ngModel)]="tag"
+    (input)="handleTagsChange()" [ngModelOptions]="{standalone: true}" class="w-full px-4 py-2  rounded-xl "
+    [ngClass]="theme == 'dark'?'bg-[#888888] text-dark-white':'bg-white text-light-secondary border-2 border-gray-100'"
+    autofocus>
+  <!-- Dropdown menu -->
+  <div *ngIf="showTagsDropDown" id="dropdownSearch" class="absolute  z-10  rounded-3xl shadow w-60 "
+    [ngClass]="theme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white text-light-secondary'">
+    <div class="results p-2">
+      <h6 class="font-semibold">Results</h6>
+      <ul class="h-44 px-3 pb-3 overflow-y-auto text-sm">
+        <ng-container *ngIf="tags.length > 0;else nousersfound">
+          <li *ngFor="let tag of tags">
+            <div class="flex items-center pl-2 rounded "
+              [ngClass]="theme == 'dark'?'hover:bg-gray-500':'hover:bg-gray-100'">
+              <input [name]="tag.id" [id]="tag.id" [value]="tag.id" type="checkbox" [checked]="tag.isSelected"
+                (change)="handleUserSelect($event)"
+                class="sr-only w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2">
+              <label [for]="user.id" class="w-full py-2 ml-2 text-sm font-medium rounded"
+                [ngClass]="theme == 'dark'?' text-dark-white':'bg-white text-light-secondary'">{{user.username}}</label>
+            </div>
+          </li>
+        </ng-container>
+        <ng-template #notagsfound>
+          No tags found
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</div>
