@@ -1,6 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="submitForm()" enctype="multipart/form-data">
   <div
-    class="p-5 w-full h-full rounded-2xl">
+    class="p-2.5 w-full h-full rounded-2xl">
   <div *ngFor="let field of fields">
       <div [ngSwitch]="field.type">
         <div *ngSwitchCase="'text'">
