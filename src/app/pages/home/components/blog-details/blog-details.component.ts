@@ -9,7 +9,9 @@ import { ActivatedRoute } from '@angular/router';
 export class BlogDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getBlog();
+  }
   getBlog() {
     this.route.data.subscribe((data) => {
       console.log('blog', data);
