@@ -13,21 +13,21 @@
   </figure>
   <div class="flex flex-shrink-0 p-4 pb-0">
     <!-- user -->
-    <a class="flex-shrink-0 group block" (mouseenter)="toggleFollowingPopOver()"
-      (mouseleave)="toggleFollowingPopOver()">
+    <a class="flex-shrink-0 group block">
       <div class="flex items-center relative ">
         <div>
-          <img class="inline-block h-10 w-10 rounded-full"
+          <img class="inline-block h-10 w-10 rounded-full" (mouseenter)="toggleFollowingPopOver()"
+            (mouseleave)="toggleFollowingPopOver()"
             src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="" />
         </div>
-        <div class="ml-3 ">
-          <p class="text-base leading-6 font-medium">
+        <div class="ml-3 flex items-center">
+          <p class="text-base leading-6 font-medium" (mouseenter)="toggleFollowingPopOver()"
+            (mouseleave)="toggleFollowingPopOver()">
             Sonali Hirave
-            <span
-              class="text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150">
-              @ShonaDesign . {{article.createdAt |date}}
-            </span>
           </p>
+          <span class="text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150">
+            @ShonaDesign . {{article.createdAt |date}}
+          </span>
         </div>
         <!-- user popover -->
         <div *ngIf="showFollowingPopOver" data-popover id="popover-user-profile" role="tooltip"
