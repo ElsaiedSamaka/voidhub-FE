@@ -20,6 +20,7 @@ export class EditorComponent implements OnInit, DoCheck {
     editable: true,
     spellcheck: true,
     height: 'auto',
+    maxHeight: '10rem',
     minHeight: '5rem',
     placeholder: 'Enter text here...',
     translate: 'yes',
