@@ -18,11 +18,6 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
-        path: ':id',
-        component: BlogDetailsComponent,
-        resolve: { article: ArticleResolverService },
-      },
-      {
         path: 'jobs',
         loadChildren: () =>
           import('../home/components/jobs/jobs.module').then(
@@ -32,6 +27,11 @@ const routes: Routes = [
       { path: 'companies', component: CompaniesComponent },
       { path: 'messages', component: MessagesComponent },
       { path: 'reading-list', component: ReadingListComponent },
+      {
+        path: ':id',
+        component: BlogDetailsComponent,
+        resolve: { article: ArticleResolverService },
+      },
     ],
   },
 ];
