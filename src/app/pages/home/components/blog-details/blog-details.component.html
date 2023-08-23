@@ -1,6 +1,14 @@
-<article class="flex h-full flex-col pb-10 pt-16">
+<section class="flex overflow-hidden h-full flex-col pb-10 pt-16">
   <div class="flex-auto prose :prose-invert">
-    <h1 class="font-extrabold text-5xl">API Documentation</h1>
+  <figure class="relative">
+    <a>
+      <img class="object-fill w-full max-h-48" [src]="data.article.img" [alt]="data.article.title">
+    </a>
+    <figcaption class="absolute px-4 text-lg bottom-6 ">
+      <p class="font-bold text-4xl gradient-text">
+        {{data.article.title}}</p>
+    </figcaption>
+  </figure>
     <p class="lead inline-flex gap-2 text-zinc-700"><i>By.</i><span class="font-semibold hover:underline">Saied Samka</span>
       on <b> 21
         mar 2022</b> </p>
@@ -428,4 +436,4 @@
       </div>
     </div>
   </div>
-</article>
+</section>
