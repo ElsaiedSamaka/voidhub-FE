@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./blog-details.component.css'],
 })
 export class BlogDetailsComponent implements OnInit {
+  data: any = {};
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
@@ -14,7 +15,8 @@ export class BlogDetailsComponent implements OnInit {
   }
   getBlog() {
     this.route.data.subscribe((data) => {
-      console.log('blog', data);
+      this.data = data;
+      console.log('data', data);
     });
   }
 }
