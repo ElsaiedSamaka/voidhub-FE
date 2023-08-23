@@ -15,6 +15,14 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 export class EditorComponent implements OnInit, DoCheck {
   @Output() html: EventEmitter<any> = new EventEmitter<any>();
   htmlContent: string = '';
+  tabs: any[] = [
+    { id: 1, label: 'Edit' },
+    { id: 2, label: 'Preview' },
+  ];
+  selectedTabId = 1;
+  selectTab(id: number) {
+    this.selectedTabId = id;
+  }
 
   config: AngularEditorConfig = {
     editable: true,
