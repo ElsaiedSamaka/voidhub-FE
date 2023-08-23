@@ -15,7 +15,8 @@ export class ArticleComponent implements OnInit {
   toggleFollowingPopOver() {
     this.showFollowingPopOver = !this.showFollowingPopOver;
   }
-  toggleCommentSection() {
+  toggleCommentSection(event: any) {
+    event.stopPropagation();
     this.showCommentInput = !this.showCommentInput;
   }
 }
