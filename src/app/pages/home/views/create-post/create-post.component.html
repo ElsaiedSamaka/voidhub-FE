@@ -4,8 +4,6 @@
   <!-- post-as -->
   <input type="text" (click)="openCreateNewPostModal()" placeholder="Post as saied samaka ..."
     class=" h-11 w-full items-center gap-2 rounded-full bg-white pl-4 pr-3 text-sm text-zinc-500 ring-1 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none lg:flex">
-  <button type="button"
-    class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">Post</button>
 </div>
 <!-- Create Post Modal -->
 <app-modal *ngIf="showCreateNewPostModal" (dismiss)="closeCreateNewPostModal()">
