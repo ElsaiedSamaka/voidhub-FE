@@ -9,6 +9,7 @@ import { ThemeService } from 'src/app/shared/services/theme.service';
 export class TagsInputComponent implements OnInit {
   tag: string = '';
   tagId: any;
+  tags: any[] = [];
   showTagsDropDown: boolean = false;
   theme: string = '';
   constructor(private themeService: ThemeService) {}
