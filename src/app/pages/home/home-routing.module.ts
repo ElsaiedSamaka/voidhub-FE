@@ -16,13 +16,11 @@ const routes: Routes = [
       {
         path: 'timeline',
         component: HomeComponent,
-        children: [
-          {
-            path: ':id',
-            component: BlogDetailsComponent,
-            resolve: { article: ArticleResolverService },
-          },
-        ],
+      },
+      {
+        path: ':id',
+        component: BlogDetailsComponent,
+        resolve: { article: ArticleResolverService },
       },
       {
         path: 'jobs',
