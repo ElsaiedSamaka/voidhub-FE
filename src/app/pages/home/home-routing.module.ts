@@ -14,7 +14,7 @@ const routes: Routes = [
     component: IndexComponent,
     children: [
       {
-        path: '',
+        path: 'timeline',
         component: HomeComponent,
         children: [
           {

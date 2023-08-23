@@ -75,7 +75,7 @@ export class SigninComponent implements OnInit {
         complete: () => {
           this.loadingService.loading$.next(false);
           // this.showLoader = false;
-          this.router.navigateByUrl('/index');
+          this.router.navigateByUrl('/index/timeline');
         },
       });
   }

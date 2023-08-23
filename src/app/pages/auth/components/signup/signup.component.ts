@@ -62,7 +62,7 @@ export class SignupComponent implements OnInit {
       )
       .subscribe({
         next: (response) => {
-          this.router.navigateByUrl('/index');
+          this.router.navigateByUrl('/index/timeline');
         },
         error: (err) => {
           if (!err.status) {
