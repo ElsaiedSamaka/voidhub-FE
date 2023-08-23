@@ -17,6 +17,7 @@
       <div *ngSwitchCase="'file'">
         <div class="flex">
           <label *ngIf="label" [for]="name" class="block text-sm font-semibold text-gray-700">
+            cover
             <input [id]="id" [name]="name" [placeholder]="placeholder" [type]="type" (change)="handleFileChange($event)"
               class="mt-1 rounded-xl border-2 border-gray-200 bg-white text-sm text-gray-700 p-2 text-left w-full"
               [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
