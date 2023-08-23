@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ArticleResolverService } from 'src/core/resolvers/article-resolver.service';
+import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { HomeComponent } from './components/home/home.component';
 import { IndexComponent } from './components/index/index.component';
@@ -11,7 +13,17 @@ const routes: Routes = [
     path: '',
     component: IndexComponent,
     children: [
-      { path: '', component: HomeComponent },
+      {
+        path: '',
+        component: HomeComponent,
+        children: [
+          {
+            path: ':id',
+            component: BlogDetailsComponent,
+            resolve: { article: ArticleResolverService },
+          },
+        ],
+      },
       {
         path: 'jobs',
         loadChildren: () =>
