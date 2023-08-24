@@ -20,7 +20,7 @@ export class TagsInputComponent implements OnInit {
   handleTagsChange(): void {
     console.log('handleTagsChange');
   }
-  handleUserSelect(value: any): void {
+  handleTagSelect(value: any): void {
     console.log('handleUserSelect', value);
     //  const userId = event.target.value;
     //  const isChecked = event.target.checked;

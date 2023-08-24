@@ -7,13 +7,22 @@
         [alt]="article.title">
     </a>
     <figcaption class="absolute px-4 text-lg bottom-6 ">
-      <p class="font-bold text-2xl text-white bg-zinc-500 group-hover:bg-emerald-500 group-hover:text-white">
+      <p class="font-bold text-2xl gradient-text">
         {{article.title}}</p>
     </figcaption>
+      <div
+        class="absolute top-2 right-2 p-1 save-icon cursor-pointer rounded-full border bg-zinc-50 hover:border-zinc-200 hover:bg-zinc-100">
+        <svg class="w-7 h-7 text-gray-600 hover:text-gray-900" fill="none" stroke="currentColor" stroke-width="1.5"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
+          </path>
+        </svg>
+      </div>
   </figure>
-  <div class="flex flex-shrink-0 p-4 pb-0">
+<div class="flex p-4 pb-0">
     <!-- user -->
-    <a class="flex-shrink-0 group block">
+    <a class=" group block">
       <div class="flex items-center relative ">
         <div>
           <img class="inline-block h-10 w-10 rounded-full" (mouseenter)="toggleFollowingPopOver()"

@@ -19,16 +19,16 @@ export class PostsService {
   getById(id: string): Observable<any> {
     return this.apiService.get(`/api/posts/${id}`);
   }
-  // deleteById(id: string): Observable<any> {
-  //   return this.apiService.delete(`/api/posts/${id}`).pipe(
-  //     tap((deleteItem) => {
-  //       let updatedItems = this.posts$.value.filter(
-  //         (item) => item.id != deleteItem.id
-  //       );
-  //       this.posts$.next(updatedItems);
-  //     })
-  //   );
-  // }
+  deleteById(id: string): Observable<any> {
+    return this.apiService.delete(`/api/posts/${id}`).pipe(
+      tap((deleteItem) => {
+        let updatedItems = this.posts$.value.filter(
+          (item) => item.id != deleteItem.id
+        );
+        this.posts$.next(updatedItems);
+      })
+    );
+  }
   post(item: any): Observable<any> {
     return this.apiService.post('/api/posts', item).pipe(
       tap((addedItem) => {
