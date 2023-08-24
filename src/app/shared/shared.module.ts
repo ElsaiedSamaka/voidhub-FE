@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NgxEditorModule } from 'ngx-editor';
 import { SanitizeHtmlPipe } from 'src/core/pipes/SanitizeHtmlPipe.pipe';
+import { ActionsIconComponent } from './actions-icon/actions-icon.component';
 import { AlertComponent } from './alert/alert.component';
 import { ArticleComponent } from './article/article.component';
 import { PostAsComponent } from './article/post-as/post-as.component';
@@ -56,6 +57,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     WysiwygComponent,
     EditorComponent,
     SanitizeHtmlPipe,
+    ActionsIconComponent,
   ],
   exports: [
     ModalComponent,
@@ -77,6 +79,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     PostAsComponent,
     WysiwygComponent,
     EditorComponent,
+    ActionsIconComponent,
   ],
   providers: [DataService],
 })
