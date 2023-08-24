@@ -19,4 +19,8 @@ export class ArticleComponent implements OnInit {
     event.stopPropagation();
     this.showCommentInput = !this.showCommentInput;
   }
+  handleArticleActions(event: any): void {
+    event.stopPropagation();
+    console.log('clicked');
+  }
 }
