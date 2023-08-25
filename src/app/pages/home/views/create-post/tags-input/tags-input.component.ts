@@ -25,28 +25,28 @@ export class TagsInputComponent implements OnInit {
   }
   handleTagSelect(event: any): void {
     console.log('handleUserSelect', event);
-    // const tagId = event.target.value;
-    // console.log('tagId', tagId);
-    // const isChecked = event.target.checked;
-    // console.log('isChecked', isChecked);
-    // const tag = this.tags.find((u) => u.id == tagId);
-    // console.log('tag', tag);
-    // const selectedIndex = this.selectedTags.findIndex((u) => u.id == tagId);
-    // console.log('selectedIndex', selectedIndex);
+    const tagId = event.target.value;
+    console.log('tagId', tagId);
+    const isChecked = event.target.checked;
+    console.log('isChecked', isChecked);
+    const tag = this.tags.find((u) => u.id == tagId);
+    console.log('tag', tag);
+    const selectedIndex = this.selectedTags.findIndex((u) => u.id == tagId);
+    console.log('selectedIndex', selectedIndex);
 
-    // if (isChecked) {
-    //   if (selectedIndex === -1) {
-    //     this.selectedTags.push(tag);
-    //   }
-    //   this.showTagsDropDown = false;
-    //   this.tag = '';
-    // } else {
-    //   if (selectedIndex !== -1) {
-    //     this.selectedTags.splice(selectedIndex, 1);
-    //   }
-    //   this.tag = '';
-    //   this.showTagsDropDown = false;
-    // }
+    if (isChecked) {
+      if (selectedIndex === -1) {
+        this.selectedTags.push(tag);
+      }
+      this.showTagsDropDown = false;
+      this.tag = '';
+    } else {
+      if (selectedIndex !== -1) {
+        this.selectedTags.splice(selectedIndex, 1);
+      }
+      this.tag = '';
+      this.showTagsDropDown = false;
+    }
     console.log('selectedTags', this.selectedTags);
   }
   handleTagsChange(event: any): void {

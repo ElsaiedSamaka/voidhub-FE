@@ -20,7 +20,7 @@
               <input (change)="handleTagSelect($event)" [name]="tag.id" [id]="tag.id" [value]="tag.id" type="checkbox"
                 class="sr-only w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2">
               <!-- -->
-              <label [for]="tag.id" class="w-full bg-red-50 py-2 ml-2 text-sm font-medium rounded hover:cursor-pointer"
+              <label [for]="tag.id" class="w-full py-2 ml-2 text-sm font-medium rounded hover:cursor-pointer"
                 [ngClass]="theme == 'dark'?' text-dark-white':'bg-white text-light-secondary'"
                >#{{tag.name}}</label>
             </div>
