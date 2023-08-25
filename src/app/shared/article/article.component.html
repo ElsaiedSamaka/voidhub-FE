@@ -73,8 +73,18 @@
   <div class="">
     <div class="pl-16">
       <!-- article title -->
-      <p class="font-bold text-2xl gradient-text">
-        {{article.title}}</p>
+      <p class="font-bold text-2xl gradient-text inline-block">
+        {{article.title}}
+        <span>
+          <!-- tags -->
+          <div class="inline-flex gap-3">
+            <a
+              class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition rounded-full py-1 px-3 text-zinc-700 ring-1 ring-inset ring-zinc-900/10 hover:bg-zinc-900/2.5 hover:text-zinc-900 :text-zinc-400 :ring-white/10 :hover:bg-white/5 :hover:text-white">#Frontend
+            </a>
+          </div>
+          <!-- tags -->
+        </span>
+      </p>
       <!-- article title -->
       <!-- article content  -->
       <app-truncated-text></app-truncated-text>
