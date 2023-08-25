@@ -22,9 +22,11 @@ export class PostsService {
   deleteById(id: string): Observable<any> {
     return this.apiService.delete(`/api/posts/${id}`).pipe(
       tap((deleteItem) => {
+        console.log('deleteItem', deleteItem);
         let updatedItems = this.posts$.value.filter(
           (item) => item.id != deleteItem.id
         );
+        console.log('updatedItems', updatedItems);
         this.posts$.next(updatedItems);
       })
     );
