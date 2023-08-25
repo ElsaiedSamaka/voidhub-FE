@@ -2,7 +2,7 @@
   <div class="flex-auto prose ">
   <figure class="relative">
     <a>
-      <img class="object-fill w-full max-h-48" [src]="data.article.img" [alt]="data.article.title">
+      <img class="object-fill w-full max-h-48" *ngIf="data.article.img" [src]="data.article.img" [alt]="data.article.title">
     </a>
     <figcaption class="absolute w-full px-4 text-lg bottom-6 ">
       <pre class="font-extrabold  text-5xl gradient-text">{{data.article.title}}</pre>
