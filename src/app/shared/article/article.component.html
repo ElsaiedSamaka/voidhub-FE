@@ -6,13 +6,8 @@
         [src]="article.img"
         [alt]="article.title">
     </a>
-    <figcaption class="absolute px-4 text-lg bottom-6 ">
-      <p class="font-bold text-2xl gradient-text">
-        {{article.title}}</p>
-    </figcaption>
-    <app-actions-icon [id]="article.id"></app-actions-icon>
   </figure>
-<div class="flex p-4 pb-0">
+<div class="relative flex justify-between items-center p-2 pb-0">
     <!-- user -->
     <a class=" group block">
       <div class="flex items-center relative ">
@@ -73,10 +68,18 @@
       </div>
     </a>
     <!-- user -->
+    <app-actions-icon [id]="article.id"></app-actions-icon>
   </div>
   <div class="">
     <div class="pl-16">
+      <!-- article title -->
+      <p class="font-bold text-2xl gradient-text">
+        {{article.title}}</p>
+      <!-- article title -->
+      <!-- article content  -->
       <app-truncated-text></app-truncated-text>
+      <!-- article content  -->
+      <!-- article actions -->
       <div class="flex">
         <div class="w-full">
           <div class="flex justify-start items-center">
@@ -126,6 +129,7 @@
           </div>
         </div>
       </div>
+      <!-- article actions -->
     </div>
     <hr>
     <div class="post-card flex items-center space-x-2 border-b p-2" *ngIf="showCommentInput">
