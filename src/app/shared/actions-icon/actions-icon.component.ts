@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostsService } from 'src/core/services/posts.service';
 
 @Component({
   selector: 'app-actions-icon',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActionsIconComponent implements OnInit {
   showActionsDDL: boolean = false;
-  constructor() {}
+  constructor(private postsService: PostsService) {}
 
   ngOnInit() {}
   handleActions(event: any): void {
@@ -18,6 +19,15 @@ export class ActionsIconComponent implements OnInit {
   handlePostRemove(event: any): void {
     event.stopPropagation();
     this.showActionsDDL = false;
+    this.postsService.deleteById('1').subscribe({
+      next: (removedPost) => {
+        console.log('removedPost', removedPost);
+      },
+      error: (err) => {
+        console.log('error while removeing post', err);
+      },
+      complete: () => {},
+    });
     console.log('handlePostRemove');
   }
   handlePostReport(event: any): void {
