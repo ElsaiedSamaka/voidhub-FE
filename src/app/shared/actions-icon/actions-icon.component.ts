@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PostsService } from 'src/core/services/posts.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { PostsService } from 'src/core/services/posts.service';
   styleUrls: ['./actions-icon.component.css'],
 })
 export class ActionsIconComponent implements OnInit {
+  @Input() id: string = '';
   showActionsDDL: boolean = false;
   constructor(private postsService: PostsService) {}
 
@@ -19,7 +20,7 @@ export class ActionsIconComponent implements OnInit {
   handlePostRemove(event: any): void {
     event.stopPropagation();
     this.showActionsDDL = false;
-    this.postsService.deleteById('1').subscribe({
+    this.postsService.deleteById(this.id).subscribe({
       next: (removedPost) => {
         console.log('removedPost', removedPost);
       },
