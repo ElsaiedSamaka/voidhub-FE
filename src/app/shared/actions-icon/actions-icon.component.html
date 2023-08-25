@@ -41,3 +41,6 @@
     </ul>
   </div>
 </div>
+<!-- Toast -->
+<app-toast *ngIf="showToast" [toastType]="toastType" [toastMessage]="toastMessage"
+  (dismiss)="toggleToast()"></app-toast>

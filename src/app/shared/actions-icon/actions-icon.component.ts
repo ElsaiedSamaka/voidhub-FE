@@ -9,23 +9,23 @@ import { PostsService } from 'src/core/services/posts.service';
 export class ActionsIconComponent implements OnInit {
   @Input() id: string = '';
   showActionsDDL: boolean = false;
+  showToast: boolean = false;
+  toastMessage: string = '';
+  toastType: string = '';
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {}
   handleActions(event: any): void {
     event.stopPropagation();
     this.showActionsDDL = !this.showActionsDDL;
-    console.log('clicked');
   }
   handlePostRemove(event: any): void {
     event.stopPropagation();
     this.showActionsDDL = false;
     this.postsService.deleteById(this.id).subscribe({
-      next: (removedPost) => {
-        console.log('removedPost', removedPost);
-      },
+      next: (removedPost) => {},
       error: (err) => {
-        console.log('error while removeing post', err);
+        console.log('error while removeing post [actions-icon component]', err);
       },
       complete: () => {},
     });
@@ -35,5 +35,11 @@ export class ActionsIconComponent implements OnInit {
     event.stopPropagation();
     this.showActionsDDL = false;
     console.log('handlePostReport');
+  }
+  toggleToast() {
+    this.showToast = !this.showToast;
+    setTimeout(() => {
+      this.showToast = false;
+    }, 4000);
   }
 }
