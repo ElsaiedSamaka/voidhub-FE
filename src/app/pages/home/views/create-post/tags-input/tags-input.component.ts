@@ -23,6 +23,32 @@ export class TagsInputComponent implements OnInit {
   ngOnInit() {
     this.getCurrentTheme();
   }
+  handleTagSelect(event: any): void {
+    console.log('handleUserSelect', event);
+    // const tagId = event.target.value;
+    // console.log('tagId', tagId);
+    // const isChecked = event.target.checked;
+    // console.log('isChecked', isChecked);
+    // const tag = this.tags.find((u) => u.id == tagId);
+    // console.log('tag', tag);
+    // const selectedIndex = this.selectedTags.findIndex((u) => u.id == tagId);
+    // console.log('selectedIndex', selectedIndex);
+
+    // if (isChecked) {
+    //   if (selectedIndex === -1) {
+    //     this.selectedTags.push(tag);
+    //   }
+    //   this.showTagsDropDown = false;
+    //   this.tag = '';
+    // } else {
+    //   if (selectedIndex !== -1) {
+    //     this.selectedTags.splice(selectedIndex, 1);
+    //   }
+    //   this.tag = '';
+    //   this.showTagsDropDown = false;
+    // }
+    console.log('selectedTags', this.selectedTags);
+  }
   handleTagsChange(event: any): void {
     event.stopPropagation();
     const name = event.target.value;
@@ -56,28 +82,7 @@ export class TagsInputComponent implements OnInit {
       event.preventDefault();
     }
   }
-  handleTagSelect(event: any): void {
-    event.stopPropagation();
-    console.log('handleUserSelect', event);
-    const tagId = event.target.value;
-    const isChecked = event.target.checked;
-    const tag = this.tags.find((u) => u.id == tagId);
-    const selectedIndex = this.selectedTags.findIndex((u) => u.id == tagId);
 
-    if (isChecked) {
-      if (selectedIndex === -1) {
-        this.selectedTags.push(tag);
-      }
-      this.showTagsDropDown = false;
-      this.tag = '';
-    } else {
-      if (selectedIndex !== -1) {
-        this.selectedTags.splice(selectedIndex, 1);
-      }
-      this.tag = '';
-      this.showTagsDropDown = false;
-    }
-  }
   getCurrentTheme() {
     this.themeService.theme$.subscribe((theme) => {
       this.theme = theme;
