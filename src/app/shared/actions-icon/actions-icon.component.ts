@@ -15,4 +15,14 @@ export class ActionsIconComponent implements OnInit {
     this.showActionsDDL = !this.showActionsDDL;
     console.log('clicked');
   }
+  handlePostRemove(event: any): void {
+    event.stopPropagation();
+    this.showActionsDDL = false;
+    console.log('handlePostRemove');
+  }
+  handlePostReport(event: any): void {
+    event.stopPropagation();
+    this.showActionsDDL = false;
+    console.log('handlePostReport');
+  }
 }
