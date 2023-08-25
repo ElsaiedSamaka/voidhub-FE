@@ -23,11 +23,15 @@ export class ActionsIconComponent implements OnInit {
     event.stopPropagation();
     this.showActionsDDL = false;
     this.postsService.deleteById(this.id).subscribe({
-      next: (removedPost) => {},
+      next: (removedPost) => {
+        this.toggleToast('success', 'post deleted successfly');
+      },
       error: (err) => {
+        this.toggleToast('error', err);
         console.log('error while removeing post [actions-icon component]', err);
       },
-      complete: () => {},
+      complete: () => {
+      },
     });
     console.log('handlePostRemove');
   }
@@ -36,8 +40,10 @@ export class ActionsIconComponent implements OnInit {
     this.showActionsDDL = false;
     console.log('handlePostReport');
   }
-  toggleToast() {
-    this.showToast = !this.showToast;
+  toggleToast(toastType: string, toastMessage: string) {
+    console.log("toggleToast called")
+    this.showToast = true;
+    (this.toastType = toastType), (this.toastMessage = toastMessage);
     setTimeout(() => {
       this.showToast = false;
     }, 4000);
