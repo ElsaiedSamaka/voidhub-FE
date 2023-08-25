@@ -8,7 +8,7 @@
     <p class="text-xs font-semibold text-right italic">add up to 4
       tags</p>
   <!-- Dropdown menu -->
-  <div *ngIf="true" id="dropdownSearch" class="absolute  z-10 border  rounded-2xl shadow max-w-md "
+  <div *ngIf="showTagsDropDown" id="dropdownSearch" class="absolute  z-10 border  rounded-2xl shadow max-w-md "
     [ngClass]="theme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white text-light-secondary'">
     <div class="results p-2">
       <h6 class="font-semibold">Results</h6>
