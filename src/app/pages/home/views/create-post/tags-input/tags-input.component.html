@@ -1,6 +1,6 @@
 <div class="tags-input w-full ">
   <label class="block text-sm font-semibold text-gray-700" for="tags">tags*</label>
-  <input (mouseout)="showTagsDropDown=false" (mousedown)="handleTagsChange($event)" type="search" name="tags" id="tags"
+  <input (blur)="showTagsDropDown=false" (mousedown)="handleTagsChange($event)" type="search" name="tags" id="tags"
     [(ngModel)]="tag" (input)="handleTagsChange($event)" (keydown)="handleSpacebarTab($event)"
     [ngModelOptions]="{standalone: true}" class="w-full px-4 py-2  rounded-xl "
     [ngClass]="theme == 'dark'?'bg-[#888888] text-dark-white':'bg-white text-light-secondary border-2 border-gray-100'"
@@ -8,7 +8,7 @@
     <p class="text-xs font-semibold text-right italic">add up to 4
       tags</p>
   <!-- Dropdown menu -->
-  <div *ngIf="showTagsDropDown" id="dropdownSearch" class="absolute  z-10  rounded-3xl shadow w-60 "
+  <div *ngIf="showTagsDropDown" id="dropdownSearch" class="absolute  z-10 border  rounded-2xl shadow max-w-md "
     [ngClass]="theme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white text-light-secondary'">
     <div class="results p-2">
       <h6 class="font-semibold">Results</h6>
