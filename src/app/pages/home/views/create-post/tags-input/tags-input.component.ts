@@ -30,7 +30,7 @@ export class TagsInputComponent implements OnInit {
       .pipe(debounceTime(1000), distinctUntilChanged())
       .subscribe({
         next: (res) => {
-          this.tags = res;
+          this.tags = this.tagsService.tags$.value;
         },
         error: (error) => {},
         complete: () => {},
@@ -45,6 +45,7 @@ export class TagsInputComponent implements OnInit {
         },
         complete: () => {
           this.tag = '';
+          this.showTagsDropDown = false;
         },
       });
     } else if (event.code === 'Space') {

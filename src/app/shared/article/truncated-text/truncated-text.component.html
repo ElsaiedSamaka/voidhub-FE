@@ -1,4 +1,4 @@
-<p class="text-base width-auto font-medium flex-shrink" [ngClass]="{'expanded': isExpanded}">
+<p class="text-base width-auto font-medium flex-shrink " [ngClass]="{'expanded': isExpanded}">
   {{ truncatedText }}
   <span *ngIf="isTruncated"> <a (click)="expandText($event)">Read more</a></span>
 </p>
