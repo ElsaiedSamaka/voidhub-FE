@@ -13,6 +13,7 @@ export class TagsInputComponent implements OnInit {
   tagId: any;
   tags: any[] = [];
   showTagsDropDown: boolean = false;
+  selectedTags: any[] = [];
   theme: string = '';
   constructor(
     private themeService: ThemeService,
@@ -23,6 +24,7 @@ export class TagsInputComponent implements OnInit {
     this.getCurrentTheme();
   }
   handleTagsChange(event: any): void {
+    event.stopPropagation();
     const name = event.target.value;
     this.showTagsDropDown = true;
     this.tagsService
@@ -37,6 +39,7 @@ export class TagsInputComponent implements OnInit {
       });
   }
   handleSpacebarTab(event: any): void {
+    event.stopPropagation();
     if (event.code === 'Space' && this.tag.trim().length > 0) {
       this.tagsService.post({ name: this.tag }).subscribe({
         next: (response) => {},
@@ -53,26 +56,27 @@ export class TagsInputComponent implements OnInit {
       event.preventDefault();
     }
   }
-  handleTagSelect(value: any): void {
-    console.log('handleUserSelect', value);
-    //  const userId = event.target.value;
-    //  const isChecked = event.target.checked;
-    //  const user = this.users.find((u) => u.id == userId);
-    //  const selectedIndex = this.selectedUsers.findIndex((u) => u.id == userId);
+  handleTagSelect(event: any): void {
+    event.stopPropagation();
+    console.log('handleUserSelect', event);
+    const tagId = event.target.value;
+    const isChecked = event.target.checked;
+    const tag = this.tags.find((u) => u.id == tagId);
+    const selectedIndex = this.selectedTags.findIndex((u) => u.id == tagId);
 
-    //  if (isChecked) {
-    //    if (selectedIndex === -1) {
-    //      this.selectedUsers.push(user);
-    //    }
-    //    this.showDropdown = false;
-    //    this.email = '';
-    //  } else {
-    //    if (selectedIndex !== -1) {
-    //      this.selectedUsers.splice(selectedIndex, 1);
-    //    }
-    //    this.email = '';
-    //    this.showDropdown = false;
-    //  }
+    if (isChecked) {
+      if (selectedIndex === -1) {
+        this.selectedTags.push(tag);
+      }
+      this.showTagsDropDown = false;
+      this.tag = '';
+    } else {
+      if (selectedIndex !== -1) {
+        this.selectedTags.splice(selectedIndex, 1);
+      }
+      this.tag = '';
+      this.showTagsDropDown = false;
+    }
   }
   getCurrentTheme() {
     this.themeService.theme$.subscribe((theme) => {

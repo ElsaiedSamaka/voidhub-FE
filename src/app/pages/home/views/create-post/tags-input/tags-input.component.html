@@ -8,7 +8,7 @@
     <p class="text-xs font-semibold text-right italic">add up to 4
       tags</p>
   <!-- Dropdown menu -->
-  <div *ngIf="showTagsDropDown" id="dropdownSearch" class="absolute  z-10 border  rounded-2xl shadow max-w-md "
+  <div *ngIf="true" id="dropdownSearch" class="absolute  z-10 border  rounded-2xl shadow max-w-md "
     [ngClass]="theme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white text-light-secondary'">
     <div class="results p-2">
       <h6 class="font-semibold">Results</h6>
@@ -17,11 +17,13 @@
           <li *ngFor="let tag of tags">
             <div class="flex items-center pl-2 rounded "
               [ngClass]="theme == 'dark'?'hover:bg-gray-500':'hover:bg-gray-100'">
-              <input [name]="tag.id" [id]="tag.id" [value]="tag.id" type="checkbox" [checked]="tag.isSelected"
-                (change)="handleTagSelect($event)"
-                class=" w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2">
-              <label [for]="tag.id" class="w-full py-2 ml-2 text-sm font-medium rounded"
-                [ngClass]="theme == 'dark'?' text-dark-white':'bg-white text-light-secondary'">{{tag.name}}</label>
+              <!-- [checked]="tag.isSelected" -->
+              <input [name]="tag.id" [id]="tag.id" [value]="tag.id" type="checkbox"
+                class="sr-only w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2">
+              <!-- (change)="handleTagSelect($event)" -->
+              <label [for]="tag.id" class="w-full py-2 ml-2 text-sm font-medium rounded hover:cursor-pointer"
+                [ngClass]="theme == 'dark'?' text-dark-white':'bg-white text-light-secondary'"
+                (click)="handleTagSelect($event)">#{{tag.name}}</label>
             </div>
           </li>
         </ng-container>
