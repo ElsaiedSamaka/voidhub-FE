@@ -28,7 +28,6 @@ export class TimelineComponent implements OnInit {
   subscribeToPosts$(): void{
      this.postsService.posts$.subscribe({
        next: (response) => {
-         console.log('response', response);
          this.posts = response;
        },
        error: (error) => {

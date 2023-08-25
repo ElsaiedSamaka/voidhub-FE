@@ -24,7 +24,6 @@ export class ActionsIconComponent implements OnInit {
     this.showActionsDDL = false;
     this.postsService.deleteById(this.id).subscribe({
       next: (removedPost) => {
-        this.toggleToast('success', 'post deleted successfly');
       },
       error: (err) => {
         this.toggleToast('error', err);
@@ -33,15 +32,15 @@ export class ActionsIconComponent implements OnInit {
       complete: () => {
       },
     });
-    console.log('handlePostRemove');
+    this.toggleToast('success', 'post removed');
   }
   handlePostReport(event: any): void {
     event.stopPropagation();
     this.showActionsDDL = false;
+    this.toggleToast('success', 'post reported');
     console.log('handlePostReport');
   }
   toggleToast(toastType: string, toastMessage: string) {
-    console.log("toggleToast called")
     this.showToast = true;
     (this.toastType = toastType), (this.toastMessage = toastMessage);
     setTimeout(() => {

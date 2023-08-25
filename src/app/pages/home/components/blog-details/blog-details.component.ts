@@ -16,7 +16,6 @@ export class BlogDetailsComponent implements OnInit {
   getBlog() {
     this.route.data.subscribe((data) => {
       this.data = data;
-      console.log('data', data);
     });
   }
 }
