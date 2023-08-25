@@ -30,7 +30,8 @@ export class TruncatedTextComponent implements OnInit {
     }
   }
 
-  expandText() {
+  expandText(event: any) {
+    event.stopPropagation();
     this.isExpanded = !this.isExpanded;
     this.isTruncated = false;
     this.truncatedText = this.text;
