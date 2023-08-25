@@ -12,6 +12,7 @@ export class TimelineComponent implements OnInit {
 
   ngOnInit() {
     this.getAll();
+    this.subscribeToPosts$()
   }
   getAll(): void {
     this.postsService.getAll().subscribe({
@@ -23,5 +24,20 @@ export class TimelineComponent implements OnInit {
       },
       complete: () => {},
     });
+  }
+  subscribeToPosts$(): void{
+     this.postsService.posts$.subscribe({
+       next: (response) => {
+         console.log('response', response);
+         this.posts = response;
+       },
+       error: (error) => {
+         console.log(
+           'error while reterieving posts [timeline component]',
+           error
+         );
+       },
+       complete: () => {},
+     });
   }
 }
