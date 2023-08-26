@@ -18,7 +18,8 @@
             src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="" />
         </div>
         <div class="ml-3 flex items-center">
-          <p class="text-base leading-6 font-medium" (mouseenter)="toggleFollowingPopOver()"
+          <p [class.text-gray-200]="currentTheme=='dark'" class="text-base leading-6 font-medium"
+            (mouseenter)="toggleFollowingPopOver()"
             (mouseleave)="toggleFollowingPopOver()">
             Sonali Hirave
           </p>
@@ -74,7 +75,8 @@
   <div class="">
     <div class="pl-16">
       <!-- article title -->
-      <p class="font-bold text-2xl gradient-text inline-block">
+      <p [class.gradient-text]="currentTheme=='light'" [class.text-gray-200]="currentTheme=='dark'"
+        class="font-bold text-2xl inline-block">
         {{article.title}}
         <span>
           <!-- tags -->
