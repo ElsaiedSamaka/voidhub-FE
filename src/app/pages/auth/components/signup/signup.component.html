@@ -1,5 +1,5 @@
 <section class="h-screen overflow-hidden"
-  [ngClass]="theme == ''?'bg-[#1b1d1e] text--secondary':'bg-gray-50  text-light-secondary'">
+  [ngClass]="theme == 'dark'?'bg-[#1b1d1e] text-dark-secondary':'bg-gray-50  text-light-secondary'">
   <!-- shap -->
   <div class="pointer-events-none">
     <div
@@ -33,11 +33,11 @@
           <pre> VoidHub </pre>
         </div>
     </div>
-    <div [ngClass]="theme == ''?'bg-dark-accent text-dark-secondary':'bg-white  text-light-secondary'"
+    <div [ngClass]="theme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white  text-light-secondary'"
       class="w-full rounded-2xl shadow md:mt-0 sm:max-w-md xl:p-0">
       <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 
-        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl :text-white">
+        <h1 class="text-xl font-bold leading-tight tracking-tight  md:text-2xl :text-white">
           Create an account
         </h1>
         <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="space-y-4 md:space-y-6">
@@ -98,7 +98,7 @@
             </div>
           </div>
           <button type="submit" [disabled]="authForm.invalid"
-            [ngClass]="theme == ''?'bg--primary  text--secondary':'bg-light-primary  text-light-secondary'"
+            [ngClass]="theme == 'dark'?'bg-dark-primary  text-dark-secondary':'bg-light-primary  text-light-secondary'"
             class="w-full border border-green-600 hover:bg-light-accent hover:cursor-pointer hover:text-gray-50 focus:ring-2 focus:ring-green-300  font-semibold rounded-3xl  px-5 py-2.5 text-center ">Create
             an account</button>
           <p class=" font-light ">
@@ -109,7 +109,7 @@
         </form>
       </div>
     </div>
-    <div class="flex space-x-2" [ngClass]="theme == ''?' text-dark-secondary':'  text-light-secondary'"><span>made with
+    <div class="flex space-x-2" [ngClass]="theme == 'dark'?' text-dark-secondary':'  text-light-secondary'"><span>made with
         ❤️ by</span><span><a class="hover:underline" href="https://twitter.com/ElsaiedSamaka" target="_blank">
           <i> Saied
             Samaka</i></a></span>
