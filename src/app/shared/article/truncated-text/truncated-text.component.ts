@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-truncated-text',
@@ -13,6 +13,7 @@ export class TruncatedTextComponent implements OnInit {
   truncatedText: string;
   isTruncated: boolean = false;
   isExpanded: boolean = false;
+  @Input() currentTheme: string = '';
 
   constructor() {
     this.truncateText();

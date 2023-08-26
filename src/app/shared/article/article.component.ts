@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./article.component.css'],
 })
 export class ArticleComponent implements OnInit {
+  @Input() currentTheme: string = '';
   @Input() article: any = {};
   showFollowingPopOver: boolean = false;
   showCommentInput: boolean = false;
