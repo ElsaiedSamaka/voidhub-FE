@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { PostsService } from 'src/core/services/posts.service';
 
@@ -8,6 +8,7 @@ import { PostsService } from 'src/core/services/posts.service';
   styleUrls: ['./create-post.component.css'],
 })
 export class CreatePostComponent implements OnInit {
+  @Input() currentTheme: string = '';
   showCreateNewPostModal: boolean = false;
   validators = Validators;
   isFormValid: boolean = false;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PostsService } from 'src/core/services/posts.service';
 
 @Component({
@@ -7,12 +7,13 @@ import { PostsService } from 'src/core/services/posts.service';
   styleUrls: ['./timeline.component.css'],
 })
 export class TimelineComponent implements OnInit {
+  @Input() currentTheme: string = '';
   posts: any[] = [];
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {
     this.getAll();
-    this.subscribeToPosts$()
+    this.subscribeToPosts$();
   }
   getAll(): void {
     this.postsService.getAll().subscribe({
@@ -25,18 +26,18 @@ export class TimelineComponent implements OnInit {
       complete: () => {},
     });
   }
-  subscribeToPosts$(): void{
-     this.postsService.posts$.subscribe({
-       next: (response) => {
-         this.posts = response;
-       },
-       error: (error) => {
-         console.log(
-           'error while reterieving posts [timeline component]',
-           error
-         );
-       },
-       complete: () => {},
-     });
+  subscribeToPosts$(): void {
+    this.postsService.posts$.subscribe({
+      next: (response) => {
+        this.posts = response;
+      },
+      error: (error) => {
+        console.log(
+          'error while reterieving posts [timeline component]',
+          error
+        );
+      },
+      complete: () => {},
+    });
   }
 }
