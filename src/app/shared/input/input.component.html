@@ -4,7 +4,8 @@
   <ng-container [ngSwitch]="type">
     <div *ngSwitchCase="'text'">
       <div class="flex">
-        <label *ngIf="label" [for]="name" class="block text-sm font-semibold ">{{label}}</label>
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
+          class="block text-sm font-semibold ">{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
@@ -16,7 +17,8 @@
     </div>
       <div *ngSwitchCase="'file'">
         <div class="flex">
-          <label *ngIf="label" [for]="name" class="block text-sm font-semibold">
+          <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
+            class="block text-sm font-semibold">
             cover
             <input [id]="id" [name]="name" [placeholder]="placeholder" [type]="type" (change)="handleFileChange($event)"
            [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  class="mt-1 rounded-xl border appearance-none bg-transparent text-sm p-2 text-left w-full"
@@ -30,7 +32,8 @@
       </div>
     <div *ngSwitchCase="'number'">
       <div class="flex">
-        <label *ngIf="label" [for]="name" class="block text-sm font-semibold ">{{label}}</label>
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
+          class="block text-sm font-semibold ">{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
@@ -41,7 +44,8 @@
     </div>
     <div *ngSwitchCase="'tel'">
       <div class="flex">
-        <label *ngIf="label" [for]="name" class="block text-sm font-semibold ">{{label}}</label>
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
+          class="block text-sm font-semibold ">{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" (keydown)="onKeyDown($event)" [placeholder]="placeholder"
@@ -53,7 +57,8 @@
     </div>
     <div *ngSwitchCase="'search'">
       <div class="flex">
-        <label *ngIf="label" [for]="name" class="block text-sm font-semibold ">{{label}}</label>
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
+          class="block text-sm font-semibold ">{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" [id]="id" [name]="name"
@@ -65,7 +70,8 @@
     </div>
     <div *ngSwitchCase="'password'">
       <div class="flex">
-        <label *ngIf="label" [for]="name" class="block text-sm font-semibold ">{{label}}</label>
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
+          class="block text-sm font-semibold ">{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" [id]="id" [name]="name"
@@ -77,7 +83,8 @@
     </div>
     <div *ngSwitchCase="'checkbox'">
       <div class="flex">
-        <label *ngIf="label" [for]="name" class="block text-sm font-semibold ">{{label}}</label>
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
+          class="block text-sm font-semibold ">{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
@@ -88,7 +95,8 @@
     </div>
     <div *ngSwitchCase="'date'">
       <div class="flex">
-        <label *ngIf="label" [for]="name" class="block text-sm font-semibold ">{{label}}</label>
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
+          class="block text-sm font-semibold ">{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
@@ -99,7 +107,8 @@
     </div>
     <div *ngSwitchCase="'email'">
       <div class="flex">
-        <label *ngIf="label" [for]="name" class="block text-sm font-semibold ">{{label}}</label>
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
+          class="block text-sm font-semibold ">{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
@@ -110,7 +119,8 @@
     </div>
     <div *ngSwitchCase="'textarea'">
       <div class="flex">
-        <label *ngIf="label" [for]="name" class="block text-sm font-semibold ">{{label}}</label>
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
+          class="block text-sm font-semibold ">{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <textarea class="mt-1 rounded-xl border appearance-none bg-transparent text-sm  p-2 text-left w-full"
@@ -121,11 +131,12 @@
     </div>
     <div *ngSwitchCase="'select'">
       <div class="flex">
-        <label *ngIf="label" [for]="name" class="block text-sm font-semibold ">{{label}}</label>
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
+          class="block text-sm font-semibold ">{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <select *ngSwitchCase="'select'"
-     [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"    class="mt-1 rounded-xl border appearance-none bg-transparent text-sm  p-2 text-left w-full" [id]="id"
+     [class.bg-zinc-900]="currentTheme=='dark'" [class.text-dark-secondary]="currentTheme=='dark'"    class="mt-1 rounded-xl border appearance-none bg-transparent text-sm  p-2 text-left w-full" [id]="id"
         [formControl]="control">
         <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
       </select>
