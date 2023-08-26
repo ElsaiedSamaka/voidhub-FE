@@ -26,13 +26,9 @@ export class TagsInputComponent implements OnInit {
   handleTagSelect(event: any): void {
     console.log('handleUserSelect', event);
     const tagId = event.target.value;
-    console.log('tagId', tagId);
     const isChecked = event.target.checked;
-    console.log('isChecked', isChecked);
     const tag = this.tags.find((u) => u.id == tagId);
-    console.log('tag', tag);
     const selectedIndex = this.selectedTags.findIndex((u) => u.id == tagId);
-    console.log('selectedIndex', selectedIndex);
 
     if (isChecked) {
       if (selectedIndex === -1) {
@@ -68,7 +64,9 @@ export class TagsInputComponent implements OnInit {
     event.stopPropagation();
     if (event.code === 'Space' && this.tag.trim().length > 0) {
       this.tagsService.post({ name: this.tag }).subscribe({
-        next: (response) => {},
+        next: (tag) => {
+          this.selectedTags.push(tag);
+        },
         error: (error) => {
           console.log('error', error);
         },
