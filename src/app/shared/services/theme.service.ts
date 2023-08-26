@@ -17,8 +17,9 @@ export class ThemeService {
   }
   getCurrentTheme() {
     this.savedTheme = localStorage.getItem('theme') || this.preferredTheme;
+    this.setTheme(this.savedTheme);
   }
-  toggleTheme(themeToSet: string): void {
+  setTheme(themeToSet: string): void {
     switch (themeToSet) {
       case 'dark':
         // document.body.classList.replace('dark', 'light');

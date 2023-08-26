@@ -7,14 +7,11 @@ import { ThemeService } from '../../services/theme.service';
   styleUrls: ['./switch-theme.component.css'],
 })
 export class SwitchThemeComponent implements OnInit {
-  theme: string = '';
-
   constructor(private themeService: ThemeService) {}
 
   ngOnInit() {}
-  toggleTheme() {
-    // this.getCurrentTheme();
-    const themeToSet = this.theme == 'dark' ? 'light' : 'dark';
-    this.themeService.toggleTheme(themeToSet);
+  toggleTheme(themeToSet: string) {
+    console.log('themeToSet', themeToSet);
+    this.themeService.setTheme(themeToSet);
   }
 }
