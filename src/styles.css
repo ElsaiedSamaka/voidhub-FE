@@ -21,6 +21,9 @@ body{
   box-sizing: border-box;
   scrollbar-width: thin;
   scrollbar-color: gray white;
+  
+  /* border-color: rgb(24 24 27 / 0.1); */
+  /* border-color: rgb(255 255 255 / 0.1); */
 }
 
 ::-moz-selection {

@@ -27,7 +27,7 @@
   <input (mousedown)="handleTagsChange($event)" type="search" name="tags" id="tags"
     [(ngModel)]="tag" (input)="handleTagsChange($event)" (keydown)="handleSpacebarTab($event)"
     [ngModelOptions]="{standalone: true}" class="w-full px-4 py-2  rounded-xl "
-    [ngClass]="theme == 'dark'?'bg-[#888888] text-dark-white':'bg-white text-light-secondary border-2 border-gray-100'"
+      [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"
     maxlength="12">
     <!-- Dropdown menu -->
     <div *ngIf="showTagsDropDown" id="dropdownSearch" class="absolute  z-10 border  rounded-2xl shadow max-w-md "

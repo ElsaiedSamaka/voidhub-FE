@@ -9,7 +9,7 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-        class="mt-1 rounded-xl border appearance-none bg-transparent text-sm   p-2 text-left w-full"
+        class="mt-1 rounded-xl border-white/10 border appearance-none bg-transparent text-sm   p-2 text-left w-full"
    [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
