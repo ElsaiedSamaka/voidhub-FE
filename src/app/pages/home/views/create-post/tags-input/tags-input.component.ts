@@ -24,14 +24,13 @@ export class TagsInputComponent implements OnInit {
     this.getCurrentTheme();
   }
   handleTagSelect(event: any): void {
-    console.log('handleUserSelect', event);
     const tagId = event.target.value;
     const isChecked = event.target.checked;
     const tag = this.tags.find((u) => u.id == tagId);
     const selectedIndex = this.selectedTags.findIndex((u) => u.id == tagId);
 
     if (isChecked) {
-      if (selectedIndex === -1) {
+      if (selectedIndex === -1 && this.selectedTags.length <= 4) {
         this.selectedTags.push(tag);
       }
       this.showTagsDropDown = false;
@@ -43,7 +42,6 @@ export class TagsInputComponent implements OnInit {
       this.tag = '';
       this.showTagsDropDown = false;
     }
-    console.log('selectedTags', this.selectedTags);
   }
   handleTagsChange(event: any): void {
     event.stopPropagation();
@@ -65,7 +63,9 @@ export class TagsInputComponent implements OnInit {
     if (event.code === 'Space' && this.tag.trim().length > 0) {
       this.tagsService.post({ name: this.tag }).subscribe({
         next: (tag) => {
-          this.selectedTags.push(tag);
+          if (this.selectedTags.length <= 4) {
+            this.selectedTags.push(tag);
+          }
         },
         error: (error) => {
           console.log('error', error);
