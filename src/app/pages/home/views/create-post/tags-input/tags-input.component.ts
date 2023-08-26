@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { ThemeService } from 'src/app/shared/services/theme.service';
 import { TagsService } from 'src/core/services/tags.service';
@@ -9,6 +9,8 @@ import { TagsService } from 'src/core/services/tags.service';
   styleUrls: ['./tags-input.component.css'],
 })
 export class TagsInputComponent implements OnInit {
+  @Input() currentTheme: string = '';
+
   tag: string = '';
   tagId: any;
   tags: any[] = [];
