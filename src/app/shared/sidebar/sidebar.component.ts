@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
+  @Input() currentTheme: any = null;
+
   subProgramsTree: any[] = [
     {
       id: 1,

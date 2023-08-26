@@ -8,6 +8,7 @@ import { DataService } from '../services/data.service';
 })
 export class NavbarComponent implements OnInit {
   @Input() currentUser: any = null;
+  @Input() currentTheme: any = null;
   showSideBar: boolean = true;
   constructor(private dataService: DataService) {}
 
