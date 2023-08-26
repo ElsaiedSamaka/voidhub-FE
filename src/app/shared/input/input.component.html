@@ -12,7 +12,7 @@
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
-        
+            <p *ngIf="description" class="input-description text-xs font-semibold text-right italic">maxlength for a tag 12 char</p>
     </div>
       <div *ngSwitchCase="'file'">
         <div class="flex">

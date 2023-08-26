@@ -25,6 +25,7 @@ export class InputComponent implements OnInit {
   @Input() title: string = '';
   @Input() name: string = '';
   @Input() id: string = '';
+  @Input() description: string = '';
   @Input() options: any[] = [];
   @Output() fileChange: EventEmitter<any> = new EventEmitter<any>();
   showErrors() {
