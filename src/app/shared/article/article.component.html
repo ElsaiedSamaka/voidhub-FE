@@ -1,4 +1,4 @@
-<article class="post group max-h-61 border border-white/5 backdrop-blur-3xl hover:cursor-pointer"
+<article class="post group max-h-61 border border-white/5  hover:cursor-pointer"
   [routerLink]="['/index',article.id]">
   <figure *ngIf="article.img"
     class="relative  max-h-xl  transition-all duration-300 cursor-pointer filter grayscale group-hover:grayscale-0">
@@ -29,7 +29,7 @@
         </div>
         <!-- user popover -->
         <div *ngIf="showFollowingPopOver" data-popover id="popover-user-profile" role="tooltip"
-          class="absolute z-10 top-10 inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-100">
+          class="absolute z-auto top-10 inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-100">
           <div class="p-3">
             <div class="flex items-center justify-between mb-2">
               <a>
