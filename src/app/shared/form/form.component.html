@@ -4,7 +4,7 @@
   <div *ngFor="let field of fields">
       <div [ngSwitch]="field.type">
         <div *ngSwitchCase="'text'">
-          <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name
+          <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name [description]=field.description
             [type]=field.type [label]=field.label [maxlength]=field.maxlength
       [minlength]=field.minlength [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
       </div>
