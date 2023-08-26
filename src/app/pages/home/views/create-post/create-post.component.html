@@ -8,7 +8,7 @@
 <!-- Create Post Modal -->
 <app-modal *ngIf="showCreateNewPostModal" (dismiss)="closeCreateNewPostModal()">
   <div modal-header>
-    <div class="flex flex-row-reverse justify-between ">
+    <div class="flex flex-row-reverse justify-between px-2 ">
       <button type="button" (click)="closeCreateNewPostModal()"
         [ngClass]="theme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white text-light-secondary'"
         class=" border border-transparent hover:border hover:border-gray-300 hover:text-gray-900 rounded-3xl text-sm p-1.5  inline-flex items-center"
@@ -37,8 +37,9 @@
         <app-editor (html)="handleHTML($event)"></app-editor>
       </ng-container>
           <ng-container form-actions>
+            <div class="px-2">
           <button (click)="closeCreateNewPostModal()"
-            class="inline-block  shrink-0 rounded-xl border border-transparent hover:border hover:border-gray-300 mx-1 px-6 py-2 text-sm font-semibold text-gray-500 hover:text-black focus:outline-none active:text-white disabled:cursor-not-allowed">
+            class="inline-block  shrink-0 rounded-xl border border-gray-100 hover:border hover:border-gray-300 mx-1 px-6 py-2 font-semibold text-gray-500 hover:text-black focus:outline-none active:text-white disabled:cursor-not-allowed">
             cancel
           </button>
           <button type="submit" [disabled]="!isFormValid"
@@ -51,6 +52,7 @@
               </path>
             </svg>
           </button>
+          </div>
         </ng-container>
       </app-form>
 
