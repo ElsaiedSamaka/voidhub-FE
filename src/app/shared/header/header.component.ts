@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() currentUser: any = null;
-  constructor() {}
+  currentTheme: string = '';
+  constructor(private themeService: ThemeService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.themeService.theme$.subscribe((theme) => {
+      this.currentTheme = theme;
+    });
+  }
 }
