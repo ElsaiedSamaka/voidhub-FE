@@ -19,6 +19,7 @@ import { InputComponent } from './input/input.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { ModalComponent } from './modal/modal.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SwitchThemeComponent } from './navbar/switch-theme/switch-theme.component';
 import { PopupComponent } from './popup/popup.component';
 import { ProseComponent } from './prose/prose.component';
 import { DataService } from './services/data.service';
@@ -58,6 +59,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     EditorComponent,
     SanitizeHtmlPipe,
     ActionsIconComponent,
+    SwitchThemeComponent,
   ],
   exports: [
     ModalComponent,
@@ -80,6 +82,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     WysiwygComponent,
     EditorComponent,
     ActionsIconComponent,
+    SwitchThemeComponent,
   ],
   providers: [DataService],
 })
