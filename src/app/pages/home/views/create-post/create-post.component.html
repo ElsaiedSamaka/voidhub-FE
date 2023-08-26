@@ -3,14 +3,14 @@
   <app-post-as></app-post-as>
   <!-- post-as -->
   <input type="text" (click)="openCreateNewPostModal()" placeholder="Post as saied samaka ..."
-    class=" h-11 w-full items-center gap-2 rounded-full pl-4 pr-3 text-sm ring-1 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none lg:flex">
+   [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  class=" h-11 w-full items-center gap-2 rounded-full pl-4 pr-3 text-sm ring-1 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none lg:flex">
 </div>
 <!-- Create Post Modal -->
 <app-modal *ngIf="showCreateNewPostModal" (dismiss)="closeCreateNewPostModal()">
   <div modal-header>
     <div class="flex flex-row-reverse justify-between px-2 ">
       <button type="button" (click)="closeCreateNewPostModal()"
-        [ngClass]="theme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white text-light-secondary'"
+        [class.bg-dark-accent] = "currentTheme =='dark'" [class.text-dark-secondary]="currentTheme =='dark'"
         class=" border border-transparent hover:border hover:border-gray-300 hover:text-gray-900 rounded-3xl text-sm p-1.5  inline-flex items-center"
         data-modal-hide="popup-modal">
         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -21,7 +21,7 @@
         </svg>
         <span class="sr-only">Close modal</span>
       </button>
-      <h3 class="text-xl font-semibold" [ngClass]="theme == 'dark'?' text-dark-secondary':' text-light-secondary'">
+      <h3 class="text-xl font-semibold" [class.text-dark-secondary]="currentTheme =='dark'">
         Create new post
       </h3>
     </div>
