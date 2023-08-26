@@ -1,4 +1,5 @@
-<button type="button" (click)="toggleTheme('dark')"
+<div [ngSwitch]="currentTheme">
+  <button *ngSwitchCase="'light'" type="button" (click)="toggleTheme('dark')"
   class="flex p-1 h-7 w-7 rounded-full items-center justify-center transition hover:bg-zinc-900/5 :hover:bg-white/5"
   aria-label="Switch to light theme">
   <svg class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
@@ -9,7 +10,7 @@
   </svg>
 
 </button>
-<button type="button" (click)="toggleTheme('light')"
+<button *ngSwitchCase="'dark'" type="button" (click)="toggleTheme('light')"
   class="flex p-1 h-7 w-7 rounded-full items-center justify-center transition hover:bg-zinc-900/5 :hover:bg-white/5"
   aria-label="Switch to light theme">
   <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
@@ -18,3 +19,4 @@
   </svg>
 
 </button>
+</div>
