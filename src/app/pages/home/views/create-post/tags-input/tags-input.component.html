@@ -11,7 +11,7 @@
           d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5"></path>
       </svg>
       {{tag.name}}
-      <button type="button"
+      <button type="button" (click)="removeSelectedTag(i)"
         class="inline-flex items-center p-1 ml-2 text-sm text-gray-400 bg-transparent rounded-sm hover:bg-red-200 hover:text-red-900 "
         data-dismiss-target="#badge-dismiss-default" aria-label="Remove">
         <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">

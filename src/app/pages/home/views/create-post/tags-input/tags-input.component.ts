@@ -80,7 +80,9 @@ export class TagsInputComponent implements OnInit {
       event.preventDefault();
     }
   }
-
+  removeSelectedTag(i: number) {
+    this.selectedTags.splice(i, 1);
+  }
   getCurrentTheme() {
     this.themeService.theme$.subscribe((theme) => {
       this.theme = theme;
