@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-input',
@@ -32,9 +33,14 @@ export class InputComponent implements OnInit {
     const { dirty, touched, errors } = this.control;
     return dirty && touched && errors;
   }
-  constructor() {}
+  currentTheme: string = '';
+  constructor(private themeService: ThemeService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.themeService.theme$.subscribe((theme) => {
+      this.currentTheme = theme;
+    });
+  }
   // prevent nonnumaric inputs of tel type input
   onKeyDown(event: KeyboardEvent): void {
     const charCode = event.which || event.keyCode;
