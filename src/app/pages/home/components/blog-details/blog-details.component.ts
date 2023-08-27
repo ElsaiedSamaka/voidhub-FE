@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ThemeService } from 'src/app/shared/services/theme.service';
 
 @Component({
   selector: 'app-blog-details',
@@ -8,10 +9,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BlogDetailsComponent implements OnInit {
   data: any = {};
-  constructor(private route: ActivatedRoute) {}
+  currentTheme: string = '';
+
+  constructor(
+    private route: ActivatedRoute,
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit() {
     this.getBlog();
+    this.themeService.theme$.subscribe((theme) => {
+      this.currentTheme = theme;
+    });
   }
   getBlog() {
     this.route.data.subscribe((data) => {
