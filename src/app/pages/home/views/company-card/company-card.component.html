@@ -1,4 +1,5 @@
-<li class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer hover:bg-zinc-50 ">
+<li [ngClass]="currentTheme=='dark'?'border-white/5 text-dark-secondary hover:text-gray-200':''"
+  class="h-26 p-1 my-1 border rounded-lg hover:cursor-pointer ">
   <div class="flex justify-between space-x-2">
     <div class="inline-flex">
       <div class="p-3 border inline-flex rounded-full">
