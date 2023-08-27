@@ -24,6 +24,7 @@ import { PopupComponent } from './popup/popup.component';
 import { ProseComponent } from './prose/prose.component';
 import { DataService } from './services/data.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { TagComponent } from './tag/tag.component';
 import { ToastComponent } from './toast/toast.component';
 import { UserAvatarComponent } from './user-avatar/user-avatar.component';
 import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
@@ -60,6 +61,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     SanitizeHtmlPipe,
     ActionsIconComponent,
     SwitchThemeComponent,
+    TagComponent,
   ],
   exports: [
     ModalComponent,
@@ -83,6 +85,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     EditorComponent,
     ActionsIconComponent,
     SwitchThemeComponent,
+    TagComponent,
   ],
   providers: [DataService],
 })
