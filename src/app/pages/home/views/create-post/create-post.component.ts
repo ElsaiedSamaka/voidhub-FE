@@ -42,9 +42,11 @@ export class CreatePostComponent implements OnInit {
   onFormSubmitted(article: any) {
     if (!this.isFormValid) return;
     let tagsIds = this.receivedTags.map((tag) => tag.id);
+    let content = this.receivedHTMLContent;
     // console.log('tagsIds', tagsIds);
     // console.log('article', { ...article, tagsIds });
     article.append('tagsIds', tagsIds);
+    article.append('content', content);
     this.postArticle(article);
   }
   handleRecievedTags(tags: any): void {
@@ -59,14 +61,14 @@ export class CreatePostComponent implements OnInit {
         this.toggleToast('success', 'post publish !');
       },
       error: (err) => {
-        console.log("err",err)
         this.toggleToast('error', 'somthing went wrong !');
         this.closeCreateNewPostModal();
       },
       complete: () => {
         this.closeCreateNewPostModal();
-        // once a user post an article we wanna reset the array or the recieved tags
-        this.receivedTags = []
+        // once a user post an article we wanna reset the array of the recieved tags and the html content
+        this.receivedTags = [];
+        this.receivedHTMLContent = ''
       },
     });
   }
