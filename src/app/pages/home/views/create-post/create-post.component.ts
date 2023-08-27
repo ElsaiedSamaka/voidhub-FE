@@ -39,15 +39,15 @@ export class CreatePostComponent implements OnInit {
         break;
     }
   }
-  onFormSubmitted(value: any) {
+  onFormSubmitted(article: any) {
     if (!this.isFormValid) return;
-    this.postArticle(value);
+    this.postArticle(article);
   }
-  handleRecievedTags(value: any): void {
-    this.receivedTags = value;
+  handleRecievedTags(tags: any): void {
+    this.receivedTags = tags;
   }
-  handleHTML(value: any) {
-    this.receivedHTMLContent = value;
+  handleHTML(html: any) {
+    this.receivedHTMLContent = html;
   }
   postArticle(article: any): void {
     this.postsService.post(article).subscribe({
