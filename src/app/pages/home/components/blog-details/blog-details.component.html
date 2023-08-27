@@ -5,21 +5,21 @@
       <img class="object-fill w-full max-h-48" *ngIf="data.article.img" [src]="data.article.img" [alt]="data.article.title">
     </a>
     <!-- article title -->
-    <p class="font-bold text-2xl gradient-text inline-block my-2">
+    <p [class.gradient-text]="currentTheme=='light'" [class.text-gray-200]="currentTheme=='dark'" class
+      class="font-bold text-2xl inline-block my-2">
       {{data.article.title}}
     </p>
     <!-- article title -->
   </figure>
-    <p class="lead inline-flex gap-2 text-zinc-700"><i>By.</i><span class="font-semibold hover:underline">Saied Samka</span>
+    <p [class.text-dark-secondary]="currentTheme == 'dark'" class="lead inline-flex gap-2"><i>By.</i><span
+        class="font-semibold hover:underline">Saied Samka</span>
       on <b>{{data.article.createdAt | date}} </b> </p>
     <div class="not-prose mb-16 mt-6 flex justify-between items-center">
+      <div>
       <!-- tags -->
-      <div class="flex gap-3">
-        <a
-        class="inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition rounded-full py-1 px-3 text-zinc-700 ring-1 ring-inset ring-zinc-900/10 hover:bg-zinc-900/2.5 hover:text-zinc-900 :text-zinc-400 :ring-white/10 :hover:bg-white/5 :hover:text-white"
-        >#Frontend </a>
-        </div>
+      <app-tag [currentTheme]="currentTheme" *ngFor="let tag of data.article.tags" [name]="tag.name"></app-tag>
       <!-- tags -->
+      </div>
         <div class="p-2 save-icon cursor-pointer rounded-full border hover:border-zinc-200 hover:bg-zinc-50">
           <svg class=" w-5 h-5 text-gray-700 hover:text-gray-950" fill="none" stroke="currentColor" stroke-width="1.5"
             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
