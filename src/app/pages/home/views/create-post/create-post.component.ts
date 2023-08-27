@@ -45,7 +45,6 @@ export class CreatePostComponent implements OnInit {
     // console.log('tagsIds', tagsIds);
     // console.log('article', { ...article, tagsIds });
     article.append('tagsIds', tagsIds);
-    console.log('article',article)
     this.postArticle(article);
   }
   handleRecievedTags(tags: any): void {
@@ -66,6 +65,8 @@ export class CreatePostComponent implements OnInit {
       },
       complete: () => {
         this.closeCreateNewPostModal();
+        // once a user post an article we wanna reset the array or the recieved tags
+        this.receivedTags = []
       },
     });
   }
