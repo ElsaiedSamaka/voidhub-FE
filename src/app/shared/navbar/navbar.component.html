@@ -125,7 +125,7 @@
       </div>
     <!-- lang -->
     <!-- vertical divider -->
-    <div class="hidden md:block md:h-5 md:w-px md:bg-zinc-900/10 md::bg-white/15"></div>
+    <div [ngClass]="currentTheme=='dark'?'bg-white/10':'md:bg-zinc-900/10'" class="hidden md:block md:h-5 md:w-px"></div>
     <!-- vertical divider -->
     <!-- switch theme mode -->
     <app-switch-theme></app-switch-theme>
