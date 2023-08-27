@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./truncated-text.component.css'],
 })
 export class TruncatedTextComponent implements OnInit {
+  @Input() htmlContent: any = '';
   text = `Day 07 of the challenge #100DaysOfCode I was wondering what I can do with #tailwindcss,
           so just started building Twitter UI using Tailwind and so far it looks so promising.
           I will post my code after completion. [07/100] #WomenWhoCode #CodeNewbie`;
