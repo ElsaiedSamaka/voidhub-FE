@@ -9,7 +9,7 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-        class="mt-1 rounded-xl border-white/10 border appearance-none bg-transparent text-sm   p-2 text-left w-full"
+        class="mt-1 rounded-xl border-white/10 border appearance-none  text-sm   p-2 text-left w-full"
    [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
@@ -21,7 +21,7 @@
             class="block text-sm font-semibold">
             cover
             <input [id]="id" [name]="name" [placeholder]="placeholder" [type]="type" (change)="handleFileChange($event)"
-           [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  class="mt-1 rounded-xl border appearance-none bg-transparent text-sm p-2 text-left w-full"
+           [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  class="mt-1 rounded-xl border appearance-none  text-sm p-2 text-left w-full"
               [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
   [minlength]="minlength" [required]="required" [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
           </label>
@@ -37,7 +37,7 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-        class="mt-1 rounded-xl border appearance-none bg-transparent text-sm  p-2 text-left w-full"
+        class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
       [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
@@ -50,7 +50,7 @@
       </div>
       <input [id]="id" [name]="name" [formControl]="control" (keydown)="onKeyDown($event)" [placeholder]="placeholder"
      [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"   [type]="type" [value]="value"
-        class="mt-1 rounded-xl border appearance-none bg-transparent text-sm  p-2 text-left w-full"
+        class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
@@ -63,7 +63,7 @@
       </div>
       <input [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" [id]="id" [name]="name"
         [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-        class="mt-1 rounded-xl border appearance-none bg-transparent text-sm  p-2 text-left w-full"
+        class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
@@ -76,7 +76,7 @@
       </div>
       <input [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" [id]="id" [name]="name"
         [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-        class="mt-1 rounded-xl border appearance-none bg-transparent text-sm  p-2 text-left w-full"
+        class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
@@ -88,7 +88,7 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-       [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  class="mt-1 rounded-xl border appearance-none bg-transparent text-sm  p-2 text-left w-full"
+       [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
@@ -100,7 +100,7 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-        [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" class="mt-1 rounded-xl border appearance-none bg-transparent text-sm  p-2 text-left w-full"
+        [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
@@ -112,7 +112,7 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-     [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"    class="mt-1 rounded-xl border appearance-none bg-transparent text-sm  p-2 text-left w-full"
+     [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"    class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern" [autocomplete]="autocomplete"
         [autofocus]="autofocus" [title]="title" />
@@ -123,7 +123,7 @@
           class="block text-sm font-semibold ">{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
-      <textarea class="mt-1 rounded-xl border appearance-none bg-transparent text-sm  p-2 text-left w-full"
+      <textarea class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
         [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [id]="id" [name]="name" [title]="title"
         [formControl]="control" [autofocus]="autofocus" [maxlength]="maxlength" [minlength]="minlength"
@@ -136,7 +136,7 @@
         <span *ngIf="required">*</span>
       </div>
       <select *ngSwitchCase="'select'"
-     [class.bg-zinc-900]="currentTheme=='dark'" [class.text-dark-secondary]="currentTheme=='dark'"    class="mt-1 rounded-xl border appearance-none bg-transparent text-sm  p-2 text-left w-full" [id]="id"
+     [class.bg-zinc-900]="currentTheme=='dark'" [class.text-dark-secondary]="currentTheme=='dark'"    class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full" [id]="id"
         [formControl]="control">
         <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
       </select>

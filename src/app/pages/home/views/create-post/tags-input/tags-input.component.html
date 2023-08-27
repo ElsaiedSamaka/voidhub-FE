@@ -26,7 +26,7 @@
   <div class="w-full">
   <input (mousedown)="handleTagsSearch($event)" type="search" name="tags" id="tags"
     [(ngModel)]="tag" (input)="handleTagsSearch($event)" (keydown)="handleSpacebarTab($event)"
-    [ngModelOptions]="{standalone: true}" class="w-full px-4 py-2  rounded-xl "
+    [ngModelOptions]="{standalone: true}" class="w-full text-sm p-2  rounded-xl border border-white/10"
       [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"
     maxlength="12">
     <!-- Dropdown menu -->
