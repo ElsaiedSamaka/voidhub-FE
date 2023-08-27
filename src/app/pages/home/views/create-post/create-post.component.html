@@ -1,4 +1,4 @@
-<div class="post-card flex items-center space-x-2 border-b p-2">
+<div [ngClass]="currentTheme == 'dark'?'border-white/5':''" class="post-card flex items-center space-x-2 border-b p-2">
   <!-- post-as -->
   <app-post-as></app-post-as>
   <!-- post-as -->
