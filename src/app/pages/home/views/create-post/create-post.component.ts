@@ -13,6 +13,7 @@ export class CreatePostComponent implements OnInit {
   validators = Validators;
   isFormValid: boolean = false;
   receivedHTMLContent: string = '';
+  receivedTags: any[] = [];
   showToast: boolean = false;
   toastMessage: string = '';
   toastType: string = '';
@@ -41,6 +42,9 @@ export class CreatePostComponent implements OnInit {
   onFormSubmitted(value: any) {
     if (!this.isFormValid) return;
     this.postArticle(value);
+  }
+  handleRecievedTags(value: any): void {
+    this.receivedTags = value;
   }
   handleHTML(value: any) {
     this.receivedHTMLContent = value;

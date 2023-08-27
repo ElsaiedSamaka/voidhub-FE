@@ -33,7 +33,7 @@
             
           ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
           <ng-container form-extensions>
-          <app-tags-input [currentTheme]="currentTheme"></app-tags-input>
+          <app-tags-input (tagsEmitter)="handleRecievedTags($event)" [currentTheme]="currentTheme"></app-tags-input>
         <app-editor (html)="handleHTML($event)"></app-editor>
       </ng-container>
           <div class="px-2 mr-2" form-actions>

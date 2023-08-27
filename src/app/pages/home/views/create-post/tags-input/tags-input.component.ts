@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { ThemeService } from 'src/app/shared/services/theme.service';
 import { TagsService } from 'src/core/services/tags.service';
@@ -10,7 +10,7 @@ import { TagsService } from 'src/core/services/tags.service';
 })
 export class TagsInputComponent implements OnInit {
   @Input() currentTheme: string = '';
-
+  @Output() tagsEmitter = new EventEmitter<any>(null);
   tag: string = '';
   tagId: any;
   tags: any[] = [];
@@ -34,6 +34,7 @@ export class TagsInputComponent implements OnInit {
     if (isChecked) {
       if (selectedIndex === -1 && this.selectedTags.length <= 4) {
         this.selectedTags.push(tag);
+        this.tagsEmitter.emit(this.selectedTags);
       }
       this.showTagsDropDown = false;
       this.tag = '';
@@ -45,7 +46,7 @@ export class TagsInputComponent implements OnInit {
       this.showTagsDropDown = false;
     }
   }
-  handleTagsChange(event: any): void {
+  handleTagsSearch(event: any): void {
     event.stopPropagation();
     const name = event.target.value;
     this.showTagsDropDown = true;
@@ -67,6 +68,7 @@ export class TagsInputComponent implements OnInit {
         next: (tag) => {
           if (this.selectedTags.length <= 4) {
             this.selectedTags.push(tag);
+            this.tagsEmitter.emit(this.selectedTags);
           }
         },
         error: (error) => {
@@ -84,6 +86,7 @@ export class TagsInputComponent implements OnInit {
   }
   removeSelectedTag(i: number) {
     this.selectedTags.splice(i, 1);
+    this.tagsEmitter.emit(this.selectedTags);
   }
   getCurrentTheme() {
     this.themeService.theme$.subscribe((theme) => {
