@@ -41,6 +41,11 @@ export class CreatePostComponent implements OnInit {
   }
   onFormSubmitted(article: any) {
     if (!this.isFormValid) return;
+    let tagsIds = this.receivedTags.map((tag) => tag.id);
+    // console.log('tagsIds', tagsIds);
+    // console.log('article', { ...article, tagsIds });
+    article.append('tagsIds', tagsIds);
+    console.log('article',article)
     this.postArticle(article);
   }
   handleRecievedTags(tags: any): void {
@@ -55,6 +60,7 @@ export class CreatePostComponent implements OnInit {
         this.toggleToast('success', 'post publish !');
       },
       error: (err) => {
+        console.log("err",err)
         this.toggleToast('error', 'somthing went wrong !');
         this.closeCreateNewPostModal();
       },
