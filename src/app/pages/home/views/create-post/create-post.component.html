@@ -3,7 +3,7 @@
   <app-post-as></app-post-as>
   <!-- post-as -->
   <input type="text" (click)="openCreateNewPostModal()" placeholder="Post as saied samaka ..."
-   [ngClass]="currentTheme =='dark'?'bg-white/5 ring-inset ring-white/5 ring-2 transition':''" [class.text-white]="currentTheme=='dark'"  class=" h-11 w-full items-center gap-2 rounded-full pl-4 pr-3 text-sm ring-1 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none lg:flex">
+   [ngClass]="currentTheme =='dark'?'bg-white/5 ring-inset ring-white/5 ring-2 transition':''" [class.text-white]="currentTheme=='dark'"  class=" h-11 w-full items-center gap-2 rounded-full pl-4 pr-3 text-lg ring-1 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none lg:flex">
 </div>
 <!-- Create Post Modal -->
 <app-modal *ngIf="showCreateNewPostModal" (dismiss)="closeCreateNewPostModal()">

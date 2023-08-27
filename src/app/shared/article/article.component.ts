@@ -24,4 +24,7 @@ export class ArticleComponent implements OnInit {
     event.stopPropagation();
     console.log('clicked');
   }
+  handleCommentInput(event: any): void {
+    event.stopPropagation();
+  }
 }
