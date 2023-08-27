@@ -1,4 +1,5 @@
-<li [ngClass]="currentTheme=='dark'?'border-white/5 text-dark-secondary hover:text-gray-200':''"
+<li
+  [ngClass]="currentTheme=='dark'?'border-white/5 text-dark-secondary hover:text-gray-200 hover:bg-zinc-700/10':'hover:bg-zinc-50'"
   class="h-26 p-1 my-1 border rounded-lg hover:cursor-pointer ">
   <div class="flex justify-between space-x-2">
     <div class="inline-flex">
@@ -10,24 +11,24 @@
           </path>
         </svg>
       </div>
-      <div class="flex-col">
-        <div class="flex space-x-1 text-emerald-500"><b>Company name</b> <span class="text-zinc-500">(cairo)</span>
+      <div class="flex-col ml-1">
+        <div class="flex space-x-1 text-sm text-emerald-500"><b>Company name</b> <span class="">(cairo)</span>
         </div>
         <span>
-          <div class="flex items-center">
-            <svg class="w-4 h-4 text-yellow-300 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          <div class="flex items-center ">
+            <svg class="w-3 h-3 text-yellow-300 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
               fill="currentColor" viewBox="0 0 22 20">
               <path
                 d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
             </svg>
-            <p class="ml-2 text-sm font-bold text-gray-900">4.95</p>
+            <p class="ml-2 text-sm font-bold ">4.95</p>
             <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full :bg-gray-400"></span>
-            <a class="text-xs underline font-medium text-gray-900  hover:no-underline">73 reviews</a>
+            <a class="text-xs underline font-medium hover:no-underline">73 reviews</a>
           </div>
         </span>
         <!-- Company popover -->
         <div data-popover id="popover-company-profile" role="tooltip"
-          class="absolute hidden z-10 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm w-80 ">
+         [ngClass]="currentTheme=='dark'?'bg-zinc-900 border-white/10':'bg-white'" class="absolute right-0 z-10 text-sm text-gray-500 transition-opacity duration-300  border  rounded-lg shadow-sm w-80 ">
           <div class="p-3">
             <div class="flex">
               <div class="mr-3 shrink-0">
