@@ -7,6 +7,7 @@ import { PostsService } from 'src/core/services/posts.service';
   styleUrls: ['./actions-icon.component.css'],
 })
 export class ActionsIconComponent implements OnInit {
+  @Input() currentTheme: string = '';
   @Input() id: string = '';
   showActionsDDL: boolean = false;
   showToast: boolean = false;
@@ -23,14 +24,12 @@ export class ActionsIconComponent implements OnInit {
     event.stopPropagation();
     this.showActionsDDL = false;
     this.postsService.deleteById(this.id).subscribe({
-      next: (removedPost) => {
-      },
+      next: (removedPost) => {},
       error: (err) => {
         this.toggleToast('error', err);
         console.log('error while removeing post [actions-icon component]', err);
       },
-      complete: () => {
-      },
+      complete: () => {},
     });
     this.toggleToast('success', 'post removed');
   }

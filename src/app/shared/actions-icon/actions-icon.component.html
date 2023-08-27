@@ -1,7 +1,7 @@
 <div class="absolute top-2 right-2 p-1 actions-icon">
   <div (click)="handleActions($event)"
-    class="w-fit ml-auto cursor-pointer rounded-full border bg-zinc-50 hover:border-zinc-200 hover:bg-zinc-100">
-    <svg class="w-7 h-7 text-gray-600 hover:text-gray-900" fill="none" stroke="currentColor" stroke-width="1.5"
+   [ngClass]="currentTheme== 'light'?'bg-zinc-50 hover:border-zinc-200 hover:bg-zinc-100':'bg-zinc-950 text-dark-secondary hover:text-dark-secondary hover:bg-zinc-900'"  class="w-fit ml-auto cursor-pointer rounded-full border ">
+    <svg class="w-7 h-7 " fill="none" stroke="currentColor" stroke-width="1.5"
       viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round"
         d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
@@ -10,10 +10,12 @@
   </div>
   <!-- Dropdown menu -->
   <div *ngIf="showActionsDDL" id="dropdownComment1"
-    class="z-10 w-full bg-white rounded divide-y divide-gray-100 shadow ">
-    <ul class="py-1 text-sm text-gray-700 w-full" aria-labelledby="dropdownMenuIconHorizontalButton">
+ [ngClass]="currentTheme=='dark'?'bg-zinc-900 text-dark-secondary':'bg-white text-gray-800'"   class="z-10 w-full  rounded divide-y divide-gray-100 shadow ">
+    <ul class="py-1 text-sm  w-full" aria-labelledby="dropdownMenuIconHorizontalButton">
       <li>
-        <a role="button" (click)="handlePostRemove($event)" class="inline-flex space-x-1 py-2 px-4 hover:bg-gray-100 ">
+        <a role="button" (click)="handlePostRemove($event)"
+          [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-800 text-gray-50':'hover:bg-zinc-50 text-gray-800'"
+          class="inline-flex space-x-1 py-2 px-4 ">
           <span>
             <svg name="remove-icon" id="remove-icon" class="w-5 h-5 hover:text-red-500" fill="none" stroke="currentColor"
               stroke-width="1.5" viewBox="0 0 24 24"
@@ -27,7 +29,9 @@
         </a>
       </li>
       <li>
-        <a role="button" (click)="handlePostReport($event)" class=" inline-flex space-x-1 py-2 px-4 hover:bg-gray-100 ">
+        <a role="button" (click)="handlePostReport($event)"
+          [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-800 text-gray-50':'hover:bg-zinc-50 text-gray-800'"
+          class=" inline-flex space-x-1 py-2 px-4 ">
           <span><svg class="w-5 h-5 hover:text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
