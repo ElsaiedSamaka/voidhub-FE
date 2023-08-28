@@ -1,63 +1,63 @@
 <section class="flex  h-screen overflow-y-scroll flex-col pb-10 ">
   <div class="flex-auto prose ">
-  <figure class="relative">
-    <a>
-      <img class="object-fill w-full max-h-48" *ngIf="data.article.img" [src]="data.article.img" [alt]="data.article.title">
-    </a>
-    <!-- article title -->
-    <p [class.gradient-text]="currentTheme=='light'" [class.text-gray-200]="currentTheme=='dark'" class
-      class="font-bold text-2xl inline-block my-2">
-      {{data.article.title}}
-    </p>
-    <!-- article title -->
-  </figure>
+    <figure class="relative">
+      <a>
+        <img class="object-fill w-full max-h-48" *ngIf="data.article.img" [src]="data.article.img"
+          [alt]="data.article.title">
+      </a>
+      <!-- article title -->
+      <p [class.gradient-text]="currentTheme=='light'" [class.text-gray-200]="currentTheme=='dark'" class
+        class="font-bold text-2xl inline-block my-2">
+        {{data.article.title}}
+      </p>
+      <!-- article title -->
+    </figure>
     <p [class.text-dark-secondary]="currentTheme == 'dark'" class="lead inline-flex gap-2"><i>By.</i><span
         class="font-semibold hover:underline">Saied Samka</span>
       on <b>{{data.article.createdAt | date}} </b> </p>
     <div class="not-prose mb-16 mt-6 flex justify-between items-center">
       <div>
-      <!-- tags -->
-      <app-tag [currentTheme]="currentTheme" *ngFor="let tag of data.article.tags" [name]="tag.name"></app-tag>
-      <!-- tags -->
+        <!-- tags -->
+        <app-tag [currentTheme]="currentTheme" *ngFor="let tag of data.article.tags" [name]="tag.name"></app-tag>
+        <!-- tags -->
       </div>
-        <div
-          [ngClass]="currentTheme=='dark'?'border-white/5 text-dark-secondary hover:text-gray-200 hover:bg-zinc-700/10':'hover:bg-zinc-50'"
-          class="p-2 save-icon cursor-pointer rounded-full border ">
-          <svg class=" w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
-            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z">
-        </path>
-      </svg>
+      <div
+        [ngClass]="currentTheme=='dark'?'border-white/5 text-dark-secondary hover:text-gray-200 hover:bg-zinc-700/10':'hover:bg-zinc-50'"
+        class="p-2 save-icon cursor-pointer rounded-full border ">
+        <svg class=" w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z">
+          </path>
+        </svg>
       </div>
-      </div>
+    </div>
     <p [class.text-dark-secondary]="currentTheme == 'dark'" class="lead font-semibold" [innerHTML]="data.article.content">
     </p>
-      <section [class.text-dark-secondary]="currentTheme == 'dark'" class="py-8 lg:py-16">
-        <div class=" px-4">
-          <div class="flex justify-between items-center mb-6">
-            <h2 class="text-lg lg:text-2xl font-bold">Discussion (20)</h2>
-          </div>
-          <form class="mb-6">
-              <label for="comment" class="sr-only">Your comment</label>
-              <textarea [ngClass]="currentTheme =='dark'?'bg-white/10 ring-2 ring-white/5 transition':''"
-                [class.text-white]="currentTheme=='dark'"
-                id="comment" rows="3" class="px-2 rounded-md w-full resize-none  border-0 focus:ring-0 focus:outline-none "
-                placeholder="Write a comment..." required></textarea>
-            <button type="button"
-              class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">Comment</button>
-          </form>
-          <section class="h-80 overflow-auto">
-            <!-- comment -->
-            <article [ngClass]="currentTheme == 'dark'?'border-white/5':''" class="p-6 mb-6 text-base  rounded-lg border">
+    <section [class.text-dark-secondary]="currentTheme == 'dark'" class="py-8 lg:py-16">
+      <div class=" px-4">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-lg lg:text-2xl font-bold">Discussion (20)</h2>
+        </div>
+        <form class="mb-6">
+          <label for="comment" class="sr-only">Your comment</label>
+          <textarea [ngClass]="currentTheme =='dark'?'bg-white/10 ring-2 ring-white/5 transition':''"
+            [class.text-white]="currentTheme=='dark'" id="comment" rows="3"
+            class="px-2 rounded-md w-full resize-none  border-0 focus:ring-0 focus:outline-none "
+            placeholder="Write a comment..." required></textarea>
+          <button type="button"
+            class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">Comment</button>
+        </form>
+        <section class="h-80 overflow-auto">
+          <!-- comment -->
+          <article [ngClass]="currentTheme == 'dark'?'border-white/5':''" class="p-6 mb-6 text-base  rounded-lg border">
             <footer class="flex justify-between items-center mb-2">
               <div class="flex items-center">
-                <p class="inline-flex items-center mr-3 text-sm "><img
-                    class="mr-2 w-6 h-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-                    alt="Michael Gough">Michael Gough</p>
-                <p class="text-sm"><time pubdate datetime="2022-02-08"
-                    title="February 8th, 2022">Feb. 8, 2022</time></p>
+                <p class="inline-flex items-center mr-3 text-sm "><img class="mr-2 w-6 h-6 rounded-full"
+                    src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Michael Gough">Michael
+                  Gough</p>
+                <p class="text-sm"><time pubdate datetime="2022-02-08" title="February 8th, 2022">Feb. 8, 2022</time>
+                </p>
               </div>
               <button id="dropdownComment1Button" data-dropdown-toggle="dropdownComment1"
                 class="inline-flex items-center p-2 text-sm font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-50"
@@ -70,20 +70,16 @@
                 <span class="sr-only">Comment settings</span>
               </button>
               <!-- Dropdown menu -->
-              <div id="dropdownComment1"
-                class="hidden z-10 w-36 rounded divide-y shadow">
+              <div id="dropdownComment1" class="hidden z-10 w-36 rounded divide-y shadow">
                 <ul class="py-1 text-sm text-gray-700 :text-gray-200" aria-labelledby="dropdownMenuIconHorizontalButton">
                   <li>
-                    <a
-                      class="block py-2 px-4 ">Edit</a>
+                    <a class="block py-2 px-4 ">Edit</a>
                   </li>
                   <li>
-                    <a
-                      class="block py-2 px-4">Remove</a>
+                    <a class="block py-2 px-4">Remove</a>
                   </li>
                   <li>
-                    <a
-                      class="block py-2 px-4">Report</a>
+                    <a class="block py-2 px-4">Report</a>
                   </li>
                 </ul>
               </div>
@@ -104,17 +100,16 @@
               </button>
             </div>
           </article>
-            <!-- comment -->
-            <!-- Reply -->
-            <article [ngClass]="currentTheme == 'dark'?'border-white/5':''"
-              class="p-6 mb-6 ml-6 lg:ml-12 text-base rounded-lg border">
-              <footer class="flex justify-between items-center mb-2">
+          <!-- comment -->
+          <!-- Reply -->
+          <article [ngClass]="currentTheme == 'dark'?'border-white/5':''"
+            class="p-6 mb-6 ml-6 lg:ml-12 text-base rounded-lg border">
+            <footer class="flex justify-between items-center mb-2">
               <div class="flex items-center">
-                <p class="inline-flex items-center mr-3 text-sm"><img
-                    class="mr-2 w-6 h-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                    alt="Jese Leos">Jese Leos</p>
-                <p class="text-sm"><time pubdate datetime="2022-02-12"
-                    title="February 12th, 2022">Feb. 12, 2022</time></p>
+                <p class="inline-flex items-center mr-3 text-sm"><img class="mr-2 w-6 h-6 rounded-full"
+                    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Jese Leos">Jese Leos</p>
+                <p class="text-sm"><time pubdate datetime="2022-02-12" title="February 12th, 2022">Feb. 12, 2022</time>
+                </p>
               </div>
               <button id="dropdownComment2Button" data-dropdown-toggle="dropdownComment2"
                 class="inline-flex items-center p-2 text-sm font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-50 :bg-gray-900 :hover:bg-gray-700 :focus:ring-gray-600"
@@ -127,20 +122,16 @@
                 <span class="sr-only">Comment settings</span>
               </button>
               <!-- Dropdown menu -->
-              <div id="dropdownComment2"
-                class="hidden z-10 w-36  rounded shadow ">
+              <div id="dropdownComment2" class="hidden z-10 w-36  rounded shadow ">
                 <ul class="py-1 text-sm " aria-labelledby="dropdownMenuIconHorizontalButton">
                   <li>
-                    <a
-                      class="block py-2 px-4 hover:bg-gray-100 :hover:bg-gray-600 :hover:text-white">Edit</a>
+                    <a class="block py-2 px-4 hover:bg-gray-100 :hover:bg-gray-600 :hover:text-white">Edit</a>
                   </li>
                   <li>
-                    <a
-                      class="block py-2 px-4">Remove</a>
+                    <a class="block py-2 px-4">Remove</a>
                   </li>
                   <li>
-                    <a
-                      class="block py-2 px-4">Report</a>
+                    <a class="block py-2 px-4">Report</a>
                   </li>
                 </ul>
               </div>
@@ -155,24 +146,24 @@
                   </path>
                 </svg>
                 Reply
-                </button>
-                </div>
-                </article>
-            <!-- Reply -->
+              </button>
+              </div>
+              </article>
+              <!-- Reply -->
 
-          </section>
+        </section>
         </div>
-      </section>
+        </section>
     <div class="my-16 xl:max-w-none">
-      <h2 class="scroll-mt-20" id="related-articles"><a class="group text-inherit no-underline hover:text-inherit"
-         >
+      <h2 class="scroll-mt-20" id="related-articles"><a class="group text-inherit no-underline hover:text-inherit">
           <span class="font-semibold" [class.text-dark-secondary]="currentTheme == 'dark'">Related articles</span>
         </a></h2>
-      <div
-      [ngClass]="currentTheme == 'dark'?'border-white/5':''"  class="not-prose mt-4 grid grid-cols-1 gap-8 border-t pt-10 sm:grid-cols-2 xl:grid-cols-4">
-        <div
-          class="group relative flex rounded-2xl bg-zinc-50 transition-shadow hover:shadow-md hover:shadow-zinc-900/5 :bg-white/2.5 :hover:shadow-black/5">
-          <div class="pointer-events-none">
+      <div [ngClass]="currentTheme == 'dark'?'border-white/5':''"
+        class="not-prose mt-4 grid grid-cols-1 gap-8 border-t pt-10 sm:grid-cols-2 xl:grid-cols-4">
+        <div [ngClass]="currentTheme=='dark'?'bg-white/2.5 hover:shadow-black/5':'bg-zinc-50 hover:shadow-zinc-900/5'"
+          class="group relative flex rounded-2xl  transition-shadow hover:shadow-md  ">
+          <ng-container [ngSwitch]="currentTheme">
+            <div class="pointer-events-none" *ngSwitchCase="'light'">
             <div
               class="absolute inset-0 rounded-2xl transition duration-300 [mask-image:linear-gradient(white,transparent)] group-hover:opacity-50">
               <svg aria-hidden="true"
@@ -210,34 +201,7 @@
                 </svg>
               </svg></div>
           </div>
-          <div
-            class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-zinc-900/7.5 group-hover:ring-zinc-900/10 :ring-white/10 :group-hover:ring-white/20">
-          </div>
-          <div class="relative rounded-2xl px-4 pb-4 pt-16">
-            <div
-              class="flex h-7 w-7 items-center justify-center rounded-full bg-zinc-900/5 ring-1 ring-zinc-900/25 backdrop-blur-[2px] transition duration-300 group-hover:bg-white/50 group-hover:ring-zinc-900/25 :bg-white/7.5 :ring-white/15 :group-hover:bg-emerald-300/10 :group-hover:ring-emerald-400">
-              <svg viewBox="0 0 20 20" aria-hidden="true"
-                class="h-5 w-5 fill-zinc-700/10 stroke-zinc-700 transition-colors duration-300 group-hover:stroke-zinc-900 :fill-white/10 :stroke-zinc-400 :group-hover:fill-emerald-300/10 :group-hover:stroke-emerald-400">
-                <path stroke-width="0" fill-rule="evenodd" clip-rule="evenodd"
-                  d="M10 .5a9.5 9.5 0 0 1 5.598 17.177C14.466 15.177 12.383 13.5 10 13.5s-4.466 1.677-5.598 4.177A9.5 9.5 0 0 1 10 .5ZM12.5 8a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z">
-                </path>
-                <path fill="none" stroke-linecap="round" stroke-linejoin="round"
-                  d="M10 .5a9.5 9.5 0 0 1 5.598 17.177A9.458 9.458 0 0 1 10 19.5a9.458 9.458 0 0 1-5.598-1.823A9.5 9.5 0 0 1 10 .5Z">
-                </path>
-                <path fill="none" stroke-linecap="round" stroke-linejoin="round"
-                  d="M4.402 17.677C5.534 15.177 7.617 13.5 10 13.5s4.466 1.677 5.598 4.177M10 5.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z">
-                </path>
-              </svg>
-            </div>
-            <h3 class="mt-4 text-sm font-semibold leading-7 text-zinc-900 :text-white"><a href="/contacts"><span
-                  class="absolute inset-0 rounded-2xl"></span>Contacts</a></h3>
-            <p class="mt-1 text-sm text-zinc-600 :text-zinc-400">Learn about the contact model and how to create,
-              retrieve, update, delete, and list contacts.</p>
-          </div>
-        </div>
-        <div
-          class="group relative flex rounded-2xl  transition-shadow hover:shadow-md  bg-white/2.5 hover:shadow-black/5">
-          <div class="pointer-events-none">
+          <div class="pointer-events-none" *ngSwitchCase="'dark'">
             <div
               class="absolute inset-0 rounded-2xl transition duration-300 [mask-image:linear-gradient(white,transparent)] group-hover:opacity-50">
               <svg aria-hidden="true"
@@ -256,10 +220,9 @@
             </div>
             <div
               class="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#D7EDEA] to-[#F4FBDF] opacity-0 transition duration-300 group-hover:opacity-100 dark:from-[#202D2E] dark:to-[#303428]"
-           style="-webkit-mask-image: radial-gradient(180px at 214.5px 228px, white, transparent);"   ></div>
-            <div
-              class="absolute inset-0 rounded-2xl opacity-0 mix-blend-overlay transition duration-300 group-hover:opacity-100"
-          style="-webkit-mask-image: radial-gradient(180px at 214.5px 228px, white, transparent);"   ><svg aria-hidden="true"
+              style="-webkit-mask-image: radial-gradient(180px at 214.5px 228px, white, transparent);"></div>
+            <div class="absolute inset-0 rounded-2xl opacity-0 mix-blend-overlay transition duration-300 group-hover:opacity-100"
+              style="-webkit-mask-image: radial-gradient(180px at 214.5px 228px, white, transparent);"><svg aria-hidden="true"
                 class="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-white/2.5 stroke-white/10">
                 <defs>
                   <pattern id=":R1d6hdcqla:" width="72" height="56" patternUnits="userSpaceOnUse" x="50%" y="16">
@@ -273,14 +236,15 @@
                 </svg>
               </svg></div>
           </div>
+          </ng-container>
           <div
-           style="-webkit-mask-image: radial-gradient(180px at 214.5px 228px, white, transparent);" class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-zinc-900/7.5 ring-white/10 group-hover:ring-white/20">
+          [ngClass]="currentTheme=='dark'?'group-hover:ring-white/20 ring-white/10 ':'group-hover:ring-zinc-900/10 ring-zinc-900/7.5'"  class="absolute inset-0 rounded-2xl ring-1 ring-inset  ">
           </div>
           <div class="relative rounded-2xl px-4 pb-4 pt-16">
             <div
-              class="flex h-7 w-7 items-center justify-center rounded-full  ring-1  backdrop-blur-[2px] transition duration-300 group-hover:ring-zinc-900/25 bg-white/7.5 ring-white/15 group-hover:bg-emerald-300/10 group-hover:ring-emerald-400">
+            [ngClass]="currentTheme=='dark'?'bg-zinc-900/5 group-hover:ring-emerald-400 group-hover:bg-emerald-300/10 ring-white/15 bg-white/7.5':' group-hover:bg-white/50 group-hover:ring-zinc-900/25  ring-zinc-900/25'"  class="flex h-7 w-7 items-center justify-center rounded-full  ring-1 backdrop-blur-[2px] transition duration-300">
               <svg viewBox="0 0 20 20" aria-hidden="true"
-                class="h-5 w-5 fill-zinc-700/10 stroke-zinc-700 transition-colors duration-300 group-hover:stroke-zinc-900 dark:fill-white/10 dark:stroke-zinc-400 dark:group-hover:fill-emerald-300/10 dark:group-hover:stroke-emerald-400">
+              [ngClass]="currentTheme=='dark'?' fill-white/10 stroke-zinc-400 group-hover:fill-emerald-300/10 group-hover:stroke-emerald-400':'group-hover:stroke-zinc-900 fill-zinc-700/10 stroke-zinc-700'"    class="h-5 w-5  transition-colors duration-300 ">
                 <path stroke-width="0" fill-rule="evenodd" clip-rule="evenodd"
                   d="M10 .5a9.5 9.5 0 0 1 5.598 17.177C14.466 15.177 12.383 13.5 10 13.5s-4.466 1.677-5.598 4.177A9.5 9.5 0 0 1 10 .5ZM12.5 8a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z">
                 </path>
@@ -292,12 +256,14 @@
                 </path>
               </svg>
             </div>
-            <h3 class="mt-4 text-sm font-semibold leading-7 text-white"><a ><span
+            <h3 [ngClass]="currentTheme =='dark'?'text-white':'text-zinc-900'" class="mt-4 text-sm font-semibold leading-7 ">
+              <a><span
                   class="absolute inset-0 rounded-2xl"></span>Contacts</a></h3>
-            <p class="mt-1 text-sm text-zinc-400">Learn about the contact model and how to create,
+            <p class="mt-1 text-sm text-zinc-600 :text-zinc-400">Learn about the contact model and how to create,
               retrieve, update, delete, and list contacts.</p>
           </div>
         </div>
+      
       </div>
     </div>
   </div>
