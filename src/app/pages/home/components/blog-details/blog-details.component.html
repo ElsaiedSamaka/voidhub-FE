@@ -34,126 +34,7 @@
     </div>
     <p [class.text-dark-secondary]="currentTheme == 'dark'" class="lead font-semibold" [innerHTML]="data.article.content">
     </p>
-    <section [class.text-dark-secondary]="currentTheme == 'dark'" class="py-8 lg:py-16">
-      <div class=" px-4">
-        <div class="flex justify-between items-center mb-6">
-          <h2 class="text-lg lg:text-2xl font-bold">Discussion (20)</h2>
-        </div>
-        <form class="mb-6">
-          <label for="comment" class="sr-only">Your comment</label>
-          <textarea [ngClass]="currentTheme =='dark'?'bg-white/10 ring-2 ring-white/5 transition':''"
-            [class.text-white]="currentTheme=='dark'" id="comment" rows="3"
-            class="px-2 rounded-md w-full resize-none  border-0 focus:ring-0 focus:outline-none "
-            placeholder="Write a comment..." required></textarea>
-          <button type="button"
-            class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">Comment</button>
-        </form>
-        <section class="h-80 overflow-auto">
-          <!-- comment -->
-          <article [ngClass]="currentTheme == 'dark'?'border-white/5':''" class="p-6 mb-6 text-base  rounded-lg border">
-            <footer class="flex justify-between items-center mb-2">
-              <div class="flex items-center">
-                <p class="inline-flex items-center mr-3 text-sm "><img class="mr-2 w-6 h-6 rounded-full"
-                    src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Michael Gough">Michael
-                  Gough</p>
-                <p class="text-sm"><time pubdate datetime="2022-02-08" title="February 8th, 2022">Feb. 8, 2022</time>
-                </p>
-              </div>
-              <button id="dropdownComment1Button" data-dropdown-toggle="dropdownComment1"
-                class="inline-flex items-center p-2 text-sm font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-50"
-                type="button">
-                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
-                  </path>
-                </svg>
-                <span class="sr-only">Comment settings</span>
-              </button>
-              <!-- Dropdown menu -->
-              <div id="dropdownComment1" class="hidden z-10 w-36 rounded divide-y shadow">
-                <ul class="py-1 text-sm text-gray-700 :text-gray-200" aria-labelledby="dropdownMenuIconHorizontalButton">
-                  <li>
-                    <a class="block py-2 px-4 ">Edit</a>
-                  </li>
-                  <li>
-                    <a class="block py-2 px-4">Remove</a>
-                  </li>
-                  <li>
-                    <a class="block py-2 px-4">Report</a>
-                  </li>
-                </ul>
-              </div>
-            </footer>
-            <p class="">Very straight-to-point article. Really worth time reading. Thank you!
-              But tools are just the
-              instruments for the UX designers. The knowledge of the design tools are as important as the
-              creation of the design strategy.</p>
-            <div class="flex items-center mt-4 space-x-4">
-              <button type="button" class="flex items-center text-sm  hover:underline :text-gray-400">
-                <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
-                  </path>
-                </svg>
-                Reply
-              </button>
-            </div>
-          </article>
-          <!-- comment -->
-          <!-- Reply -->
-          <article [ngClass]="currentTheme == 'dark'?'border-white/5':''"
-            class="p-6 mb-6 ml-6 lg:ml-12 text-base rounded-lg border">
-            <footer class="flex justify-between items-center mb-2">
-              <div class="flex items-center">
-                <p class="inline-flex items-center mr-3 text-sm"><img class="mr-2 w-6 h-6 rounded-full"
-                    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Jese Leos">Jese Leos</p>
-                <p class="text-sm"><time pubdate datetime="2022-02-12" title="February 12th, 2022">Feb. 12, 2022</time>
-                </p>
-              </div>
-              <button id="dropdownComment2Button" data-dropdown-toggle="dropdownComment2"
-                class="inline-flex items-center p-2 text-sm font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-50 :bg-gray-900 :hover:bg-gray-700 :focus:ring-gray-600"
-                type="button">
-                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
-                  </path>
-                </svg>
-                <span class="sr-only">Comment settings</span>
-              </button>
-              <!-- Dropdown menu -->
-              <div id="dropdownComment2" class="hidden z-10 w-36  rounded shadow ">
-                <ul class="py-1 text-sm " aria-labelledby="dropdownMenuIconHorizontalButton">
-                  <li>
-                    <a class="block py-2 px-4 hover:bg-gray-100 :hover:bg-gray-600 :hover:text-white">Edit</a>
-                  </li>
-                  <li>
-                    <a class="block py-2 px-4">Remove</a>
-                  </li>
-                  <li>
-                    <a class="block py-2 px-4">Report</a>
-                  </li>
-                </ul>
-              </div>
-            </footer>
-            <p class="">Much appreciated! Glad you liked it ☺️</p>
-            <div class="flex items-center mt-4 space-x-4">
-              <button type="button" class="flex items-center text-sm hover:underline">
-                <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
-                  </path>
-                </svg>
-                Reply
-              </button>
-              </div>
-              </article>
-              <!-- Reply -->
-
-        </section>
-        </div>
-        </section>
+    <app-comment-section [currentTheme]="currentTheme"></app-comment-section>
     <div class="my-16 xl:max-w-none">
       <h2 class="scroll-mt-20" id="related-articles"><a class="group text-inherit no-underline hover:text-inherit">
           <span class="font-semibold" [class.text-dark-secondary]="currentTheme == 'dark'">Related articles</span>
@@ -263,7 +144,6 @@
               retrieve, update, delete, and list contacts.</p>
           </div>
         </div>
-      
       </div>
     </div>
   </div>
