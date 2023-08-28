@@ -8,6 +8,7 @@ import { ReplyComponent } from './comment-section/reply/reply.component';
 import { CompanyCardComponent } from './company-card/company-card.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { TagsInputComponent } from './create-post/tags-input/tags-input.component';
+import { ArticleCardComponent } from './related-articles/article-card/article-card.component';
 import { RelatedArticlesComponent } from './related-articles/related-articles.component';
 import { TimelineComponent } from './timeline/timeline.component';
 
@@ -22,6 +23,7 @@ import { TimelineComponent } from './timeline/timeline.component';
     RelatedArticlesComponent,
     CommentComponent,
     ReplyComponent,
+    ArticleCardComponent,
   ],
   exports: [
     CompanyCardComponent,
@@ -32,6 +34,7 @@ import { TimelineComponent } from './timeline/timeline.component';
     RelatedArticlesComponent,
     CommentComponent,
     ReplyComponent,
+    ArticleCardComponent,
   ],
 })
 export class ViewsModule {}
