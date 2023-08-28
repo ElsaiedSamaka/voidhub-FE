@@ -6,6 +6,7 @@ import { CommentSectionComponent } from './comment-section/comment-section.compo
 import { CompanyCardComponent } from './company-card/company-card.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { TagsInputComponent } from './create-post/tags-input/tags-input.component';
+import { RelatedArticlesComponent } from './related-articles/related-articles.component';
 import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { TimelineComponent } from './timeline/timeline.component';
     TimelineComponent,
     TagsInputComponent,
     CommentSectionComponent,
+    RelatedArticlesComponent,
   ],
   exports: [
     CompanyCardComponent,
@@ -23,6 +25,7 @@ import { TimelineComponent } from './timeline/timeline.component';
     TimelineComponent,
     TagsInputComponent,
     CommentSectionComponent,
+    RelatedArticlesComponent,
   ],
 })
 export class ViewsModule {}
