@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CommentSectionComponent } from './comment-section/comment-section.component';
+import { CommentComponent } from './comment-section/comment/comment.component';
 import { CompanyCardComponent } from './company-card/company-card.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { TagsInputComponent } from './create-post/tags-input/tags-input.component';
@@ -18,6 +19,7 @@ import { TimelineComponent } from './timeline/timeline.component';
     TagsInputComponent,
     CommentSectionComponent,
     RelatedArticlesComponent,
+    CommentComponent,
   ],
   exports: [
     CompanyCardComponent,
@@ -26,6 +28,7 @@ import { TimelineComponent } from './timeline/timeline.component';
     TagsInputComponent,
     CommentSectionComponent,
     RelatedArticlesComponent,
+    CommentComponent,
   ],
 })
 export class ViewsModule {}
