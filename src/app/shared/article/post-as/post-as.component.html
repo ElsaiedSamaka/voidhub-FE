@@ -1,8 +1,8 @@
 <div class="post-as relative flex items-center space-x-2 hover:cursor-pointer rounded-full"
   >
   <ng-container [ngSwitch]="postAs">
-    <div class=" inline-flex items-center justify-center" *ngSwitchCase="'anonymous'">
-      <svg class=" w-10 h-10 p-1 ring-2 ring-gray-300 text-gray-400 bg-gray-200 rounded-full" (click)="togglePostAs()"
+    <div class=" inline-flex items-center justify-center" *ngSwitchCase="true">
+      <svg class="w-9 h-9 p-1 ring-2 ring-gray-300 text-gray-400 rounded-full" (click)="togglePostAs()"
         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
       </svg>
@@ -11,7 +11,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
         </svg>
       </div>
-      <div class="inline-flex items-center justify-center" *ngSwitchCase="currentUser">
+      <div class="inline-flex items-center justify-center" *ngSwitchCase="false">
         <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 :ring-gray-500" (click)="togglePostAs()"
           [src]="currentUser?.user_img" [alt]="currentUser?.email">
         <svg (click)="togglePostAs()" class="w-4 h-4 lg:w-6 lg:h-6" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -20,7 +20,7 @@
         </svg>
       </div>
       <div class=" inline-flex items-center justify-center" *ngSwitchDefault>
-        <svg class=" w-10 h-10 p-1 ring-2 ring-gray-300 text-gray-400 bg-gray-200 rounded-full" (click)="togglePostAs()"
+        <svg class=" w-8 h-8 p-1 ring-2 ring-gray-300 text-gray-400  rounded-full" (click)="togglePostAs()"
           fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
         </svg>

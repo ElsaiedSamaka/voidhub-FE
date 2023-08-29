@@ -4,6 +4,6 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class DataService {
   showSideBar: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  postAs: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  isAnonymous$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   constructor() {}
 }

@@ -26,7 +26,7 @@ export class CreatePostComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.dataService.postAs.subscribe((postAs) => {
+    this.dataService.isAnonymous$.subscribe((postAs) => {
       this.postAs = postAs;
     });
   }
@@ -53,7 +53,7 @@ export class CreatePostComponent implements OnInit {
     if (!this.isFormValid) return;
     let tagsIds = this.receivedTags.map((tag) => tag.id);
     let content = this.receivedHTMLContent;
-    let userId = this.postAs?.['id'];
+    let userId = this.postAs?.id ? this.postAs.id : null;
     article.append('tagsIds', tagsIds);
     article.append('content', content);
     article.append('userId', userId);
