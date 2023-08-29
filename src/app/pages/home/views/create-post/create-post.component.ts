@@ -53,7 +53,7 @@ export class CreatePostComponent implements OnInit {
     if (!this.isFormValid) return;
     let tagsIds = this.receivedTags.map((tag) => tag.id);
     let content = this.receivedHTMLContent;
-    let userId = this.postAs?.id ? this.postAs.id : null;
+    let userId = this.currentUser.id;
     article.append('tagsIds', tagsIds);
     article.append('content', content);
     article.append('userId', userId);
