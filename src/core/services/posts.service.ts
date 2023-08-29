@@ -38,6 +38,9 @@ export class PostsService {
       })
     );
   }
+  save(id: string): Observable<any>{
+    return this.apiService.post(`/api/posts/${id}/save`)
+  }
   // put(id: string, item: any): Observable<any> {
   //   return this.apiService.put(`/api/posts/${id}`, item).pipe(
   //     tap((updatedItem) => {
