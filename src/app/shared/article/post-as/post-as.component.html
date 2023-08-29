@@ -21,20 +21,23 @@
       </div>
       </ng-container>
   <div *ngIf="showPostAsPopOver" data-popover id="popover-default" role="tooltip"
-    class="absolute top-11 -left-2 z-10 inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm :text-gray-400 :border-gray-600 :bg-gray-800">
-    <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg :border-gray-600 :bg-gray-700">
-      <h3 class="font-semibold text-gray-900 :text-white">Select what others will see</h3>
+    class="absolute top-11 -left-2 z-10 inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border rounded-lg shadow-sm :text-gray-400 :border-gray-600 :bg-gray-800">
+    <div [ngClass]="currentTheme=='dark'?'border-white/10 bg-zinc-900 ':''"
+      class="px-3 py-2  border-b  rounded-t-lg ">
+      <h3 [class.text-white]="currentTheme== 'dark'" class="font-semibold text-gray-900 ">Select what others will see</h3>
     </div>
     <div class="w-full">
       <!-- Dropdown menu -->
-      <div id="dropdownRadioBgHover" class="z-10 w-full divide-y divide-gray-100 rounded-lg :bg-gray-700 :divide-gray-600">
-        <ul class="p-3 space-y-1 text-sm text-gray-700 hover:cursor-pointer" aria-labelledby="dropdownRadioBgHoverButton">
+      <div id="dropdownRadioBgHover" [class.bg-zinc-800]="currentTheme=='dark'" [class.divide-gray-600]="currentTheme=='dark'"
+        class="z-10 w-full divide-y divide-gray-100 rounded-b-lg ">
+        <ul [class.text-dark-accent]="currentTheme=='dark'" class="p-3 space-y-1 text-sm text-gray-700 hover:cursor-pointer"
+          aria-labelledby="dropdownRadioBgHoverButton">
           <li class="" (click)="handlePostAsUser()">
-            <div class="flex items-center p-2 rounded hover:bg-gray-100 ">
+            <div class="flex items-center p-2 rounded hover:cursor-pointer hover:bg-gray-100">
               <input id="default-radio-4" type="radio" value="" name="default-radio"
                 class="w-4 h-4 sr-only text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 :focus:ring-blue-600 :ring-offset-gray-700 :focus:ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500">
               <label for="default-radio-4"
-                class="w-full ml-2 text-sm font-medium text-gray-900 rounded :text-gray-300">as
+             [class.text-dark-secondary]="currentTheme=='dark'"   class="w-full ml-2 text-sm font-medium rounded ">as
                 <div
                   class="relative inline-flex items-center justify-center w-8 h-8 p-2 outline-dashed outline-1 mx-2 overflow-hidden bg-gray-100 rounded-full">
                   <span class="font-medium text-gray-600 ">JL</span>
@@ -43,11 +46,11 @@
             </div>
           </li>
           <li (click)="handlePostAsAnonymous()">
-            <div class="flex items-center p-2 rounded hover:bg-gray-100 :hover:bg-gray-600">
+            <div class="flex items-center p-2 rounded hover:bg-gray-100 hover:cursor-pointer">
               <input checked id="default-radio-5" type="radio" value="" name="default-radio"
                 class="w-4 h-4 sr-only text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 :focus:ring-blue-600 :ring-offset-gray-700 :focus:ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500">
               <label for="default-radio-5"
-                class="w-full flex items-center ml-2 text-sm font-medium text-gray-900 rounded :text-gray-300">as <div
+              [class.text-dark-secondary]="currentTheme=='dark'"  class="w-full flex items-center ml-2 text-sm font-medium rounded :text-gray-300">as <div
                   class="relative inline-flex items-center justify-center w-8 h-8 p-2 mx-2 overflow-hidden bg-gray-100 rounded-full">
                 <svg class=" w-10 h-10 text-gray-400 " fill="currentColor" viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg">
