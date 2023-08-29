@@ -43,8 +43,7 @@ export class CreatePostComponent implements OnInit {
     if (!this.isFormValid) return;
     let tagsIds = this.receivedTags.map((tag) => tag.id);
     let content = this.receivedHTMLContent;
-    // console.log('tagsIds', tagsIds);
-    // console.log('article', { ...article, tagsIds });
+    
     article.append('tagsIds', tagsIds);
     article.append('content', content);
     this.postArticle(article);
@@ -61,7 +60,7 @@ export class CreatePostComponent implements OnInit {
         this.toggleToast('success', 'post publish !');
       },
       error: (err) => {
-        this.toggleToast('error', 'somthing went wrong !');
+        this.toggleToast('error', err.message);
         this.closeCreateNewPostModal();
       },
       complete: () => {
