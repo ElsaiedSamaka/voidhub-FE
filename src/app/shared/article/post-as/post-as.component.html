@@ -16,7 +16,7 @@
       <!-- Dropdown menu -->
       <div id="dropdownRadioBgHover" class="z-10 w-full divide-y divide-gray-100 rounded-lg :bg-gray-700 :divide-gray-600">
         <ul class="p-3 space-y-1 text-sm text-gray-700 hover:cursor-pointer" aria-labelledby="dropdownRadioBgHoverButton">
-          <li class="">
+          <li class="" (click)="handlePostAsUser()">
             <div class="flex items-center p-2 rounded hover:bg-gray-100 ">
               <input id="default-radio-4" type="radio" value="" name="default-radio"
                 class="w-4 h-4 sr-only text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 :focus:ring-blue-600 :ring-offset-gray-700 :focus:ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500">
@@ -29,7 +29,7 @@
                 <span class="font-bold">saied samaka</span></label>
             </div>
           </li>
-          <li>
+          <li (click)="handlePostAsAnonymous()">
             <div class="flex items-center p-2 rounded hover:bg-gray-100 :hover:bg-gray-600">
               <input checked id="default-radio-5" type="radio" value="" name="default-radio"
                 class="w-4 h-4 sr-only text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 :focus:ring-blue-600 :ring-offset-gray-700 :focus:ring-offset-gray-700 focus:ring-2 :bg-gray-600 :border-gray-500">

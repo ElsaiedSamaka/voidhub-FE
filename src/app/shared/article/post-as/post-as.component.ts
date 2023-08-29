@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-post-as',
@@ -7,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostAsComponent implements OnInit {
   showPostAsPopOver: boolean = false;
-  constructor() {}
+  postAs;
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {}
   togglePostAs() {
     this.showPostAsPopOver = !this.showPostAsPopOver;
+  }
+  handlePostAsUser(): void {
+    this.dataService.postAs.next('');
+    console.log('handlePostAsUser');
+  }
+  handlePostAsAnonymous(): void {
+    this.dataService.postAs.next(null);
+    console.log('handlePostAsAnonymous');
   }
 }

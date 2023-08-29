@@ -8,6 +8,8 @@ import { PostsService } from 'src/core/services/posts.service';
 })
 export class TimelineComponent implements OnInit {
   @Input() currentTheme: string = '';
+  @Input() currentUser: any = null;
+
   posts: any[] = [];
   constructor(private postsService: PostsService) {}
 

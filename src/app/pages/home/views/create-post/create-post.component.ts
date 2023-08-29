@@ -9,6 +9,8 @@ import { PostsService } from 'src/core/services/posts.service';
 })
 export class CreatePostComponent implements OnInit {
   @Input() currentTheme: string = '';
+  @Input() currentUser: any = null;
+
   showCreateNewPostModal: boolean = false;
   validators = Validators;
   isFormValid: boolean = false;
@@ -43,7 +45,6 @@ export class CreatePostComponent implements OnInit {
     if (!this.isFormValid) return;
     let tagsIds = this.receivedTags.map((tag) => tag.id);
     let content = this.receivedHTMLContent;
-    
     article.append('tagsIds', tagsIds);
     article.append('content', content);
     this.postArticle(article);
@@ -67,7 +68,7 @@ export class CreatePostComponent implements OnInit {
         this.closeCreateNewPostModal();
         // once a user post an article we wanna reset the array of the recieved tags and the html content
         this.receivedTags = [];
-        this.receivedHTMLContent = ''
+        this.receivedHTMLContent = '';
       },
     });
   }
