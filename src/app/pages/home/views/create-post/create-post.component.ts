@@ -11,7 +11,6 @@ import { PostsService } from 'src/core/services/posts.service';
 export class CreatePostComponent implements OnInit {
   @Input() currentTheme: string = '';
   @Input() currentUser: any = null;
-  postAs;
   showCreateNewPostModal: boolean = false;
   validators = Validators;
   isFormValid: boolean = false;
@@ -26,9 +25,7 @@ export class CreatePostComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.dataService.isAnonymous$.subscribe((postAs) => {
-      this.postAs = postAs;
-    });
+    this.dataService.isAnonymous$.subscribe((postAs) => {});
   }
   openCreateNewPostModal() {
     this.showCreateNewPostModal = true;
@@ -54,9 +51,11 @@ export class CreatePostComponent implements OnInit {
     let tagsIds = this.receivedTags.map((tag) => tag.id);
     let content = this.receivedHTMLContent;
     let userId = this.currentUser.id;
+    let isAnonymous = this.dataService.isAnonymous$.value;
     article.append('tagsIds', tagsIds);
     article.append('content', content);
     article.append('userId', userId);
+    article.append('isAnonymous', isAnonymous);
     this.postArticle(article);
   }
   handleRecievedTags(tags: any): void {
