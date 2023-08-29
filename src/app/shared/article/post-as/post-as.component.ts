@@ -23,11 +23,13 @@ export class PostAsComponent implements OnInit {
     this.dataService.postAs.subscribe((res) => {
       this.postAs = res;
     });
+    this.togglePostAs();
   }
   handlePostAsAnonymous(): void {
     this.dataService.postAs.next(null);
     this.dataService.postAs.subscribe((res) => {
       this.postAs = 'anonymous';
     });
+    this.togglePostAs();
   }
 }
