@@ -19,13 +19,16 @@ export class CreatePostComponent implements OnInit {
   showToast: boolean = false;
   toastMessage: string = '';
   toastType: string = '';
+  postAs;
   constructor(
     private postsService: PostsService,
     private dataService: DataService
   ) {}
 
   ngOnInit() {
-    this.dataService.isAnonymous$.subscribe((postAs) => {});
+    this.dataService.isAnonymous$.subscribe((postAs) => {
+      this.postAs = postAs;
+    });
   }
   openCreateNewPostModal() {
     this.showCreateNewPostModal = true;
