@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CommentsService } from 'src/core/services/comments.service';
 
 @Component({
   selector: 'app-article',
@@ -11,7 +12,8 @@ export class ArticleComponent implements OnInit {
   @Input() article: any = {};
   showFollowingPopOver: boolean = false;
   showCommentInput: boolean = false;
-  constructor() {}
+  content: string = '';
+  constructor(private commentsService: CommentsService) {}
 
   ngOnInit() {}
   toggleFollowingPopOver() {
@@ -27,5 +29,12 @@ export class ArticleComponent implements OnInit {
   }
   handleCommentInput(event: any): void {
     event.stopPropagation();
+  }
+  postComment(event: any): void {
+    event.stopPropagation();
+    let comment = { content: this.content, postId: this.article.id };
+    this.commentsService
+      .post(comment)
+      .subscribe({ next: () => {}, error: (err) => {}, complete: () => {} });
   }
 }
