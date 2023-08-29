@@ -6,7 +6,7 @@
         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
       </svg>
-      <svg (click)="togglePostAs()" class="w-4 h-4 lg:w-7 lg:h-7" fill="none" stroke="currentColor" stroke-width="2.5"
+      <svg (click)="togglePostAs()" class="w-4 h-4 lg:w-6 lg:h-6" fill="none" stroke="currentColor" stroke-width="2.5"
           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
         </svg>
@@ -14,7 +14,7 @@
       <div class="inline-flex items-center justify-center" *ngSwitchCase="currentUser">
         <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 :ring-gray-500" (click)="togglePostAs()"
           [src]="currentUser?.user_img" [alt]="currentUser?.email">
-        <svg (click)="togglePostAs()" class="w-4 h-4 lg:w-7 lg:h-7" fill="none" stroke="currentColor" stroke-width="2.5"
+        <svg (click)="togglePostAs()" class="w-4 h-4 lg:w-6 lg:h-6" fill="none" stroke="currentColor" stroke-width="2.5"
           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
         </svg>

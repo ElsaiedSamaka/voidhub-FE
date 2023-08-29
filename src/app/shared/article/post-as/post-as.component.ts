@@ -8,6 +8,8 @@ import { DataService } from '../../services/data.service';
 })
 export class PostAsComponent implements OnInit {
   @Input() currentUser: any;
+  @Input() currentTheme: string = '';
+
   showPostAsPopOver: boolean = false;
   postAs;
   constructor(private dataService: DataService) {}
