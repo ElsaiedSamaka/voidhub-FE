@@ -14,9 +14,7 @@ export class PostAsComponent implements OnInit {
   postAs;
   constructor(private dataService: DataService) {}
 
-  ngOnInit() {
-    console.log('current user', this.currentUser);
-  }
+  ngOnInit() {}
   togglePostAs() {
     this.showPostAsPopOver = !this.showPostAsPopOver;
   }
@@ -25,13 +23,11 @@ export class PostAsComponent implements OnInit {
     this.dataService.postAs.subscribe((res) => {
       this.postAs = res;
     });
-    console.log('handlePostAsUser', this.postAs);
   }
   handlePostAsAnonymous(): void {
     this.dataService.postAs.next(null);
     this.dataService.postAs.subscribe((res) => {
       this.postAs = 'anonymous';
     });
-    console.log('handlePostAsAnonymous', this.postAs);
   }
 }

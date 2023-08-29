@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
+import { DataService } from 'src/app/shared/services/data.service';
 import { PostsService } from 'src/core/services/posts.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { PostsService } from 'src/core/services/posts.service';
 export class CreatePostComponent implements OnInit {
   @Input() currentTheme: string = '';
   @Input() currentUser: any = null;
-
+  postAs;
   showCreateNewPostModal: boolean = false;
   validators = Validators;
   isFormValid: boolean = false;
@@ -19,9 +20,16 @@ export class CreatePostComponent implements OnInit {
   showToast: boolean = false;
   toastMessage: string = '';
   toastType: string = '';
-  constructor(private postsService: PostsService) {}
+  constructor(
+    private postsService: PostsService,
+    private dataService: DataService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.dataService.postAs.subscribe((postAs) => {
+      this.postAs = postAs;
+    });
+  }
   openCreateNewPostModal() {
     this.showCreateNewPostModal = true;
   }
@@ -45,8 +53,10 @@ export class CreatePostComponent implements OnInit {
     if (!this.isFormValid) return;
     let tagsIds = this.receivedTags.map((tag) => tag.id);
     let content = this.receivedHTMLContent;
+    let userId = this.postAs?.['id'];
     article.append('tagsIds', tagsIds);
     article.append('content', content);
+    article.append('userId', userId);
     this.postArticle(article);
   }
   handleRecievedTags(tags: any): void {
