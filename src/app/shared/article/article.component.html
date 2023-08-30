@@ -141,7 +141,7 @@
               </a>
             </div>
             <div class="  m-2">
-              <a
+              <a (click)="saveArticle($event)"
                [ngClass]="currentTheme == 'dark'? 'hover:bg-white/5 text-dark-secondary hover:text-gray-100':'hover:bg-zinc-800/10 text-gray-500 hover:text-gray-800'" class="w-12 mt-1 group flex items-center  px-3 py-2 text-base leading-6 font-medium rounded-full">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

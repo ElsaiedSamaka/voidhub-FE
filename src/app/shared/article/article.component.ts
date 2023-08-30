@@ -42,7 +42,8 @@ export class ArticleComponent implements OnInit {
       .post(comment)
       .subscribe({ next: () => {}, error: (err) => {}, complete: () => {} });
   }
-  saveArticle(): void {
+  saveArticle(event: any): void {
+    event.stopPropagation();
     let articleId = this.article.id;
     this.postsService
       .save(articleId)
