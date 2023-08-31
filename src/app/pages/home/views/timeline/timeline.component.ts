@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { PostsService } from 'src/core/services/posts.service';
 
 @Component({
@@ -9,7 +16,7 @@ import { PostsService } from 'src/core/services/posts.service';
 export class TimelineComponent implements OnInit, AfterViewInit {
   @Input() currentTheme: string = '';
   @Input() currentUser: any = null;
-
+  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
   posts: any[] = [];
   constructor(private postsService: PostsService) {}
 
@@ -21,35 +28,27 @@ export class TimelineComponent implements OnInit, AfterViewInit {
     this.addScrollListener();
   }
   addScrollListener(): void {
-    window.addEventListener('scroll', this.scrollHandler.bind(this), true);
+    const scrollElement = this.scrollContainer.nativeElement;
+    scrollElement.addEventListener(
+      'scroll',
+      this.scrollHandler.bind(this),
+      true
+    );
   }
   scrollHandler(event: Event): void {
-    const windowScrollTop =
-      window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0;
-    const windowHeight =
-      window.innerHeight ||
-      document.documentElement.clientHeight ||
-      document.body.clientHeight ||
-      0;
-    const documentHeight = Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.offsetHeight,
-      document.body.clientHeight,
-      document.documentElement.clientHeight
-    );
+    const scrollElement = this.scrollContainer.nativeElement;
+    const isScrolledToBottom =
+      scrollElement.scrollTop + scrollElement.clientHeight >=
+      scrollElement.scrollHeight;
 
-    if (windowScrollTop + windowHeight >= documentHeight) {
-      // Reached the bottom of the page, fetch more posts
+    if (isScrolledToBottom) {
+      // Reached the bottom of the scroll container, fetch more posts
       this.fetchMorePosts();
     }
   }
 
   fetchMorePosts(): void {
+    console.log('fetchMorePosts called');
     this.postsService.getMorePosts().subscribe();
   }
   getAll(): void {

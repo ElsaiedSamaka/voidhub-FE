@@ -13,7 +13,7 @@ export class PostsService {
   totalPages = 0; // Total number of pages
   constructor(private apiService: ApiService) {}
   getAll(): Observable<any[]> {
-    return this.apiService.get('/api/posts').pipe(
+    return this.apiService.get(`/api/posts?page=${0}&size=${5}`).pipe(
       tap((response) => {
         const { rows: posts, totalPages, currentPage } = response;
         this.posts$.next(posts);
@@ -23,8 +23,9 @@ export class PostsService {
     );
   }
   getMorePosts(): Observable<any[]> {
-    if (this.currentPage >= this.totalPages - 1) {
+    if (this.currentPage >= this.totalPages) {
       // No more pages to fetch
+      console.log('this.currentPage >= this.totalPages - 1');
       return of([]);
     }
 
