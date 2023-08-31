@@ -162,7 +162,7 @@
     </div>
     <hr [ngClass]="currentTheme == 'dark'?'border-white/5':''">
     <div [ngClass]="currentTheme == 'dark'?'border-white/5':''" class="post-card flex items-center space-x-2 border-b p-2" *ngIf="showCommentInput">
-    <app-post-as></app-post-as>
+    <app-post-as [currentTheme]="currentTheme" [currentUser]="currentUser"></app-post-as>
       <input [(ngModel)]="content" (click)="handleCommentInput($event)" type="text" placeholder="Comment as saied samaka ..."
         [ngClass]="currentTheme =='dark'?'bg-white/5 ring-inset ring-white/5 ring-2 transition':''"
         [class.text-white]="currentTheme=='dark'"

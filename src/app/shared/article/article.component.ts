@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommentsService } from 'src/core/services/comments.service';
 import { PostsService } from 'src/core/services/posts.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-article',
@@ -18,7 +19,8 @@ export class ArticleComponent implements OnInit {
   alreadyLovedArticle;
   constructor(
     private commentsService: CommentsService,
-    private postsService: PostsService
+    private postsService: PostsService,
+    private dataService: DataService
   ) {}
 
   ngOnInit() {}
@@ -39,10 +41,19 @@ export class ArticleComponent implements OnInit {
   postComment(event: any): void {
     event.stopPropagation();
     let articleId = this.article.id;
-    let comment = { content: this.content, postId: articleId };
-    this.commentsService
-      .post(comment)
-      .subscribe({ next: () => {}, error: (err) => {}, complete: () => {} });
+    let isAnonymous = this.dataService.isAnonymous$.value;
+    let comment = {
+      content: this.content,
+      postId: articleId,
+      isAnonymous: isAnonymous,
+    };
+    this.commentsService.post(comment).subscribe({
+      next: () => {
+        this.content = '';
+      },
+      error: (err) => {},
+      complete: () => {},
+    });
   }
   saveArticle(event: any): void {
     event.stopPropagation();

@@ -15,7 +15,8 @@ export class PostAsComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit() {}
-  togglePostAs() {
+  togglePostAs(event: Event) {
+    event.stopPropagation();
     this.showPostAsPopOver = !this.showPostAsPopOver;
   }
   handlePostAsUser(): void {
@@ -23,13 +24,13 @@ export class PostAsComponent implements OnInit {
     this.dataService.isAnonymous$.subscribe((res) => {
       this.postAs = res;
     });
-    this.togglePostAs();
+    // this.togglePostAs();
   }
   handlePostAsAnonymous(): void {
     this.dataService.isAnonymous$.next(true);
     this.dataService.isAnonymous$.subscribe((res) => {
       this.postAs = res;
     });
-    this.togglePostAs();
+    // this.togglePostAs();
   }
 }
