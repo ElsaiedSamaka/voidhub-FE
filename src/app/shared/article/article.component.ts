@@ -14,6 +14,7 @@ export class ArticleComponent implements OnInit {
   showFollowingPopOver: boolean = false;
   showCommentInput: boolean = false;
   content: string = '';
+  alreadySavedArticle;
   constructor(
     private commentsService: CommentsService,
     private postsService: PostsService
@@ -45,8 +46,22 @@ export class ArticleComponent implements OnInit {
   saveArticle(event: any): void {
     event.stopPropagation();
     let articleId = this.article.id;
-    this.postsService
-      .save(articleId)
-      .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+    if (!this.articleAlreadyExistOnSaved()) {
+      this.postsService
+        .save(articleId)
+        .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+    } else {
+      this.postsService
+        .unsave(articleId)
+        .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+    }
+  }
+
+  articleAlreadyExistOnSaved(): boolean {
+    this.alreadySavedArticle = this.postsService.savedPosts$.value.find(
+      (item) => item.postId == this.article.id
+    );
+    if (this.alreadySavedArticle) return true;
+    return false;
   }
 }

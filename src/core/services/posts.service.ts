@@ -7,6 +7,7 @@ import { ApiService } from './api.service';
 })
 export class PostsService {
   posts$ = new BehaviorSubject<any[]>([]);
+  savedPosts$ = new BehaviorSubject<any[]>([]);
   constructor(private apiService: ApiService) {}
   getAll(): Observable<any[]> {
     return this.apiService.get('/api/posts').pipe(
@@ -38,8 +39,24 @@ export class PostsService {
       })
     );
   }
-  save(id: string): Observable<any>{
-    return this.apiService.post(`/api/posts/${id}/save`)
+  save(id: string): Observable<any> {
+    return this.apiService.post(`/api/posts/${id}/save`).pipe(
+      tap((savedPost) => {
+        this.savedPosts$.value.push(savedPost);
+      })
+    );
+  }
+  unsave(id: string): Observable<any> {
+    return this.apiService.delete(`/api/posts/${id}/unsave`).pipe(
+      tap((unsavedItem) => {
+        console.log('deleteItem', unsavedItem);
+        let updatedItems = this.savedPosts$.value.filter(
+          (item) => item.id != unsavedItem.id
+        );
+        console.log('updatedItems', updatedItems);
+        this.savedPosts$.next(updatedItems);
+      })
+    );
   }
   // put(id: string, item: any): Observable<any> {
   //   return this.apiService.put(`/api/posts/${id}`, item).pipe(
