@@ -26,7 +26,10 @@ export class ArticleComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // const {loveCount,saveCount}= this.article
+    const { loveCount, saveCount } = this.article;
+    this.saveCount = saveCount;
+    this.loveCount = loveCount;
+    console.log('loveCount', loveCount, 'saveCount', saveCount);
   }
   toggleFollowingPopOver() {
     this.showFollowingPopOver = !this.showFollowingPopOver;
@@ -65,11 +68,17 @@ export class ArticleComponent implements OnInit {
     if (!this.articleAlreadyExistOnSaved()) {
       this.postsService
         .save(articleId)
-        .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+        .subscribe({
+          next: () => { }, error: () => { }, complete: () => {
+          this.saveCount +=1
+        } });
     } else {
       this.postsService
         .unsave(articleId)
-        .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+        .subscribe({
+          next: () => { }, error: () => { }, complete: () => {
+            this.saveCount -= 1;
+        } });
     }
   }
   articleAlreadyExistOnSaved(): boolean {
@@ -85,11 +94,18 @@ export class ArticleComponent implements OnInit {
     if (!this.articleAlreadyExistOnFaved()) {
       this.postsService
         .fav(articleId)
-        .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+        .subscribe({
+          next: () => { }, error: () => { }, complete: () => {
+            this.loveCount += 1;
+        } });
     } else {
-      this.postsService
-        .unfav(articleId)
-        .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+      this.postsService.unfav(articleId).subscribe({
+        next: () => {},
+        error: () => {},
+        complete: () => {
+          this.loveCount -= 1;
+        },
+      });
     }
   }
   articleAlreadyExistOnFaved(): boolean {
