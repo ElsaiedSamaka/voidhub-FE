@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CommentsService } from 'src/core/services/comments.service';
 
 @Component({
   selector: 'app-comment-section',
@@ -7,7 +8,22 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CommentSectionComponent implements OnInit {
   @Input() currentTheme: string = '';
-  constructor() {}
+  @Input() article: any;
+  constructor(private commentsService: CommentsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getAll();
+  }
+  getAll(): void {
+    let articleId = this.article.id;
+    this.commentsService.getAll(articleId).subscribe({
+      next: (res) => {
+        console.log('res', res);
+      },
+      error: (err) => {
+        console.log('err', err);
+      },
+      complete: () => {},
+    });
+  }
 }

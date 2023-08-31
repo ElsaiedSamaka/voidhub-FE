@@ -34,7 +34,7 @@
     </div>
     <p [class.text-dark-secondary]="currentTheme == 'dark'" class="lead font-semibold" [innerHTML]="data.article.content">
     </p>
-    <app-comment-section [currentTheme]="currentTheme"></app-comment-section>
+    <app-comment-section [article]="data.article" [currentTheme]="currentTheme"></app-comment-section>
     <app-related-articles [currentTheme]="currentTheme"></app-related-articles>
   </div>
 </section>

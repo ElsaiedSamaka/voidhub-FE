@@ -8,14 +8,13 @@ import { ApiService } from './api.service';
 export class CommentsService {
   comments$ = new BehaviorSubject<any[]>([]);
   constructor(private apiService: ApiService) {}
-  // getAll(): Observable<any[]> {
-  //   return this.apiService.get('/api/posts').pipe(
-  //     tap((response) => {
-  //       const { rows: posts } = response;
-  //       this.posts$.next(posts);
-  //     })
-  //   );
-  // }
+  getAll(id: string): Observable<any[]> {
+    return this.apiService.get(`/api/posts/${id}/comments`).pipe(
+      tap((comments) => {
+        this.comments$.next(comments);
+      })
+    );
+  }
   getById(id: string): Observable<any> {
     return this.apiService.get(`/api/comments/${id}`);
   }
