@@ -1,7 +1,7 @@
 <section [class.text-dark-secondary]="currentTheme == 'dark'" class="py-8 lg:py-16">
   <div class=" px-4">
     <div class="flex justify-between items-center mb-6">
-      <h2 class="text-lg lg:text-2xl font-bold">Discussion (20)</h2>
+      <h2 class="text-lg lg:text-2xl font-bold">Discussion ({{comments.length}})</h2>
     </div>
     <form class="mb-6">
       <label for="comment" class="sr-only">Your comment</label>
@@ -13,13 +13,14 @@
         class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">Comment</button>
     </form>
     <section class="h-80 overflow-auto">
+      <ng-container *ngFor="let comment of comments">
       <!-- comment -->
-      <app-comment [currentTheme]="currentTheme"></app-comment>
+      <app-comment [comment]="comment" [currentTheme]="currentTheme"></app-comment>
       <!-- comment -->
       <!-- Reply -->
       <app-reply [currentTheme]="currentTheme"></app-reply>
       <!-- Reply -->
-
+      </ng-container>
     </section>
   </div>
 </section>

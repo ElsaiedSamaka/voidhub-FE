@@ -9,6 +9,7 @@ import { CommentsService } from 'src/core/services/comments.service';
 export class CommentSectionComponent implements OnInit {
   @Input() currentTheme: string = '';
   @Input() article: any;
+  comments: any[] = [];
   constructor(private commentsService: CommentsService) {}
 
   ngOnInit() {
@@ -17,8 +18,8 @@ export class CommentSectionComponent implements OnInit {
   getAll(): void {
     let articleId = this.article.id;
     this.commentsService.getAll(articleId).subscribe({
-      next: (res) => {
-        console.log('res', res);
+      next: (comments) => {
+        this.comments = comments;
       },
       error: (err) => {
         console.log('err', err);
