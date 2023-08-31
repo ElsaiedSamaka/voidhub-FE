@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -9,12 +9,32 @@ export class PostsService {
   posts$ = new BehaviorSubject<any[]>([]);
   savedPosts$ = new BehaviorSubject<any[]>([]);
   lovedPosts$ = new BehaviorSubject<any[]>([]);
+  currentPage = 0; // Current page of posts
+  totalPages = 0; // Total number of pages
   constructor(private apiService: ApiService) {}
   getAll(): Observable<any[]> {
     return this.apiService.get('/api/posts').pipe(
       tap((response) => {
-        const { rows: posts } = response;
+        const { rows: posts, totalPages, currentPage } = response;
         this.posts$.next(posts);
+        this.totalPages = totalPages;
+        this.currentPage = currentPage;
+      })
+    );
+  }
+  getMorePosts(): Observable<any[]> {
+    if (this.currentPage >= this.totalPages - 1) {
+      // No more pages to fetch
+      return of([]);
+    }
+
+    const nextPage = this.currentPage + 1;
+    return this.apiService.get(`/api/posts?page=${nextPage}&size=5`).pipe(
+      tap((response) => {
+        const { rows: morePosts } = response;
+        const currentPosts = this.posts$.value;
+        this.posts$.next([...currentPosts, ...morePosts]);
+        this.currentPage = nextPage;
       })
     );
   }
@@ -65,20 +85,22 @@ export class PostsService {
       })
     );
   }
-  fav(id: string): Observable<any>{
+  fav(id: string): Observable<any> {
     return this.apiService.post(`/api/posts/${id}/fav`).pipe(
       tap((lovedPost) => {
-        this.lovedPosts$.value.push(lovedPost)
+        this.lovedPosts$.value.push(lovedPost);
       })
-    )
+    );
   }
-  unfav(id: string): Observable<any>{
+  unfav(id: string): Observable<any> {
     return this.apiService.delete(`/api/posts/${id}/unfav`).pipe(
       tap((unlovedPost) => {
-        let updatedItems = this.lovedPosts$.value.filter((item)=> item.postId != unlovedPost.postId)
-        this.lovedPosts$.next(updatedItems)
+        let updatedItems = this.lovedPosts$.value.filter(
+          (item) => item.postId != unlovedPost.postId
+        );
+        this.lovedPosts$.next(updatedItems);
       })
-    )
+    );
   }
   // put(id: string, item: any): Observable<any> {
   //   return this.apiService.put(`/api/posts/${id}`, item).pipe(
