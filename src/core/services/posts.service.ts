@@ -58,6 +58,13 @@ export class PostsService {
       })
     );
   }
+  getSaved(): Observable<any[]> {
+    return this.apiService.get('/api/posts/user/saved-posts').pipe(
+      tap((savedPosts) => {
+        this.savedPosts$.next(savedPosts);
+      })
+    );
+  }
   // put(id: string, item: any): Observable<any> {
   //   return this.apiService.put(`/api/posts/${id}`, item).pipe(
   //     tap((updatedItem) => {
