@@ -19,18 +19,20 @@ export class PostAsComponent implements OnInit {
     event.stopPropagation();
     this.showPostAsPopOver = !this.showPostAsPopOver;
   }
-  handlePostAsUser(): void {
+  handlePostAsUser(event: Event): void {
+    event.stopPropagation();
     this.dataService.isAnonymous$.next(false);
     this.dataService.isAnonymous$.subscribe((res) => {
       this.postAs = res;
     });
-    // this.togglePostAs();
+    this.togglePostAs(event);
   }
-  handlePostAsAnonymous(): void {
+  handlePostAsAnonymous(event: Event): void {
+    event.stopPropagation();
     this.dataService.isAnonymous$.next(true);
     this.dataService.isAnonymous$.subscribe((res) => {
       this.postAs = res;
     });
-    // this.togglePostAs();
+    this.togglePostAs(event);
   }
 }
