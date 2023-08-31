@@ -11,7 +11,7 @@
         </p>
         <span
           class="text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150">
-          @ShonaDesign . {{comment.createdAt |date}}
+          @Voidhub . {{comment.createdAt |date}}
         </span>
       </div>
       <!-- user popover -->
@@ -22,7 +22,7 @@
           <div class="flex items-center justify-between mb-2">
             <a>
               <img class="w-10 h-10 rounded-full"
-                src="https://pbs.twimg.com/profile_images/1121328878142853120/e-rpjoJi_bigger.png" alt="Jese Leos">
+                [src]="comment.user?.user_img" alt="">
             </a>
             <div>
               <button type="button"
@@ -30,10 +30,10 @@
             </div>
           </div>
           <p class="text-base font-semibold leading-none">
-            <a>Jese Leos</a>
+            <a>comment.user </a>
           </p>
           <p class="mb-3 text-sm font-normal">
-            <a class="hover:underline">@jeseleos</a>
+            <a class="hover:underline">@{{comment.user.email}}</a>
           </p>
           <ul class="flex text-sm">
             <li class="mr-2">
