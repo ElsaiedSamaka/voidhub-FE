@@ -19,6 +19,7 @@ export class ArticleComponent implements OnInit {
   alreadyLovedArticle;
   saveCount: number = 0;
   loveCount: number = 0;
+  noOfComments: number = 0;
   constructor(
     private commentsService: CommentsService,
     private postsService: PostsService,
@@ -26,10 +27,10 @@ export class ArticleComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const { loveCount, saveCount } = this.article;
+    const { loveCount, saveCount, comments } = this.article;
     this.saveCount = saveCount;
     this.loveCount = loveCount;
-    console.log('loveCount', loveCount, 'saveCount', saveCount);
+    this.noOfComments = comments.length;
   }
   toggleFollowingPopOver() {
     this.showFollowingPopOver = !this.showFollowingPopOver;
@@ -59,26 +60,30 @@ export class ArticleComponent implements OnInit {
         this.content = '';
       },
       error: (err) => {},
-      complete: () => {},
+      complete: () => {
+        this.noOfComments = this.commentsService.comments$.value.length;
+      },
     });
   }
   saveArticle(event: any): void {
     event.stopPropagation();
     let articleId = this.article.id;
     if (!this.articleAlreadyExistOnSaved()) {
-      this.postsService
-        .save(articleId)
-        .subscribe({
-          next: () => { }, error: () => { }, complete: () => {
-          this.saveCount +=1
-        } });
+      this.postsService.save(articleId).subscribe({
+        next: () => {},
+        error: () => {},
+        complete: () => {
+          this.saveCount += 1;
+        },
+      });
     } else {
-      this.postsService
-        .unsave(articleId)
-        .subscribe({
-          next: () => { }, error: () => { }, complete: () => {
-            this.saveCount -= 1;
-        } });
+      this.postsService.unsave(articleId).subscribe({
+        next: () => {},
+        error: () => {},
+        complete: () => {
+          this.saveCount -= 1;
+        },
+      });
     }
   }
   articleAlreadyExistOnSaved(): boolean {
@@ -92,12 +97,13 @@ export class ArticleComponent implements OnInit {
     event.stopPropagation();
     let articleId = this.article.id;
     if (!this.articleAlreadyExistOnFaved()) {
-      this.postsService
-        .fav(articleId)
-        .subscribe({
-          next: () => { }, error: () => { }, complete: () => {
-            this.loveCount += 1;
-        } });
+      this.postsService.fav(articleId).subscribe({
+        next: () => {},
+        error: () => {},
+        complete: () => {
+          this.loveCount += 1;
+        },
+      });
     } else {
       this.postsService.unfav(articleId).subscribe({
         next: () => {},
