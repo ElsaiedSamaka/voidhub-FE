@@ -16,14 +16,14 @@
           <div class="flex items-center" *ngSwitchCase='false'>
           <img class="inline-block h-10 w-10 rounded-full" (mouseenter)="toggleFollowingPopOver()"
             (mouseleave)="toggleFollowingPopOver()"
-            [src]="comment.user?.user_img" alt="" />
+            [src]="article.user?.user_img" alt="" />
                 <div class="ml-3 flex items-center">
                   <p [class.text-gray-200]="currentTheme=='dark'" class="text-base leading-6 font-medium"
                     (mouseenter)="toggleFollowingPopOver()" (mouseleave)="toggleFollowingPopOver()">
-                    {{comment.user.email}}
+                    {{article.user.email}}
                   </p>
                   <span class="text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150">
-                    @Voidhub . {{comment.createdAt |date}}
+                    @Voidhub . {{article.createdAt |date}}
                   </span>
                   </div>
                   <!-- user popover -->
