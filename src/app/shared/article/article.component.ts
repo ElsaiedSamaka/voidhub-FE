@@ -15,6 +15,7 @@ export class ArticleComponent implements OnInit {
   showCommentInput: boolean = false;
   content: string = '';
   alreadySavedArticle;
+  alreadyLovedArticle;
   constructor(
     private commentsService: CommentsService,
     private postsService: PostsService
@@ -56,13 +57,31 @@ export class ArticleComponent implements OnInit {
         .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
     }
   }
-
   articleAlreadyExistOnSaved(): boolean {
     this.alreadySavedArticle = this.postsService.savedPosts$.value.find(
       (item) => item.postId == this.article.id
     );
-    console.log('alreadySavedArticle', this.alreadySavedArticle);
     if (this.alreadySavedArticle) return true;
+    return false;
+  }
+  favArticle(event: any): void {
+    event.stopPropagation();
+    let articleId = this.article.id;
+    if (!this.articleAlreadyExistOnFaved()) {
+      this.postsService
+        .fav(articleId)
+        .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+    } else {
+      this.postsService
+        .unfav(articleId)
+        .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+    }
+  }
+  articleAlreadyExistOnFaved(): boolean {
+    this.alreadyLovedArticle = this.postsService.lovedPosts$.value.find(
+      (item) => item.postId == this.article.id
+    );
+    if (this.alreadyLovedArticle) return true;
     return false;
   }
 }
