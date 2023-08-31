@@ -61,6 +61,7 @@ export class ArticleComponent implements OnInit {
     this.alreadySavedArticle = this.postsService.savedPosts$.value.find(
       (item) => item.postId == this.article.id
     );
+    console.log('alreadySavedArticle', this.alreadySavedArticle);
     if (this.alreadySavedArticle) return true;
     return false;
   }

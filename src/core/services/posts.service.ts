@@ -43,18 +43,18 @@ export class PostsService {
     return this.apiService.post(`/api/posts/${id}/save`).pipe(
       tap((savedPost) => {
         this.savedPosts$.value.push(savedPost);
+        console.log('this.savedPosts$.value', this.savedPosts$.value);
       })
     );
   }
   unsave(id: string): Observable<any> {
     return this.apiService.delete(`/api/posts/${id}/unsave`).pipe(
       tap((unsavedItem) => {
-        console.log('deleteItem', unsavedItem);
         let updatedItems = this.savedPosts$.value.filter(
-          (item) => item.id != unsavedItem.id
+          (item) => item.postId != unsavedItem.postId
         );
-        console.log('updatedItems', updatedItems);
         this.savedPosts$.next(updatedItems);
+        console.log('this.savedPosts$.value', this.savedPosts$.value);
       })
     );
   }
