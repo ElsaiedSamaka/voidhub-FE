@@ -17,13 +17,17 @@ export class ArticleComponent implements OnInit {
   content: string = '';
   alreadySavedArticle;
   alreadyLovedArticle;
+  saveCount: number = 0;
+  loveCount: number = 0;
   constructor(
     private commentsService: CommentsService,
     private postsService: PostsService,
     private dataService: DataService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // const {loveCount,saveCount}= this.article
+  }
   toggleFollowingPopOver() {
     this.showFollowingPopOver = !this.showFollowingPopOver;
   }
