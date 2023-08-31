@@ -8,6 +8,7 @@ import { ApiService } from './api.service';
 export class PostsService {
   posts$ = new BehaviorSubject<any[]>([]);
   savedPosts$ = new BehaviorSubject<any[]>([]);
+  lovedPosts$ = new BehaviorSubject<any[]>([]);
   constructor(private apiService: ApiService) {}
   getAll(): Observable<any[]> {
     return this.apiService.get('/api/posts').pipe(
@@ -54,7 +55,6 @@ export class PostsService {
           (item) => item.postId != unsavedItem.postId
         );
         this.savedPosts$.next(updatedItems);
-        console.log('this.savedPosts$.value', this.savedPosts$.value);
       })
     );
   }
@@ -64,6 +64,21 @@ export class PostsService {
         this.savedPosts$.next(savedPosts);
       })
     );
+  }
+  fav(id: string): Observable<any>{
+    return this.apiService.post(`/api/posts/${id}/fav`).pipe(
+      tap((lovedPost) => {
+        this.lovedPosts$.value.push(lovedPost)
+      })
+    )
+  }
+  unfav(id: string): Observable<any>{
+    return this.apiService.delete(`/api/posts/${id}/unfav`).pipe(
+      tap((unlovedPost) => {
+        let updatedItems = this.lovedPosts$.value.filter((item)=> item.postId != unlovedPost.postId)
+        this.lovedPosts$.next(updatedItems)
+      })
+    )
   }
   // put(id: string, item: any): Observable<any> {
   //   return this.apiService.put(`/api/posts/${id}`, item).pipe(
