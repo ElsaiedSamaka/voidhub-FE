@@ -5,7 +5,7 @@
     </div>
     <form class="mb-6">
       <label for="comment" class="sr-only">Your comment</label>
-      <textarea [ngClass]="currentTheme =='dark'?'bg-white/10 ring-2 ring-white/5 transition':''"
+      <textarea [ngClass]="currentTheme =='dark'?'bg-white/10 ring-2 ring-white/5 transition':'ring-2 ring-zinc-900/5'"
         [class.text-white]="currentTheme=='dark'" id="comment" rows="3"
         class="px-2 rounded-md w-full resize-none  border-0 focus:ring-0 focus:outline-none "
         placeholder="Write a comment..." required></textarea>
