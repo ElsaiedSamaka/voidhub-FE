@@ -1,7 +1,8 @@
 <section class="h-full w-full flex items-center justify-center">
   <div class="flex-col items-center justify-center space-y-2 text-left w-[60%]">
-    <h3 class="text-3xl font-extrabold">Select a conversation</h3>
-    <p>Choose from your existing conversations, start a new one, or just keep swimming.</p>
+    <h3 class="text-3xl font-extrabold" [ngClass]="currentTheme=='dark'?'text-dark-secondary':''">Select a conversation</h3>
+    <p [ngClass]="currentTheme=='dark'?'text-dark-secondary':''">Choose from your existing conversations, start a new one,
+      or just keep swimming.</p>
     <a type="button"
       class=" flex items-center justify-center gap-4 w-[60%] text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 ">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
