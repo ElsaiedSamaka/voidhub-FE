@@ -1,7 +1,8 @@
 <section class="flex h-[94vh] flex-col gap-2 pt-4 ">
   <div class="grid grid-cols-5 gap-4 h-full ">
+  <div class="col-span-2 h-full ">
     <ul [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
-      class="col-span-2 p-2 border rounded-lg rounded-b-none overflow-y-scroll ">
+      class="h-full p-2 border rounded-lg rounded-b-none overflow-y-scroll ">
       <li [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
         class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer ">
         <div class="flex justify-between space-x-2">
@@ -47,6 +48,7 @@
         </div>
       </li>
     </ul>
+    </div>
     <!-- detailed content -->
     <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
       class="col-span-3 border rounded-lg rounded-b-none h-full overflow-y-scroll">
