@@ -10,7 +10,7 @@ import { AuthService } from 'src/core/services/auth.service';
 export class DetailedComponent implements OnInit {
   currentTheme: string = '';
   currentUser: any;
-  messages: any[] = [];
+  messages: any[] = [{}];
   newMessage;
   constructor(
     private themeService: ThemeService,
