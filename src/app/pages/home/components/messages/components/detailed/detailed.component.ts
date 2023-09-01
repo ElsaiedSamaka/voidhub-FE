@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ThemeService } from 'src/app/shared/services/theme.service';
 import { AuthService } from 'src/core/services/auth.service';
 
@@ -16,6 +16,7 @@ export class DetailedComponent implements OnInit {
     private themeService: ThemeService,
     private authService: AuthService
   ) {}
+  @ViewChild('chatContainer', { static: false }) chatContainer: ElementRef;
 
   ngOnInit() {
     this.themeService.theme$.subscribe((theme) => {
@@ -31,7 +32,42 @@ export class DetailedComponent implements OnInit {
       complete: () => {},
     });
   }
+
+  ngAfterViewChecked() {
+    // Scroll to the bottom of the chat container
+    this.scrollBottom();
+  }
+
   sendMessage(): void {
-    console.log('sendMessage');
+    // try {
+    //   if (this.newMessage != '')
+    //     this.chatService.sendMessage(
+    //       this.currentUser.id,
+    //       [this.selectedContact.id],
+    //       this.newMessage
+    //     );
+    //   this.newMessage = '';
+    // } catch (error) {
+    //   console.log('error while sending message', error);
+    // }
+  }
+  // getMessages() {
+  //   if (this.sharedService.selectedContact$.value.id) {
+  //     this.chatService.getMessages(
+  //       this.currentUser.id,
+  //       this.sharedService.selectedContact$.value.id
+  //     );
+  //     // subscribe to messages$
+  //     this.chatService.messages$.subscribe((messages) => {
+  //       this.messages = messages;
+  //     });
+  //   }
+  // }
+  scrollBottom() {
+    // Scroll to the bottom of the chat container
+    if (this.chatContainer) {
+      this.chatContainer.nativeElement.scrollTop =
+        this.chatContainer.nativeElement.scrollHeight;
+    }
   }
 }
