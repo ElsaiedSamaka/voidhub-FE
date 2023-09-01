@@ -1,8 +1,24 @@
 <section class="flex h-[94vh] flex-col gap-2 pt-4 ">
   <div class="grid grid-cols-5 gap-4 h-full ">
-  <div class="col-span-2 h-full ">
-    <ul [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
-      class="h-full p-2 border rounded-lg rounded-b-none overflow-y-scroll ">
+  <div class="col-span-2 h-full p-2 border rounded-lg rounded-b-none  "
+    [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'">
+    <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
+      class="flex items-center justify-between border-b">
+      <span [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''" class="text-xl font-semibold my-4">Contacts</span>
+      <span>
+        <svg class="w-5 h-5 absolute ml-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"></path>
+        </svg>
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z">
+          </path>
+        </svg>
+      </span>
+    </div>
+    <ul class="h-[90%] overflow-y-scroll">
       <li [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
         class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer ">
         <div class="flex justify-between space-x-2">
@@ -18,6 +34,307 @@
             <div class="flex-col">
               <div class="flex space-x-1 text-emerald-500"><b>Company name</b> <span
                   class="text-zinc-500">(cairo)</span>
+              </div>
+              <span>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-yellow-300 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 22 20">
+                    <path
+                      d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                  </svg>
+                  <p class="ml-2 text-sm font-bold text-gray-900">4.95</p>
+                  <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full :bg-gray-400"></span>
+                  <a class="text-xs underline font-medium text-gray-900  hover:no-underline">73 reviews</a>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="mr-auto">
+            <svg class="w-7 h-7 text-zinc-500 hover:text-zinc-900" fill="none" stroke="currentColor" stroke-width="1.5"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <div class="p-2 flex justify-between items-center">
+          <h3 class="font-semibold text-xl">Full Stack developer</h3>
+          <em class="text-zinc-950">12 d</em>
+        </div>
+      </li>
+      <li [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
+        class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer ">
+        <div class="flex justify-between space-x-2">
+          <div class="inline-flex">
+            <div class="p-3 border inline-flex rounded-full">
+              <svg class="h-6 w-6 text-zinc-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21">
+                </path>
+              </svg>
+            </div>
+            <div class="flex-col">
+              <div class="flex space-x-1 text-emerald-500"><b>Company name</b> <span class="text-zinc-500">(cairo)</span>
+              </div>
+              <span>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-yellow-300 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 22 20">
+                    <path
+                      d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                  </svg>
+                  <p class="ml-2 text-sm font-bold text-gray-900">4.95</p>
+                  <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full :bg-gray-400"></span>
+                  <a class="text-xs underline font-medium text-gray-900  hover:no-underline">73 reviews</a>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="mr-auto">
+            <svg class="w-7 h-7 text-zinc-500 hover:text-zinc-900" fill="none" stroke="currentColor" stroke-width="1.5"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <div class="p-2 flex justify-between items-center">
+          <h3 class="font-semibold text-xl">Full Stack developer</h3>
+          <em class="text-zinc-950">12 d</em>
+        </div>
+      </li>
+      <li [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
+        class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer ">
+        <div class="flex justify-between space-x-2">
+          <div class="inline-flex">
+            <div class="p-3 border inline-flex rounded-full">
+              <svg class="h-6 w-6 text-zinc-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21">
+                </path>
+              </svg>
+            </div>
+            <div class="flex-col">
+              <div class="flex space-x-1 text-emerald-500"><b>Company name</b> <span class="text-zinc-500">(cairo)</span>
+              </div>
+              <span>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-yellow-300 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 22 20">
+                    <path
+                      d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                  </svg>
+                  <p class="ml-2 text-sm font-bold text-gray-900">4.95</p>
+                  <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full :bg-gray-400"></span>
+                  <a class="text-xs underline font-medium text-gray-900  hover:no-underline">73 reviews</a>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="mr-auto">
+            <svg class="w-7 h-7 text-zinc-500 hover:text-zinc-900" fill="none" stroke="currentColor" stroke-width="1.5"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <div class="p-2 flex justify-between items-center">
+          <h3 class="font-semibold text-xl">Full Stack developer</h3>
+          <em class="text-zinc-950">12 d</em>
+        </div>
+      </li>
+      <li [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
+        class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer ">
+        <div class="flex justify-between space-x-2">
+          <div class="inline-flex">
+            <div class="p-3 border inline-flex rounded-full">
+              <svg class="h-6 w-6 text-zinc-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21">
+                </path>
+              </svg>
+            </div>
+            <div class="flex-col">
+              <div class="flex space-x-1 text-emerald-500"><b>Company name</b> <span class="text-zinc-500">(cairo)</span>
+              </div>
+              <span>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-yellow-300 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 22 20">
+                    <path
+                      d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                  </svg>
+                  <p class="ml-2 text-sm font-bold text-gray-900">4.95</p>
+                  <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full :bg-gray-400"></span>
+                  <a class="text-xs underline font-medium text-gray-900  hover:no-underline">73 reviews</a>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="mr-auto">
+            <svg class="w-7 h-7 text-zinc-500 hover:text-zinc-900" fill="none" stroke="currentColor" stroke-width="1.5"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <div class="p-2 flex justify-between items-center">
+          <h3 class="font-semibold text-xl">Full Stack developer</h3>
+          <em class="text-zinc-950">12 d</em>
+        </div>
+      </li>
+      <li [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
+        class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer ">
+        <div class="flex justify-between space-x-2">
+          <div class="inline-flex">
+            <div class="p-3 border inline-flex rounded-full">
+              <svg class="h-6 w-6 text-zinc-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21">
+                </path>
+              </svg>
+            </div>
+            <div class="flex-col">
+              <div class="flex space-x-1 text-emerald-500"><b>Company name</b> <span class="text-zinc-500">(cairo)</span>
+              </div>
+              <span>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-yellow-300 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 22 20">
+                    <path
+                      d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                  </svg>
+                  <p class="ml-2 text-sm font-bold text-gray-900">4.95</p>
+                  <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full :bg-gray-400"></span>
+                  <a class="text-xs underline font-medium text-gray-900  hover:no-underline">73 reviews</a>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="mr-auto">
+            <svg class="w-7 h-7 text-zinc-500 hover:text-zinc-900" fill="none" stroke="currentColor" stroke-width="1.5"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <div class="p-2 flex justify-between items-center">
+          <h3 class="font-semibold text-xl">Full Stack developer</h3>
+          <em class="text-zinc-950">12 d</em>
+        </div>
+      </li>
+      <li [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
+        class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer ">
+        <div class="flex justify-between space-x-2">
+          <div class="inline-flex">
+            <div class="p-3 border inline-flex rounded-full">
+              <svg class="h-6 w-6 text-zinc-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21">
+                </path>
+              </svg>
+            </div>
+            <div class="flex-col">
+              <div class="flex space-x-1 text-emerald-500"><b>Company name</b> <span class="text-zinc-500">(cairo)</span>
+              </div>
+              <span>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-yellow-300 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 22 20">
+                    <path
+                      d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                  </svg>
+                  <p class="ml-2 text-sm font-bold text-gray-900">4.95</p>
+                  <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full :bg-gray-400"></span>
+                  <a class="text-xs underline font-medium text-gray-900  hover:no-underline">73 reviews</a>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="mr-auto">
+            <svg class="w-7 h-7 text-zinc-500 hover:text-zinc-900" fill="none" stroke="currentColor" stroke-width="1.5"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <div class="p-2 flex justify-between items-center">
+          <h3 class="font-semibold text-xl">Full Stack developer</h3>
+          <em class="text-zinc-950">12 d</em>
+        </div>
+      </li>
+      <li [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
+        class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer ">
+        <div class="flex justify-between space-x-2">
+          <div class="inline-flex">
+            <div class="p-3 border inline-flex rounded-full">
+              <svg class="h-6 w-6 text-zinc-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21">
+                </path>
+              </svg>
+            </div>
+            <div class="flex-col">
+              <div class="flex space-x-1 text-emerald-500"><b>Company name</b> <span class="text-zinc-500">(cairo)</span>
+              </div>
+              <span>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-yellow-300 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 22 20">
+                    <path
+                      d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                  </svg>
+                  <p class="ml-2 text-sm font-bold text-gray-900">4.95</p>
+                  <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full :bg-gray-400"></span>
+                  <a class="text-xs underline font-medium text-gray-900  hover:no-underline">73 reviews</a>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="mr-auto">
+            <svg class="w-7 h-7 text-zinc-500 hover:text-zinc-900" fill="none" stroke="currentColor" stroke-width="1.5"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9">
+              </path>
+            </svg>
+          </div>
+        </div>
+        <div class="p-2 flex justify-between items-center">
+          <h3 class="font-semibold text-xl">Full Stack developer</h3>
+          <em class="text-zinc-950">12 d</em>
+        </div>
+      </li>
+      <li [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
+        class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer ">
+        <div class="flex justify-between space-x-2">
+          <div class="inline-flex">
+            <div class="p-3 border inline-flex rounded-full">
+              <svg class="h-6 w-6 text-zinc-700" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21">
+                </path>
+              </svg>
+            </div>
+            <div class="flex-col">
+              <div class="flex space-x-1 text-emerald-500"><b>Company name</b> <span class="text-zinc-500">(cairo)</span>
               </div>
               <span>
                 <div class="flex items-center">
