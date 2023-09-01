@@ -20,7 +20,7 @@
     </div>
     <ul class="h-[90%] overflow-y-scroll">
       <li [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
-        class="h-26 w-full p-2 my-1 border rounded-lg hover:cursor-pointer ">
+        class=" w-full p-2 my-1 border rounded-lg hover:cursor-pointer ">
         <div class="flex justify-between space-x-2">
           <div class="inline-flex">
             <div class="p-3 border inline-flex rounded-full">
@@ -31,7 +31,7 @@
                 </path>
               </svg>
             </div>
-            <div class="flex-col ml-2">
+            <div class="flex-col ml-2" [ngClass]="currentTheme=='dark'?'text-dark-secondary':''">
               <div class="flex space-x-1 text-emerald-500"><b>Lorem ipsum</b>
               </div>
               <span>loremipsum@mail.com</span>
@@ -47,9 +47,9 @@
             </svg>
           </div>
         </div>
-        <div class="p-2 flex justify-between items-center">
+        <div [ngClass]="currentTheme=='dark'?'text-dark-secondary':''" class="p-2 flex justify-between items-center">
           <h3 class="font-semibold text-xl">Hello from the ..</h3>
-          <em class="text-zinc-950">12 d</em>
+          <em>12 d</em>
         </div>
       </li>
     </ul>
