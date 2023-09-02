@@ -50,7 +50,7 @@
           [class.text-white]="currentTheme=='dark'"
           class="search-contacts  my-2 ml-[15%] h-11 w-[85%] inline-flex items-center gap-2 rounded-full pl-2 pr-3 text-sm text-zinc-500 ring-1 placeholder:text-zinc-400 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none">
           <!-- Dropdown menu -->
-          <div *ngIf="true" id="dropdownSearch" class="absolute  z-10  rounded-3xl shadow w-60 "
+          <div *ngIf="showUsersDropdown" id="dropdownSearch" class="absolute ml-[10%] z-10  rounded-3xl shadow w-60 "
             [ngClass]="currentTheme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white text-light-secondary'">
             <div class="results p-2">
               <h6 class="font-semibold">Results</h6>
