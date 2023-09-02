@@ -75,16 +75,17 @@
           </div>
       </div>
     </div>
-    <app-form
-      [fields]="[
-            { name: 'message', label: 'message', type: 'textarea', maxlength:60 , minlength:1, autofocus:false, required:true, validators: [validators.required] },
-          ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
-      <div class="my-1 mr-5" form-actions>
-        <button (click)="closeCreateNewPostModal()"
+    <textarea [(ngModel)]="message"
+      [ngClass]="currentTheme =='dark'?'bg-white/10 ring-2 ring-white/5 transition':'ring-2 ring-zinc-900/5'"
+      [class.text-white]="currentTheme=='dark'" id="comment" rows="3"
+      class="px-2 rounded-md w-[93%] ml-[4%] resize-none  border-0 focus:ring-0 focus:outline-none "
+      placeholder="Write a message..." required></textarea>
+    <div class="my-1 mr-5 text-right">
+      <button (click)="closeNewConversationModal()"
         [ngClass]="currentTheme=='dark'?'border-white/10 hover:text-white':'hover:border-gray-300'"  class="inline-flex  shrink-0 rounded-3xl border hover:border  mx-1 px-5 py-1.5 font-semibold text-gray-500 hover:text-black focus:outline-none active:text-white disabled:cursor-not-allowed">
           cancel
         </button>
-        <button type="submit" [disabled]="!isFormValid" 
+        <button (click)="onFormSubmitted()"
           [ngClass]="currentTheme == 'dark'?'bg-dark-primary  text-dark-secondary disabled:bg-dark-accent disabled:border-gray-200/10':'bg-light-primary  text-light-secondary disabled:bg-gray-100/10 disabled:border-gray-200/10 '"
           class=" inline-flex justify-center items-center space-x-2 border border-green-600 hover:bg-light-accent hover:cursor-pointer hover:text-gray-50 focus:ring-2 focus:ring-green-300  font-semibold rounded-3xl  px-5 py-1.5 text-center disabled:cursor-not-allowed">
           <span>Send</span>
@@ -98,6 +99,5 @@
           </span>
         </button>
       </div>
-    </app-form>
-  </div>
+    </div>
 </app-modal>

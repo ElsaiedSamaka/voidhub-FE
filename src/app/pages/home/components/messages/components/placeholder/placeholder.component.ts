@@ -21,6 +21,7 @@ export class PlaceholderComponent implements OnInit {
   users: any[] = [];
   selectedUsers: any[] = [];
   email: string = '';
+  message: string = '';
 
   constructor(
     private themeService: ThemeService,
@@ -62,13 +63,16 @@ export class PlaceholderComponent implements OnInit {
         break;
     }
   }
-  onFormSubmitted(formValue: any) {
-    if (!this.isFormValid || this.selectedUsers.length == 0) return;
+  onFormSubmitted() {
+    if (this.selectedUsers.length == 0) return;
     // post form value
+    let formValue: any = {};
     let senderId = this.currentUser.id;
     let receiverId = this.selectedUsers[0].id;
-    formValue.append('senderId', senderId);
-    formValue.append('receiverId', receiverId);
+    let message = this.message;
+    formValue.assign('senderId', senderId);
+    formValue.assign('receiverId', receiverId);
+    formValue.assign('message', message);
     console.log('formValue', formValue);
     this.chatService.sendMessage(formValue);
   }
