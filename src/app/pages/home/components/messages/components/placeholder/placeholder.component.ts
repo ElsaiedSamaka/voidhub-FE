@@ -3,6 +3,7 @@ import { Validators } from 'ngx-editor';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { ThemeService } from 'src/app/shared/services/theme.service';
 import { AuthService } from 'src/core/services/auth.service';
+import { ChatService } from 'src/core/services/chat.service';
 import { UsersService } from 'src/core/services/users.service';
 
 @Component({
@@ -24,7 +25,8 @@ export class PlaceholderComponent implements OnInit {
   constructor(
     private themeService: ThemeService,
     private authService: AuthService,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private chatService: ChatService
   ) {}
 
   ngOnInit() {
@@ -61,9 +63,14 @@ export class PlaceholderComponent implements OnInit {
     }
   }
   onFormSubmitted(formValue: any) {
-    if (!this.isFormValid) return;
+    if (!this.isFormValid || this.selectedUsers.length == 0) return;
     // post form value
+    let senderId = this.currentUser.id;
+    let receiverId = this.selectedUsers[0].id;
+    formValue.append('senderId', senderId);
+    formValue.append('receiverId', receiverId);
     console.log('formValue', formValue);
+    this.chatService.sendMessage(formValue);
   }
   handleEmailChange() {
     this.getUsers();
