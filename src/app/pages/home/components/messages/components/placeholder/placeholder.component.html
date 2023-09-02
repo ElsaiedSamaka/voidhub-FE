@@ -44,7 +44,8 @@
         <span> saied@samam.com</span>
       </div>
       <div class="inline w-full">
-        <input type="search" placeholder="search over your contacts ..."
+        <input (input)="showUsersDropdown = true" [(ngModel)]="email" (input)="handleEmailChange()" type="search"
+          placeholder="search over your contacts ..."
           [ngClass]="currentTheme =='dark'?'bg-white/5 ring-inset ring-white/5 ring-2 transition':''"
           [class.text-white]="currentTheme=='dark'"
           class="search-contacts  my-2 ml-[15%] h-11 w-[85%] inline-flex items-center gap-2 rounded-full pl-2 pr-3 text-sm text-zinc-500 ring-1 placeholder:text-zinc-400 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none">

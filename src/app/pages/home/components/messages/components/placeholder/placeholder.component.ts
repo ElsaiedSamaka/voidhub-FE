@@ -14,7 +14,7 @@ export class PlaceholderComponent implements OnInit {
   showNewConversationModal: boolean = false;
   validators = Validators;
   isFormValid: boolean = false;
-
+  showUsersDropdown: boolean = false;
   constructor(
     private themeService: ThemeService,
     private authService: AuthService
