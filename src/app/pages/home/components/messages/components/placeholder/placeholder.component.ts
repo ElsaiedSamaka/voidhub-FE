@@ -71,7 +71,8 @@ export class PlaceholderComponent implements OnInit {
     let message = this.message;
 
     this.chatService.sendMessage(senderId, receiverId, message);
-    // TODO: after sending the message we want to make sure to we reset the message and close the modal
+    this.message = '';
+    this.closeNewConversationModal();
   }
   handleEmailChange() {
     this.getUsers();
