@@ -26,6 +26,13 @@ export class UsersService {
       })
     );
   }
+  getUsers(email: string): Observable<any[]> {
+    return this.apiService.get(`/api/users?email=${email}`).pipe(
+      tap((res) => {
+        this.users$.next(res);
+      })
+    );
+  }
   getById(id: string): Observable<any> {
     return this.apiService.get(`/api/users/${id}`);
   }
@@ -35,7 +42,7 @@ export class UsersService {
         let updatedUsers = this.users$.value.filter(
           (user) => user.id != deletedUser.id
         );
-        // ✔️✔️ 
+        // ✔️✔️
         console.log('updated users', updatedUsers);
         // ToDo: comment below statement and instead get the data directly sorted
         let sortedUsers = updatedUsers.sort((a, b) => b.id - a.id);

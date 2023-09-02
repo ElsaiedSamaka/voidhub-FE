@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from 'ngx-editor';
+import { debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
 import { ThemeService } from 'src/app/shared/services/theme.service';
 import { AuthService } from 'src/core/services/auth.service';
+import { UsersService } from 'src/core/services/users.service';
 
 @Component({
   selector: 'app-placeholder',
@@ -21,7 +23,8 @@ export class PlaceholderComponent implements OnInit {
 
   constructor(
     private themeService: ThemeService,
-    private authService: AuthService
+    private authService: AuthService,
+    private usersService: UsersService
   ) {}
 
   ngOnInit() {
@@ -60,6 +63,35 @@ export class PlaceholderComponent implements OnInit {
   onFormSubmitted(article: any) {
     if (!this.isFormValid) return;
     // post form value
+  }
+  handleEmailChange() {
+    this.getUsers();
+  }
+  getUsers() {
+    this.usersService
+      .getUsers(this.email)
+      .pipe(
+        debounceTime(500),
+        distinctUntilChanged(),
+        switchMap((users) => {
+          if (users.length > 10) {
+            users = users.slice(0, 10);
+          }
+          return of(users);
+        })
+      )
+      .subscribe({
+        next: (users) => {
+          this.users = users.map((user) => ({
+            ...user,
+            isSelected: false,
+          }));
+        },
+        error: (err) => {
+          console.log('error while retrieving users', err);
+        },
+        complete: () => {},
+      });
   }
   handleUserSelect(event) {
     const userId = event.target.value;
