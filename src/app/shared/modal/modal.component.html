@@ -6,7 +6,7 @@
   (click)="onDismissClick()"></div>
 
 <div
-  class="max-w-3xl rounded-2xl w-[50%] z-40 fixed lg:top-[4%] md:top-[8%] sm:top-[10%] lg:left-[25%] md:left-[7%] sm:left-[0%] mx-auto border shadow-2xl  px-5 py-5 backdrop-blur-3xl ">
+[ngClass]="currentTheme=='dark'?'border-white/10':''"  class="max-w-3xl rounded-2xl w-[50%] z-40 fixed  xs:top-[15%]  xs:left-[25%] mx-auto border shadow-2xl  px-5 py-5 backdrop-blur-3xl ">
   <div class="flex flex-col w-full  ">
     <!-- Modal content -->
     <!-- Modal header -->
