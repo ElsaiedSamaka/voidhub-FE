@@ -100,6 +100,5 @@ export class PlaceholderComponent implements OnInit {
       this.email = '';
       this.showUsersDropdown = false;
     }
-    console.log('this.selectedUsers', this.selectedUsers);
   }
 }

@@ -41,7 +41,7 @@
     <div class="flex items-center px-5">
       <div class="inline-flex space-x-2" [class.text-dark-secondary]="currentTheme =='dark'">
         <span class="font-bold">To</span>
-        <span> saied@samam.com</span>
+        <span *ngFor="let user of selectedUsers">{{user.email}}</span>
       </div>
       <div class="inline w-full">
         <input (input)="showUsersDropdown = true" [(ngModel)]="email" (input)="handleEmailChange()" type="search"
