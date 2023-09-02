@@ -66,15 +66,12 @@ export class PlaceholderComponent implements OnInit {
   onFormSubmitted() {
     if (this.selectedUsers.length == 0) return;
     // post form value
-    let formValue: any = {};
     let senderId = this.currentUser.id;
     let receiverId = this.selectedUsers[0].id;
     let message = this.message;
-    formValue.assign('senderId', senderId);
-    formValue.assign('receiverId', receiverId);
-    formValue.assign('message', message);
-    console.log('formValue', formValue);
-    this.chatService.sendMessage(formValue);
+
+    this.chatService.sendMessage(senderId, receiverId, message);
+    // TODO: after sending the message we want to make sure to we reset the message and close the modal
   }
   handleEmailChange() {
     this.getUsers();

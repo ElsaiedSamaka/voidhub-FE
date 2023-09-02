@@ -24,9 +24,11 @@ export class ChatService {
     }
   }
 
-  sendMessage(message: any) {
+  sendMessage(senderId: number, receiverId: number, message: string) {
     this.socketService.socket.emit('sendMessage', {
-      message,
+      senderId: senderId,
+      receiverId: receiverId,
+      message: message,
     });
     this.socketService.socket.on('newMessage', (newMessage) => {
       console.log('newMessage', newMessage);
