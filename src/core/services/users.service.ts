@@ -29,7 +29,8 @@ export class UsersService {
   getUsers(email: string): Observable<any[]> {
     return this.apiService.get(`/api/users?email=${email}`).pipe(
       tap((res) => {
-        this.users$.next(res);
+        const { rows: users } = res;
+        this.users$.next(users);
       })
     );
   }

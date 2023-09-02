@@ -58,12 +58,12 @@
                 <ng-container *ngIf="users.length > 0;else nousersfound">
                   <li *ngFor="let user of users">
                     <div class="flex items-center pl-2 rounded "
-                      [ngClass]="theme == 'dark'?'hover:bg-gray-500':'hover:bg-gray-100'">
+                      [ngClass]="currentTheme == 'dark'?'hover:bg-gray-500':'hover:bg-gray-100'">
                       <input [name]="user.id" [id]="user.id" [value]="user.id" type="checkbox" [checked]="user.isSelected"
                         (change)="handleUserSelect($event)"
                         class="sr-only w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2">
                       <label [for]="user.id" class="w-full py-2 ml-2 text-sm font-medium rounded"
-                        [ngClass]="theme == 'dark'?' text-dark-white':'bg-white text-light-secondary'">{{user.username}}</label>
+                        [ngClass]="currentTheme == 'dark'?' text-dark-white':'bg-white text-light-secondary'">{{user.email}}</label>
                     </div>
                   </li>
                 </ng-container>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from 'ngx-editor';
-import { debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { ThemeService } from 'src/app/shared/services/theme.service';
 import { AuthService } from 'src/core/services/auth.service';
 import { UsersService } from 'src/core/services/users.service';
@@ -70,22 +70,10 @@ export class PlaceholderComponent implements OnInit {
   getUsers() {
     this.usersService
       .getUsers(this.email)
-      .pipe(
-        debounceTime(500),
-        distinctUntilChanged(),
-        switchMap((users) => {
-          if (users.length > 10) {
-            users = users.slice(0, 10);
-          }
-          return of(users);
-        })
-      )
+      .pipe(debounceTime(500), distinctUntilChanged())
       .subscribe({
         next: (users) => {
-          this.users = users.map((user) => ({
-            ...user,
-            isSelected: false,
-          }));
+          this.users = this.usersService.users$.value;
         },
         error: (err) => {
           console.log('error while retrieving users', err);
@@ -101,7 +89,8 @@ export class PlaceholderComponent implements OnInit {
 
     if (isChecked) {
       if (selectedIndex === -1) {
-        this.selectedUsers.push(user);
+        // this.selectedUsers.push(user);
+        this.selectedUsers.splice(0, 1, user);
       }
       this.showUsersDropdown = false;
       this.email = '';
@@ -112,5 +101,6 @@ export class PlaceholderComponent implements OnInit {
       this.email = '';
       this.showUsersDropdown = false;
     }
+    console.log('this.selectedUsers', this.selectedUsers);
   }
 }
