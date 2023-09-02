@@ -7,6 +7,7 @@ import { SocketService } from './socket.service';
 export class ChatService {
   selectedContact;
   messages$ = new BehaviorSubject<any[]>([]);
+  conversations$ = new BehaviorSubject<any[]>([]);
 
   constructor(private socketService: SocketService) {}
   getMessages(senderId: number, recipientId: number) {
@@ -40,18 +41,25 @@ export class ChatService {
         .subscribe();
     });
   }
-
-  joinRoom(userId, recipientId) {
-    this.socketService.socket.emit('join', {
-      userId: userId,
-      recipientId: recipientId,
+  getConversations(currentUserId: number): void {
+    this.socketService.socket.emit('getConversations', {
+      currentUserId: currentUserId,
+    });
+    this.socketService.socket.on('emittedConversation', (conversations) => {
+      this.conversations$.next(conversations);
     });
   }
+  // joinRoom(userId, recipientId) {
+  //   this.socketService.socket.emit('join', {
+  //     userId: userId,
+  //     recipientId: recipientId,
+  //   });
+  // }
 
-  leaveRoom(userId, recipientId) {
-    this.socketService.socket.emit('leave', {
-      userId: userId,
-      recipientId: recipientId,
-    });
-  }
+  // leaveRoom(userId, recipientId) {
+  //   this.socketService.socket.emit('leave', {
+  //     userId: userId,
+  //     recipientId: recipientId,
+  //   });
+  // }
 }

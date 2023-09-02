@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from 'src/app/shared/services/theme.service';
 import { AuthService } from 'src/core/services/auth.service';
+import { ChatService } from 'src/core/services/chat.service';
 
 @Component({
   selector: 'app-index',
@@ -13,7 +14,8 @@ export class IndexComponent implements OnInit {
 
   constructor(
     private themeService: ThemeService,
-    private authService: AuthService
+    private authService: AuthService,
+    private chatService: ChatService
   ) {}
 
   ngOnInit() {
@@ -28,6 +30,16 @@ export class IndexComponent implements OnInit {
         console.log('err', err);
       },
       complete: () => {},
+    });
+    this.getConversations();
+  }
+  getConversations() {
+    this.chatService.getConversations(this.currentUser.id);
+    this.chatService.conversations$.subscribe(() => {
+      console.log(
+        'this.chatService.conversations$.value',
+        this.chatService.conversations$.value
+      );
     });
   }
 }
