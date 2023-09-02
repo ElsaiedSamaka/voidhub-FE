@@ -15,6 +15,8 @@ export class PlaceholderComponent implements OnInit {
   validators = Validators;
   isFormValid: boolean = false;
   showUsersDropdown: boolean = false;
+  users: any[] = [];
+
   constructor(
     private themeService: ThemeService,
     private authService: AuthService
