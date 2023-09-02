@@ -13,6 +13,7 @@ export class PlaceholderComponent implements OnInit {
   currentUser: any;
   showNewConversationModal: boolean = false;
   validators = Validators;
+  isFormValid: boolean = false;
 
   constructor(
     private themeService: ThemeService,
@@ -38,5 +39,22 @@ export class PlaceholderComponent implements OnInit {
   }
   closeNewConversationModal() {
     this.showNewConversationModal = false;
+  }
+  checkFormStatus(value: any) {
+    switch (value) {
+      case 'INVALID':
+        this.isFormValid = false;
+        break;
+      case 'VALID':
+        this.isFormValid = true;
+        break;
+
+      default:
+        break;
+    }
+  }
+  onFormSubmitted(article: any) {
+    if (!this.isFormValid) return;
+    // post form value
   }
 }
