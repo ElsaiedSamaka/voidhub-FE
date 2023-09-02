@@ -16,6 +16,8 @@ export class PlaceholderComponent implements OnInit {
   isFormValid: boolean = false;
   showUsersDropdown: boolean = false;
   users: any[] = [];
+  selectedUsers: any[] = [];
+  email: string = '';
 
   constructor(
     private themeService: ThemeService,
@@ -58,5 +60,25 @@ export class PlaceholderComponent implements OnInit {
   onFormSubmitted(article: any) {
     if (!this.isFormValid) return;
     // post form value
+  }
+  handleUserSelect(event) {
+    const userId = event.target.value;
+    const isChecked = event.target.checked;
+    const user = this.users.find((u) => u.id == userId);
+    const selectedIndex = this.selectedUsers.findIndex((u) => u.id == userId);
+
+    if (isChecked) {
+      if (selectedIndex === -1) {
+        this.selectedUsers.push(user);
+      }
+      this.showUsersDropdown = false;
+      this.email = '';
+    } else {
+      if (selectedIndex !== -1) {
+        this.selectedUsers.splice(selectedIndex, 1);
+      }
+      this.email = '';
+      this.showUsersDropdown = false;
+    }
   }
 }
