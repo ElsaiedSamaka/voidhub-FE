@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators } from 'ngx-editor';
 import { ThemeService } from 'src/app/shared/services/theme.service';
 import { AuthService } from 'src/core/services/auth.service';
 
@@ -10,6 +11,8 @@ import { AuthService } from 'src/core/services/auth.service';
 export class PlaceholderComponent implements OnInit {
   currentTheme: string = '';
   currentUser: any;
+  showNewConversationModal: boolean = false;
+  validators = Validators;
 
   constructor(
     private themeService: ThemeService,
@@ -29,5 +32,11 @@ export class PlaceholderComponent implements OnInit {
       },
       complete: () => {},
     });
+  }
+  openNewConversationModal() {
+    this.showNewConversationModal = true;
+  }
+  closeNewConversationModal() {
+    this.showNewConversationModal = false;
   }
 }
