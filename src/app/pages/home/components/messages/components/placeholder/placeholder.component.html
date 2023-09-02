@@ -33,16 +33,26 @@
         <span class="sr-only">Close modal</span>
       </button>
       <h3 class="text-xl font-semibold" [class.text-dark-secondary]="currentTheme =='dark'">
-        Create new post
+        Create new conversation
       </h3>
     </div>
   </div>
   <div modal-body>
+    <div class="flex items-center px-5">
+      <div class="inline-flex space-x-2">
+        <span>to</span>
+        <span> saied</span>
+      </div>
+      <div class="inline w-full">
+        <input type="search" placeholder="search over your contacts ..."
+          [ngClass]="currentTheme =='dark'?'bg-white/5 ring-inset ring-white/5 ring-2 transition':''"
+          [class.text-white]="currentTheme=='dark'"
+          class="search-contacts  my-2 ml-[15%] h-11 w-[85%] inline-flex items-center gap-2 rounded-full pl-2 pr-3 text-sm text-zinc-500 ring-1 placeholder:text-zinc-400 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none">
+      </div>
+    </div>
     <app-form
       [fields]="[
-            { name: 'file_img', label: 'file_img', id:'file_img', type: 'file', required:false },
-            { name: 'title', label: 'title', type: 'text', maxlength:60 , minlength:10, autofocus:true, description:'title maxlength 60 char', required:true, validators: [validators.required] },
-            
+            { name: 'message', label: 'message', type: 'textarea', maxlength:60 , minlength:10, autofocus:false, required:true, validators: [validators.required] },
           ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
       <div class="px-2 mr-2" form-actions>
         <button (click)="closeCreateNewPostModal()"
