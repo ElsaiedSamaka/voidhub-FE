@@ -60,9 +60,10 @@ export class PlaceholderComponent implements OnInit {
         break;
     }
   }
-  onFormSubmitted(article: any) {
+  onFormSubmitted(formValue: any) {
     if (!this.isFormValid) return;
     // post form value
+    console.log('formValue', formValue);
   }
   handleEmailChange() {
     this.getUsers();
