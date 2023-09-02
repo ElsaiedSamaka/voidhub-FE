@@ -22,13 +22,15 @@
       [ngClass]="currentTheme =='dark'?'bg-white/5 ring-inset ring-white/5 ring-2 transition':''"
       [class.text-white]="currentTheme=='dark'"
       class="search-contacts  my-1 h-11 w-full items-center gap-2 rounded-full pl-2 pr-3 text-sm text-zinc-500 ring-1 placeholder:text-zinc-400 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none">
-    <ul class="h-[90%] overflow-y-scroll">
+  <!-- conversations -->
+      <ul class="h-[90%] overflow-y-scroll">
       <li [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
         class=" w-full p-2 my-1 border rounded-lg hover:cursor-pointer ">
         <div class="flex justify-between space-x-2">
           <div class="inline-flex">
-            <div class="p-3 border inline-flex rounded-full">
-              <svg class="h-6 w-6 text-zinc-700" fill="none" stroke="currentColor" stroke-width="1.5"
+            <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
+              class="p-3 border inline-flex rounded-full">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.5"
                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21">
@@ -57,6 +59,7 @@
         </div>
       </li>
     </ul>
+  <!-- conversations -->
     </div>
     <!-- detailed content -->
     <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
