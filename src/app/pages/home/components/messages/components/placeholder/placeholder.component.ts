@@ -89,7 +89,6 @@ export class PlaceholderComponent implements OnInit {
 
     if (isChecked) {
       if (selectedIndex === -1) {
-        // this.selectedUsers.push(user);
         this.selectedUsers.splice(0, 1, user);
       }
       this.showUsersDropdown = false;
