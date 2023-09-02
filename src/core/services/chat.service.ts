@@ -45,8 +45,8 @@ export class ChatService {
     this.socketService.socket.emit('getConversations', {
       currentUserId: currentUserId,
     });
-    this.socketService.socket.on('emittedConversation', (conversations) => {
-      this.conversations$.next(conversations);
+    this.socketService.socket.on('emittedConversation', (conversation) => {
+      this.conversations$.value.push(conversation);
     });
   }
   // joinRoom(userId, recipientId) {

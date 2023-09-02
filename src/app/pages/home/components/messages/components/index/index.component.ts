@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { debounceTime } from 'rxjs';
 import { ThemeService } from 'src/app/shared/services/theme.service';
 import { AuthService } from 'src/core/services/auth.service';
 import { ChatService } from 'src/core/services/chat.service';
@@ -11,7 +12,7 @@ import { ChatService } from 'src/core/services/chat.service';
 export class IndexComponent implements OnInit {
   currentTheme: string = '';
   currentUser: any;
-
+  conversations: any[] = [];
   constructor(
     private themeService: ThemeService,
     private authService: AuthService,
@@ -33,13 +34,12 @@ export class IndexComponent implements OnInit {
     });
     this.getConversations();
   }
+
   getConversations() {
     this.chatService.getConversations(this.currentUser.id);
-    this.chatService.conversations$.subscribe(() => {
-      console.log(
-        'this.chatService.conversations$.value',
-        this.chatService.conversations$.value
-      );
+    this.chatService.conversations$.pipe(debounceTime(100)).subscribe(() => {
+      this.conversations = this.chatService.conversations$.value;
+      console.log('conversations', this.conversations);
     });
   }
 }
