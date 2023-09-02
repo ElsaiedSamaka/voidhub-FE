@@ -39,9 +39,9 @@
   </div>
   <div modal-body>
     <div class="flex items-center px-5">
-      <div class="inline-flex space-x-2">
-        <span>to</span>
-        <span> saied</span>
+      <div class="inline-flex space-x-2" [class.text-dark-secondary]="currentTheme =='dark'">
+        <span class="font-bold">To</span>
+        <span> saied@samam.com</span>
       </div>
       <div class="inline w-full">
         <input type="search" placeholder="search over your contacts ..."
