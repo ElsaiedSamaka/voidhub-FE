@@ -40,9 +40,9 @@
               </svg>
             </div>
             <div class="flex-col ml-2" [ngClass]="currentTheme=='dark'?'text-dark-secondary':''">
-              <div class="flex space-x-1 text-emerald-500"><b>Lorem ipsum</b>
+              <div class="flex space-x-1 text-emerald-500"><b>{{conversation.user1.email.split("@")[0]}}</b>
               </div>
-              <span>loremipsum@mail.com</span>
+              <span>{{conversation.user1.email}}</span>
             </div>
           </div>
           <div class="mr-auto">
@@ -57,7 +57,7 @@
         </div>
         <div [ngClass]="currentTheme=='dark'?'text-dark-secondary':''" class="p-2 flex justify-between items-center">
           <h3 class="font-semibold text-xl">Hello from the ..</h3>
-          <em>12 d</em>
+          <em>{{conversation.updatedAt |date}}</em>
         </div>
       </li>
       </ng-container>
