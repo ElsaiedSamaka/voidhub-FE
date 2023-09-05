@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ThemeService } from 'src/app/shared/services/theme.service';
 import { AuthService } from 'src/core/services/auth.service';
 
@@ -12,9 +13,12 @@ export class DetailedComponent implements OnInit {
   currentUser: any;
   messages: any[] = [{}];
   newMessage;
+  data: any = {};
+
   constructor(
     private themeService: ThemeService,
-    private authService: AuthService
+    private authService: AuthService,
+    private route: ActivatedRoute
   ) {}
   @ViewChild('chatContainer', { static: false }) chatContainer: ElementRef;
 
@@ -31,13 +35,19 @@ export class DetailedComponent implements OnInit {
       },
       complete: () => {},
     });
+    this.getConversation();
   }
 
   ngAfterViewChecked() {
     // Scroll to the bottom of the chat container
     this.scrollBottom();
   }
-
+  getConversation(): void {
+    this.route.data.subscribe((data) => {
+      this.data = data;
+      console.log('data', data);
+    });
+  }
   sendMessage(): void {
     // try {
     //   if (this.newMessage != '')

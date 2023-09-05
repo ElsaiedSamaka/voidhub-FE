@@ -3,6 +3,7 @@
     <div class="grid grid-cols-12 gap-y-2 ">
       <!-- Message template -->
       <ng-container *ngIf="messages.length >0; else nomessages">
+      <pre>{{data|json}}</pre>
         <div class=" p-3 rounded-2xl"
           [ngClass]=" true ? 'col-start-6 col-end-13':'col-start-1 col-end-8' "
           *ngFor="let message of messages">

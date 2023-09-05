@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, filter, tap } from 'rxjs';
+import { BehaviorSubject, Observable, filter, tap } from 'rxjs';
 import { AuthService } from './auth.service';
 import { SocketService } from './socket.service';
+import { ApiService } from './api.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -12,7 +13,8 @@ export class ChatService {
 
   constructor(
     private socketService: SocketService,
-    private authService: AuthService
+    private authService: AuthService,
+    private apiService:ApiService
   ) {}
   getMessages(senderId: number, recipientId: number) {
     try {
@@ -54,6 +56,9 @@ export class ChatService {
       console.log('conversations', conversations);
       this.conversations$.next(conversations);
     });
+  }
+  getConversationById(id: string): Observable<any> {
+    return this.apiService.get(`/api/conversations/${id}`);
   }
   // joinRoom(userId, recipientId) {
   //   this.socketService.socket.emit('join', {

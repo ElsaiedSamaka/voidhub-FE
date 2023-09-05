@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ConversationResolverService } from 'src/core/resolvers/conversation-resolver.service';
 import { DetailedComponent } from './components/detailed/detailed.component';
 import { IndexComponent } from './components/index/index.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -14,7 +15,7 @@ const routes: Routes = [
       {
         path: ':id',
         component: DetailedComponent,
-        // resolve: { conversation:  },
+        resolve: { conversation: ConversationResolverService },
       },
       { path: '', component: PlaceholderComponent },
     ],
