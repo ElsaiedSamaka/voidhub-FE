@@ -54,7 +54,7 @@
           </div>
         </div>
         <div [ngClass]="currentTheme=='dark'?'text-dark-secondary':''" class="p-2 flex justify-between items-center">
-          <h3 class="font-semibold text-xl">{{conversation.messages[conversation.messages.length - 1].message}}</h3>
+          <h3 class="font-semibold text-lg">{{conversation.messages[conversation.messages.length - 1].message| slice:0:10}}</h3>
           <em>{{conversation.updatedAt |date}}</em>
         </div>
       </li>
