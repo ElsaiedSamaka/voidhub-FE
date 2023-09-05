@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, filter, tap } from 'rxjs';
+import { AuthService } from './auth.service';
 import { SocketService } from './socket.service';
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,10 @@ export class ChatService {
   messages$ = new BehaviorSubject<any[]>([]);
   conversations$ = new BehaviorSubject<any[]>([]);
 
-  constructor(private socketService: SocketService) {}
+  constructor(
+    private socketService: SocketService,
+    private authService: AuthService
+  ) {}
   getMessages(senderId: number, recipientId: number) {
     try {
       this.socketService.socket.emit('getMessages', {
@@ -32,6 +36,7 @@ export class ChatService {
       message: message,
     });
     this.socketService.socket.on('newMessage', (newMessage) => {
+      this.getConversations(this.authService.getCurrentUser().id);
       console.log('newMessage', newMessage);
       this.messages$
         .pipe(
@@ -45,8 +50,9 @@ export class ChatService {
     this.socketService.socket.emit('getConversations', {
       currentUserId: currentUserId,
     });
-    this.socketService.socket.on('emittedConversation', (conversation) => {
-      this.conversations$.value.push(conversation);
+    this.socketService.socket.on('emittedConversation', (conversations) => {
+      console.log('conversations', conversations);
+      this.conversations$.next(conversations);
     });
   }
   // joinRoom(userId, recipientId) {
