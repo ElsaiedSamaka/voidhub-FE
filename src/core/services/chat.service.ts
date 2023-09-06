@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, filter, tap } from 'rxjs';
+import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
 import { SocketService } from './socket.service';
-import { ApiService } from './api.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +14,7 @@ export class ChatService {
   constructor(
     private socketService: SocketService,
     private authService: AuthService,
-    private apiService:ApiService
+    private apiService: ApiService
   ) {}
   getMessages(senderId: number, recipientId: number) {
     try {
@@ -39,7 +39,6 @@ export class ChatService {
     });
     this.socketService.socket.on('newMessage', (newMessage) => {
       this.getConversations(this.authService.getCurrentUser().id);
-      console.log('newMessage', newMessage);
       this.messages$
         .pipe(
           filter((messages) => !messages.includes(newMessage)),

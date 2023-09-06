@@ -68,6 +68,7 @@ export class PlaceholderComponent implements OnInit {
     // post form value
     let senderId = this.currentUser.id;
     let receiverId = this.selectedUsers[0].id;
+    console.log('this.selectedUsers[0]', this.selectedUsers[0].id);
     let message = this.message;
 
     this.chatService.sendMessage(senderId, receiverId, message);
