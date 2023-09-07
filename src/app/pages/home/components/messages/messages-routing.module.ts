@@ -5,6 +5,7 @@ import { DetailedComponent } from './components/detailed/detailed.component';
 import { IndexComponent } from './components/index/index.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PlaceholderComponent } from './components/placeholder/placeholder.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
     component: IndexComponent,
     children: [
       { path: 'not-found', component: NotFoundComponent },
+      { path: 'settings', component: SettingsComponent },
       {
         path: ':id',
         component: DetailedComponent,
@@ -24,6 +26,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class MessagesRoutingModule { }
+export class MessagesRoutingModule {}

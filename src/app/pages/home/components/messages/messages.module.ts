@@ -6,6 +6,7 @@ import { DetailedComponent } from './components/detailed/detailed.component';
 import { IndexComponent } from './components/index/index.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PlaceholderComponent } from './components/placeholder/placeholder.component';
+import { SettingsComponent } from './components/settings/settings.component';
 import { MessagesRoutingModule } from './messages-routing.module';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { MessagesRoutingModule } from './messages-routing.module';
     PlaceholderComponent,
     DetailedComponent,
     NotFoundComponent,
+    SettingsComponent,
   ],
 })
 export class MessagesModule {}
