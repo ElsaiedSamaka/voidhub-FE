@@ -3,30 +3,30 @@
     <div class="grid grid-cols-12 gap-y-2 ">
       <!-- Message template -->
       <ng-container *ngIf="messages.length >0; else nomessages">
-      <pre>{{data|json}}</pre>
+      <!-- <pre>{{data.conversation|json}}</pre> -->
         <div class=" p-3 rounded-2xl"
           [ngClass]=" true ? 'col-start-6 col-end-13':'col-start-1 col-end-8' "
-          *ngFor="let message of messages">
+          *ngFor="let message of data.conversation.messages">
           <div class="text-xs font-semibold"
             [ngClass]="currentTheme == 'dark'?' text-dark-secondary':'  text-light-secondary'">
-            <!-- message.createdAt | date:'medium' --> 21/03/2022
+            {{message.createdAt | date:'medium'}}
           </div>
           <div class="flex  items-center"
             [ngClass]=" true ? 'flex-row-reverse':'flex-row'">
             <div
               [ngClass]=" true ?'flex items-center justify-center h-10 w-10 rounded-full bg-green-800 text-gray-100 flex-shrink-0':'flex items-center justify-center h-10 w-10 rounded-full bg-gray-400 text-white flex-shrink-0'">
-              <!-- message.sender.username[0].toUpperCase() --> ll
+              {{message.sender.email.split("@")[0]| uppercase }}
             </div>
             <div class="relative py-2 px-4 shadow rounded-2xl"
-              [class.text-[#fff]]="currentTheme == 'dark' && true"
-              [class.bg-white]="true"
-              [class.text-[#fff]]="currentTheme == 'dark' &&true"
-              [class.bg-blue-900]="currentTheme == 'dark' && true"
-              [class.text-[#eeeee]]="currentTheme == 'light' && true"
-              [class.text-[#eeeee]]="currentTheme == 'light' && true"
-              [class.bg-blue-200]="currentTheme == 'light' && true"
-              [class.mr-3]="true" [class.ml-3]="true">
-              <div>message.message</div>
+              [class.text-[#fff]]="currentTheme == 'dark' && message.sender.id !== currentUser.id"
+              [class.bg-white]="message.sender.id !== currentUser.id"
+              [class.text-[#fff]]="currentTheme == 'dark' &&message.sender.id == currentUser.id"
+              [class.bg-blue-900]="currentTheme == 'dark' && message.sender.id == currentUser.id"
+              [class.text-[#eeeee]]="currentTheme == 'light' && message.sender.id !== currentUser.id"
+              [class.text-[#eeeee]]="currentTheme == 'light' && message.sender.id == currentUser.id"
+              [class.bg-blue-200]="currentTheme == 'light' && message.sender.id == currentUser.id"
+              [class.mr-3]="message.sender.id === currentUser.id" [class.ml-3]="message.sender.id !== currentUser.id">
+              <div>{{message.message}}</div>
             </div>
           </div>
         </div>
