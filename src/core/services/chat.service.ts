@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, filter, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
 import { SocketService } from './socket.service';
@@ -8,7 +8,7 @@ import { SocketService } from './socket.service';
 })
 export class ChatService {
   selectedContact;
-  messages$ = new BehaviorSubject<any[]>([]);
+  conversation$ = new BehaviorSubject<any[]>([]);
   conversations$ = new BehaviorSubject<any[]>([]);
 
   constructor(
@@ -24,7 +24,7 @@ export class ChatService {
       });
 
       this.socketService.socket.on('messages', (messages) => {
-        this.messages$.next(messages);
+        this.conversation$.value['messages'].push(messages);
       });
     } catch (error) {
       console.log('err', error);
@@ -38,13 +38,11 @@ export class ChatService {
       message: message,
     });
     this.socketService.socket.on('newMessage', (newMessage) => {
+      console.log('newMessage', newMessage);
       this.getConversations(this.authService.getCurrentUser().id);
-      this.messages$
-        .pipe(
-          filter((messages) => !messages.includes(newMessage)),
-          tap((messages) => messages.push(newMessage))
-        )
-        .subscribe();
+      if (!this.conversation$.value['messages'].includes(newMessage)) {
+        this.conversation$.value['messages'].push(newMessage);
+      }
     });
   }
   getConversations(currentUserId: number): void {
@@ -52,12 +50,17 @@ export class ChatService {
       currentUserId: currentUserId,
     });
     this.socketService.socket.on('emittedConversation', (conversations) => {
-      console.log('conversations', conversations);
+      // console.log('conversations', conversations);
       this.conversations$.next(conversations);
     });
   }
   getConversationById(id: string): Observable<any> {
-    return this.apiService.get(`/api/conversations/${id}`);
+    return this.apiService.get(`/api/conversations/${id}`).pipe(
+      tap((res) => {
+        console.log('res', res);
+        this.conversation$.next(res);
+      })
+    );
   }
   deleteConversationById(id: string): Observable<any> {
     return this.apiService.delete(`/api/conversations/${id}`).pipe(

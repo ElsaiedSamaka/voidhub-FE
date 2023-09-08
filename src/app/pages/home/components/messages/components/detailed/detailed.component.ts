@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ThemeService } from 'src/app/shared/services/theme.service';
 import { AuthService } from 'src/core/services/auth.service';
+import { ChatService } from 'src/core/services/chat.service';
 
 @Component({
   selector: 'app-detailed',
@@ -18,7 +19,8 @@ export class DetailedComponent implements OnInit {
   constructor(
     private themeService: ThemeService,
     private authService: AuthService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private chatService: ChatService
   ) {}
   @ViewChild('chatContainer', { static: false }) chatContainer: ElementRef;
 
@@ -49,17 +51,17 @@ export class DetailedComponent implements OnInit {
     });
   }
   sendMessage(): void {
-    // try {
-    //   if (this.newMessage != '')
-    //     this.chatService.sendMessage(
-    //       this.currentUser.id,
-    //       [this.selectedContact.id],
-    //       this.newMessage
-    //     );
-    //   this.newMessage = '';
-    // } catch (error) {
-    //   console.log('error while sending message', error);
-    // }
+    try {
+      if (this.newMessage != '')
+        this.chatService.sendMessage(
+          this.currentUser.id,
+          this.data.conversation.user2Id,
+          this.newMessage
+        );
+      this.newMessage = '';
+    } catch (error) {
+      console.log('error while sending message', error);
+    }
   }
   // getMessages() {
   //   if (this.sharedService.selectedContact$.value.id) {
