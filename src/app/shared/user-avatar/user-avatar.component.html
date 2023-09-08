@@ -13,8 +13,9 @@
     </div>
   </ng-template>
   <!-- Dropdown menu -->
-  <div *ngIf="showDropDownTree" [ngClass]="currentTheme == 'dark'?'text-dark-secondary bg-zinc-900':' bg-white'"
-    id="userDropdown" class="z-10 absolute -left-32  divide-y divide-gray-100 rounded-lg shadow w-44">
+  <div *ngIf="showDropDownTree"
+    [ngClass]="currentTheme == 'dark'?'text-dark-secondary bg-zinc-900 divide-gray-100/10':' bg-white divide-gray-100'"
+    id="userDropdown" class="z-10 absolute -left-32  divide-y  rounded-lg shadow w-44">
     <div class="px-4 py-3 text-sm ">
       <div>{{currentUser.email.split("@")[0]}}</div>
       <div class="font-medium truncate">{{currentUser.email}}</div>
