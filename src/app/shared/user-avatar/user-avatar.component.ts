@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./user-avatar.component.css'],
 })
 export class UserAvatarComponent implements OnInit {
+  @Input() currentTheme: any = null;
   @Input() currentUser: any = null;
   showDropDownTree: boolean = false;
   constructor() {}
