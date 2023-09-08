@@ -7,6 +7,7 @@ const routes: Routes = [
     // canLoad:[],
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule),
+    data: { title: 'Home' },
   },
   {
     path: 'dashboard',

@@ -15,6 +15,7 @@ const routes: Routes = [
       {
         path: 'timeline',
         component: HomeComponent,
+        title: 'Home',
       },
       {
         path: 'jobs',
@@ -22,16 +23,22 @@ const routes: Routes = [
           import('../home/components/jobs/jobs.module').then(
             (m) => m.JobsModule
           ),
+        title: 'jobs',
       },
-      { path: 'companies', component: CompaniesComponent },
+      { path: 'companies', component: CompaniesComponent, title: 'companies' },
       {
         path: 'messages',
         loadChildren: () =>
           import('../home/components/messages/messages.module').then(
             (m) => m.MessagesModule
           ),
+        title: 'messages',
       },
-      { path: 'reading-list', component: ReadingListComponent },
+      {
+        path: 'reading-list',
+        component: ReadingListComponent,
+        title: 'reading-list',
+      },
       {
         path: ':id',
         component: BlogDetailsComponent,
