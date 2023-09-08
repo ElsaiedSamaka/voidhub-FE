@@ -1,6 +1,20 @@
 <div class="chat-container relative flex flex-col justify-between bg-gray-100 h-full w-full rounded-xl  shadow-lg">
-  <div class="p-2 h-full overflow-y-scroll " [ngClass]="currentTheme == 'dark'?'bg-[#1e2022] ':''" #chatContainer>
-    <div class="grid grid-cols-12 gap-y-2 ">
+  <div class=" h-full overflow-y-scroll " [ngClass]="currentTheme == 'dark'?'bg-[#1e2022] ':''" #chatContainer>
+    <div [ngClass]="currentTheme == 'dark'?' text-dark-secondary':'  text-light-secondary'"
+      class="absolute w-full top-0 left-0 z-10 col-span-full backdrop-blur-3xl p-2">
+      <div class="flex justify-between items-center">
+        <span class="font-semibold">{{data.conversation.user1.email}} - {{data.conversation.user2.email}}</span>
+        <span class="group p-2 rounded-full hover:bg-zinc-500/5">
+          <svg class="w-6 h-6 hover:cursor-pointer group-hover:text-white/50" fill="none" stroke="currentColor"
+            stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z">
+            </path>
+          </svg>
+        </span>
+      </div>
+    </div>
+    <div class="grid grid-cols-12 gap-y-2 relative">
       <!-- Message template -->
       <ng-container *ngIf="messages.length >0; else nomessages">
       <!-- <pre>{{data.conversation|json}}</pre> -->
@@ -31,6 +45,7 @@
           </div>
         </div>
       </ng-container>
+      <!-- Message template -->
       <ng-template #nomessages>
         <div class="p-2 mx-auto col-span-full h-full">
           <span class="text-2xl" [ngClass]="currentTheme == 'dark'?' text-dark-secondary':' text-light-secondary'">
