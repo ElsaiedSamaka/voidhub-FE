@@ -63,18 +63,6 @@ export class DetailedComponent implements OnInit {
       console.log('error while sending message', error);
     }
   }
-  // getMessages() {
-  //   if (this.sharedService.selectedContact$.value.id) {
-  //     this.chatService.getMessages(
-  //       this.currentUser.id,
-  //       this.sharedService.selectedContact$.value.id
-  //     );
-  //     // subscribe to messages$
-  //     this.chatService.messages$.subscribe((messages) => {
-  //       this.messages = messages;
-  //     });
-  //   }
-  // }
   scrollBottom() {
     // Scroll to the bottom of the chat container
     if (this.chatContainer) {
