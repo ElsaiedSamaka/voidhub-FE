@@ -47,4 +47,9 @@ export class IndexComponent implements OnInit {
     event.stopPropagation();
     this.showConversationAction = !this.showConversationAction;
   }
+  handleConversationRemove(id: any): void {
+    this.chatService.deleteConversationById(id).subscribe((res) => {
+      console.log('res', res);
+    });
+  }
 }

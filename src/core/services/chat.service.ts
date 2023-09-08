@@ -59,6 +59,18 @@ export class ChatService {
   getConversationById(id: string): Observable<any> {
     return this.apiService.get(`/api/conversations/${id}`);
   }
+  deleteConversationById(id: string): Observable<any> {
+    return this.apiService.delete(`/api/conversations/${id}`).pipe(
+      tap((deleteItem) => {
+        console.log('deleteItem', deleteItem);
+        let updatedItems = this.conversations$.value.filter(
+          (item) => item.id != deleteItem.id
+        );
+        console.log('updatedItems', updatedItems);
+        this.conversations$.next(updatedItems);
+      })
+    );
+  }
   // joinRoom(userId, recipientId) {
   //   this.socketService.socket.emit('join', {
   //     userId: userId,

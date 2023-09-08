@@ -60,7 +60,7 @@
                 class="z-10 absolute rounded divide-y divide-gray-100 shadow ">
                 <ul class="py-1 text-sm  w-full" aria-labelledby="dropdownMenuIconHorizontalButton">
                   <li>
-                    <a role="button" (click)="handlePostRemove($event)"
+                    <a role="button" (click)="handleConversationRemove(conversation.id)"
                       [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-800 text-gray-50':'hover:bg-zinc-50 text-gray-800'"
                       class="inline-flex space-x-1 py-2 px-4 ">
                       <span>
