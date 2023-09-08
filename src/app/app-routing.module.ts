@@ -7,7 +7,6 @@ const routes: Routes = [
     // canLoad:[],
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule),
-    data: { title: 'Home' },
   },
   {
     path: 'dashboard',
@@ -17,28 +16,33 @@ const routes: Routes = [
       import('./pages/dashboard/dashboard.module').then(
         (m) => m.DashboardModule
       ),
+    title: 'dashboard',
   },
   {
     path: 'profile',
     // canLoad: [AuthGuard],
     loadChildren: () =>
       import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+    title: 'profile',
   },
   {
     path: 'settings',
     // canLoad: [AuthGuard],
     loadChildren: () =>
       import('./pages/settings/settings.module').then((m) => m.SettingsModule),
+    title: 'settings',
   },
   {
     path: 'noperm',
     loadChildren: () =>
       import('./pages/noperm/noperm.module').then((m) => m.NopermModule),
+    title: 'noperm',
   },
   {
     path: 'not-found',
     loadChildren: () =>
       import('./pages/notfound/notfound.module').then((m) => m.NotfoundModule),
+    title: 'not-found',
   },
 ];
 
