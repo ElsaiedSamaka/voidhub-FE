@@ -42,4 +42,20 @@
     </ul>
   
   </div>
+  <hr [ngClass]="currentTheme == 'dark'?'border-white/10':''">
+  <div class="px-4 py-6">
+    <h4 class="mb-2 font-bold " [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''">Other controls</h4>
+    <div class="flex justify-between items-center">
+      <h5 class="font-semibold" [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''">Filter low-quality messages
+      </h5>
+      <div class="flex items-center">
+        <input checked id="checked-checkbox" type="checkbox" value=""
+          class="w-4 h-4 text-emerald-600 bg-gray-100 border-gray-300 rounded-xl focus:ring-emerald-500 dark:focus:ring-emerald-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+      </div>
+    </div>
+    <p [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''">Hide message requests that have been detected as being
+      potentially spam or low-quality. These will be sent to a
+      separate
+      inbox at the bottom of your message requests. You can still access them if you want.</p>
+  </div>
 </section>
