@@ -57,5 +57,15 @@
       potentially spam or low-quality. These will be sent to a
       separate
       inbox at the bottom of your message requests. You can still access them if you want.</p>
+      <div class="mt-4 flex justify-between items-center">
+        <h5 class="font-semibold" [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''">Show read receipts
+        </h5>
+        <div class="flex items-center">
+          <input checked id="checked-checkbox" type="checkbox" value=""
+            class="w-4 h-4 text-emerald-600 bg-gray-100 border-gray-300 rounded-xl focus:ring-emerald-500 dark:focus:ring-emerald-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        </div>
+      </div>
+      <p [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''">Let people you’re messaging with know when you’ve seen
+        their messages. Read receipts are not shown on message requests.</p>
   </div>
 </section>
