@@ -9,13 +9,18 @@ import { PostsService } from 'src/core/services/posts.service';
 export class ActionsIconComponent implements OnInit {
   @Input() currentTheme: string = '';
   @Input() id: string = '';
+  @Input() currentUser: any = null;
+  @Input() article: any = null;
   showActionsDDL: boolean = false;
   showToast: boolean = false;
   toastMessage: string = '';
   toastType: string = '';
   constructor(private postsService: PostsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('currentUser.id', this.currentUser);
+    console.log('article', this.article);
+  }
   handleActions(event: any): void {
     event.stopPropagation();
     this.showActionsDDL = !this.showActionsDDL;

@@ -13,7 +13,7 @@
   <div *ngIf="showActionsDDL" id="dropdownComment1"
  [ngClass]="currentTheme=='dark'?'bg-zinc-900 text-dark-secondary':'bg-white text-gray-800'"   class="z-10 w-full  rounded divide-y divide-gray-100 shadow ">
     <ul class="py-1 text-sm  w-full" aria-labelledby="dropdownMenuIconHorizontalButton">
-      <li>
+      <li *ngIf="currentUser.id == article.userId">
         <a role="button" (click)="handlePostRemove($event)"
           [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-800 text-gray-50':'hover:bg-zinc-50 text-gray-800'"
           class="inline-flex space-x-1 py-2 px-4 ">
