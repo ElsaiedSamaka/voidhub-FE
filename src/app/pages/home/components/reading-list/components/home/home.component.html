@@ -51,7 +51,7 @@
                   </svg>
                   <p class="ml-2 text-sm font-bold ">495</p>
                   <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full :bg-gray-400"></span>
-                  <a class="text-xs underline font-medium   hover:no-underline">73 reviews</a>
+                  <a class="text-xs underline font-medium   hover:no-underline">73 comments</a>
                 </div>
               </span>
             </div>
@@ -69,9 +69,9 @@
             </div>
           </div>
         </div>
-        <div class="p-2 flex justify-between items-center">
-          <h3 class="font-semibold text-xl">Full Stack developer</h3>
-          <em class="text-zinc-950">12 d</em>
+        <div class="p-2 flex justify-between items-center" [ngClass]="currentTheme=='dark'?'text-dark-secondary':''">
+          <h3 class="font-semibold text-xl">Article title</h3>
+          <em class="">12 d</em>
         </div>
       </li>
       <!--article card  -->
