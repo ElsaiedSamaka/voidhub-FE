@@ -18,13 +18,16 @@ export class BlogDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.getBlog();
-    this.themeService.theme$.subscribe((theme) => {
-      this.currentTheme = theme;
-    });
+    this.getCurrentTheme();
   }
   getBlog() {
     this.route.data.subscribe((data) => {
       this.data = data;
+    });
+  }
+  getCurrentTheme(): void {
+    this.themeService.theme$.subscribe((theme) => {
+      this.currentTheme = theme;
     });
   }
 }
