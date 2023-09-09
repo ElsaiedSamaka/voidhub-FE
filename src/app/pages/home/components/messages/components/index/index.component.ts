@@ -52,4 +52,7 @@ export class IndexComponent implements OnInit {
       console.log('res', res);
     });
   }
+  joinConversation(conversationId: any): void {
+    // this.chatService.joinRoom(conversationId);
+  }
 }

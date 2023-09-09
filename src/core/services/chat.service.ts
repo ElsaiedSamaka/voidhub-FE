@@ -31,10 +31,16 @@ export class ChatService {
     }
   }
 
-  sendMessage(senderId: number, receiverId: number, message: string) {
+  sendMessage(
+    senderId: number,
+    receiverId: number,
+    message: string,
+    conversationId?: number
+  ) {
     this.socketService.socket.emit('sendMessage', {
       senderId: senderId,
       receiverId: receiverId,
+      conversationId: conversationId,
       message: message,
     });
     this.socketService.socket.on('newMessage', (newMessage) => {
@@ -74,12 +80,11 @@ export class ChatService {
       })
     );
   }
-  // joinRoom(userId, recipientId) {
-  //   this.socketService.socket.emit('join', {
-  //     userId: userId,
-  //     recipientId: recipientId,
-  //   });
-  // }
+  joinRoom(conversationId: any) {
+    this.socketService.socket.emit('join', {
+      conversationId: conversationId,
+    });
+  }
 
   // leaveRoom(userId, recipientId) {
   //   this.socketService.socket.emit('leave', {
