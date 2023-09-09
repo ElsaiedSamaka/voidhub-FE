@@ -12,8 +12,8 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', component: PlaceholderComponent },
-      { path: 'archieve', component: ArchiveComponent },
-      { path: 'not-found', component: NotFoundComponent },
+      { path: 'archieve', component: ArchiveComponent, title: 'Archive box' },
+      { path: 'not-found', component: NotFoundComponent, title: 'Not found' },
       {
         path: ':id',
         component: DetailedComponent,
