@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   getSavedPosts(): void {
     this.postsService.getSaved().subscribe({
       next: (savedArticles) => {
-        this.savedArticles = savedArticles;
+        this.savedArticles = this.postsService.savedPosts$.value;
       },
       error: (err) => {
         console.log('error while retrieving saved articles', err);
@@ -52,8 +52,12 @@ export class HomeComponent implements OnInit {
   }
   unsave(event: any, id: any): void {
     event.stopPropagation();
-    this.postsService
-      .unsave(id)
-      .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+    this.postsService.unsave(id).subscribe({
+      next: (savedArticles) => {
+        this.savedArticles = this.postsService.savedPosts$.value;
+      },
+      error: () => {},
+      complete: () => {},
+    });
   }
 }
