@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ArchiveComponent } from './components/archive/archive.component';
 import { DetailedComponent } from './components/detailed/detailed.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -11,6 +12,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', component: PlaceholderComponent },
+      { path: 'archieve', component: ArchiveComponent },
       { path: 'not-found', component: NotFoundComponent },
       {
         path: ':id',
