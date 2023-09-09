@@ -7,7 +7,8 @@
       class="col-span-2 p-2 border rounded-lg rounded-b-none overflow-y-scroll ">
       <ng-container *ngIf="savedArticles.length > 0;else nosavedarticlesfound">
       <!--article card  -->
-      <li [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
+      <li *ngFor="let article of savedArticles;let i=index"
+        [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
         class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer hover:bg-zinc-50">
         <div class="flex justify-between space-x-2">
           <div class="inline-flex">
