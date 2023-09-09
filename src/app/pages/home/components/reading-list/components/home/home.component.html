@@ -39,7 +39,8 @@
             </svg>
             </div>
             <div class="flex-col ml-1">
-              <div class="flex space-x-1 text-emerald-500"><b>Author name</b> <span class="text-zinc-500 text-xs">(21March1997)</span>
+              <div class="flex space-x-1 text-emerald-500"><b>{{article.post.user.email}}</b> <span
+                  class="text-zinc-500 text-xs">({{article.createdAt|date:'short'}})</span>
               </div>
               <span>
                 <div [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''" class="flex items-center">
@@ -49,9 +50,9 @@
                       d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z">
                     </path>
                   </svg>
-                  <p class="ml-2 text-sm font-bold ">495</p>
+                  <p class="ml-2 text-sm font-bold ">{{article.post.loved_posts.length}}</p>
                   <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full :bg-gray-400"></span>
-                  <a class="text-xs underline font-medium   hover:no-underline">73 comments</a>
+                  <a class="text-xs underline font-medium   hover:no-underline">{{article.post.comments.length}} comments</a>
                 </div>
               </span>
             </div>
@@ -70,7 +71,7 @@
           </div>
         </div>
         <div class="p-2 flex justify-between items-center" [ngClass]="currentTheme=='dark'?'text-dark-secondary':''">
-          <h3 class="font-semibold text-xl">Article title</h3>
+          <h3 class="font-semibold text-xl">{{article.post.title}}</h3>
           <div>
           <app-tag [name]="tag.name" [currentTheme]="currentTheme" *ngFor="let tag of [{},{}]"></app-tag>
           </div>
