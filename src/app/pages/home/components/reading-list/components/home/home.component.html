@@ -29,7 +29,7 @@
         class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer">
         <div class="flex justify-between space-x-2 ">
           <div class="inline-flex ">
-            <div class="p-3 border inline-flex rounded-full"
+      <div class="p-3  border inline-flex rounded-full"
               [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'">
             <svg class="text-zinc-700 w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -38,6 +38,7 @@
               </path>
             </svg>
             </div>
+      
             <div class="flex-col ml-1">
               <div class="flex space-x-1 text-emerald-500"><b>{{article.post.user.email}}</b> <span
                   class="text-zinc-500 text-xs">({{article.createdAt|date:'short'}})</span>
@@ -58,8 +59,9 @@
             </div>
           </div>
           <div class="mr-auto">
+          <!-- save icon -->
             <div
-              [ngClass]="currentTheme=='dark'?'border-white/5 text-dark-secondary hover:text-gray-200 hover:bg-zinc-700/10':'hover:bg-zinc-50'"
+          (click)="unsave($event,article.postId)"    [ngClass]="currentTheme=='dark'?'border-white/5 text-dark-secondary hover:text-gray-200 hover:bg-zinc-700/10':'hover:bg-zinc-50'"
               class="p-2 save-icon cursor-pointer rounded-full border ">
               <svg class=" w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -68,6 +70,7 @@
                 </path>
               </svg>
             </div>
+          <!-- save icon -->
           </div>
         </div>
         <div class="p-2 flex justify-between items-center" [ngClass]="currentTheme=='dark'?'text-dark-secondary':''">

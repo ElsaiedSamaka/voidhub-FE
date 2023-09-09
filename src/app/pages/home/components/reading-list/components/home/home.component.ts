@@ -50,4 +50,10 @@ export class HomeComponent implements OnInit {
       complete: () => {},
     });
   }
+  unsave(event: any, id: any): void {
+    event.stopPropagation();
+    this.postsService
+      .unsave(id)
+      .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+  }
 }
