@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ArticleResolverService } from 'src/core/resolvers/article-resolver.service';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { DetailedComponent } from './components/detailed/detailed.component';
 import { HomeComponent } from './components/home/home.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
       {
         path: ':id',
         component: DetailedComponent,
+        resolve: { article: ArticleResolverService },
       },
     ],
   },
