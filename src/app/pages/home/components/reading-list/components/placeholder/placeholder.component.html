@@ -1,3 +1,9 @@
-<p>
-  placeholder works!
-</p>
+<section class="h-full w-full flex items-center justify-center">
+  <div class="flex-col items-center justify-center space-y-2 text-left w-[60%]">
+    <h3 class="text-3xl font-extrabold" [ngClass]="currentTheme=='dark'?'text-dark-secondary':''">Select a conversation
+    </h3>
+    <p [ngClass]="currentTheme=='dark'?'text-dark-secondary':''">Choose from your existing conversations, start a new
+      one,
+      or just keep swimming.</p>
+  </div>
+</section>
