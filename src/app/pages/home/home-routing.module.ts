@@ -22,16 +22,16 @@ const routes: Routes = [
           import('../home/components/jobs/jobs.module').then(
             (m) => m.JobsModule
           ),
-        title: 'jobs',
+        title: 'Jobs',
       },
-      { path: 'companies', component: CompaniesComponent, title: 'companies' },
+      { path: 'companies', component: CompaniesComponent, title: 'Companies' },
       {
         path: 'messages',
         loadChildren: () =>
           import('../home/components/messages/messages.module').then(
             (m) => m.MessagesModule
           ),
-        title: 'messages',
+        title: 'Messages',
       },
       {
         path: 'reading-list',
@@ -39,7 +39,7 @@ const routes: Routes = [
           import('../home/components/reading-list/reading-list.module').then(
             (m) => m.ReadingListModule
           ),
-        title: 'reading-list',
+        title: 'Reading-list',
       },
       {
         path: ':id',
