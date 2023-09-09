@@ -4,7 +4,7 @@
       [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'">
     <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
       class="flex items-center justify-between border-b">
-      <span [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''" class="text-xl font-semibold my-2">Contacts</span>
+      <span [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''" class="text-xl font-semibold my-2">Reading list</span>
       <span>
         <!-- settings icon -->
         <svg class="w-6 h-6 hover:cursor-pointer" routerLink="settings" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -17,7 +17,7 @@
         <!-- settings icon -->
       </span>
     </div>
-      <input type="text" placeholder="search over your contacts ..."
+      <input type="text" placeholder="search over your saved articles ..."
         [ngClass]="currentTheme =='dark'?'bg-white/5 ring-inset ring-white/5 ring-2 transition':''"
         [class.text-white]="currentTheme=='dark'"
         class="search-contacts  my-1 h-11 w-full items-center gap-2 rounded-full pl-2 pr-3 text-sm text-zinc-500 ring-1 placeholder:text-zinc-400 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none">
