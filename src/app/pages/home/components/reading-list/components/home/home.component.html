@@ -71,7 +71,7 @@
         </div>
         <div class="p-2 flex justify-between items-center" [ngClass]="currentTheme=='dark'?'text-dark-secondary':''">
           <h3 class="font-semibold text-xl">Article title</h3>
-          <em class="">12 d</em>
+                  <app-tag [name]="tag.name" [currentTheme]="currentTheme" *ngFor="let tag of [{},{}]"></app-tag>
         </div>
       </li>
       <!--article card  -->
