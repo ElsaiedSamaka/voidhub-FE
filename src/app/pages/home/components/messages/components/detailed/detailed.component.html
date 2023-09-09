@@ -19,16 +19,13 @@
       <ng-container *ngIf="messages.length >0; else nomessages">
       <!-- <pre>{{data.conversation|json}}</pre> -->
         <div class=" p-3 rounded-2xl"
-          [ngClass]=" true ? 'col-start-6 col-end-13':'col-start-1 col-end-8' "
+          [ngClass]="  message.sender.id === currentUser.id  ? 'col-start-6 col-end-13':'col-start-1 col-end-8' "
           *ngFor="let message of data.conversation.messages">
-          <div class="text-xs font-semibold"
-            [ngClass]="currentTheme == 'dark'?' text-dark-secondary':'  text-light-secondary'">
-            {{message.createdAt | date:'medium'}}
-          </div>
+          
           <div class="flex  items-center"
-            [ngClass]=" true ? 'flex-row-reverse':'flex-row'">
+            [ngClass]="  message.sender.id === currentUser.id  ? 'flex-row-reverse':'flex-row'">
             <div
-              [ngClass]=" true ?'flex items-center justify-center h-10 w-10 rounded-full bg-green-800 text-gray-100 flex-shrink-0':'flex items-center justify-center h-10 w-10 rounded-full bg-gray-400 text-white flex-shrink-0'">
+            class="text-xs"  [ngClass]="  message.sender.id === currentUser.id  ?'flex items-center justify-center h-10 w-10 rounded-full bg-green-800 text-gray-100 flex-shrink-0':'flex items-center justify-center h-10 w-10 rounded-full bg-gray-400 text-white flex-shrink-0'">
               {{message.sender.email.split("@")[0]| uppercase }}
             </div>
             <div class="relative py-2 px-4 shadow rounded-2xl"
@@ -42,6 +39,11 @@
               [class.mr-3]="message.sender.id === currentUser.id" [class.ml-3]="message.sender.id !== currentUser.id">
               <div>{{message.message}}</div>
             </div>
+          </div>
+          <div class="text-xs" [class.text-end]="message.sender.id == currentUser.id"
+            [class.text-start]="message.sender.id != currentUser.id"
+            [ngClass]="currentTheme == 'dark'?' text-dark-secondary/90':'  text-light-secondary/90'">
+            {{message.createdAt | date:'medium'}}
           </div>
         </div>
       </ng-container>
