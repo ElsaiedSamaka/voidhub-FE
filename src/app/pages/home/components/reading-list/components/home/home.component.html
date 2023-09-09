@@ -5,6 +5,7 @@
       <!-- articles  -->
       <ul [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
       class="col-span-2 p-2 border rounded-lg rounded-b-none overflow-y-scroll ">
+      <ng-container *ngIf="savedArticles.length > 0;else nosavedarticlesfound">
       <!--article card  -->
       <li [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
         class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer hover:bg-zinc-50">
@@ -56,6 +57,14 @@
         </div>
       </li>
       <!--article card  -->
+    </ng-container>
+    <ng-template #nosavedarticlesfound>
+      <div [ngClass]="currentTheme=='dark'?'text-dark-secondary':''"
+        class="flex-col h-full w-full items-center justify-center align-middle content-center self-center text-center origin-center object-center ">
+        <div class="text-7xl my-2 font-extrabold align-middle self-center items-center content-center">404</div>
+        <span class="">no saved articles found</span>
+      </div>
+    </ng-template>
     </ul>
   <!-- articles  -->
   </div>

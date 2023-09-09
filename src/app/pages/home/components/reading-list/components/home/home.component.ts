@@ -10,6 +10,7 @@ import { AuthService } from 'src/core/services/auth.service';
 export class HomeComponent implements OnInit {
   currentTheme: string = '';
   currentUser: any;
+  savedArticles: any[] = [{}, {}];
   constructor(
     private themeService: ThemeService,
     private authService: AuthService
