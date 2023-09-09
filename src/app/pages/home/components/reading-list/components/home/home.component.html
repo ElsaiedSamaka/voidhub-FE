@@ -28,9 +28,10 @@
       <li *ngFor="let article of savedArticles;let i=index"
         [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
         class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer hover:bg-zinc-50">
-        <div class="flex justify-between space-x-2">
-          <div class="inline-flex">
-            <div class="p-3 border inline-flex rounded-full">
+        <div class="flex justify-between space-x-2 ">
+          <div class="inline-flex ">
+            <div class="p-3 border inline-flex rounded-full"
+              [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'">
             <svg class="text-zinc-700 w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -38,7 +39,7 @@
               </path>
             </svg>
             </div>
-            <div class="flex-col">
+            <div class="flex-col ml-1">
               <div class="flex space-x-1 text-emerald-500"><b>Author name</b> <span class="text-zinc-500 text-xs">(21March1997)</span>
               </div>
               <span>
