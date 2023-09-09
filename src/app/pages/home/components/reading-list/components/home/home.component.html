@@ -24,9 +24,9 @@
       <ul class="col-span-2  h-full rounded-lg rounded-b-none overflow-y-scroll ">
       <ng-container *ngIf="savedArticles.length > 0;else nosavedarticlesfound">
       <!--article card  -->
-      <li *ngFor="let article of savedArticles;let i=index" [routerLink]="article.id" routerLinkActive="active"
+      <li *ngFor="let article of savedArticles;let i=index" [routerLink]="article.postId" routerLinkActive="active"
         [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
-        class="h-26 p-2 my-1 border rounded-lg hover:cursor-pointer">
+        class="h-26 p-2 my-1 border rounded-lg hover:bg-red-600 hover:cursor-pointer">
         <div class="flex justify-between space-x-2 ">
           <div class="inline-flex ">
             <div class="p-3 border inline-flex rounded-full"
