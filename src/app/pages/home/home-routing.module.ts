@@ -5,7 +5,6 @@ import { BlogDetailsComponent } from './components/blog-details/blog-details.com
 import { CompaniesComponent } from './components/companies/companies.component';
 import { HomeComponent } from './components/home/home.component';
 import { IndexComponent } from './components/index/index.component';
-import { ReadingListComponent } from './components/reading-list/reading-list.component';
 
 const routes: Routes = [
   {
@@ -36,7 +35,10 @@ const routes: Routes = [
       },
       {
         path: 'reading-list',
-        component: ReadingListComponent,
+        loadChildren: () =>
+          import('../home/components/reading-list/reading-list.module').then(
+            (m) => m.ReadingListModule
+          ),
         title: 'reading-list',
       },
       {
