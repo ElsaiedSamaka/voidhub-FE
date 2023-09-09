@@ -26,7 +26,7 @@
       <ul class="h-[90%] overflow-y-scroll">
       <ng-container *ngIf="conversations.length > 0;else noconversationsfound">
         <li (click)="joinConversation(conversation.id)" [routerLink]="conversation.id" routerLinkActive="active"
-          *ngFor="let conversation of conversations"
+          *ngFor="let conversation of conversations;let i=index"
           [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
         class=" w-full p-2 my-1 border rounded-lg hover:cursor-pointer ">
         <div class="flex justify-between space-x-2">
@@ -48,7 +48,7 @@
             </div>
           </div>
           <div class="mr-auto ">
-            <svg class="w-7 h-7 text-zinc-500 hover:text-zinc-900 hover:cursor-pointer" (click)="toggleConversationAction($event)"
+            <svg class="w-7 h-7 text-zinc-500 hover:text-zinc-900 hover:cursor-pointer" (click)="toggleConversationAction($event,i)"
               fill="none" stroke="currentColor" stroke-width="1.5"
               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -56,7 +56,7 @@
               </path>
             </svg>
               <!-- Dropdown menu -->
-              <div *ngIf="showConversationAction" id="dropdownComment1"
+              <div *ngIf="showConversationAction && conversationIdx == i" id="dropdownComment1"
                 [ngClass]="currentTheme=='dark'?'bg-zinc-900 text-dark-secondary':'bg-white text-gray-800'"
                 class="z-10 absolute rounded divide-y divide-gray-100 shadow ">
                 <ul class="py-1 text-sm  w-full" aria-labelledby="dropdownMenuIconHorizontalButton">

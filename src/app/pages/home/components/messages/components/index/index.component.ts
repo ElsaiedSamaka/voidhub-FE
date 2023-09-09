@@ -13,6 +13,7 @@ export class IndexComponent implements OnInit {
   currentTheme: string = '';
   currentUser: any;
   conversations: any[] = [];
+  conversationIdx: any;
   showConversationAction: boolean = false;
   constructor(
     private themeService: ThemeService,
@@ -43,8 +44,9 @@ export class IndexComponent implements OnInit {
       console.log('conversations', this.conversations);
     });
   }
-  toggleConversationAction(event: any): void {
+  toggleConversationAction(event: any, index: any): void {
     event.stopPropagation();
+    this.conversationIdx = index;
     this.showConversationAction = !this.showConversationAction;
   }
   handleConversationRemove(id: any): void {
