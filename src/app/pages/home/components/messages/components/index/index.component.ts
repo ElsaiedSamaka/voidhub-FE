@@ -53,6 +53,6 @@ export class IndexComponent implements OnInit {
     });
   }
   joinConversation(conversationId: any): void {
-    // this.chatService.joinRoom(conversationId);
+    this.chatService.joinRoom(conversationId);
   }
 }
