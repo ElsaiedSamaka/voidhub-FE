@@ -1,5 +1,5 @@
 <div class="hidden md:block">
-  <div class="inline-flex flex-col relative bg-red-500 items-center md:order-2">
+  <div class="inline-flex flex-col relative items-center md:order-2">
     <button type="button" data-dropdown-toggle="language-dropdown-menu" (click)="toggleLangDDL()"
       class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 :text-white rounded-lg cursor-pointer hover:bg-gray-100 :hover:bg-gray-700 :hover:text-white">
       <svg class="w-5 h-5 mr-2 rounded-full" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@
     <div class="z-50 absolute top-4 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow "
       *ngIf="showLangDDL" id="language-dropdown-menu">
       <ul class="py-2 font-medium" role="none">
-        <li>
+        <li (click)="changeLanguage('En')">
           <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 :text-gray-400 :hover:bg-gray-600 :hover:text-white"
             role="menuitem">
             <div class="inline-flex items-center">
@@ -60,18 +60,11 @@
           </a>
         </li>
 
-        <li>
+        <li (click)="changeLanguage('Ar')">
           <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 :text-gray-400 :hover:bg-gray-600 :hover:text-white"
             role="menuitem">
             <div class="inline-flex items-center">
-              <svg class="h-3.5 w-3.5 rounded-full mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                id="flag-icon-css-it" viewBox="0 0 512 512">
-                <g fill-rule="evenodd" stroke-width="1pt">
-                  <path fill="#fff" d="M0 0h512v512H0z" />
-                  <path fill="#009246" d="M0 0h170.7v512H0z" />
-                  <path fill="#ce2b37" d="M341.3 0H512v512H341.3z" />
-                </g>
-              </svg>
+            <img class="w-4 h-4" src="../../../assets/svg/egypt.svg" />
               العربية (مصر)
             </div>
           </a>
