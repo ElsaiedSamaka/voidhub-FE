@@ -14,6 +14,16 @@ export class LangSelectorComponent implements OnInit {
   ngOnInit() {}
   changeLanguage(language: string) {
     this.translate.use(language);
+    switch (language) {
+      case 'en':
+        this.selectedLang = 'en';
+        break;
+      case 'ar':
+        this.selectedLang = 'ar';
+        break;
+      default:
+        break;
+    }
   }
   toggleLangDDL(): void {
     this.showLangDDL = !this.showLangDDL;
