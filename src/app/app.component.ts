@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { SocketService } from 'src/core/services/socket.service';
 import { LoadingService } from './shared/services/loading.service';
@@ -16,12 +17,16 @@ export class AppComponent implements OnInit {
   constructor(
     private loadingService: LoadingService,
     private themeService: ThemeService,
-    private socketService: SocketService
+    private socketService: SocketService,
+    private translate: TranslateService
   ) {
     this.loading$ = this.loadingService.loading$;
   }
   ngOnInit(): void {
     // this.dataService.subscribeToTheme();
     this.themeService.getCurrentTheme();
+  }
+  changeLanguage(language: string) {
+    this.translate.use(language);
   }
 }
