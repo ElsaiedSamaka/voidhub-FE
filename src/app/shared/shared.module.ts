@@ -16,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormComponent } from './form/form.component';
 import { HeaderComponent } from './header/header.component';
 import { InputComponent } from './input/input.component';
+import { LangSelectorComponent } from './lang-selector/lang-selector.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { ModalComponent } from './modal/modal.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -62,6 +63,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     ActionsIconComponent,
     SwitchThemeComponent,
     TagComponent,
+    LangSelectorComponent,
   ],
   exports: [
     ModalComponent,
@@ -86,6 +88,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     ActionsIconComponent,
     SwitchThemeComponent,
     TagComponent,
+    LangSelectorComponent,
   ],
   providers: [DataService],
 })
