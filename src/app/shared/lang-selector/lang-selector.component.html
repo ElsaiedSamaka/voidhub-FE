@@ -2,7 +2,7 @@
   <div class="inline-flex flex-col relative items-center md:order-2">
     <button type="button" data-dropdown-toggle="language-dropdown-menu" (click)="toggleLangDDL()"
       class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 :text-white rounded-lg cursor-pointer hover:bg-gray-100 :hover:bg-gray-700 :hover:text-white">
-      <ng-container [ngSwitch]="selectedLang">
+      <ng-container [ngSwitch]="DEFAULT_LANGUAGE">
         <ng-container *ngSwitchCase="'en'">
           <svg class="w-5 h-5 mr-2 rounded-full" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900">
