@@ -24,6 +24,7 @@ export class LangSelectorComponent implements OnInit {
       default:
         break;
     }
+    this.toggleLangDDL();
   }
   toggleLangDDL(): void {
     this.showLangDDL = !this.showLangDDL;
