@@ -41,7 +41,8 @@
     [ngClass]="theme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white text-light-secondary'"
       class="w-full rounded-3xl shadow md:mt-0 sm:max-w-md xl:p-0">
       <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-        <h1 class="text-xl font-bold leading-tight tracking-tight  md:text-2xl " translate="LoginMessage">
+        <h1 class="text-xl font-bold leading-tight tracking-tight  md:text-2xl " translate>
+          Login with your account
         </h1>
         <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="space-y-4 md:space-y-6">
           <div>
