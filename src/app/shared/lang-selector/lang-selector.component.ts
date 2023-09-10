@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class LangSelectorComponent implements OnInit {
   showLangDDL: boolean = false;
+  selectedLang: string = 'en';
   constructor(private translate: TranslateService) {}
 
   ngOnInit() {}
