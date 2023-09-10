@@ -13,8 +13,6 @@ import { SignupComponent } from './components/signup/signup.component';
 @NgModule({
   imports: [
     TranslateModule.forRoot({
-      defaultLanguage: 'en',
-      useDefaultLang: true,
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,

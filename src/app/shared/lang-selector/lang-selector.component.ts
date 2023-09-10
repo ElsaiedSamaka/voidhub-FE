@@ -8,24 +8,24 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class LangSelectorComponent implements OnInit {
   showLangDDL: boolean = false;
-  selectedLang: string = 'en';
-  constructor(private translate: TranslateService) {}
+  selectedLang: string;
 
-  ngOnInit() {}
+  constructor(private translate: TranslateService) {
+    // Get the language from local storage or set a default value
+    this.selectedLang = localStorage.getItem('selectedLang') || 'en';
+  }
+
+  ngOnInit() {
+    this.translate.use(this.selectedLang);
+  }
+
   changeLanguage(language: string) {
     this.translate.use(language);
-    switch (language) {
-      case 'en':
-        this.selectedLang = 'en';
-        break;
-      case 'ar':
-        this.selectedLang = 'ar';
-        break;
-      default:
-        break;
-    }
+    this.selectedLang = language;
+    localStorage.setItem('selectedLang', language);
     this.toggleLangDDL();
   }
+
   toggleLangDDL(): void {
     this.showLangDDL = !this.showLangDDL;
   }
