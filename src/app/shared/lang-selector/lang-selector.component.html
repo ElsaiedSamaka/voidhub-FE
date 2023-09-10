@@ -1,6 +1,6 @@
 <div class="hidden md:block">
-  <div class="flex items-center md:order-2">
-    <button type="button" data-dropdown-toggle="language-dropdown-menu"
+  <div class="inline-flex flex-col relative bg-red-500 items-center md:order-2">
+    <button type="button" data-dropdown-toggle="language-dropdown-menu" (click)="toggleLangDDL()"
       class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 :text-white rounded-lg cursor-pointer hover:bg-gray-100 :hover:bg-gray-700 :hover:text-white">
       <svg class="w-5 h-5 mr-2 rounded-full" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900">
@@ -31,8 +31,8 @@
       English (US)
     </button>
     <!-- Dropdown -->
-    <div class="z-50 top-0 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow "
-      id="language-dropdown-menu">
+    <div class="z-50 absolute top-4 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow "
+      *ngIf="showLangDDL" id="language-dropdown-menu">
       <ul class="py-2 font-medium" role="none">
         <li>
           <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 :text-gray-400 :hover:bg-gray-600 :hover:text-white"
@@ -78,6 +78,6 @@
         </li>
       </ul>
     </div>
-  </div>
     <!-- Dropdown -->
+  </div>
 </div>
