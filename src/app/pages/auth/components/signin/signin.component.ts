@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { LoadingService } from 'src/app/shared/services/loading.service';
 import { ThemeService } from 'src/app/shared/services/theme.service';
 import { AuthService } from 'src/core/services/auth.service';
@@ -34,6 +35,7 @@ export class SigninComponent implements OnInit {
     private themeService: ThemeService,
     private authService: AuthService,
     private loadingService: LoadingService,
+    private translate: TranslateService,
     private router: Router
   ) {
     this.getCurrentTheme();
@@ -92,5 +94,8 @@ export class SigninComponent implements OnInit {
     this.themeService.theme$.subscribe((theme) => {
       this.theme = theme;
     });
+  }
+  changeLanguage(language: string) {
+    this.translate.use(language);
   }
 }

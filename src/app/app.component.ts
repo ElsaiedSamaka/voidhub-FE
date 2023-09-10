@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     // this.dataService.subscribeToTheme();
     this.themeService.getCurrentTheme();
   }
-  changeLanguage(language: string) {
-    this.translate.use(language);
-  }
+  // changeLanguage(language: string) {
+  //   this.translate.use(language);
+  // }
 }
