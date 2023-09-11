@@ -1,5 +1,11 @@
 {
     "welcomeMessage": "اهلا بك بتطبيقي !",
     "Login with your account": "سجل الدخول باستخدام حسابك",
-    "Create an account": "انشئ حساب جديد"
+    "Create an account": "انشئ حساب جديد",
+    "Remember me": "تذكرني",
+    "Don't have an account?": "ليس لديك حساب حتى الان؟",
+    "Register here": "تسجيل جديد",
+    "Already have an account?": "لديك حساب بالفعل؟",
+    "Login here": "تسجيل الدخول",
+    "Login": "تسجيل الدخول"
 }

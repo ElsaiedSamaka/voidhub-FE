@@ -1,5 +1,11 @@
 {
     "welcomeMessage": "Welcome to my app!",
     "Login with your account": "Login with your account",
-    "Create an account": "Create an account"
+    "Create an account": "Create an account",
+    "Remember me": "Remember me",
+    "Don't have an account?": "Don't have an account?",
+    "Register here": "Register here",
+    "Already have an account?": "Already have an account?",
+    "Login here": "Login here",
+    "Login": "Login"
 }
