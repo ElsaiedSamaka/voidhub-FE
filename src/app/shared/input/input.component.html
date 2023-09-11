@@ -21,7 +21,13 @@
             class="block text-sm font-semibold" translate>
             cover
             <input [id]="id" [name]="name" [placeholder]="placeholder" [type]="type" (change)="handleFileChange($event)"
-           [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  class="mt-1 rounded-xl border appearance-none  text-sm p-2 text-left w-full"
+           [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"   class="block w-full text-sm text-slate-500
+        file:mr-4 file:py-2 file:px-4
+        file:rounded-full file:border-0
+        file:text-sm file:font-semibold
+        file:bg-violet-50 file:text-violet-700
+        hover:file:bg-violet-100
+      "
               [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
   [minlength]="minlength" [required]="required" [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
           </label>
@@ -132,7 +138,7 @@
     <div *ngSwitchCase="'select'">
       <div class="flex">
         <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
-          class="block text-sm font-semibold " translate>{{label}}</label>
+          class="block text-sm font-semibold " >{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <select *ngSwitchCase="'select'"
