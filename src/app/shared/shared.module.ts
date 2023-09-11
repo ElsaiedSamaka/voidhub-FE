@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { NgxEditorModule } from 'ngx-editor';
 import { SanitizeHtmlPipe } from 'src/core/pipes/SanitizeHtmlPipe.pipe';
+import { HttpLoaderFactory } from '../app.module';
 import { ActionsIconComponent } from './actions-icon/actions-icon.component';
 import { AlertComponent } from './alert/alert.component';
 import { ArticleComponent } from './article/article.component';
@@ -32,6 +35,13 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
 
 @NgModule({
   imports: [
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
     CommonModule,
     AngularEditorModule,
     RouterModule,

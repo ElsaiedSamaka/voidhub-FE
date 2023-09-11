@@ -5,7 +5,7 @@
     <div *ngSwitchCase="'text'">
       <div class="flex">
         <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
-          class="block text-sm font-semibold ">{{label}}</label>
+          class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
@@ -18,7 +18,7 @@
       <div *ngSwitchCase="'file'">
         <div class="flex">
           <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
-            class="block text-sm font-semibold">
+            class="block text-sm font-semibold" translate>
             cover
             <input [id]="id" [name]="name" [placeholder]="placeholder" [type]="type" (change)="handleFileChange($event)"
            [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  class="mt-1 rounded-xl border appearance-none  text-sm p-2 text-left w-full"
@@ -33,7 +33,7 @@
     <div *ngSwitchCase="'number'">
       <div class="flex">
         <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
-          class="block text-sm font-semibold ">{{label}}</label>
+          class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
@@ -45,7 +45,7 @@
     <div *ngSwitchCase="'tel'">
       <div class="flex">
         <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
-          class="block text-sm font-semibold ">{{label}}</label>
+          class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" (keydown)="onKeyDown($event)" [placeholder]="placeholder"
@@ -58,7 +58,7 @@
     <div *ngSwitchCase="'search'">
       <div class="flex">
         <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
-          class="block text-sm font-semibold ">{{label}}</label>
+          class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" [id]="id" [name]="name"
@@ -71,7 +71,7 @@
     <div *ngSwitchCase="'password'">
       <div class="flex">
         <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
-          class="block text-sm font-semibold ">{{label}}</label>
+          class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" [id]="id" [name]="name"
@@ -84,7 +84,7 @@
     <div *ngSwitchCase="'checkbox'">
       <div class="flex">
         <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
-          class="block text-sm font-semibold ">{{label}}</label>
+          class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
@@ -96,7 +96,7 @@
     <div *ngSwitchCase="'date'">
       <div class="flex">
         <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
-          class="block text-sm font-semibold ">{{label}}</label>
+          class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
@@ -108,7 +108,7 @@
     <div *ngSwitchCase="'email'">
       <div class="flex">
         <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
-          class="block text-sm font-semibold ">{{label}}</label>
+          class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
@@ -120,7 +120,7 @@
     <div *ngSwitchCase="'textarea'">
       <div class="flex">
         <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
-          class="block text-sm font-semibold ">{{label}}</label>
+          class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <textarea class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
@@ -132,7 +132,7 @@
     <div *ngSwitchCase="'select'">
       <div class="flex">
         <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
-          class="block text-sm font-semibold ">{{label}}</label>
+          class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <select *ngSwitchCase="'select'"

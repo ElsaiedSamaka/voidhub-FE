@@ -7,5 +7,7 @@
     "Register here": "Register here",
     "Already have an account?": "Already have an account?",
     "Login here": "Login here",
-    "Login": "Login"
+    "Login": "Login",
+    "_comment_": "shared module",
+    "email": "email"
 }
