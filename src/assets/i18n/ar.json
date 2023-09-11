@@ -9,5 +9,7 @@
     "Login here": "تسجيل الدخول",
     "Login": "تسجيل الدخول",
     "_comment_": "shared module",
-    "email": "البريد الالكتروني"
+    "email": "البريد الالكتروني",
+    "password": "كلمة المرور",
+    "password confirmation": "تأكيد كلمة المرور"
 }

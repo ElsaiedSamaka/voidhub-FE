@@ -9,5 +9,7 @@
     "Login here": "Login here",
     "Login": "Login",
     "_comment_": "shared module",
-    "email": "email"
+    "email": "email",
+    "password": "password",
+    "password confirmation": "password confirmation"
 }
