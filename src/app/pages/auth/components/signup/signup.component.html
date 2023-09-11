@@ -1,6 +1,7 @@
 <section class="h-screen overflow-hidden"
   [ngClass]="theme == 'dark'?'bg-[#1b1d1e] text-dark-secondary':'bg-gray-50  text-light-secondary'">
   <!-- shap -->
+<app-lang-selector></app-lang-selector>
   <div class="pointer-events-none">
     <div
       class="absolute z-10 inset-0 rounded-2xl transition duration-300 [mask-image:linear-gradient(white,transparent)] group-hover:opacity-50">
@@ -37,7 +38,7 @@
       class="w-full rounded-2xl shadow md:mt-0 sm:max-w-md xl:p-0">
       <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 
-        <h1 class="text-xl font-bold leading-tight tracking-tight  md:text-2xl :text-white">
+        <h1 class="text-xl font-bold leading-tight tracking-tight  md:text-2xl :text-white" translate>
           Create an account
         </h1>
         <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="space-y-4 md:space-y-6">
