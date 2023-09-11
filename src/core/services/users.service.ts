@@ -69,4 +69,32 @@ export class UsersService {
       })
     );
   }
+  follow(item: any): Observable<any> {
+    return this.apiService.post('/api/users/follow', item).pipe(
+      tap((followedUser) => {
+        console.log('followedUser', followedUser);
+      })
+    );
+  }
+  unfollow(item: any): Observable<any> {
+    return this.apiService.delete('/api/users/unfollow', item).pipe(
+      tap((unFollowedUser) => {
+        console.log('unFollowedUser', unFollowedUser);
+      })
+    );
+  }
+  getFollowing(): Observable<any[]> {
+    return this.apiService.get('/api/users/following').pipe(
+      tap((userfollowing) => {
+        console.log('userfollowing', userfollowing);
+      })
+    );
+  }
+  getFollowers(): Observable<any[]> {
+    return this.apiService.get('/api/users/followers').pipe(
+      tap((userfollowers) => {
+        console.log('userfollowers', userfollowers);
+      })
+    );
+  }
 }

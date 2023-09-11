@@ -111,4 +111,11 @@ export class PostsService {
   //     })
   //   );
   // }
+  getPostsByFollowing(): Observable<any[]> {
+    return this.apiService.get('/api/posts/following').pipe(
+      tap((posts) => {
+        console.log('posts', posts);
+      })
+    );
+  }
 }
