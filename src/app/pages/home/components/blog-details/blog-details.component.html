@@ -32,7 +32,9 @@
         </svg>
       </div>
     </div>
-    <p [class.text-dark-secondary]="currentTheme == 'dark'" class="lead font-semibold" [innerHTML]="data.article.content">
+    <p [class.text-dark-secondary]="currentTheme == 'dark'" class="lead font-semibold first-line:uppercase first-line:tracking-widest
+          first-letter:text-7xl first-letter:font-bold first-letter:text-green-400
+          first-letter:mr-3 first-letter:float-left" [innerHTML]="data.article.content">
     </p>
     <app-comment-section [article]="data.article" [currentTheme]="currentTheme"></app-comment-section>
     <app-related-articles [currentTheme]="currentTheme"></app-related-articles>
