@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from 'src/core/services/language.service';
 
@@ -8,6 +8,8 @@ import { LanguageService } from 'src/core/services/language.service';
   styleUrls: ['./lang-selector.component.css'],
 })
 export class LangSelectorComponent implements OnInit {
+  @Input() currentTheme: any = null;
+
   showLangDDL: boolean = false;
   DEFAULT_LANGUAGE: string;
 

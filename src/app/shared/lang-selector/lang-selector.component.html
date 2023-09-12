@@ -1,7 +1,8 @@
 <div class="inline-flex">
   <div class="inline-flex flex-col relative items-center md:order-2">
     <button type="button" data-dropdown-toggle="language-dropdown-menu" (click)="toggleLangDDL()"
-      class="inline-flex items-center font-medium justify-center group  px-4 py-2 text-sm rounded-lg cursor-pointer hover:bg-gray-100 :hover:bg-gray-700 :hover:text-white">
+      [ngClass]="currentTheme == 'dark'?'bg-white/10 text-dark-secondary border-white/10':'bg-zinc-900/5  border-zinc-900/10'" 
+      class="inline-flex items-center font-medium justify-center border group  px-4 py-2 text-sm rounded-lg cursor-pointer  ">
       <ng-container [ngSwitch]="DEFAULT_LANGUAGE">
         <ng-container *ngSwitchCase="'en'">
           <svg class="w-5 h-5 mr-2 rounded-full" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +40,8 @@
         </ng-container>
     </button>
     <!-- Dropdown -->
-    <div class="z-50 absolute top-4 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow "
+    <div [class.bg-[#18181b]]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"
+      class="z-50 absolute top-4 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow "
       *ngIf="showLangDDL" id="language-dropdown-menu">
       <ul class="py-2 font-medium" role="none">
         <li (click)="changeLanguage('en')">
