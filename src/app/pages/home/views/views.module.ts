@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpLoaderFactory } from 'src/app/app.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CommentSectionComponent } from './comment-section/comment-section.component';
 import { CommentComponent } from './comment-section/comment/comment.component';
@@ -13,7 +16,18 @@ import { RelatedArticlesComponent } from './related-articles/related-articles.co
 import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, SharedModule],
+  imports: [
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
+    CommonModule,
+    FormsModule,
+    SharedModule,
+  ],
   declarations: [
     CompanyCardComponent,
     CreatePostComponent,
