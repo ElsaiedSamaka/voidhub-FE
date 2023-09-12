@@ -108,10 +108,10 @@
       <app-truncated-text [htmlContent]="article.content" [currentTheme]="currentTheme"></app-truncated-text>
       <!-- article content  -->
       <!-- article actions -->
-      <div class="flex">
-        <div class="w-full">
-          <div class="flex justify-start items-center">
-            <div class="flex items-center justify-between space-x-1">
+      <div class="">
+        <div class=" w-full ">
+          <div class="flex rtl:justify-end ltr:justify-end items-center px-4">
+            <div class="flex items-center justify-between space-x-1 group">
               <a (click)="toggleCommentSection($event)"
               [ngClass]="currentTheme == 'dark'? ' text-dark-secondary hover:text-gray-100':' text-gray-500 hover:text-gray-800'"  class="w-12 mt-1 group flex items-center  px-3 py-2 text-base leading-6 font-medium rounded-full ">
                 <svg class="h-6 w-6 text-blue-200 hover:text-blue-300" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -121,8 +121,8 @@
                   </path>
                 </svg>
               </a>
-              <span class="mt-1 text-zinc-400">
-                {{noOfComments}} {{"comments"|translate}}
+              <span class="mt-1 text-zinc-400 ">
+                {{noOfComments}}
               </span>
             </div>
             <div class=" flex items-center justify-between space-x-1">
@@ -139,7 +139,7 @@
                 </svg>
               </a>
                 <span class="mt-1 text-zinc-400">
-                  {{loveCount}} {{"likes"|translate}}
+                  {{loveCount}}
                 </span>
             </div>
             <div class=" m-2">
@@ -163,7 +163,7 @@
                 </svg>
               </a>
               <span class="mt-1 text-zinc-400">
-                {{saveCount}} {{"saves"|translate}}
+                {{saveCount}}
               </span>
             </div>
           </div>
