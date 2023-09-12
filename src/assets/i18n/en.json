@@ -32,5 +32,11 @@
     "Post as User": "Post as User",
     "Create new post": "Create new post",
     "cover": "cover",
-    "title": "title"
+    "title": "title",
+    "tags": "tags",
+    "Results": "Results",
+    "No tags found": "No tags found",
+    "maxlength for a tag 12 char": "maxlength for a tag 12 char",
+    "add up to 4 tags": "add up to 4 tags",
+    "title maxlength 60 char": "title maxlength 60 char"
 }

@@ -31,5 +31,11 @@
     "Post as User": "انشر كـ مستخدم",
     "Create new post": "انشئ مقال جديد",
     "cover": "الغلاف",
-    "title": "العنوان"
+    "title": "العنوان",
+    "tags": "الاوسمه",
+    "Results": "النتائج",
+    "No tags found": "لا توجد نتائج متاحه",
+    "maxlength for a tag 12 char": "اقصى حد للادخال 12 حرف",
+    "add up to 4 tags": "يمكنك اضافة حتى 4 اوسمة",
+    "title maxlength 60 char": "اقصى حد للعنوان 60 حرف"
 }
