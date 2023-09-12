@@ -2,11 +2,12 @@
   <!-- post-as -->
   <app-post-as [currentTheme]="currentTheme" [currentUser]="currentUser"></app-post-as>
   <!-- post-as -->
-  <input type="text" (click)="openCreateNewPostModal()" [placeholder]="postAs==true?'Post as Anonymous':'Post as User'"
+  <input type="text" translate (click)="openCreateNewPostModal()"
+    [placeholder]="postAs==true?'Post as Anonymous':'Post as User'"
    [ngClass]="currentTheme =='dark'?'bg-white/5 ring-inset ring-white/5 ring-2 transition':''" [class.text-white]="currentTheme=='dark'"  class=" h-11 w-full items-center gap-2 rounded-full pl-4 pr-3 text-lg ring-1 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none lg:flex">
 </div>
 <!-- Create Post Modal -->
-<app-modal *ngIf="showCreateNewPostModal" (dismiss)="closeCreateNewPostModal()">
+<app-modal *ngIf="true" (dismiss)="closeCreateNewPostModal()">
   <div modal-header>
     <div class="flex flex-row-reverse justify-between px-2 ">
       <button type="button" (click)="closeCreateNewPostModal()"
@@ -22,7 +23,7 @@
         <span class="sr-only">Close modal</span>
       </button>
       <h3 class="text-xl font-semibold" [class.text-dark-secondary]="currentTheme =='dark'">
-        Create new post
+        {{"Create new post"|translate}}
       </h3>
     </div>
   </div>
