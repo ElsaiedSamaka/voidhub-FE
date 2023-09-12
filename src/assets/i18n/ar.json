@@ -37,5 +37,7 @@
     "No tags found": "لا توجد نتائج متاحه",
     "maxlength for a tag 12 char": "اقصى حد للادخال 12 حرف",
     "add up to 4 tags": "يمكنك اضافة حتى 4 اوسمة",
-    "title maxlength 60 char": "اقصى حد للعنوان 60 حرف"
+    "title maxlength 60 char": "اقصى حد للعنوان 60 حرف",
+    "Edit": "تعديل",
+    "Preview": "معاينة"
 }
