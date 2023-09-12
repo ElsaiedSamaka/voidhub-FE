@@ -13,6 +13,7 @@ import {
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxEditorModule } from 'ngx-editor';
+import { RtlltrDirective } from 'src/core/directives/rtlltr.directive';
 import { HttpTokenInterceptor } from 'src/core/intereceptors/Http-token-interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +22,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, RtlltrDirective],
   imports: [
     TranslateModule.forRoot({
       defaultLanguage: 'en',

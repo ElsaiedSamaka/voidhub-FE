@@ -20,7 +20,10 @@ module.exports = {
       screens: {
         xs: "375px",
       },
+      direction: {
+        rtl: "rtl", // Right-to-left
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-dir")()],
 };
