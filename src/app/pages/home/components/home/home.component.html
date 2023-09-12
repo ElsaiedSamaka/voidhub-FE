@@ -14,10 +14,10 @@
       <!-- latest contacts -->
       <div class="w-full max-w-md p-4 rounded-lg">
         <div class="flex items-center justify-between mb-4">
-          <h5 class="text-xl font-bold leading-none" [ngClass]="currentTheme=='dark'?'text-dark-secondary':''">Latest Contacts
+          <h5 class="text-xl font-bold leading-none" [ngClass]="currentTheme=='dark'?'text-dark-secondary':''">{{"Latest Contacts"|translate}}
           </h5>
           <a [routerLink]="['messages']" class="text-sm font-semibold text-emerald-700 hover:underline hover:cursor-pointer">
-            View all
+          {{"View all"| translate}}
           </a>
         </div>
         <div [ngClass]="currentTheme =='dark'?'text-dark-secondary':''" class="flow-root max-h-64 h-64 overflow-y-scroll">
