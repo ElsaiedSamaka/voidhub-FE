@@ -8,8 +8,16 @@
     "Already have an account?": "Already have an account?",
     "Login here": "Login here",
     "Login": "Login",
-    "_comment_": "shared module",
+    "shared_module": "shared module",
     "email": "email",
     "password": "password",
-    "password confirmation": "password confirmation"
+    "password confirmation": "password confirmation",
+    "index_module": "index_module",
+    "Home": "Home",
+    "Companies": "Companies",
+    "Jobs": "Jobs",
+    "Messages": "Messages",
+    "Reading list": "Reading list",
+    "Tags": "Tags",
+    "Signout": "Signout"
 }

@@ -11,5 +11,12 @@
     "_comment_": "shared module",
     "email": "البريد الالكتروني",
     "password": "كلمة المرور",
-    "password confirmation": "تأكيد كلمة المرور"
+    "password confirmation": "تأكيد كلمة المرور",
+    "Home": "الرئيسية",
+    "Companies": "الشركات",
+    "Jobs": "الوظائف",
+    "Messages": "الرسائل",
+    "Reading list": "المقالات المحفوظة",
+    "Tags": "اوسمة",
+    "Signout": "تسجيل الخروج"
 }
