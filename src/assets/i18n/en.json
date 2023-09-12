@@ -44,5 +44,11 @@
     "Remove": "Remove",
     "Report": "Report",
     "cancel": "cancel",
-    "Publish": "Publish"
+    "Publish": "Publish",
+    "article_component": "article_component",
+    "Follow": "Follow",
+    "Unfollow": "Unfollow",
+    "Following": "Following",
+    "Followers": "Followers",
+    "Anonymous": "Anonymous"
 }

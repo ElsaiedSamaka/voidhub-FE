@@ -51,13 +51,13 @@
                       <li class="mr-2">
                         <a class="hover:underline">
                           <span class="font-semibold">799</span>
-                          <span>Following</span>
+                          <span>{{"Following"|translate}}</span>
                         </a>
                       </li>
                       <li>
                         <a class="hover:underline">
                           <span class="font-semibold">3,758</span>
-                          <span>Followers</span>
+                          <span>{{"Followers"|translate}}</span>
                         </a>
                       </li>
                     </ul>
@@ -76,7 +76,7 @@
               </path>
             </svg>
             <div [class.text-dark-secondary]="currentTheme=='dark'" class="ml-3 flex items-center">
-              Anonymous
+              {{"Anonymous"|translate}}
               <span
                 class="text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150">
                 . {{article.createdAt |date}}

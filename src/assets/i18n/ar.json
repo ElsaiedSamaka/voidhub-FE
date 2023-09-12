@@ -43,5 +43,10 @@
     "Remove": "حذف",
     "Report": "ابلاغ",
     "cancel": "الغاء",
-    "Publish": "نشر"
+    "Publish": "نشر",
+    "Follow": "متابعة",
+    "Unfollow": "الغاء المتابعة",
+    "Following": "يتبع",
+    "Followers": "متابعون",
+    "Anonymous": "مجهول"
 }
