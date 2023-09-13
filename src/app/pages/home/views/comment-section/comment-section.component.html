@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center mb-6">
       <h2 class="text-lg lg:text-2xl font-bold">{{"Discussion"|translate}} ({{comments.length}})</h2>
     </div>
-    <form class="mb-6">
+    <form class="mb-6 ">
       <label for="comment" class="sr-only">Your comment</label>
       <textarea [ngClass]="currentTheme =='dark'?'bg-white/10 ring-2 ring-white/5 transition':'ring-2 ring-zinc-900/5'"
         [class.text-white]="currentTheme=='dark'" id="comment" rows="3"
