@@ -48,6 +48,7 @@ export class CommentSectionComponent implements OnInit {
         this.content = '';
       },
       error: (err) => {
+        this.content = '';
        this.toggleToast(err.message)
       },
       complete: () => {
