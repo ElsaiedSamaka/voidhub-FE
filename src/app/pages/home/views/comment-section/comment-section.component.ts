@@ -48,11 +48,11 @@ export class CommentSectionComponent implements OnInit {
         this.content = '';
       },
       error: (err) => {
-        this.showToast = true;
-        this.toastMessage = err.message;
+       this.toggleToast(err.message)
       },
       complete: () => {
         // this.noOfComments = this.commentsService.comments$.value.length;
+        this.content = '';
       },
     });
   }
@@ -84,8 +84,9 @@ export class CommentSectionComponent implements OnInit {
   //   if (this.alreadySavedArticle) return true;
   //   return false;
   // }
-  toggleToast() {
+  toggleToast(toastMessage: string) {
     this.showToast = !this.showToast;
+    this.toastMessage = toastMessage;
     setTimeout(() => {
       this.showToast = false;
     }, 4000);
