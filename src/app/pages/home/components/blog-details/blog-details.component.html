@@ -21,6 +21,7 @@
         <app-tag [currentTheme]="currentTheme" *ngFor="let tag of data.article.tags" [name]="tag.name"></app-tag>
         <!-- tags -->
       </div>
+      <!-- save article icon -->
       <div
         [ngClass]="currentTheme=='dark'?'border-white/5 text-dark-secondary hover:text-gray-200 hover:bg-zinc-700/10':'hover:bg-zinc-50'"
         class="p-2 save-icon cursor-pointer rounded-full border ">
@@ -31,6 +32,7 @@
           </path>
         </svg>
       </div>
+      <!-- save article icon -->
     </div>
     <p [class.text-dark-secondary]="currentTheme == 'dark'" class="lead font-semibold" [innerHTML]="data.article.content">
     </p>
