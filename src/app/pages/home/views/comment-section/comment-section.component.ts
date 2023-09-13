@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from 'src/app/shared/services/data.service';
 import { CommentsService } from 'src/core/services/comments.service';
 
 @Component({
@@ -10,7 +11,13 @@ export class CommentSectionComponent implements OnInit {
   @Input() currentTheme: string = '';
   @Input() article: any;
   comments: any[] = [];
-  constructor(private commentsService: CommentsService) {}
+  content: string = '';
+  showToast: boolean = false;
+  toastMessage: string = '';
+  constructor(
+    private commentsService: CommentsService,
+    private dataService: DataService
+  ) {}
 
   ngOnInit() {
     this.getAll();
@@ -26,5 +33,61 @@ export class CommentSectionComponent implements OnInit {
       },
       complete: () => {},
     });
+  }
+  postComment(event: any): void {
+    event.stopPropagation();
+    let articleId = this.article.id;
+    let isAnonymous = this.dataService.isAnonymous$.value;
+    let comment = {
+      content: this.content,
+      postId: articleId,
+      isAnonymous: isAnonymous,
+    };
+    this.commentsService.post(comment).subscribe({
+      next: () => {
+        this.content = '';
+      },
+      error: (err) => {
+        this.showToast = true;
+        this.toastMessage = err.message;
+      },
+      complete: () => {
+        // this.noOfComments = this.commentsService.comments$.value.length;
+      },
+    });
+  }
+  // saveArticle(event: any): void {
+  //   event.stopPropagation();
+  //   let articleId = this.article.id;
+  //   if (!this.articleAlreadyExistOnSaved()) {
+  //     this.postsService.save(articleId).subscribe({
+  //       next: () => {},
+  //       error: () => {},
+  //       complete: () => {
+  //         this.saveCount += 1;
+  //       },
+  //     });
+  //   } else {
+  //     this.postsService.unsave(articleId).subscribe({
+  //       next: () => {},
+  //       error: () => {},
+  //       complete: () => {
+  //         this.saveCount -= 1;
+  //       },
+  //     });
+  //   }
+  // }
+  // articleAlreadyExistOnSaved(): boolean {
+  //   this.alreadySavedArticle = this.postsService.savedPosts$.value.find(
+  //     (item) => item.postId == this.article.id
+  //   );
+  //   if (this.alreadySavedArticle) return true;
+  //   return false;
+  // }
+  toggleToast() {
+    this.showToast = !this.showToast;
+    setTimeout(() => {
+      this.showToast = false;
+    }, 4000);
   }
 }
