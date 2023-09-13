@@ -10,6 +10,7 @@ import { CommentsService } from 'src/core/services/comments.service';
 export class CommentSectionComponent implements OnInit {
   @Input() currentTheme: string = '';
   @Input() article: any;
+  @Input() currentUser: any;
   comments: any[] = [];
   content: string = '';
   showToast: boolean = false;
@@ -49,42 +50,14 @@ export class CommentSectionComponent implements OnInit {
       },
       error: (err) => {
         this.content = '';
-       this.toggleToast(err.message)
+        this.toggleToast(err.message);
       },
       complete: () => {
-        // this.noOfComments = this.commentsService.comments$.value.length;
         this.content = '';
       },
     });
   }
-  // saveArticle(event: any): void {
-  //   event.stopPropagation();
-  //   let articleId = this.article.id;
-  //   if (!this.articleAlreadyExistOnSaved()) {
-  //     this.postsService.save(articleId).subscribe({
-  //       next: () => {},
-  //       error: () => {},
-  //       complete: () => {
-  //         this.saveCount += 1;
-  //       },
-  //     });
-  //   } else {
-  //     this.postsService.unsave(articleId).subscribe({
-  //       next: () => {},
-  //       error: () => {},
-  //       complete: () => {
-  //         this.saveCount -= 1;
-  //       },
-  //     });
-  //   }
-  // }
-  // articleAlreadyExistOnSaved(): boolean {
-  //   this.alreadySavedArticle = this.postsService.savedPosts$.value.find(
-  //     (item) => item.postId == this.article.id
-  //   );
-  //   if (this.alreadySavedArticle) return true;
-  //   return false;
-  // }
+
   toggleToast(toastMessage: string) {
     this.showToast = !this.showToast;
     this.toastMessage = toastMessage;
