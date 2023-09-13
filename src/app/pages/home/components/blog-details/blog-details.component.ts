@@ -13,7 +13,7 @@ export class BlogDetailsComponent implements OnInit {
   data: any = {};
   currentTheme: string = '';
   currentUser: any;
-  alreadySavedArticle: boolean = false;
+  alreadySavedArticle: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +26,8 @@ export class BlogDetailsComponent implements OnInit {
     this.getBlog();
     this.getCurrentTheme();
     this.getCurrentUser();
+    this.alreadySavedArticle = this.articleAlreadyExistOnSaved();
+    console.log('this.alreadySavedArticle', this.alreadySavedArticle);
   }
   getBlog() {
     this.route.data.subscribe((data) => {
@@ -70,10 +72,14 @@ export class BlogDetailsComponent implements OnInit {
     }
   }
   articleAlreadyExistOnSaved(): boolean {
-    this.alreadySavedArticle = this.data.article.saved_posts.find((item) => {
-      item.postId == this.data.article.id && item.userId == this.currentUser.id;
-    });
-    if (this.alreadySavedArticle) return true;
-    return false;
+    if (!this.data.article.saved_posts) {
+      return false; // No saved_posts array exists, so the article doesn't exist in saved posts
+    }
+
+    this.alreadySavedArticle = this.data.article.saved_posts.find(
+      (item) => item.userId === this.currentUser.id
+    );
+
+    return !!this.alreadySavedArticle; // Return true if alreadySavedArticle is truthy, false otherwise
   }
 }
