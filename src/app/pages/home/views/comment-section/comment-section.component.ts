@@ -12,9 +12,11 @@ export class CommentSectionComponent implements OnInit {
   @Input() article: any;
   @Input() currentUser: any;
   comments: any[] = [];
+  comment: any;
   content: string = '';
   showToast: boolean = false;
   toastMessage: string = '';
+  editOrSubmit: string = 'submit';
   constructor(
     private commentsService: CommentsService,
     private dataService: DataService
@@ -59,6 +61,17 @@ export class CommentSectionComponent implements OnInit {
   }
   handleRemovedComment(removedComment: any): void {
     this.comments = this.commentsService.comments$.value;
+  }
+  handleCommentEdit(commentToEdit: any): void {
+    this.editOrSubmit = 'edit';
+    this.comment = commentToEdit;
+    this.content = commentToEdit.content;
+  }
+  editComment(commentId: any): void {
+    console.log('commentId', commentId);
+    this.commentsService
+      .put(commentId, { content: this.content })
+      .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
   }
   toggleToast(toastMessage: string) {
     this.showToast = !this.showToast;

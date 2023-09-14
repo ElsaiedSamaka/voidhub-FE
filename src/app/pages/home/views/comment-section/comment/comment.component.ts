@@ -11,6 +11,7 @@ export class CommentComponent implements OnInit {
   @Input() currentUser: any;
   @Input() comment: any;
   @Output() emitRemovedComment: EventEmitter<any> = new EventEmitter<any>();
+  @Output() emitEditComment: EventEmitter<any> = new EventEmitter<any>();
   showFollowingPopOver: boolean = false;
   showActionsDDL: boolean = false;
 
@@ -44,5 +45,8 @@ export class CommentComponent implements OnInit {
     event.stopPropagation();
     this.showActionsDDL = false;
     console.log('handleCommentReport');
+  }
+  handleCommentEdit(event: any): void {
+    this.emitEditComment.emit(this.comment);
   }
 }

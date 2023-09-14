@@ -35,4 +35,12 @@ export class CommentsService {
       })
     );
   }
+  put(id: string, item: any): Observable<any> {
+    return this.apiService.put(`/api/comments/${id}`, item).pipe(
+      tap((updatedItem) => {
+        const index = this.comments$.value.indexOf(id);
+        this.comments$.value.splice(index, 1, updatedItem);
+      })
+    );
+  }
 }
