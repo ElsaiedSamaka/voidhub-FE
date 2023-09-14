@@ -8,8 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CommentComponent implements OnInit {
   @Input() currentTheme: string = '';
   @Input() comment: any;
+  showFollowingPopOver: boolean = false;
 
   constructor() {}
 
   ngOnInit() {}
+  toggleFollowingPopOver() {
+    this.showFollowingPopOver = !this.showFollowingPopOver;
+  }
 }
