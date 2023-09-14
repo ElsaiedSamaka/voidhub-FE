@@ -1,13 +1,13 @@
 <article [ngClass]="currentTheme == 'dark'?'border-white/5':''" class="p-6 mb-6 text-base  rounded-lg border">
   <footer class="flex justify-between items-center mb-2">
   <ng-container [ngSwitch]="comment.isAnonymous">
-    <div class="flex items-center" *ngSwitchCase='false'>
+    <div class="flex items-center relative" *ngSwitchCase='false'>
           <img class="inline-block h-10 w-10 rounded-full" (mouseenter)="toggleFollowingPopOver()"
             (mouseleave)="toggleFollowingPopOver()"
             [src]="comment.user?.user_img" alt="" />
                 <div class="ml-3 flex items-center">
                   <p [class.text-gray-200]="currentTheme=='dark'" class="text-base leading-6 font-medium"
-                    (mouseenter)="toggleFollowingPopOver()" (mouseleave)="toggleFollowingPopOver()">
+                    (mouseenter)="toggleFollowingPopOver()" >
                     {{comment.user.email}}
                   </p>
                   <span class="text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150">
