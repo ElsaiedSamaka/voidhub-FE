@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { CommentsService } from 'src/core/services/comments.service';
+import { RepliesService } from 'src/core/services/replies.service';
 
 @Component({
   selector: 'app-comment-section',
@@ -16,10 +17,11 @@ export class CommentSectionComponent implements OnInit {
   content: string = '';
   showToast: boolean = false;
   toastMessage: string = '';
-  editOrSubmit: string = 'submit';
+  editOrSubmitOrReply: string = 'submit';
   constructor(
     private commentsService: CommentsService,
-    private dataService: DataService
+    private dataService: DataService,
+    private repliesservice: RepliesService
   ) {}
 
   ngOnInit() {
@@ -63,7 +65,7 @@ export class CommentSectionComponent implements OnInit {
     this.comments = this.commentsService.comments$.value;
   }
   handleCommentEdit(commentToEdit: any): void {
-    this.editOrSubmit = 'edit';
+    this.editOrSubmitOrReply = 'edit';
     this.comment = commentToEdit;
     this.content = commentToEdit.content;
   }
@@ -74,12 +76,34 @@ export class CommentSectionComponent implements OnInit {
       },
       error: () => {},
       complete: () => {
-        this.editOrSubmit = 'submit';
+        this.editOrSubmitOrReply = 'submit';
       },
     });
   }
-  cancelEdit(): void {
-    this.editOrSubmit = 'submit';
+  handleCommentReply(commentToReply: any): void {
+    this.editOrSubmitOrReply = 'reply';
+    this.comment = commentToReply;
+  }
+  postReply(): void {
+    let isAnonymous = this.dataService.isAnonymous$.value;
+
+    let reply = {
+      content: this.content,
+      commentId: this.comment.id,
+      isAnonymous: isAnonymous,
+    };
+    this.repliesservice.post(reply).subscribe({
+      next: () => {
+        this.content = '';
+      },
+      error: () => {},
+      complete: () => {
+        this.editOrSubmitOrReply = 'submit';
+      },
+    });
+  }
+  cancel(): void {
+    this.editOrSubmitOrReply = 'submit';
     this.content = '';
   }
   toggleToast(toastMessage: string) {

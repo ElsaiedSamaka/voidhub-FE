@@ -106,7 +106,8 @@
   </footer>
   <p class="">{{comment.content}}</p>
   <div class="flex items-center mt-4 space-x-4">
-    <button type="button" class="flex items-center text-sm  hover:underline :text-gray-400">
+    <button (click)="handleCommentReply($event)" type="button"
+      class="flex items-center text-sm  hover:underline :text-gray-400">
       <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
