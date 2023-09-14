@@ -119,13 +119,15 @@ export class ArticleComponent implements OnInit, OnChanges {
   }
   favArticle(event: any): void {
     event.stopPropagation();
-    let articleId = this.article.id;
+    const articleId = this.article.id;
+
     if (!this.articleAlreadyExistOnFaved()) {
       this.postsService.fav(articleId).subscribe({
         next: () => {},
         error: () => {},
         complete: () => {
           this.loveCount += 1;
+          this.updateArticle(); // Update the article object
         },
       });
     } else {
@@ -134,15 +136,17 @@ export class ArticleComponent implements OnInit, OnChanges {
         error: () => {},
         complete: () => {
           this.loveCount -= 1;
+          this.updateArticle(); // Update the article object
         },
       });
     }
   }
+
   articleAlreadyExistOnFaved(): boolean {
-    this.alreadyLovedArticle = this.postsService.lovedPosts$.value.find(
-      (item) => item.postId == this.article.id
+    const alreadyLovedArticle = this.article.loved_posts.find(
+      (item: any) => item.userId === this.currentUser.id
     );
-    if (this.alreadyLovedArticle) return true;
-    return false;
+
+    return !!alreadyLovedArticle;
   }
 }
