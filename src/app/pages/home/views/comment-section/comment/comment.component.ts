@@ -22,7 +22,7 @@ export class CommentComponent implements OnInit {
     event.stopPropagation();
     this.showActionsDDL = !this.showActionsDDL;
   }
-  handlePostRemove(event: any): void {
+  handleCommentRemove(event: any): void {
     event.stopPropagation();
     this.showActionsDDL = false;
     this.commentsService.deleteById(this.comment.id).subscribe({
@@ -36,7 +36,7 @@ export class CommentComponent implements OnInit {
       complete: () => {},
     });
   }
-  handlePostReport(event: any): void {
+  handleCommentReport(event: any): void {
     event.stopPropagation();
     this.showActionsDDL = false;
     console.log('handlePostReport');

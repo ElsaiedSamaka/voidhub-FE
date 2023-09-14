@@ -90,11 +90,11 @@
             <a [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-900':'hover:bg-gray-200'"
               class="block py-2 px-4 ">{{"Edit"|translate}}</a>
             </li>
-            <li>
+            <li (click)="handleCommentRemove($event)">
               <a [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-900':'hover:bg-gray-200'"
                 class="block py-2 px-4">{{"Remove"|translate}}</a>
               </li>
-              <li>
+              <li (click)="handleCommentReport($event)">
               <a [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-900':'hover:bg-gray-200'"
                 class="block py-2 px-4 ">{{"Report"|translate}}</a>
               </li>
