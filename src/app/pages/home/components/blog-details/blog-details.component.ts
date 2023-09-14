@@ -13,7 +13,7 @@ export class BlogDetailsComponent implements OnInit {
   data: any = {};
   currentTheme: string = '';
   currentUser: any;
-  alreadySavedArticle: any;
+  alreadySavedArticle: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,7 +27,6 @@ export class BlogDetailsComponent implements OnInit {
     this.getCurrentTheme();
     this.getCurrentUser();
     this.alreadySavedArticle = this.articleAlreadyExistOnSaved();
-    console.log('this.alreadySavedArticle', this.alreadySavedArticle);
   }
   getBlog() {
     this.route.data.subscribe((data) => {
@@ -53,12 +52,13 @@ export class BlogDetailsComponent implements OnInit {
   saveArticle(event: any): void {
     event.stopPropagation();
     let articleId = this.data.article.id;
-    if (!this.articleAlreadyExistOnSaved()) {
+    if (!this.alreadySavedArticle) {
       this.postsService.save(articleId).subscribe({
         next: () => {},
         error: () => {},
         complete: () => {
           // this.saveCount += 1;
+          this.alreadySavedArticle = true;
         },
       });
     } else {
@@ -67,6 +67,7 @@ export class BlogDetailsComponent implements OnInit {
         error: () => {},
         complete: () => {
           // this.saveCount -= 1;
+          this.alreadySavedArticle = false;
         },
       });
     }
