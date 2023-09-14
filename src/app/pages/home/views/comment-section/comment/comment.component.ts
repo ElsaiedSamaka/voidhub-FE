@@ -8,6 +8,7 @@ import { CommentsService } from 'src/core/services/comments.service';
 })
 export class CommentComponent implements OnInit {
   @Input() currentTheme: string = '';
+  @Input() currentUser: any;
   @Input() comment: any;
   @Output() emitRemovedComment: EventEmitter<any> = new EventEmitter<any>();
   showFollowingPopOver: boolean = false;
@@ -42,6 +43,6 @@ export class CommentComponent implements OnInit {
   handleCommentReport(event: any): void {
     event.stopPropagation();
     this.showActionsDDL = false;
-    console.log('handlePostReport');
+    console.log('handleCommentReport');
   }
 }

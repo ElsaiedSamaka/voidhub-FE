@@ -15,7 +15,7 @@
     <section class="h-80 overflow-auto">
       <ng-container *ngFor="let comment of comments">
       <!-- comment -->
-      <app-comment (emitRemovedComment)="handleRemovedComment($event)" [comment]="comment"
+      <app-comment (emitRemovedComment)="handleRemovedComment($event)" [comment]="comment" [currentUser]="currentUser"
         [currentTheme]="currentTheme"></app-comment>
       <!-- comment -->
       <!-- Reply -->
