@@ -73,7 +73,7 @@
     </div>
   </ng-container>
     <button id="dropdownComment1Button" data-dropdown-toggle="dropdownComment1"
-      class="inline-flex items-center p-2 text-sm font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-50"
+      class="inline-flex relative items-center p-2 text-sm font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-50"
       type="button">
       <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg">
@@ -81,21 +81,24 @@
         </path>
       </svg>
       <span class="sr-only">Comment settings</span>
-    </button>
-    <!-- Dropdown menu -->
-    <div id="dropdownComment1" class="hidden z-10 w-36 rounded divide-y shadow">
-      <ul class="py-1 text-sm text-gray-700 :text-gray-200" aria-labelledby="dropdownMenuIconHorizontalButton">
-        <li>
-          <a class="block py-2 px-4 ">{{"Edit"|translate}}</a>
-        </li>
-        <li>
-          <a class="block py-2 px-4">{{"Remove"|translate}}</a>
-        </li>
-        <li>
-          <a class="block py-2 px-4">{{"Report"|translate}}</a>
-        </li>
-      </ul>
-    </div>
+      <!-- Dropdown menu -->
+      <div id="dropdownComment1" [ngClass]="currentTheme=='dark'?'bg-zinc-800  text-white':'bg-white text-gray-800'"
+        class="absolute ltr:right-0 rtl:left-0 top-6  z-10 w-36 rounded divide-y shadow">
+        <ul class="py-1 text-sm " aria-labelledby="dropdownMenuIconHorizontalButton">
+          <li>
+            <a class="block py-2 px-4 hover:bg-zinc-900">{{"Edit"|translate}}</a>
+            </li>
+            <li>
+              <a class="block py-2 px-4 hover:bg-zinc-900">{{"Remove"|translate}}</a>
+              </li>
+              <li>
+              <a class="block py-2 px-4 hover:bg-zinc-900">{{"Report"|translate}}</a>
+              </li>
+              </ul>
+              </div>
+      <!-- Dropdown menu -->
+      </button>
+
   </footer>
   <p class="">{{comment.content}}</p>
   <div class="flex items-center mt-4 space-x-4">
