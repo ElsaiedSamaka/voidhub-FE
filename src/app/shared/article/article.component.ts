@@ -39,8 +39,7 @@ export class ArticleComponent implements OnInit, OnChanges {
     this.noOfComments = comments.length;
   }
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.article) {
-      console.log('update article');
+    if (changes.article && changes.article.currentValue) {
       // Update the reply value
       this.article = changes.article.currentValue;
     }
