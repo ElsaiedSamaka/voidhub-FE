@@ -65,7 +65,6 @@ export class PostsService {
     return this.apiService.post(`/api/posts/${id}/save`).pipe(
       tap((savedPost) => {
         this.savedPosts$.value.push(savedPost);
-        console.log('this.savedPosts$.value', this.savedPosts$.value);
       })
     );
   }
