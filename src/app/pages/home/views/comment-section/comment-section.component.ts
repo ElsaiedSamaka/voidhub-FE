@@ -68,10 +68,15 @@ export class CommentSectionComponent implements OnInit {
     this.content = commentToEdit.content;
   }
   editComment(commentId: any): void {
-    console.log('commentId', commentId);
-    this.commentsService
-      .put(commentId, { content: this.content })
-      .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+    this.commentsService.put(commentId, { content: this.content }).subscribe({
+      next: () => {
+        this.content = '';
+      },
+      error: () => {},
+      complete: () => {
+        this.editOrSubmit = 'submit';
+      },
+    });
   }
   toggleToast(toastMessage: string) {
     this.showToast = !this.showToast;
