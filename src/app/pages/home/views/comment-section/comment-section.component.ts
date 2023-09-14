@@ -121,6 +121,9 @@ export class CommentSectionComponent implements OnInit {
       },
     });
   }
+  handleRemovedReply(value: any): void {
+    console.log(value);
+  }
   cancel(): void {
     this.editOrSubmitOrReply = 'submit';
     this.content = '';
