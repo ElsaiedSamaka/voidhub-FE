@@ -59,8 +59,18 @@ export class RepliesService {
   put(id: string, item: any): Observable<any> {
     return this.apiService.put(`/api/replies/${id}`, item).pipe(
       tap((updatedItem) => {
-        const index = this.replies$.value.indexOf(id);
-        this.replies$.value.splice(index, 1, updatedItem);
+        const comments = this.commentsService.comments$.value;
+
+        for (const comment of comments) {
+          const replyIndex = comment.replies.findIndex(
+            (reply) => reply.id === id
+          );
+          if (replyIndex !== -1) {
+            comment.replies[replyIndex] = updatedItem;
+            break;
+          }
+        }
+        this.commentsService.comments$.next([...comments]);
       })
     );
   }
