@@ -17,10 +17,7 @@ export class ActionsIconComponent implements OnInit {
   toastType: string = '';
   constructor(private postsService: PostsService) {}
 
-  ngOnInit() {
-    console.log('currentUser.id', this.currentUser);
-    console.log('article', this.article);
-  }
+  ngOnInit() {}
   handleActions(event: any): void {
     event.stopPropagation();
     this.showActionsDDL = !this.showActionsDDL;
