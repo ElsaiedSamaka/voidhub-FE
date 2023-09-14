@@ -20,6 +20,10 @@
                   class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">{{"Reply"|translate}}</button>
                 <button type="button" (click)="cancel()" *ngSwitchCase="'reply'"
                   class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">{{"cancel"|translate}}</button>
+                    <button type="button" (click)="editReply()" *ngSwitchCase="'editReply'"
+                      class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">{{"Update"|translate}}</button>
+                    <button type="button" (click)="cancel()" *ngSwitchCase="'editReply'"
+                      class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">{{"cancel"|translate}}</button>
               </ng-container>
     </form>
     <section class="h-80 overflow-auto">
@@ -28,7 +32,7 @@
       <app-comment (emitRemovedComment)="handleRemovedComment($event)" (emitReplyComment)="handleCommentReply($event)"
         (emitEditComment)="handleCommentEdit($event)"
         [comment]="comment" [currentUser]="currentUser"
-        [currentTheme]="currentTheme"></app-comment>
+     (emitEditReply)="handleReplyEdit($event)"  (emitRemovedReply)="handleRemovedReply($event)" [currentTheme]="currentTheme"></app-comment>
       <!-- comment -->
     
       </ng-container>

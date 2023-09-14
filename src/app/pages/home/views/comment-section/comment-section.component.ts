@@ -14,6 +14,7 @@ export class CommentSectionComponent implements OnInit {
   @Input() currentUser: any;
   comments: any[] = [];
   comment: any;
+  reply: any;
   content: string = '';
   showToast: boolean = false;
   toastMessage: string = '';
@@ -83,6 +84,24 @@ export class CommentSectionComponent implements OnInit {
   handleCommentReply(commentToReply: any): void {
     this.editOrSubmitOrReply = 'reply';
     this.comment = commentToReply;
+  }
+  handleReplyEdit(replyToEdit: any): void {
+    this.editOrSubmitOrReply = 'editReply';
+    this.reply = replyToEdit;
+    this.content = replyToEdit.content;
+  }
+  editReply(): void {
+    this.repliesservice
+      .put(this.reply.id, { content: this.content })
+      .subscribe({
+        next: () => {
+          this.content = '';
+        },
+        error: () => {},
+        complete: () => {
+          this.editOrSubmitOrReply = 'submit';
+        },
+      });
   }
   postReply(): void {
     let isAnonymous = this.dataService.isAnonymous$.value;

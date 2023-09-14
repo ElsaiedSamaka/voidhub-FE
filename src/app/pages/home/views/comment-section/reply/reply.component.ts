@@ -55,7 +55,7 @@ export class ReplyComponent implements OnInit, OnChanges {
   //   this.showActionsDDL = false;
   //   console.log('handleCommentReport');
   // }
-  // handleCommentEdit(event: any): void {
-  //   this.emitEditComment.emit(this.comment);
-  // }
+  handleReplyEdit(event: any): void {
+    this.emitEditReply.emit(this.reply);
+  }
 }
