@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { ApiService } from './api.service';
+import { CommentsService } from './comments.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RepliesService {
   replies$ = new BehaviorSubject<any[]>([]);
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private commentsService: CommentsService
+  ) {}
   // getAll(id: string): Observable<any[]> {
   //   return this.apiService.get(`/api/posts/${id}/comments`).pipe(
   //     tap((comments) => {
@@ -31,7 +35,16 @@ export class RepliesService {
   post(item: any): Observable<any> {
     return this.apiService.post('/api/replies', item).pipe(
       tap((addedItem) => {
-        this.replies$.value.push(addedItem);
+        const comments = this.commentsService.comments$.value;
+        const commentId = addedItem.commentId;
+
+        // Find the comment in the comments list
+        const comment = comments.find((c) => c.id === commentId);
+
+        if (comment) {
+          // Push the new reply into the list of replies
+          comment.replies.push(addedItem);
+        }
       })
     );
   }
