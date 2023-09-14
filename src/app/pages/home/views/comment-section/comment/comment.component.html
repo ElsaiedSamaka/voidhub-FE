@@ -2,58 +2,58 @@
   <footer class="flex justify-between items-center mb-2">
   <ng-container [ngSwitch]="comment.isAnonymous">
     <div class="flex items-center" *ngSwitchCase='false'>
-      <img class="inline-block h-10 w-10 rounded-full" (mouseenter)="toggleFollowingPopOver()"
-        (mouseleave)="toggleFollowingPopOver()" [src]="comment.user?.user_img" alt="" />
-      <div class="ml-3 flex items-center">
-        <p [class.text-gray-200]="currentTheme=='dark'" class="text-base leading-6 font-medium"
-          (mouseenter)="toggleFollowingPopOver()" (mouseleave)="toggleFollowingPopOver()">
-          {{comment.user.email}}
-        </p>
-        <span
-          class="text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150">
-          @Voidhub . {{comment.createdAt |date}}
-        </span>
-      </div>
-      <!-- user popover -->
-      <div *ngIf="showFollowingPopOver" data-popover id="popover-user-profile" role="tooltip"
-        [ngClass]="currentTheme=='dark'?'bg-zinc-900 text-dark-secondary':'bg-white text-gray-800'"
-        class="absolute shadow-xl z-20 top-10 inline-block w-64 text-sm  transition-opacity duration-300   rounded-lg opacity-100">
-        <div class="p-3">
-          <div class="flex items-center justify-between mb-2">
-            <a>
-              <img class="w-10 h-10 rounded-full"
-                [src]="comment.user?.user_img" alt="">
-            </a>
-            <div>
-              <button type="button"
-                class="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:ring-emerald-300 font-medium rounded-lg text-xs px-3 py-1.5 :bg-blue-600 :hover:bg-blue-700 focus:outline-none :focus:ring-blue-800">Follow</button>
-            </div>
-          </div>
-          <p class="text-base font-semibold leading-none">
-            <a>comment.user </a>
-          </p>
-          <p class="mb-3 text-sm font-normal">
-            <a class="hover:underline">@{{comment.user.email}}</a>
-          </p>
-          <ul class="flex text-sm">
-            <li class="mr-2">
-              <a class="hover:underline">
-                <span class="font-semibold">799</span>
-                <span>Following</span>
-              </a>
-            </li>
-            <li>
-              <a class="hover:underline">
-                <span class="font-semibold">3,758</span>
-                <span>Followers</span>
-              </a>
-            </li>
-          </ul>
-          </div>
-          <div data-popper-arrow></div>
-          </div>
-          <!-- user popover -->
-          </div>
+          <img class="inline-block h-10 w-10 rounded-full" (mouseenter)="toggleFollowingPopOver()"
+            (mouseleave)="toggleFollowingPopOver()"
+            [src]="comment.user?.user_img" alt="" />
+                <div class="ml-3 flex items-center">
+                  <p [class.text-gray-200]="currentTheme=='dark'" class="text-base leading-6 font-medium"
+                    (mouseenter)="toggleFollowingPopOver()" (mouseleave)="toggleFollowingPopOver()">
+                    {{comment.user.email}}
+                  </p>
+                  <span class="text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150">
+                    @Voidhub . {{comment.createdAt |date}}
+                  </span>
+                  </div>
+                  <!-- user popover -->
+                  <div *ngIf="showFollowingPopOver" data-popover id="popover-user-profile" role="tooltip"
+                  [ngClass]="currentTheme=='dark'?'bg-zinc-900 text-dark-secondary':'bg-white text-gray-800'"
+                  class="absolute shadow-xl z-20 top-10 inline-block w-64 text-sm  transition-opacity duration-300   rounded-lg opacity-100">
+                  <div class="p-3">
+                    <div class="flex items-center justify-between mb-2">
+                      <a>
+                        <img class="w-10 h-10 rounded-full"
+                          [src]="comment.user?.user_img" alt="">
+                      </a>
+                      <div>
+                        <button type="button"
+                          class="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:ring-emerald-300 font-medium rounded-lg text-xs px-3 py-1.5 :bg-blue-600 :hover:bg-blue-700 focus:outline-none :focus:ring-blue-800">Follow</button>
+                      </div>
+                    </div>
+                    <p class="text-base font-semibold leading-none">
+                      <a>article.user</a>
+                    </p>
+                    <p class="mb-3 text-sm font-normal">
+                      <a class="hover:underline">@{{comment.user.email}}</a>
+                    </p>
+                    <ul class="flex text-sm">
+                      <li class="mr-2">
+                        <a class="hover:underline">
+                          <span class="font-semibold">799</span>
+                          <span>{{"Following"|translate}}</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="hover:underline">
+                          <span class="font-semibold">3,758</span>
+                          <span>{{"Followers"|translate}}</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div data-popper-arrow></div>
+                </div>
+                <!-- user popover -->
+        </div>
           <div *ngSwitchCase="true">
             <div class=" inline-flex items-center justify-center">
               <svg class="w-8 h-8 p-1 ring-2 ring-gray-300 !text-gray-400 rounded-full" xmlns="http://www.w3.org/2000/svg" x="0px"
