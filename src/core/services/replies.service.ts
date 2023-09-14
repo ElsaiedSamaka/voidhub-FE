@@ -25,10 +25,18 @@ export class RepliesService {
   deleteById(id: string): Observable<any> {
     return this.apiService.delete(`/api/replies/${id}`).pipe(
       tap((deleteItem) => {
-        let updatedItems = this.replies$.value.filter(
-          (item) => item.id != deleteItem.id
-        );
-        this.replies$.next(updatedItems);
+        const comments = this.commentsService.comments$.value;
+        const commentId = deleteItem.commentId;
+
+        // Find the comment in the comments list
+        const comment = comments.find((c) => c.id === commentId);
+
+        if (comment) {
+          // Remove the deleted reply from the list of replies
+          comment.replies = comment.replies.filter(
+            (item) => item.id !== deleteItem.id
+          );
+        }
       })
     );
   }
