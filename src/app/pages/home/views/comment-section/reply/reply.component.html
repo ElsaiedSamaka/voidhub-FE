@@ -85,15 +85,15 @@
             [ngClass]="currentTheme=='dark'?'bg-zinc-800  text-white':'bg-white text-gray-800'"
             class="absolute ltr:right-0 rtl:left-0 top-6  z-10 w-36 rounded divide-y shadow">
             <ul class="py-1 text-sm " aria-labelledby="dropdownMenuIconHorizontalButton">
-              <li (click)="handleReplyEdit($event)">
+              <li *ngIf="currentUser.id == reply.userId" (click)="handleReplyEdit($event)">
                 <a [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-900':'hover:bg-gray-200'"
                   class="block py-2 px-4 ">{{"Edit"|translate}}</a>
               </li>
-              <li (click)="handleReplyRemove($event)">
+              <li *ngIf="currentUser.id == reply.userId" (click)="handleReplyRemove($event)">
                 <a [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-900':'hover:bg-gray-200'"
                   class="block py-2 px-4">{{"Remove"|translate}}</a>
               </li>
-              <li (click)="handleCommentReport($event)">
+              <li *ngIf="currentUser.id != reply.userId" (click)="handleCommentReport($event)">
                 <a [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-900':'hover:bg-gray-200'"
                   class="block py-2 px-4 ">{{"Report"|translate}}</a>
               </li>

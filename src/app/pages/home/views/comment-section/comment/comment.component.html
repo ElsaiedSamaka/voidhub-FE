@@ -120,5 +120,6 @@
 </article>
   <!-- Reply -->
   <app-reply *ngFor="let reply of comment.replies" [reply]="reply" [currentTheme]="currentTheme"
+    [currentUser]="currentUser"
     (emitRemovedReply)="handleRemovedReply($event)" (emitEditReply)="handleReplyEdit($event)"></app-reply>
   <!-- Reply -->

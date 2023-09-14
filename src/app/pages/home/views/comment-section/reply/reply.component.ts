@@ -16,6 +16,8 @@ import { RepliesService } from 'src/core/services/replies.service';
 })
 export class ReplyComponent implements OnInit, OnChanges {
   @Input() currentTheme: string = '';
+  @Input() currentUser: any;
+
   @Input() reply: any;
   @Output() emitRemovedReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() emitEditReply: EventEmitter<any> = new EventEmitter<any>();
