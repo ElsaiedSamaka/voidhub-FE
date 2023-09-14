@@ -71,8 +71,8 @@
           </div>
         </div>
         </ng-container>
-    <button id="dropdownComment2Button" data-dropdown-toggle="dropdownComment2"
-      class="inline-flex items-center p-2 text-sm font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-50 :bg-gray-900 :hover:bg-gray-700 :focus:ring-gray-600"
+    <button id="dropdownComment2Button" data-dropdown-toggle="dropdownComment2" (click)="handleActions($event)"
+      class="inline-flex relative items-center p-2 text-sm font-medium text-center rounded-lg focus:ring-4 focus:outline-none focus:ring-gray-50 :bg-gray-900 :hover:bg-gray-700 :focus:ring-gray-600"
       type="button">
       <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg">
@@ -80,21 +80,27 @@
         </path>
       </svg>
       <span class="sr-only">Comment settings</span>
-    </button>
-    <!-- Dropdown menu -->
-    <div id="dropdownComment2" class="hidden z-10 w-36  rounded shadow ">
-      <ul class="py-1 text-sm " aria-labelledby="dropdownMenuIconHorizontalButton">
-        <li>
-          <a class="block py-2 px-4 hover:bg-gray-100 :hover:bg-gray-600 :hover:text-white">{{"Edit"|translate}}</a>
-        </li>
-        <li>
-          <a class="block py-2 px-4">{{"Remove"|translate}}</a>
-        </li>
-        <li>
-          <a class="block py-2 px-4">{{"Report"|translate}}</a>
-        </li>
-      </ul>
-    </div>
+          <!-- Dropdown menu -->
+          <div id="dropdownComment1" *ngIf="showActionsDDL"
+            [ngClass]="currentTheme=='dark'?'bg-zinc-800  text-white':'bg-white text-gray-800'"
+            class="absolute ltr:right-0 rtl:left-0 top-6  z-10 w-36 rounded divide-y shadow">
+            <ul class="py-1 text-sm " aria-labelledby="dropdownMenuIconHorizontalButton">
+              <li (click)="handleCommentEdit($event)">
+                <a [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-900':'hover:bg-gray-200'"
+                  class="block py-2 px-4 ">{{"Edit"|translate}}</a>
+              </li>
+              <li (click)="handleReplyRemove($event)">
+                <a [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-900':'hover:bg-gray-200'"
+                  class="block py-2 px-4">{{"Remove"|translate}}</a>
+              </li>
+              <li (click)="handleCommentReport($event)">
+                <a [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-900':'hover:bg-gray-200'"
+                  class="block py-2 px-4 ">{{"Report"|translate}}</a>
+              </li>
+              </ul>
+              </div>
+          <!-- Dropdown menu -->
+          </button>
   </footer>
   <p class="">{{reply.content}}</p>
   <div class="flex items-center mt-4 space-x-4">
