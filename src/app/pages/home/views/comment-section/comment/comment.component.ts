@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommentsService } from 'src/core/services/comments.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { CommentsService } from 'src/core/services/comments.service';
 export class CommentComponent implements OnInit {
   @Input() currentTheme: string = '';
   @Input() comment: any;
+  @Output() emitRemovedComment: EventEmitter<any> = new EventEmitter<any>();
   showFollowingPopOver: boolean = false;
   showActionsDDL: boolean = false;
 
@@ -26,7 +27,9 @@ export class CommentComponent implements OnInit {
     event.stopPropagation();
     this.showActionsDDL = false;
     this.commentsService.deleteById(this.comment.id).subscribe({
-      next: (removedComment) => {},
+      next: (removedComment) => {
+        this.emitRemovedComment.emit(removedComment);
+      },
       error: (err) => {
         console.log(
           'error while removeing comment [actions-icon component]',

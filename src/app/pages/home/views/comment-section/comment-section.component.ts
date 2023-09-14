@@ -57,7 +57,9 @@ export class CommentSectionComponent implements OnInit {
       },
     });
   }
-
+  handleRemovedComment(removedComment: any): void {
+    this.comments = this.commentsService.comments$.value;
+  }
   toggleToast(toastMessage: string) {
     this.showToast = !this.showToast;
     this.toastMessage = toastMessage;
