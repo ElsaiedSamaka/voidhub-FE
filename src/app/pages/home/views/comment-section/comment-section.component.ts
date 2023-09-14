@@ -78,6 +78,10 @@ export class CommentSectionComponent implements OnInit {
       },
     });
   }
+  cancelEdit(): void {
+    this.editOrSubmit = 'submit';
+    this.content = '';
+  }
   toggleToast(toastMessage: string) {
     this.showToast = !this.showToast;
     this.toastMessage = toastMessage;
