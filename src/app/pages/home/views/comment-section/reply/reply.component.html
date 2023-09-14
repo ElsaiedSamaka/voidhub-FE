@@ -1,5 +1,5 @@
 <article [ngClass]="currentTheme == 'dark'?'border-white/5':''"
-  class="p-6 mb-6 ml-6 lg:ml-12 text-base rounded-lg border">
+  class="p-6 mb-6 ltr:ml-6 ltr:lg:ml-12 rtl:mr-6 rtl:lg:mr-12 text-base rounded-lg border">
   <footer class="flex justify-between items-center mb-2">
     <div class="flex items-center">
       <p class="inline-flex items-center mr-3 text-sm"><img class="mr-2 w-6 h-6 rounded-full"
@@ -32,9 +32,9 @@
       </ul>
     </div>
   </footer>
-  <p class="">Much appreciated! Glad you liked it ☺️</p>
+  <p class="">{{reply.content}}</p>
   <div class="flex items-center mt-4 space-x-4">
-    <button type="button" class="flex items-center text-sm hover:underline">
+    <!-- <button type="button" class="flex items-center text-sm hover:underline">
       <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -42,6 +42,6 @@
         </path>
       </svg>
       Reply
-    </button>
+    </button> -->
   </div>
 </article>

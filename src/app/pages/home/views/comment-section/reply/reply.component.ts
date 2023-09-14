@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ReplyComponent implements OnInit {
   @Input() currentTheme: string = '';
-
+  @Input() reply: any;
   constructor() {}
 
   ngOnInit() {}

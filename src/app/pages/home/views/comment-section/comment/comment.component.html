@@ -118,3 +118,6 @@
     </button>
   </div>
 </article>
+  <!-- Reply -->
+  <app-reply *ngFor="let reply of comment.replies" [reply]="reply" [currentTheme]="currentTheme"></app-reply>
+  <!-- Reply -->
