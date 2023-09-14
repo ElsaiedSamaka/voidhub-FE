@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { CommentsService } from 'src/core/services/comments.service';
 import { PostsService } from 'src/core/services/posts.service';
 import { DataService } from '../services/data.service';
@@ -8,7 +14,7 @@ import { DataService } from '../services/data.service';
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css'],
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent implements OnInit, OnChanges {
   @Input() currentUser: any = null;
   @Input() currentTheme: string = '';
   @Input() article: any = {};
@@ -31,6 +37,13 @@ export class ArticleComponent implements OnInit {
     this.saveCount = saveCount;
     this.loveCount = loveCount;
     this.noOfComments = comments.length;
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.article) {
+      console.log('update article');
+      // Update the reply value
+      this.article = changes.article.currentValue;
+    }
   }
   toggleFollowingPopOver() {
     this.showFollowingPopOver = !this.showFollowingPopOver;
@@ -67,13 +80,15 @@ export class ArticleComponent implements OnInit {
   }
   saveArticle(event: any): void {
     event.stopPropagation();
-    let articleId = this.article.id;
+    const articleId = this.article.id;
+
     if (!this.articleAlreadyExistOnSaved()) {
       this.postsService.save(articleId).subscribe({
         next: () => {},
         error: () => {},
         complete: () => {
           this.saveCount += 1;
+          this.updateArticle(); // Update the article object
         },
       });
     } else {
@@ -82,16 +97,25 @@ export class ArticleComponent implements OnInit {
         error: () => {},
         complete: () => {
           this.saveCount -= 1;
+          this.updateArticle(); // Update the article object
         },
       });
     }
   }
+  updateArticle(): void {
+    this.postsService.getById(this.article.id).subscribe({
+      next: (updatedArticle: any) => {
+        this.article = updatedArticle;
+      },
+      error: () => {},
+    });
+  }
   articleAlreadyExistOnSaved(): boolean {
-    this.alreadySavedArticle = this.postsService.savedPosts$.value.find(
-      (item) => item.postId == this.article.id
+    const alreadySavedArticle = this.article.saved_posts.find(
+      (item: any) => item.userId === this.currentUser.id
     );
-    if (this.alreadySavedArticle) return true;
-    return false;
+
+    return !!alreadySavedArticle;
   }
   favArticle(event: any): void {
     event.stopPropagation();
