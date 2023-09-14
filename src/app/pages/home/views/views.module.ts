@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpLoaderFactory } from 'src/app/app.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FYITapsComponent } from './FYI-taps/FYI-taps.component';
 import { CommentSectionComponent } from './comment-section/comment-section.component';
 import { CommentComponent } from './comment-section/comment/comment.component';
 import { ReplyComponent } from './comment-section/reply/reply.component';
@@ -38,6 +39,7 @@ import { TimelineComponent } from './timeline/timeline.component';
     CommentComponent,
     ReplyComponent,
     ArticleCardComponent,
+    FYITapsComponent,
   ],
   exports: [
     CompanyCardComponent,
@@ -49,6 +51,7 @@ import { TimelineComponent } from './timeline/timeline.component';
     CommentComponent,
     ReplyComponent,
     ArticleCardComponent,
+    FYITapsComponent,
   ],
 })
 export class ViewsModule {}

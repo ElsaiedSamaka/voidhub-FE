@@ -4,9 +4,10 @@
       <!-- create Post component -->
       <app-create-post [currentUser]="currentUser" [currentTheme]="currentTheme"></app-create-post>
       <!-- create Post component -->
-      <!-- time line component -->
-      <app-timeline [currentUser]="currentUser" [currentTheme]="currentTheme"></app-timeline>
-      <!-- time line component -->
+    <!-- content  -->
+    <app-FYI-taps  [currentUser]="currentUser" [currentTheme]="currentTheme"></app-FYI-taps>
+    <!-- content  -->
+
     </div>
     <!-- left side info bar -->
     <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
