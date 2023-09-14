@@ -19,8 +19,10 @@
 </div>
 <div id="myTabContent" [ngSwitch]="selectedTap">
   <!-- time line component -->
-  <app-timeline *ngSwitchCase="'For you'" [currentUser]="currentUser" [currentTheme]="currentTheme"></app-timeline>
+  <app-timeline *ngSwitchCase="'For you'" [FYI]="'For you'" [currentUser]="currentUser"
+    [currentTheme]="currentTheme"></app-timeline>
   <!-- time line component -->
-  <app-timeline *ngSwitchCase="'Following'" [currentUser]="currentUser" [currentTheme]="currentTheme"></app-timeline>
+  <app-timeline *ngSwitchCase="'Following'" [FYI]="'Following'" [currentUser]="currentUser"
+    [currentTheme]="currentTheme"></app-timeline>
 </div>
 <!-- For you & Following tabs -->

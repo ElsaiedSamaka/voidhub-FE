@@ -16,11 +16,13 @@ import { PostsService } from 'src/core/services/posts.service';
 export class TimelineComponent implements OnInit, AfterViewInit {
   @Input() currentTheme: string = '';
   @Input() currentUser: any = null;
+  @Input() FYI: any;
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
   posts: any[] = [];
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {
+    console.log('FYI', this.FYI);
     this.getAll();
     this.subscribeToPosts$();
   }
@@ -48,7 +50,6 @@ export class TimelineComponent implements OnInit, AfterViewInit {
   }
 
   fetchMorePosts(): void {
-    console.log('fetchMorePosts called');
     this.postsService.getMorePosts().subscribe();
   }
   getAll(): void {
