@@ -163,7 +163,10 @@ export class ArticleComponent implements OnInit, OnChanges {
     };
     this.usersService
       .follow(userToFollow)
-      .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+      .subscribe({
+        next: () => {
+        this.isFollowing = () => true;
+      }, error: () => {}, complete: () => {} });
   }
   unfollow(event: any, followingId: any): void {
     event.stopPropagation();
@@ -172,9 +175,13 @@ export class ArticleComponent implements OnInit, OnChanges {
       followerId: followerId,
       followingId: followingId,
     };
-    this.usersService
-      .unfollow(userToUnFollow)
-      .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+    this.usersService.unfollow(userToUnFollow).subscribe({
+      next: () => {
+        this.isFollowing = () => false;
+      },
+      error: () => {},
+      complete: () => {},
+    });
   }
   isFollowing(): boolean {
     const currentUserID = this.currentUser.id;
