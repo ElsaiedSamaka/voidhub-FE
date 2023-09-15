@@ -27,7 +27,8 @@
                   </span>
                   </div>
                   <!-- user popover -->
-                  <div *ngIf="showFollowingPopOver" data-popover id="popover-user-profile" role="tooltip"
+                  <div *ngIf="showFollowingPopOver && currentUser.id != article.user.id" data-popover id="popover-user-profile"
+                    role="tooltip"
                   [ngClass]="currentTheme=='dark'?'bg-zinc-900 text-dark-secondary':'bg-white text-gray-800'"
                   class="absolute shadow-xl z-20 top-10 inline-block w-64 text-sm  transition-opacity duration-300   rounded-lg opacity-100">
                   <div class="p-3">
