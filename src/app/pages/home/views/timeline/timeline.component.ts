@@ -22,8 +22,16 @@ export class TimelineComponent implements OnInit, AfterViewInit {
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {
-    console.log('FYI', this.FYI);
-    this.getAll();
+    switch (this.FYI) {
+      case 'For you':
+        this.getAll();
+        break;
+      case 'Following':
+        this.getPostsByFollowing();
+        break;
+      default:
+        break;
+    }
     this.subscribeToPosts$();
   }
   ngAfterViewInit() {
@@ -59,6 +67,17 @@ export class TimelineComponent implements OnInit, AfterViewInit {
       },
       error: (err) => {
         console.log('err on [getAll] TimelineComponent', err);
+      },
+      complete: () => {},
+    });
+  }
+  getPostsByFollowing(): void {
+    this.postsService.getPostsByFollowing().subscribe({
+      next: (response) => {
+        this.posts = this.postsService.posts$.value;
+      },
+      error: (err) => {
+        console.log('err on [getPostsByFollowing] TimelineComponent', err);
       },
       complete: () => {},
     });
