@@ -26,6 +26,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SwitchThemeComponent } from './navbar/switch-theme/switch-theme.component';
 import { PopupComponent } from './popup/popup.component';
 import { ProseComponent } from './prose/prose.component';
+import { SearchModalComponent } from './search-modal/search-modal.component';
 import { DataService } from './services/data.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TagComponent } from './tag/tag.component';
@@ -74,6 +75,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     SwitchThemeComponent,
     TagComponent,
     LangSelectorComponent,
+    SearchModalComponent,
   ],
   exports: [
     ModalComponent,
@@ -99,6 +101,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     SwitchThemeComponent,
     TagComponent,
     LangSelectorComponent,
+    SearchModalComponent,
   ],
   providers: [DataService],
 })
