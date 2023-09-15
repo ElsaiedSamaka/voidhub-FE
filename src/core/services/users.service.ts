@@ -77,7 +77,7 @@ export class UsersService {
     );
   }
   unfollow(item: any): Observable<any> {
-    return this.apiService.delete('/api/users/unfollow', item).pipe(
+    return this.apiService.post('/api/users/unfollow', item).pipe(
       tap((unFollowedUser) => {
         console.log('unFollowedUser', unFollowedUser);
       })

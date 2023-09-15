@@ -39,6 +39,8 @@ export class ArticleComponent implements OnInit, OnChanges {
     this.saveCount = saveCount;
     this.loveCount = loveCount;
     this.noOfComments = comments.length;
+    // check if current already follow the creator of the article
+    this.isFollowing();
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.article && changes.article.currentValue) {
@@ -58,7 +60,6 @@ export class ArticleComponent implements OnInit, OnChanges {
   }
   handleArticleActions(event: any): void {
     event.stopPropagation();
-    console.log('clicked');
   }
   handleCommentInput(event: any): void {
     event.stopPropagation();
@@ -153,7 +154,8 @@ export class ArticleComponent implements OnInit, OnChanges {
 
     return !!alreadyLovedArticle;
   }
-  follow(followingId: any): void {
+  follow(event: any, followingId: any): void {
+    event.stopPropagation();
     let followerId = this.currentUser.id;
     const userToFollow = {
       followerId: followerId,
@@ -163,9 +165,22 @@ export class ArticleComponent implements OnInit, OnChanges {
       .follow(userToFollow)
       .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
   }
-  unfollow(): void {
+  unfollow(event: any, followingId: any): void {
+    event.stopPropagation();
+    let followerId = this.currentUser.id;
+    const userToUnFollow = {
+      followerId: followerId,
+      followingId: followingId,
+    };
     this.usersService
-      .unfollow({})
+      .unfollow(userToUnFollow)
       .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+  }
+  isFollowing(): boolean {
+    const currentUserID = this.currentUser.id;
+    const followingUsers = this.article.user.following.map(
+      (item) => item.followerId
+    );
+    return followingUsers.includes(currentUserID);
   }
 }
