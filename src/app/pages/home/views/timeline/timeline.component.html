@@ -4,6 +4,10 @@
       [article]="post"></app-article>
   </ng-container>
   <ng-template #noarticles>
-  {{"noarticles"|translate}}
+    <div [ngClass]="currentTheme=='dark'?'text-dark-secondary':''"
+      class="flex-col h-full w-full items-center justify-center align-middle content-center self-center text-center origin-center object-center ">
+      <div class="text-7xl my-2 font-extrabold align-middle self-center items-center content-center">404</div>
+      <span class="">{{'no posts found'|translate}}</span>
+    </div>
   </ng-template>
 </div>
