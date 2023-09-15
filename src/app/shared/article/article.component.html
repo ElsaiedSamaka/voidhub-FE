@@ -14,12 +14,12 @@
       <div class="flex items-center relative ">
         <ng-container [ngSwitch]="article.isAnonymous">
           <div class="flex items-center" *ngSwitchCase='false'>
-          <img class="inline-block h-10 w-10 rounded-full" (mouseenter)="toggleFollowingPopOver()"
+          <img class="inline-block h-10 w-10 rounded-full" (mouseenter)="displayFollowingPopOver()"
             (mouseleave)="toggleFollowingPopOver()"
             [src]="article.user?.user_img" alt="" />
                 <div class="ml-3 flex items-center">
                   <p [class.text-gray-200]="currentTheme=='dark'" class="text-base leading-6 font-medium"
-                    (mouseenter)="toggleFollowingPopOver()" (mouseleave)="toggleFollowingPopOver()">
+                    (mouseenter)="displayFollowingPopOver()" >
                     {{article.user.email}}
                   </p>
                   <span class="text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150">
@@ -27,7 +27,8 @@
                   </span>
                   </div>
                   <!-- user popover -->
-                  <div *ngIf="showFollowingPopOver && currentUser.id != article.user.id" data-popover id="popover-user-profile"
+                  <div (mouseenter)="displayFollowingPopOver()" (mouseleave)="hideFollowingPopOver()"
+                    *ngIf="showFollowingPopOver && currentUser.id != article.user.id" data-popover id="popover-user-profile"
                     role="tooltip"
                   [ngClass]="currentTheme=='dark'?'bg-zinc-900 text-dark-secondary':'bg-white text-gray-800'"
                   class="absolute shadow-xl z-20 top-10 inline-block w-64 text-sm  transition-opacity duration-300   rounded-lg opacity-100">
@@ -38,7 +39,7 @@
                           [src]="article.user?.user_img" alt="">
                       </a>
                       <div>
-                        <button type="button"
+                        <button type="button" (click)="follow(article.user.id)"
                           class="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:ring-emerald-300 font-medium rounded-lg text-xs px-3 py-1.5 :bg-blue-600 :hover:bg-blue-700 focus:outline-none :focus:ring-blue-800">Follow</button>
                       </div>
                     </div>

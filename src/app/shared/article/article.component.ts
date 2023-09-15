@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { CommentsService } from 'src/core/services/comments.service';
 import { PostsService } from 'src/core/services/posts.service';
+import { UsersService } from 'src/core/services/users.service';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -29,7 +30,8 @@ export class ArticleComponent implements OnInit, OnChanges {
   constructor(
     private commentsService: CommentsService,
     private postsService: PostsService,
-    private dataService: DataService
+    private dataService: DataService,
+    private usersService: UsersService
   ) {}
 
   ngOnInit() {
@@ -44,8 +46,11 @@ export class ArticleComponent implements OnInit, OnChanges {
       this.article = changes.article.currentValue;
     }
   }
-  toggleFollowingPopOver() {
-    this.showFollowingPopOver = !this.showFollowingPopOver;
+  displayFollowingPopOver() {
+    this.showFollowingPopOver = true;
+  }
+  hideFollowingPopOver() {
+    this.showFollowingPopOver = false;
   }
   toggleCommentSection(event: any) {
     event.stopPropagation();
@@ -147,5 +152,20 @@ export class ArticleComponent implements OnInit, OnChanges {
     );
 
     return !!alreadyLovedArticle;
+  }
+  follow(followingId: any): void {
+    let followerId = this.currentUser.id;
+    const userToFollow = {
+      followerId: followerId,
+      followingId: followingId,
+    };
+    this.usersService
+      .follow(userToFollow)
+      .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
+  }
+  unfollow(): void {
+    this.usersService
+      .unfollow({})
+      .subscribe({ next: () => {}, error: () => {}, complete: () => {} });
   }
 }
