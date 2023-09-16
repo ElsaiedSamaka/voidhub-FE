@@ -149,4 +149,11 @@ export class PostsService {
       })
     );
   }
+  getPostsByUseId(userId: any): Observable<any[]> {
+    return this.apiService.get(`/api/posts/by-user/${userId}`).pipe(
+      tap((response) => {
+        this.posts$.next(response);
+      })
+    );
+  }
 }
