@@ -18,14 +18,14 @@
               aria-autocomplete="both" aria-labelledby=":r0:-label" id=":r0:-input" autocomplete="off" autocorrect="off"
               autocapitalize="off" enterkeyhint="go" spellcheck="false" placeholder="Find something..." maxlength="512"
               type="search" value="a" aria-activedescendant=":r0:-item-0" aria-controls=":r0:-list"></div>
-          <!-- <div
-                        class="border-t border-zinc-200 bg-white empty:hidden dark:border-zinc-100/5 dark:bg-white/2.5">
+          <div
+                 [ngClass]="currentTheme == 'dark'?'bg-white/2.5 border-zinc-100/5 ':'border-zinc-200 bg-white'"       class="border-t  empty:hidden ">
                         <ul role="listbox" aria-labelledby=":r0:-label" id=":r0:-list">
-                            <li class="group block cursor-default px-4 py-3 aria-selected:bg-zinc-50 dark:aria-selected:bg-zinc-800/50"
+                            <li class="group block cursor-default px-4 py-3 hover:bg-zinc-800/50"
                                 aria-labelledby=":r19:-hierarchy :r19:-title" id=":r0:-item-0" role="option"
                                 aria-selected="true">
                                 <div id=":r19:-title" aria-hidden="true"
-                                    class="text-sm font-medium text-zinc-900 group-aria-selected:text-emerald-500 dark:text-white">
+                                [ngClass]="currentTheme=='dark'?'text-white':'text-zinc-900'"    class="text-sm font-medium  ">
                                     <span><mark class="underline bg-transparent text-emerald-500 ">A</mark><span
                                             class="">PI Document</span><mark
                                             class="underline bg-transparent text-emerald-500 ">a</mark><span
@@ -49,68 +49,8 @@
                                     class="mt-1 truncate whitespace-nowrap text-2xs text-zinc-500"><span><span
                                             class="">Resources</span></span><span class="sr-only">/</span></div>
                             </li>
-                            <li class="group block cursor-default px-4 py-3 aria-selected:bg-zinc-50 dark:aria-selected:bg-zinc-800/50 border-t border-zinc-100 dark:border-zinc-800"
-                                aria-labelledby=":r1b:-hierarchy :r1b:-title" id=":r0:-item-2" role="option"
-                                aria-selected="false">
-                                <div id=":r1b:-title" aria-hidden="true"
-                                    class="text-sm font-medium text-zinc-900 group-aria-selected:text-emerald-500 dark:text-white">
-                                    <span><span class="">Cre</span><mark
-                                            class="underline bg-transparent text-emerald-500 ">a</mark><span class="">te
-                                        </span><mark class="underline bg-transparent text-emerald-500 ">a</mark><span
-                                            class="">n </span><mark
-                                            class="underline bg-transparent text-emerald-500 ">a</mark><span
-                                            class="">tt</span><mark
-                                            class="underline bg-transparent text-emerald-500 ">a</mark><span
-                                            class="">chment </span></span>
-                                </div>
-                                <div id=":r1b:-hierarchy" aria-hidden="true"
-                                    class="mt-1 truncate whitespace-nowrap text-2xs text-zinc-500"><span><span
-                                            class="">Resources</span></span><span
-                                        class="mx-2 text-zinc-300 dark:text-zinc-700">/</span><span><mark
-                                            class="underline bg-transparent text-emerald-500 ">A</mark><span
-                                            class="">tt</span><mark
-                                            class="underline bg-transparent text-emerald-500 ">a</mark><span
-                                            class="">chments</span></span><span class="sr-only">/</span></div>
-                            </li>
-                            <li class="group block cursor-default px-4 py-3 aria-selected:bg-zinc-50 dark:aria-selected:bg-zinc-800/50 border-t border-zinc-100 dark:border-zinc-800"
-                                aria-labelledby=":r1c:-hierarchy :r1c:-title" id=":r0:-item-3" role="option"
-                                aria-selected="false">
-                                <div id=":r1c:-title" aria-hidden="true"
-                                    class="text-sm font-medium text-zinc-900 group-aria-selected:text-emerald-500 dark:text-white">
-                                    <span><span class="">Upd</span><mark
-                                            class="underline bg-transparent text-emerald-500 ">a</mark><span class="">te
-                                        </span><mark class="underline bg-transparent text-emerald-500 ">a</mark><span
-                                            class="">n </span><mark
-                                            class="underline bg-transparent text-emerald-500 ">a</mark><span
-                                            class="">tt</span><mark
-                                            class="underline bg-transparent text-emerald-500 ">a</mark><span
-                                            class="">chment </span></span>
-                                </div>
-                                <div id=":r1c:-hierarchy" aria-hidden="true"
-                                    class="mt-1 truncate whitespace-nowrap text-2xs text-zinc-500"><span><span
-                                            class="">Resources</span></span><span
-                                        class="mx-2 text-zinc-300 dark:text-zinc-700">/</span><span><mark
-                                            class="underline bg-transparent text-emerald-500 ">A</mark><span
-                                            class="">tt</span><mark
-                                            class="underline bg-transparent text-emerald-500 ">a</mark><span
-                                            class="">chments</span></span><span class="sr-only">/</span></div>
-                            </li>
-                            <li class="group block cursor-default px-4 py-3 aria-selected:bg-zinc-50 dark:aria-selected:bg-zinc-800/50 border-t border-zinc-100 dark:border-zinc-800"
-                                aria-labelledby=":r1d:-hierarchy :r1d:-title" id=":r0:-item-4" role="option"
-                                aria-selected="false">
-                                <div id=":r1d:-title" aria-hidden="true"
-                                    class="text-sm font-medium text-zinc-900 group-aria-selected:text-emerald-500 dark:text-white">
-                                    <span><mark class="underline bg-transparent text-emerald-500 ">A</mark><span
-                                            class="">uthentic</span><mark
-                                            class="underline bg-transparent text-emerald-500 ">a</mark><span
-                                            class="">tion</span></span>
-                                </div>
-                                <div id=":r1d:-hierarchy" aria-hidden="true"
-                                    class="mt-1 truncate whitespace-nowrap text-2xs text-zinc-500"><span><span
-                                            class="">Guides</span></span><span class="sr-only">/</span></div>
-                            </li>
                         </ul>
-                    </div> -->
+                        </div>
         </form>
       </div>
     </div>
