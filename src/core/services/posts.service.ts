@@ -111,7 +111,7 @@ export class PostsService {
   //   );
   // }
   getPostsByFollowing(): Observable<any[]> {
-    return this.apiService.get('/api/posts/following').pipe(
+    return this.apiService.get(`/api/posts/following?page=${0}&size=${5}`).pipe(
       tap((response) => {
         const { rows: posts, totalPages, currentPage } = response;
         this.posts$.next(posts);
