@@ -11,12 +11,8 @@ export class PostsService {
   lovedPosts$ = new BehaviorSubject<any[]>([]);
   currentPage = 0; // Current page of posts
   totalPages = 0; // Total number of pages
-  private loadingSubject: BehaviorSubject<boolean> =
-    new BehaviorSubject<boolean>(false);
-  public loading$: Observable<boolean> = new Observable<boolean>(); // Observable to emit loading state
-  constructor(private apiService: ApiService) {
-    this.loading$ = this.loadingSubject.asObservable();
-  }
+
+  constructor(private apiService: ApiService) {}
   getAll(): Observable<any[]> {
     return this.apiService.get(`/api/posts?page=${0}&size=${5}`).pipe(
       tap((response) => {
@@ -28,7 +24,6 @@ export class PostsService {
     );
   }
   getMoreForyouPosts(): Observable<any[]> {
-    this.loadingSubject.next(true); // Set loading state to true
     if (this.currentPage >= this.totalPages) {
       // No more pages to fetch
       // console.log('this.currentPage >= this.totalPages - 1');
@@ -43,12 +38,10 @@ export class PostsService {
         const currentPosts = this.posts$.value;
         this.posts$.next([...currentPosts, ...morePosts]);
         this.currentPage = nextPage;
-        this.loadingSubject.next(false); // Set loading state to false
       })
     );
   }
   getMoreFollowingPosts(): Observable<any[]> {
-    this.loadingSubject.next(true); // Set loading state to true
     if (this.currentPage >= this.totalPages) {
       // No more pages to fetch
       // console.log('this.currentPage >= this.totalPages - 1');
@@ -65,7 +58,6 @@ export class PostsService {
           const currentPosts = this.posts$.value;
           this.posts$.next([...currentPosts, ...morePosts]);
           this.currentPage = nextPage;
-          this.loadingSubject.next(false); // Set loading state to false
         })
       );
   }

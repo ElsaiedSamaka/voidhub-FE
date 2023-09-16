@@ -1,15 +1,46 @@
 <div class="p-1 h-[80vh] overflow-y-scroll" #scrollContainer>
-  <ng-container *ngIf="isLoading; else skeletonPosts">
-    <!-- Show skeleton loading state -->
-    <div role="status" class="space-y-2.5 animate-pulse max-w-lg">
-      <!-- Skeleton loading HTML -->
-    </div>
-  </ng-container>
-
-  <ng-template #skeletonPosts>
-    <ng-container *ngIf="posts.length > 0; else noArticles">
-      <app-article [currentUser]="currentUser" [currentTheme]="currentTheme" *ngFor="let post of posts"
-        [article]="post"></app-article>
+  <ng-container *ngIf="posts.length > 0; else noArticles">
+    <app-article [currentUser]="currentUser" [currentTheme]="currentTheme" *ngFor="let post of posts"
+      [article]="post"></app-article>
+    <ng-container *ngIf="isLoading">
+      <!-- Show skeleton loading state -->
+      <div role="status" class="space-y-2.5 animate-pulse max-w-lg">
+        <!-- Skeleton loading HTML -->
+            <div role="status" class="space-y-2.5 animate-pulse max-w-lg">
+              <div class="flex items-center w-full space-x-2">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32"></div>
+                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+              </div>
+              <div class="flex items-center w-full space-x-2 max-w-[480px]">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+              </div>
+              <div class="flex items-center w-full space-x-2 max-w-[400px]">
+                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-80"></div>
+                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+              </div>
+              <div class="flex items-center w-full space-x-2 max-w-[480px]">
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+              </div>
+              <div class="flex items-center w-full space-x-2 max-w-[440px]">
+                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-32"></div>
+                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+              </div>
+              <div class="flex items-center w-full space-x-2 max-w-[360px]">
+                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+                <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-80"></div>
+                <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+              </div>
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+          </ng-container>
     </ng-container>
 
     <ng-template #noArticles>
@@ -19,5 +50,4 @@
         <span class="">{{ 'no posts found' | translate }}</span>
       </div>
     </ng-template>
-  </ng-template>
 </div>

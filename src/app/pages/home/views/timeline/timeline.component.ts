@@ -34,7 +34,6 @@ export class TimelineComponent implements OnInit, AfterViewInit {
         break;
     }
     this.subscribeToPosts$();
-    this.subscribeToLoadingState();
   }
   ngAfterViewInit() {
     this.addScrollListener();
@@ -120,9 +119,5 @@ export class TimelineComponent implements OnInit, AfterViewInit {
       complete: () => {},
     });
   }
-  subscribeToLoadingState(): void {
-    this.postsService.loading$.subscribe((isLoading) => {
-      this.isLoading = isLoading;
-    });
-  }
+
 }
