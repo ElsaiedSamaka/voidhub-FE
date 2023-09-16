@@ -10,6 +10,7 @@
       <div class="mb-4 text-sm text-gray-500 :text-gray-400">
         {{currentUser.email}}
       </div>
+    
       <div class="mb-2 text-sm inline-flex text-gray-500 :text-gray-400">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -18,6 +19,20 @@
           </path>
         </svg> {{currentUser.createdAt|date:'medium'}}
       </div>
+      <ul class="flex text-sm space-x-2">
+        <li class="mr-2">
+          <a class="hover:underline">
+            <span class="font-semibold  ltr:mr-2 rtl:ml-2">{{currentUser.following.length}}</span>
+            <span>{{"Following"|translate}}</span>
+          </a>
+        </li>
+        <li class="">
+          <a class="hover:underline">
+            <span class="font-semibold ltr:mr-2 rtl:ml-2">{{currentUser.follower.length}}</span>
+            <span>{{"Followers"|translate}}</span>
+          </a>
+        </li>
+      </ul>
     </div>
     </div>
     <a routerLink="/index/settings"
