@@ -76,5 +76,8 @@
     "Settings":"Settings",
     "Profile":"Profile",
     "Sign out":"Sign out",
-    "no saved articles found":"no saved articles found"
+    "no saved articles found": "no saved articles found",
+    "Select an article": "Select an article",
+    "Choose from your existing saved articles, start a new one,or just keep swimming": "Choose from your existing saved articles, start a new one,or just keep swimming",
+    "Back to home":"Back to home"
 }

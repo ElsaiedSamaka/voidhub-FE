@@ -74,5 +74,8 @@
     "Settings": "الاعدادات",
     "Profile": "الملف الشخصي",
     "Sign out": "تسجيل الخروج",
-    "no saved articles found": "لا توجد نتائج متاحة لمقالات محفوظة"
+    "no saved articles found": "لا توجد نتائج متاحة لمقالات محفوظة",
+    "Select an article": "اختر مقال",
+    "Choose from your existing saved articles, start a new one,or just keep swimming": "اختر من مقالاتك المحفوظة ",
+    "Back to home": "العودة الى الرئيسية"
 }
