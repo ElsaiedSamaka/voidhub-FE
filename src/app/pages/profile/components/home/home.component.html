@@ -2,7 +2,7 @@
   class=" p-4 my-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
   <div class="flex justify-between ">
     <div class="flex items-start sm:space-x-4 xl:space-x-0 2xl:space-x-4">
-    <img class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0" [src]="currentUser.user_img"
+    <img class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0" [src]="currentUser?.user_img"
       [alt]="currentUser.username">
     <div>
       <h3 class="mb-1 text-xl font-bold text-gray-900 :text-white">{{currentUser.email.split("@")[0]| uppercase}}</h3>
@@ -16,7 +16,14 @@
     </div>
     <a routerLink="/index/settings"
       [ngClass]="currentTheme == 'dark' ?'text-zinc-400 ring-white/10 hover:bg-white/5 hover:text-white hover:ring-white/10 ':'bg-white ring-zinc-900/10 hover:bg-gray-50' "
-      class="h-9 justify-center overflow-hidden  font-medium transition rounded-full py-1.5 px-3 ring-1 ring-inset hover:cursor-pointer ">Edit
+      class="h-9 inline-flex items-center space-x-2 justify-center overflow-hidden  font-medium transition rounded-full py-1.5 px-3 ring-1 ring-inset hover:cursor-pointer ">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10">
+        </path>
+      </svg>
+      Edit
       Profile</a>
   </div>
 </div>
