@@ -111,7 +111,7 @@
         {{article.title}}
         <span>
           <!--article tags -->
-          <app-tag [name]="tag.name" [currentTheme]="currentTheme" *ngFor="let tag of article.tags"></app-tag>
+          <app-tag [tagObj]="tag" [currentTheme]="currentTheme" *ngFor="let tag of article.tags"></app-tag>
           <!--article tags -->
         </span>
       </p>
