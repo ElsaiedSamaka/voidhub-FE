@@ -28,6 +28,7 @@ export class InputComponent implements OnInit {
   @Input() id: string = '';
   @Input() description: string = '';
   @Input() options: any[] = [];
+  @Input() width: number = 0;
   @Output() fileChange: EventEmitter<any> = new EventEmitter<any>();
   showErrors() {
     const { dirty, touched, errors } = this.control;

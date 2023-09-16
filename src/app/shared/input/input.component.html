@@ -9,12 +9,12 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-        class="mt-1 rounded-xl border-white/10 border appearance-none  text-sm   p-2 text-left w-full"
-   [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+          class="mt-1 rounded-xl  border appearance-none  text-sm   p-2 text-left "
+   [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
             <p *ngIf="description" [ngClass]="currentTheme=='dark'?'text-dark-secondary':''"
-              class="input-description text-xs font-semibold text-right italic" translate>{{description}}</p>
+              class="input-description text-xs  border font-semibold text-right italic" translate>{{description}}</p>
     </div>
       <div *ngSwitchCase="'file'">
         <div class="flex">
@@ -29,7 +29,7 @@
         file:bg-violet-50 file:text-violet-700
         hover:file:bg-violet-100
       "
-              [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+              [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
   [minlength]="minlength" [required]="required" [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
           </label>
           <span *ngIf="required">*</span>
@@ -44,8 +44,9 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        
         class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
-      [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+      [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
@@ -56,9 +57,10 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" (keydown)="onKeyDown($event)" [placeholder]="placeholder"
+        
      [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"   [type]="type" [value]="value"
         class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
-        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
@@ -69,9 +71,10 @@
         <span *ngIf="required">*</span>
       </div>
       <input [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" [id]="id" [name]="name"
+        
         [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
-        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
@@ -82,9 +85,10 @@
         <span *ngIf="required">*</span>
       </div>
       <input [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" [id]="id" [name]="name"
+        
         [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
-        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
@@ -96,7 +100,7 @@
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
        [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
-        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
@@ -107,8 +111,9 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+        
         [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
-        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
     </div>
@@ -118,9 +123,9 @@
           class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
-      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value" 
      [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"    class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
-        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [size]="size" [maxlength]="maxlength"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern" [autocomplete]="autocomplete"
         [autofocus]="autofocus" [title]="title" />
     </div>
@@ -131,7 +136,7 @@
         <span *ngIf="required">*</span>
       </div>
       <textarea class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
-        [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"
+        [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" 
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [id]="id" [name]="name" [title]="title"
         [formControl]="control" [autofocus]="autofocus" [maxlength]="maxlength" [minlength]="minlength"
         [required]="required"  [placeholder]="placeholder"></textarea>

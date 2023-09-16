@@ -8,8 +8,8 @@
       <div
         class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
         <div class="items-center  sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
-          <img class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0" [src]="currentUser.user_img"
-            [alt]="currentUser.username">
+          <img class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0" [src]="currentUser?.user_img"
+            [alt]="currentUser?.username">
           <div>
             <h3 class="mb-1 text-xl font-bold text-gray-900 :text-white">Profile picture</h3>
             <div class="mb-4 text-sm text-gray-500 :text-gray-400">
@@ -118,10 +118,10 @@
                       class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
                       <h3 class="mb-4 text-xl font-semibold :text-white">General information</h3>
 <app-form [fields]="[
-                          { name: 'first-name', label: 'first-name', id:'first-name', maxlength:60 , minlength:10, type: 'text', required:true , validators: [validators.required] },
-                          { name: 'last-name', label: 'last-name', id:'last-name', maxlength:60 , minlength:10, type: 'text', required:true , validators: [validators.required] },
+                          { name: 'first-name', label: 'first-name', id:'first-name',  maxlength:60 , minlength:10, type: 'text', required:true , validators: [validators.required] },
+                          { name: 'last-name', label: 'last-name', id:'last-name',  maxlength:60 , minlength:10, type: 'text', required:true , validators: [validators.required] },
                           { name: 'country', label: 'country', id:'country',  type: 'text', required:true , validators: [validators.required] },
-                          { name: 'city', label: 'city', id:'city', type: 'text', required:true , validators: [validators.required] },
+                          { name: 'city', label: 'city', id:'city', type: 'text',  required:true , validators: [validators.required] },
                           { name: 'address', label: 'address', id:'address', type: 'text', required:true , validators: [validators.required] },
                           { name: 'email', label: 'email', id:'email', type: 'email', required:true , validators: [validators.required] },
                           { name: 'phone-number', label: 'phone-number', id:'phone-number', type: 'number', required:true , validators: [validators.required] },
