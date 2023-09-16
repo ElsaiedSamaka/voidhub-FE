@@ -48,11 +48,11 @@
       Profile</a>
   </div>
 </div>
-<section class="flex h-[94vh] overflow-scroll flex-col mt-3">
+<section class="flex h-full flex-col mt-3">
   <div class="grid grid-cols-4 gap-4 ">
     <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
       class="xs:col-span-full  p-2 border rounded-lg ">
-<div class="p-1 h-[80vh]" #scrollContainer>
+<div class="p-1 h-full" #scrollContainer>
   <ng-container *ngIf="posts.length > 0; else noArticles">
     <app-article [currentUser]="currentUser" [currentTheme]="currentTheme" *ngFor="let post of posts"
       [article]="post"></app-article>
