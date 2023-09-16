@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { PostsService } from 'src/core/services/posts.service';
 
 @Component({
   selector: 'app-tag',
@@ -8,7 +9,7 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 export class TagComponent implements OnInit {
   @Input() tagObj: any;
   @Input() currentTheme: string = '';
-  constructor() {}
+  constructor(private postsService: PostsService) {}
 
   ngOnInit() {}
   ngOnChanges(changes: SimpleChanges): void {
@@ -16,5 +17,16 @@ export class TagComponent implements OnInit {
       // Update the tagObj value
       this.tagObj = changes.tagObj.currentValue;
     }
+  }
+  getPostsByTagId(tagId: any): void {
+    this.postsService.getPostsByTagId(tagId).subscribe({
+      next: (response) => {
+        console.log('response', response);
+      },
+      error: (err) => {
+        console.log('err', err);
+      },
+      complete: () => {},
+    });
   }
 }
