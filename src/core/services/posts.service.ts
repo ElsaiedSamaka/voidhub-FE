@@ -145,7 +145,7 @@ export class PostsService {
   getPostsByTagId(tagId: any): Observable<any[]> {
     return this.apiService.get(`/api/posts/by-tag/${tagId}`).pipe(
       tap((response) => {
-        console.log('response', response);
+        this.posts$.next(response);
       })
     );
   }
