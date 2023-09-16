@@ -60,5 +60,14 @@
     "Update": "تحديث",
     "Reply": "رد",
     "no posts found": "لا توجد نتائج متاحه",
-    "For you": "اختارنا لك"
+    "For you": "اختارنا لك",
+    "messages_module": "messages_module",
+    "no conversations found": "لا توجد محدثات متاحة",
+    "Select a conversation": "اختر محادثة",
+    "Choose from your existing conversations, start a new one, or just keep swimming": "اختر من المحدثات الموجودة لديك او ابدء محادثة جديدة",
+    "New conversation": "محادثة جديدة",
+    "Create new conversation": "انشئ محادثة جديدة",
+    "To": "الى",
+    "No users found": "لا توجد نتائج متاحة",
+    "Send": "ارسال"
 }
