@@ -71,5 +71,9 @@
     "To": "To",
     "No users found": "No users found",
     "Send": "Send",
-    "Contacts": "Contacts"
+    "Contacts": "Contacts",
+    "Dashboard":"Dashboard",
+    "Settings":"Settings",
+    "Profile":"Profile",
+    "Sign out":"Sign out"
 }
