@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { DataService } from 'src/app/shared/services/data.service';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -11,7 +12,11 @@ export class PostsService {
   lovedPosts$ = new BehaviorSubject<any[]>([]);
   currentPage = 0; // Current page of posts
   totalPages = 0; // Total number of pages
-  constructor(private apiService: ApiService) {}
+
+  constructor(
+    private apiService: ApiService,
+    private dataService: DataService
+  ) {}
   getAll(): Observable<any[]> {
     return this.apiService.get(`/api/posts?page=${0}&size=${5}`).pipe(
       tap((response) => {
@@ -25,19 +30,35 @@ export class PostsService {
   getMorePosts(): Observable<any[]> {
     if (this.currentPage >= this.totalPages) {
       // No more pages to fetch
-      console.log('this.currentPage >= this.totalPages - 1');
+      // console.log('this.currentPage >= this.totalPages - 1');
       return of([]);
     }
 
     const nextPage = this.currentPage + 1;
-    return this.apiService.get(`/api/posts?page=${nextPage}&size=5`).pipe(
-      tap((response) => {
-        const { rows: morePosts } = response;
-        const currentPosts = this.posts$.value;
-        this.posts$.next([...currentPosts, ...morePosts]);
-        this.currentPage = nextPage;
-      })
-    );
+    switch (this.dataService.FYI$.value) {
+      case 'For you':
+        return this.apiService.get(`/api/posts?page=${nextPage}&size=5`).pipe(
+          tap((response) => {
+            const { rows: morePosts } = response;
+            const currentPosts = this.posts$.value;
+            this.posts$.next([...currentPosts, ...morePosts]);
+            this.currentPage = nextPage;
+          })
+        );
+      case 'Following':
+        return this.apiService
+          .get(`/api/posts/following?page=${nextPage}&size=5`)
+          .pipe(
+            tap((response) => {
+              const { rows: morePosts } = response;
+              const currentPosts = this.posts$.value;
+              this.posts$.next([...currentPosts, ...morePosts]);
+              this.currentPage = nextPage;
+            })
+          );
+      default:
+        break;
+    }
   }
   getById(id: string): Observable<any> {
     return this.apiService.get(`/api/posts/${id}`);

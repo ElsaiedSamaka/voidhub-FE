@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-FYI-taps',
@@ -10,10 +11,11 @@ export class FYITapsComponent implements OnInit {
   @Input() currentUser: any = null;
   selectedTap: string = 'For you';
 
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {}
   selecteTap(tab: string): void {
     this.selectedTap = tab;
+    this.dataService.FYI$.next(tab);
   }
 }
