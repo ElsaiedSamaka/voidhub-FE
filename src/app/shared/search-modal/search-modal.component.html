@@ -3,8 +3,8 @@
   <div [ngClass]="currentTheme=='dark'?'bg-black/40':'bg-zinc-400/25'"
     class="fixed inset-0  backdrop-blur-sm opacity-100"></div>
   <div class="fixed inset-0 overflow-y-auto px-4 py-4 sm:px-6 sm:py-20 md:py-32 lg:px-8 lg:py-[15vh]">
-    <div [ngClass]="currentTheme == 'dark'?'bg-zinc-900 ring-zinc-800':'bg-zinc-50 ring-zinc-900/7.5'"
-      class="mx-auto transform-gpu overflow-hidden rounded-lg  shadow-xl ring-1   sm:max-w-xl opacity-100 scale-100"
+    <div [ngClass]="currentTheme == 'dark'?'bg-zinc-900 border-white/5':'bg-zinc-50 border-zinc-900/10'"
+      class="mx-auto transform-gpu overflow-hidden rounded-lg  shadow-xl border   sm:max-w-xl opacity-100 scale-100"
       id="headlessui-dialog-panel-:rp:" data-headlessui-state="open">
       <div role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-labelledby=":r0:-label"
         aria-owns=":r0:-list">
@@ -21,33 +21,17 @@
           <div
                  [ngClass]="currentTheme == 'dark'?'bg-white/2.5 border-zinc-100/5 ':'border-zinc-200 bg-white'"       class="border-t  empty:hidden ">
                         <ul role="listbox" aria-labelledby=":r0:-label" id=":r0:-list">
-                            <li class="group block cursor-default px-4 py-3 hover:bg-zinc-800/50"
+                            <li class="group block px-4 py-3 hover:cursor-pointer"
+                              [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-800/50':'hover:bg-gray-100'"
                                 aria-labelledby=":r19:-hierarchy :r19:-title" id=":r0:-item-0" role="option"
                                 aria-selected="true">
                                 <div id=":r19:-title" aria-hidden="true"
                                 [ngClass]="currentTheme=='dark'?'text-white':'text-zinc-900'"    class="text-sm font-medium  ">
-                                    <span><mark class="underline bg-transparent text-emerald-500 ">A</mark><span
-                                            class="">PI Document</span><mark
-                                            class="underline bg-transparent text-emerald-500 ">a</mark><span
-                                            class="">tion</span></span>
+                                    <span>Test Article title</span>
                                 </div>
                                 <div id=":r19:-hierarchy" aria-hidden="true"
                                     class="mt-1 truncate whitespace-nowrap text-2xs text-zinc-500"><span><span
                                             class="">Guides</span></span><span class="sr-only">/</span></div>
-                            </li>
-                            <li class="group block cursor-default px-4 py-3 aria-selected:bg-zinc-50 dark:aria-selected:bg-zinc-800/50 border-t border-zinc-100 dark:border-zinc-800"
-                                aria-labelledby=":r1a:-hierarchy :r1a:-title" id=":r0:-item-1" role="option"
-                                aria-selected="false">
-                                <div id=":r1a:-title" aria-hidden="true"
-                                    class="text-sm font-medium text-zinc-900 group-aria-selected:text-emerald-500 dark:text-white">
-                                    <span><mark class="underline bg-transparent text-emerald-500 ">A</mark><span
-                                            class="">tt</span><mark
-                                            class="underline bg-transparent text-emerald-500 ">a</mark><span
-                                            class="">chments</span></span>
-                                </div>
-                                <div id=":r1a:-hierarchy" aria-hidden="true"
-                                    class="mt-1 truncate whitespace-nowrap text-2xs text-zinc-500"><span><span
-                                            class="">Resources</span></span><span class="sr-only">/</span></div>
                             </li>
                         </ul>
                         </div>
