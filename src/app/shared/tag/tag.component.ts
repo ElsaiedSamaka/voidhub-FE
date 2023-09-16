@@ -13,7 +13,7 @@ export class TagComponent implements OnInit {
   ngOnInit() {}
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.tagObj && changes.tagObj.currentValue) {
-      // Update the reply value
+      // Update the tagObj value
       this.tagObj = changes.tagObj.currentValue;
     }
   }
