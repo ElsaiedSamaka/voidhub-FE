@@ -63,7 +63,6 @@
     "Reply": "Reply",
     "no posts found": "no posts found",
     "For you": "For you",
-    "messages_module": "messages_module",
     "no conversations found": "no conversations found",
     "Select a conversation": "Select a conversation",
     "Choose from your existing conversations, start a new one, or just keep swimming": "Choose from your existing conversations, start a new one, or just keep swimming",
@@ -71,5 +70,6 @@
     "Create new conversation": "Create new conversation",
     "To": "To",
     "No users found": "No users found",
-    "Send":"Send"
+    "Send": "Send",
+    "Contacts": "Contacts"
 }

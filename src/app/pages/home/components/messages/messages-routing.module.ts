@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpLoaderFactory } from 'src/app/app.module';
 import { ConversationResolverService } from 'src/core/resolvers/conversation-resolver.service';
 import { DetailedComponent } from './components/detailed/detailed.component';
 import { IndexComponent } from './components/index/index.component';
@@ -25,7 +28,16 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
+    RouterModule.forChild(routes),
+  ],
   exports: [RouterModule],
 })
 export class MessagesRoutingModule {}

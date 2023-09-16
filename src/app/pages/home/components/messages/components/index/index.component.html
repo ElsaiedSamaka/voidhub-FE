@@ -4,7 +4,8 @@
     [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'">
     <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
       class="flex items-center justify-between border-b">
-      <span [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''" class="text-xl font-semibold my-2">Contacts</span>
+      <span [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''"
+        class="text-xl font-semibold my-2">{{"Contacts"|translate}}</span>
       <span>
         <!-- settings icon -->
         <svg class="w-6 h-6 hover:cursor-pointer" routerLink="settings" fill="none" stroke="currentColor" stroke-width="1.5"
