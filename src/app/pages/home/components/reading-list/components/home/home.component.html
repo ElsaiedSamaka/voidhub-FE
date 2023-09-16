@@ -4,7 +4,7 @@
       [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'">
     <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
       class="flex items-center justify-between border-b">
-      <span [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''" class="text-xl font-semibold my-2">Reading list</span>
+      <span [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''" class="text-xl font-semibold my-2">{{"Reading list"|translate}}</span>
       <span>
         <!-- archieve icon -->
         <svg class="w-6 h-6 hover:cursor-pointer" routerLink="archieve" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -53,7 +53,7 @@
                   </svg>
                   <p class="ml-2 text-sm font-bold ">{{article.post.loved_posts.length}}</p>
                   <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full :bg-gray-400"></span>
-                  <a class="text-xs underline font-medium   hover:no-underline">{{article.post.comments.length}} comments</a>
+                  <a class="text-xs underline font-medium   hover:no-underline">{{article.post.comments.length}} {{"comments"|translate}}</a>
                 </div>
               </span>
             </div>
@@ -86,7 +86,7 @@
       <div [ngClass]="currentTheme=='dark'?'text-dark-secondary':''"
         class="flex-col h-full w-full items-center justify-center align-middle content-center self-center text-center origin-center object-center ">
         <div class="text-7xl my-2 font-extrabold align-middle self-center items-center content-center">404</div>
-        <span class="">no saved articles found</span>
+        <span class="">{{"no saved articles found"|translate}}</span>
       </div>
     </ng-template>
     </ul>

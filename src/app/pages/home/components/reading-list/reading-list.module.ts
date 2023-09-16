@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpLoaderFactory } from 'src/app/app.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { DetailedComponent } from './components/detailed/detailed.component';
@@ -9,7 +12,18 @@ import { PlaceholderComponent } from './components/placeholder/placeholder.compo
 import { ReadingListRoutingModule } from './reading-list-routing.module';
 
 @NgModule({
-  imports: [CommonModule, SharedModule, ReadingListRoutingModule],
+  imports: [
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
+    CommonModule,
+    SharedModule,
+    ReadingListRoutingModule,
+  ],
   declarations: [
     HomeComponent,
     PlaceholderComponent,
