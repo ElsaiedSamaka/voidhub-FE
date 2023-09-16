@@ -18,13 +18,13 @@ const routes: Routes = [
       ),
     title: 'dashboard',
   },
-  {
-    path: 'profile',
-    // canLoad: [AuthGuard],
-    loadChildren: () =>
-      import('./pages/profile/profile.module').then((m) => m.ProfileModule),
-    title: 'profile',
-  },
+  // {
+  //   path: 'profile',
+  //   // canLoad: [AuthGuard],
+  //   loadChildren: () =>
+  //     import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+  //   title: 'profile',
+  // },
   {
     path: 'settings',
     // canLoad: [AuthGuard],

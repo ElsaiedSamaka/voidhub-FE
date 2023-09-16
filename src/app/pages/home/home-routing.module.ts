@@ -42,6 +42,14 @@ const routes: Routes = [
         title: 'Reading-list',
       },
       {
+        path: 'profile',
+        loadChildren: () =>
+          import('../../pages/profile/profile.module').then(
+            (m) => m.ProfileModule
+          ),
+        title: 'Profile',
+      },
+      {
         path: ':id',
         component: BlogDetailsComponent,
         resolve: { article: ArticleResolverService },
