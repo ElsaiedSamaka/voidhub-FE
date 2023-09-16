@@ -15,7 +15,6 @@ export class TagComponent implements OnInit {
     if (changes.tagObj && changes.tagObj.currentValue) {
       // Update the reply value
       this.tagObj = changes.tagObj.currentValue;
-      console.log('this.tagObj', this.tagObj);
     }
   }
 }
