@@ -55,7 +55,7 @@ const routes: Routes = [
           import('../../pages/settings/settings.module').then(
             (m) => m.SettingsModule
           ),
-        title: 'Profile',
+        title: 'Settings',
       },
       {
         path: ':id',
