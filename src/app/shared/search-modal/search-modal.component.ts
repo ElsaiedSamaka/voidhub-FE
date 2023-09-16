@@ -1,4 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-search-modal',
@@ -7,7 +14,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SearchModalComponent implements OnInit {
   @Input() currentTheme: string = '';
-  constructor() {}
+  @Output() dismiss = new EventEmitter<boolean>();
 
-  ngOnInit() {}
+  constructor(private el: ElementRef) {}
+
+  ngOnInit() {
+    document.body.appendChild(this.el.nativeElement);
+  }
+  ngOnDestory() {
+    this.el.nativeElement.remove();
+  }
+  onDismissClick() {
+    this.dismiss.emit(false);
+  }
 }

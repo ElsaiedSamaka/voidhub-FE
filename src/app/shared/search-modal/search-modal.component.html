@@ -1,8 +1,7 @@
-<div class="fixed inset-0 z-50" id="headlessui-dialog-:ro:" role="dialog" aria-modal="true"
-  data-headlessui-state="open">
-  <div [ngClass]="currentTheme=='dark'?'bg-black/40':'bg-zinc-400/25'"
-    class="fixed inset-0  backdrop-blur-sm opacity-100"></div>
-  <div class="fixed inset-0 overflow-y-auto px-4 py-4 sm:px-6 sm:py-20 md:py-32 lg:px-8 lg:py-[15vh]">
+<!-- blured bg  -->
+<div [ngClass]="currentTheme == 'dark'? 'bg-black/40 opacity-100':''" class="fixed inset-0 z-40 backdrop-blur-sm"
+  (click)="onDismissClick()"></div>
+<div class="max-w-3xl rounded-2xl w-[50%] z-40 fixed  xs:top-[15%]  xs:left-[25%] mx-auto ">
     <div [ngClass]="currentTheme == 'dark'?'bg-zinc-900 border-white/5':'bg-zinc-50 border-zinc-900/10'"
       class="mx-auto transform-gpu overflow-hidden rounded-lg  shadow-xl border   sm:max-w-xl opacity-100 scale-100"
       id="headlessui-dialog-panel-:rp:" data-headlessui-state="open">
@@ -39,4 +38,3 @@
       </div>
     </div>
   </div>
-</div>

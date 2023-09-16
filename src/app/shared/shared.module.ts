@@ -9,7 +9,7 @@ import { NgxEditorModule } from 'ngx-editor';
 import { SanitizeHtmlPipe } from 'src/core/pipes/SanitizeHtmlPipe.pipe';
 import { HttpLoaderFactory } from '../app.module';
 import { AlertComponent } from './alert/alert.component';
-import { ActionsIconComponent } from './article/actions-icon/actions-icon.component';
+import { ActionsIconComponent } from './actions-icon/actions-icon.component';
 import { ArticleComponent } from './article/article.component';
 import { PostAsComponent } from './article/post-as/post-as.component';
 import { TruncatedTextComponent } from './article/truncated-text/truncated-text.component';

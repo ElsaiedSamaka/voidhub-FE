@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
     this.showSideBar = !this.showSideBar;
     this.dataService.showSideBar.next(this.showSideBar);
   }
-  toggleSearchModal(): void {
+  toggleSearchModal(value?: any): void {
     this.showSearchModal = !this.showSearchModal;
   }
 }

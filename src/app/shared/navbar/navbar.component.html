@@ -76,4 +76,5 @@
   </div>
   <!-- nav items -->
 </nav>
-<app-search-modal *ngIf="showSearchModal" [currentTheme]="currentTheme"></app-search-modal>
+<app-search-modal *ngIf="showSearchModal" (dismiss)="toggleSearchModal($event)"
+  [currentTheme]="currentTheme"></app-search-modal>
