@@ -50,6 +50,14 @@ const routes: Routes = [
         title: 'Profile',
       },
       {
+        path: 'settings',
+        loadChildren: () =>
+          import('../../pages/settings/settings.module').then(
+            (m) => m.SettingsModule
+          ),
+        title: 'Profile',
+      },
+      {
         path: ':id',
         component: BlogDetailsComponent,
         resolve: { article: ArticleResolverService },

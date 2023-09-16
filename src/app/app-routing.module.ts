@@ -18,13 +18,13 @@ const routes: Routes = [
       ),
     title: 'dashboard',
   },
-  {
-    path: 'settings',
-    // canLoad: [AuthGuard],
-    loadChildren: () =>
-      import('./pages/settings/settings.module').then((m) => m.SettingsModule),
-    title: 'settings',
-  },
+  // {
+  //   path: 'settings',
+  //   // canLoad: [AuthGuard],
+  //   loadChildren: () =>
+  //     import('./pages/settings/settings.module').then((m) => m.SettingsModule),
+  //   title: 'settings',
+  // },
   {
     path: 'noperm',
     loadChildren: () =>
