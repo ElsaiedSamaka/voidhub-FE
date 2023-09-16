@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TagsService } from 'src/core/services/tags.service';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { DataService } from '../services/data.service';
 })
 export class SidebarComponent implements OnInit {
   @Input() currentTheme: any = null;
-
+  tags: any[] = [];
   subProgramsTree: any[] = [
     {
       id: 1,
@@ -37,13 +38,25 @@ export class SidebarComponent implements OnInit {
     },
   ];
   showSideBar: boolean = false;
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private tagsService: TagsService
+  ) {}
 
   ngOnInit() {
     this.dataService.showSideBar.subscribe({
       next: (res) => {
         this.showSideBar = res;
       },
+    });
+    this.getAllTags();
+  }
+  getAllTags(): void {
+    this.tagsService.getAllTags().subscribe({
+      next: (res) => {
+        this.tags = res;
+      },
+      complete: () => {},
     });
   }
 }

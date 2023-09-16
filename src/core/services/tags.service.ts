@@ -9,7 +9,14 @@ export class TagsService {
   tags$ = new BehaviorSubject<any[]>([]);
 
   constructor(private apiService: ApiService) {}
-  getAll(tagName: any): Observable<any[]> {
+  getAllTags(): Observable<any[]> {
+    return this.apiService.get(`/api/tags`).pipe(
+      tap((tags) => {
+        this.tags$.next(tags);
+      })
+    );
+  }
+  getAll(tagName?: any): Observable<any[]> {
     return this.apiService.get(`/api/tags?name=${tagName}`).pipe(
       tap((tags) => {
         this.tags$.next(tags);
