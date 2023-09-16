@@ -11,7 +11,7 @@
 
   <!-- searching for input -->
   <div class="hidden lg:block lg:max-w-md lg:flex-auto">
-    <button type="button"
+    <button type="button" (click)="toggleSearchModal()"
      [class.bg-white]="currentTheme == 'light'" [class.border]="currentTheme == 'light'"  class="hidden h-8 w-full items-center gap-2 rounded-full pl-2 pr-3 text-sm text-zinc-500 ring-1 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none bg-white/5  ring-inset ring-white/10 lg:flex"><svg
         viewBox="0 0 20 20" fill="none" aria-hidden="true" class="h-5 w-5 stroke-current">
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -76,4 +76,4 @@
   </div>
   <!-- nav items -->
 </nav>
-<app-search-modal *ngIf="true" [currentTheme]="currentTheme"></app-search-modal>
+<app-search-modal *ngIf="showSearchModal" [currentTheme]="currentTheme"></app-search-modal>

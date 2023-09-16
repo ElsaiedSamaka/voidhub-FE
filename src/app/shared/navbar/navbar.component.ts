@@ -9,12 +9,16 @@ import { DataService } from '../services/data.service';
 export class NavbarComponent implements OnInit {
   @Input() currentUser: any = null;
   @Input() currentTheme: any = null;
-  showSideBar: boolean = true;
+  showSideBar: boolean = false;
+  showSearchModal: boolean = false;
   constructor(private dataService: DataService) {}
 
   ngOnInit() {}
   toggleSideBar() {
     this.showSideBar = !this.showSideBar;
     this.dataService.showSideBar.next(this.showSideBar);
+  }
+  toggleSearchModal(): void {
+    this.showSearchModal = !this.showSearchModal;
   }
 }
