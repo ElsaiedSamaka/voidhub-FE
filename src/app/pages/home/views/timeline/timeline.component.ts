@@ -58,7 +58,16 @@ export class TimelineComponent implements OnInit, AfterViewInit {
   }
 
   fetchMorePosts(): void {
-    this.postsService.getMorePosts().subscribe();
+    switch (this.FYI) {
+      case 'For you':
+        this.postsService.getMoreForyouPosts().subscribe();
+        break;
+      case 'Following':
+        this.postsService.getMoreFollowingPosts().subscribe();
+        break;
+      default:
+        break;
+    }
   }
   getAll(): void {
     this.postsService.getAll().subscribe({

@@ -5,6 +5,6 @@ import { BehaviorSubject } from 'rxjs';
 export class DataService {
   showSideBar: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isAnonymous$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
-  FYI$: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  FYI$: BehaviorSubject<string> = new BehaviorSubject<string>('For you');
   constructor() {}
 }
