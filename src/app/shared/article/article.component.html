@@ -58,16 +58,16 @@
                     <p class="mb-3 text-sm font-normal">
                       <a class="hover:underline">@{{article.user.email}}</a>
                     </p>
-                    <ul class="flex text-sm">
+                    <ul class="flex text-sm space-x-2">
                       <li class="mr-2">
                         <a class="hover:underline">
-                          <span class="font-semibold">799</span>
+                          <span class="font-semibold  ltr:mr-2 rtl:ml-2">{{followingCount}}</span>
                           <span>{{"Following"|translate}}</span>
                         </a>
                       </li>
-                      <li>
+                      <li class="">
                         <a class="hover:underline">
-                          <span class="font-semibold">3,758</span>
+                          <span class="font-semibold ltr:mr-2 rtl:ml-2">{{followersCount}}</span>
                           <span>{{"Followers"|translate}}</span>
                         </a>
                       </li>
@@ -192,7 +192,7 @@
         [class.text-white]="currentTheme=='dark'"
         class=" h-11 w-full items-center gap-2 rounded-full pl-2 pr-3 text-sm text-zinc-500 ring-1 placeholder:text-zinc-400 ring-zinc-900/10 transition hover:ring-zinc-900/20 ui-not-focus-visible:outline-none lg:flex">
       <button type="button" (click)="postComment($event)"
-        class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">Comment</button>
+        class="text-white bg-zinc-800 hover:bg-zinc-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-1">{{"Comment"|translate}}</button>
     </div>
   </div>
 </article>
