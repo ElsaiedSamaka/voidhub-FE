@@ -3,7 +3,7 @@
   class="absolute   z-40 xs:w-64 md:w-64 h-full sm:h-[93vh]  lg:mt-8 ltr:sm:border-r rtl:sm:border-l lg:border-none lg:block ">
   <div [class.bg-white]="currentTheme=='light'" [class.backdrop-blur-3xl]="currentTheme=='dark'"
     class="px-2 h-full flex-col space-y-80">
-    <div class="overflow-y-auto py-5 ">
+    <div class=" py-5 ">
       <ul class="space-y-2">
         <li>
           <a [routerLink]="['/index/timeline']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
@@ -100,9 +100,9 @@
           </div>
           </div>
     </div>
-    <div class="w-10/12 mx-auto">
+    <div class="fixed bottom-12 w-56 mx-auto">
     <a type="button" routerLink="/signout"
-      class=" flex items-center justify-center gap-4 w-full text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 ">
+      class=" flex items-center justify-center gap-4 w-full text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 ">
       <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round"
