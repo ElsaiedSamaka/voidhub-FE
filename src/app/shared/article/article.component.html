@@ -1,4 +1,4 @@
-<article class="post group max-h-61 border border-white/5  hover:cursor-pointer"
+<article *ngIf="article; else articleSkeleton" class="post group max-h-61 border border-white/5  hover:cursor-pointer"
   [routerLink]="['/index',article.id]">
   <figure *ngIf="article.img"
     class="relative  max-h-xl  transition-all duration-300 cursor-pointer filter grayscale group-hover:grayscale-0">
@@ -196,3 +196,38 @@
     </div>
   </div>
 </article>
+<ng-template #articleSkeleton>
+  <div role="status" class="space-y-2.5 animate-pulse max-w-lg">
+    <div class="flex items-center w-full space-x-2">
+      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32"></div>
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+    </div>
+    <div class="flex items-center w-full space-x-2 max-w-[480px]">
+      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+    </div>
+    <div class="flex items-center w-full space-x-2 max-w-[400px]">
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-80"></div>
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+    </div>
+    <div class="flex items-center w-full space-x-2 max-w-[480px]">
+      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+    </div>
+    <div class="flex items-center w-full space-x-2 max-w-[440px]">
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-32"></div>
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+    </div>
+    <div class="flex items-center w-full space-x-2 max-w-[360px]">
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-80"></div>
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+    </div>
+    <span class="sr-only">Loading...</span>
+  </div>
+</ng-template>

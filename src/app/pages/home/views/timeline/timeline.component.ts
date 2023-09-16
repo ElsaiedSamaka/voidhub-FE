@@ -19,6 +19,7 @@ export class TimelineComponent implements OnInit, AfterViewInit {
   @Input() FYI: any;
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
   posts: any[] = [];
+  isLoading: boolean = false; // Flag to indicate loading state
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {
@@ -33,6 +34,7 @@ export class TimelineComponent implements OnInit, AfterViewInit {
         break;
     }
     this.subscribeToPosts$();
+    this.subscribeToLoadingState();
   }
   ngAfterViewInit() {
     this.addScrollListener();
@@ -58,12 +60,25 @@ export class TimelineComponent implements OnInit, AfterViewInit {
   }
 
   fetchMorePosts(): void {
+    this.isLoading = true; // Set loading state to true
     switch (this.FYI) {
       case 'For you':
-        this.postsService.getMoreForyouPosts().subscribe();
+        this.postsService.getMoreForyouPosts().subscribe({
+          next: () => {},
+          error: () => {},
+          complete: () => {
+            this.isLoading = false; // Set loading state to false
+          },
+        });
         break;
       case 'Following':
-        this.postsService.getMoreFollowingPosts().subscribe();
+        this.postsService.getMoreFollowingPosts().subscribe({
+          next: () => {},
+          error: () => {},
+          complete: () => {
+            this.isLoading = false; // Set loading state to false
+          },
+        });
         break;
       default:
         break;
@@ -103,6 +118,11 @@ export class TimelineComponent implements OnInit, AfterViewInit {
         );
       },
       complete: () => {},
+    });
+  }
+  subscribeToLoadingState(): void {
+    this.postsService.loading$.subscribe((isLoading) => {
+      this.isLoading = isLoading;
     });
   }
 }
