@@ -77,5 +77,10 @@
     "no saved articles found": "لا توجد نتائج متاحة لمقالات محفوظة",
     "Select an article": "اختر مقال",
     "Choose from your existing saved articles, start a new one,or just keep swimming": "اختر من مقالاتك المحفوظة ",
-    "Back to home": "العودة الى الرئيسية"
+    "Back to home": "العودة الى الرئيسية",
+    "firstname": "الاسم الاول",
+    "lastname": "الاسم الاخير",
+    "address": "العنوان",
+    "phonenumber": "رقم الجوال",
+    "birthdate": "تاريخ الميلاد"
 }
