@@ -117,7 +117,7 @@
                     <div
                       class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
                       <h3 class="mb-4 text-xl font-semibold :text-white">General information</h3>
-<app-form [isSubmitted]="isSubmitted"
+<app-form [isDisabled]="isSubmitted"
   [fields]="[
                           { name: 'firstname', label: 'firstname', id:'firstname', value:currentUser?.firstname, isSubmitted:isSubmitted, size:80, maxlength:30 , minlength:1, type: 'text', required:true , validators: [validators.required] },
                           { name: 'lastname', label: 'lastname', id:'lastname', value:currentUser?.lastname, isSubmitted:isSubmitted, size:80, maxlength:30 , minlength:1, type: 'text', required:true , validators: [validators.required] },

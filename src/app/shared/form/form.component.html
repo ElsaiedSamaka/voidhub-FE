@@ -5,64 +5,64 @@
       <div [ngSwitch]="field.type">
         <div class="inline" *ngSwitchCase="'text'">
           <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name [description]=field.description
-            [size]=field.size [disabled]=field.isSubmitted
+            [size]=field.size [disabled]="isDisabled? form.get(field.name).disable():form.get(field.name).enable()"
             [type]=field.type [label]=field.label [maxlength]=field.maxlength
       [minlength]=field.minlength [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
       </div>
       <div *ngSwitchCase="'file'">
         <app-input [control]="form.get(field.name)" (fileChange)="handleFileChange($event)" [id]=field.name [name]=field.name
           [maxlength]="2097152" [type]=field.type
-          [label]=field.label [disabled]=field.isSubmitted
+          [label]=field.label [disabled]="isDisabled? form.get(field.name).disable():form.get(field.name).enable()"
           [autofocus]=field.autofocus [required]=field.required></app-input>
       </div>
       <div *ngSwitchCase="'email'">
         <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name [type]=field.type [label]=field.label
-          [size]=field.size [disabled]=field.isSubmitted
+          [size]=field.size [disabled]="isDisabled? form.get(field.name).disable():form.get(field.name).enable()"
           [maxlength]=field.maxlength [minlength]=field.minlength [autofocus]=field.autofocus [required]=field.required
           [pattern]=field.pattern></app-input>
       </div>
       <div *ngSwitchCase="'date'"> <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name
-          [disabled]=field.isSubmitted
+          [disabled]="isDisabled? form.get(field.name).disable():form.get(field.name).enable()"
           [size]=field.size
           [type]=field.type [label]=field.label [maxlength]=field.maxlength [minlength]=field.minlength
           [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
       </div>
       <div *ngSwitchCase="'checkbox'"> <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name
-          [disabled]=field.isSubmitted
+          [disabled]="isDisabled? form.get(field.name).disable():form.get(field.name).enable()"
           [type]=field.type [label]=field.label [maxlength]=field.maxlength [minlength]=field.minlength
           [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
       </div>
       <div *ngSwitchCase="'number'"> <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name
-          [disabled]=field.isSubmitted
+          [disabled]="isDisabled? form.get(field.name).disable():form.get(field.name).enable()"
           [size]=field.size
-          [type]=field.type [label]=field.label [maxlength]=field.maxlength [minlength]=field.minlength [disabled]=field.isSubmitted
+          [type]=field.type [label]=field.label [maxlength]=field.maxlength [minlength]=field.minlength [disabled]="form.get(field.name).disable()"
           [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
       </div>
       <div *ngSwitchCase="'tel'"> <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name
-          [disabled]=field.isSubmitted
+          [disabled]="isDisabled? form.get(field.name).disable():form.get(field.name).enable()"
           [size]=field.size
           [type]=field.type [label]=field.label [maxlength]=field.maxlength [minlength]=field.minlength
           [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
       </div>
       <div *ngSwitchCase="'password'"> <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name
-          [disabled]=field.isSubmitted
+          [disabled]="isDisabled? form.get(field.name).disable():form.get(field.name).enable()"
           [type]=field.type [label]=field.label [maxlength]=field.maxlength [minlength]=field.minlength
           [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
       </div>
       <div *ngSwitchCase="'search'"> <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name
-          [disabled]=field.isSubmitted
+          [disabled]="isDisabled? form.get(field.name).disable():form.get(field.name).enable()"
           [type]=field.type [label]=field.label [maxlength]=field.maxlength [minlength]=field.minlength
           [autofocus]=field.autofocus [required]=field.required [pattern]=field.pattern></app-input>
       </div>
       <div *ngSwitchCase="'textarea'">
         <app-input [control]="form.get(field.name)" [id]=field.name [name]=field.name [type]=field.type [label]=field.label
-          [disabled]=field.isSubmitted
+          [disabled]="isDisabled? form.get(field.name).disable():form.get(field.name).enable()"
           [maxlength]=field.maxlength [minlength]=field.minlength [autofocus]=field.autofocus [required]=field.required
           [pattern]=field.pattern></app-input>
       </div>
       <div *ngSwitchCase="'select'">
         <app-input [options]="field.options" [control]="form.get(field.name)" [id]=field.name [name]=field.name
-          [disabled]=field.isSubmitted
+          [disabled]="isDisabled? form.get(field.name).disable():form.get(field.name).enable()"
           [type]=field.type [label]=field.label
           [maxlength]=field.maxlength [minlength]=field.minlength [autofocus]=field.autofocus [required]=field.required
           [pattern]=field.pattern></app-input>
