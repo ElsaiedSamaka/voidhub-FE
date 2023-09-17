@@ -5,7 +5,7 @@
     <div *ngSwitchCase="'text'">
       <div class="flex">
         <label *ngIf="label" [for]="name"
-          class="block text-sm font-semibold " translate>{{label}}</label>
+          class="block text-sm font-semibold " [class.text-dark-secondary]="currentTheme=='dark'" translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value" [disabled]="disabled"
@@ -18,7 +18,7 @@
     </div>
       <div *ngSwitchCase="'file'">
         <div class="flex">
-          <label *ngIf="label" [for]="name"
+          <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
             class="block text-sm font-semibold" translate>
             cover
             <input [id]="id" [name]="name" [placeholder]="placeholder" [type]="type" [disabled]="disabled"
@@ -40,7 +40,7 @@
       </div>
     <div *ngSwitchCase="'number'">
       <div class="flex">
-        <label *ngIf="label" [for]="name"
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
           class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
@@ -53,7 +53,7 @@
     </div>
     <div *ngSwitchCase="'tel'">
       <div class="flex">
-        <label *ngIf="label" [for]="name"
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
           class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
@@ -67,7 +67,7 @@
     </div>
     <div *ngSwitchCase="'search'">
       <div class="flex">
-        <label *ngIf="label" [for]="name"
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
           class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
@@ -81,7 +81,7 @@
     </div>
     <div *ngSwitchCase="'password'">
       <div class="flex">
-        <label *ngIf="label" [for]="name"
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
           class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
@@ -95,7 +95,7 @@
     </div>
     <div *ngSwitchCase="'checkbox'">
       <div class="flex">
-        <label *ngIf="label" [for]="name"
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
           class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
@@ -108,7 +108,7 @@
     </div>
     <div *ngSwitchCase="'date'">
       <div class="flex">
-        <label *ngIf="label" [for]="name"
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
           class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
@@ -121,7 +121,7 @@
     </div>
     <div *ngSwitchCase="'email'">
       <div class="flex">
-        <label *ngIf="label" [for]="name"
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
           class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
@@ -133,7 +133,7 @@
     </div>
     <div *ngSwitchCase="'textarea'">
       <div class="flex">
-        <label *ngIf="label" [for]="name"
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
           class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
@@ -146,7 +146,7 @@
     </div>
     <div *ngSwitchCase="'select'">
       <div class="flex">
-        <label *ngIf="label" [for]="name"
+        <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
           class="block text-sm font-semibold " >{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
