@@ -9,7 +9,7 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-         [size]="size"  class="mt-1 rounded-xl  border appearance-none  text-sm   p-2 text-left "
+           class="mt-1 rounded-xl  border appearance-none  text-sm   p-2 text-left w-full "
    [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
@@ -44,7 +44,7 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-        [size]="size"
+        
         class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
       [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
@@ -57,7 +57,7 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" (keydown)="onKeyDown($event)" [placeholder]="placeholder"
-        [size]="size"
+        
      [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"   [type]="type" [value]="value"
         class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
@@ -71,7 +71,7 @@
         <span *ngIf="required">*</span>
       </div>
       <input [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" [id]="id" [name]="name"
-        [size]="size"
+        
         [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
@@ -85,7 +85,7 @@
         <span *ngIf="required">*</span>
       </div>
       <input [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" [id]="id" [name]="name"
-        [size]="size"
+        
         [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
         class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
@@ -111,7 +111,7 @@
         <span *ngIf="required">*</span>
       </div>
       <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
-        [size]="size"
+        
         [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'" class="mt-1 rounded-xl border appearance-none  text-sm  p-2 text-left w-full"
         [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
         [minlength]="minlength" [required]="required"  [pattern]="pattern"

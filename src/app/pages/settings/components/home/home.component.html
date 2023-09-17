@@ -118,14 +118,14 @@
                       class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
                       <h3 class="mb-4 text-xl font-semibold :text-white">General information</h3>
 <app-form [fields]="[
-                          { name: 'first-name', label: 'first-name', id:'first-name', size:40, maxlength:60 , minlength:10, type: 'text', required:true , validators: [validators.required] },
-                          { name: 'last-name', label: 'last-name', id:'last-name', size:40, maxlength:60 , minlength:10, type: 'text', required:true , validators: [validators.required] },
-                          { name: 'country', label: 'country', id:'country', size:40, type: 'text', required:true , validators: [validators.required] },
-                          { name: 'city', label: 'city', id:'city', type: 'text', size:40, required:true , validators: [validators.required] },
-                          { name: 'address', label: 'address', id:'address', type: 'text',size:40, required:true , validators: [validators.required] },
-                          { name: 'email', label: 'email', id:'email', type: 'email', required:true ,size:40, validators: [validators.required] },
-                          { name: 'phone-number', label: 'phone-number', id:'phone-number', type: 'number',size:40, required:true , validators: [validators.required] },
-                          { name: 'birthday', label: 'birthday', id:'birthday', type: 'date', required:true ,size:40, validators: [validators.required] },
+                          { name: 'first-name', label: 'first-name', id:'first-name', size:80, maxlength:60 , minlength:10, type: 'text', required:true , validators: [validators.required] },
+                          { name: 'last-name', label: 'last-name', id:'last-name', size:80, maxlength:60 , minlength:10, type: 'text', required:true , validators: [validators.required] },
+                          { name: 'country', label: 'country', id:'country', size:80, type: 'text', required:true , validators: [validators.required] },
+                          { name: 'city', label: 'city', id:'city', type: 'text', size:80, required:true , validators: [validators.required] },
+                          { name: 'address', label: 'address', id:'address', type: 'text',size:80, required:true , validators: [validators.required] },
+                          { name: 'email', label: 'email', id:'email', type: 'email', required:true ,size:80, validators: [validators.required] },
+                          { name: 'phone-number', label: 'phone-number', id:'phone-number', type: 'number',size:80, required:true , validators: [validators.required] },
+                          { name: 'birthday', label: 'birthday', id:'birthday', type: 'date', required:true ,size:80, validators: [validators.required] },
                           
                         ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
   <div class="px-2 mr-2" form-actions>
