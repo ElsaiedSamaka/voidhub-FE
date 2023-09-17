@@ -46,9 +46,9 @@ export class HomeComponent implements OnInit {
       complete: () => {},
     });
   }
-  updateInfo(): void {
+  updateInfo(data: any): void {
     const currentUserID = this.currentUser.id;
-    this.usersService.put(currentUserID, {}).subscribe({
+    this.usersService.put(currentUserID, data).subscribe({
       next: (response) => {
         console.log('response', response);
       },
@@ -73,14 +73,6 @@ export class HomeComponent implements OnInit {
   }
   onFormSubmitted(data: any) {
     if (!this.isFormValid) return;
-    // let tagsIds = this.receivedTags.map((tag) => tag.id);
-    // let content = this.receivedHTMLContent;
-    // let userId = this.currentUser.id;
-    // let isAnonymous = this.dataService.isAnonymous$.value;
-    // article.append('tagsIds', tagsIds);
-    // article.append('content', content);
-    // article.append('userId', userId);
-    // article.append('isAnonymous', isAnonymous);
-    // this.postArticle(article);
+    this.updateInfo(data);
   }
 }
