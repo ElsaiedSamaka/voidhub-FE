@@ -127,8 +127,9 @@
                           { name: 'birthdate', label: 'birthdate', id:'birthdate', value:currentUser?.birthdate, isSubmitted:isEditMode, type: 'date', required:true ,size:80, validators: [validators.required] },
                           
                         ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
-  <div class="px-2 mr-2" [ngSwitch]="isEditMode" form-actions>
-    <div *ngSwitchCase="isEditMode== false">
+  <div class="px-2 mr-2" form-actions>
+    <div [ngSwitch]="isEditMode">
+      <div *ngSwitchCase="false">
       <button [ngClass]="currentTheme=='dark'?'border-white/10 hover:text-white':'hover:border-gray-300'"
       class="inline-flex  shrink-0 rounded-3xl border hover:border  mx-1 px-6 py-2.5 font-semibold text-gray-500 hover:text-black focus:outline-none active:text-white disabled:cursor-not-allowed">
       cancel
@@ -139,8 +140,11 @@
       <span class="">Save</span>
     </button>
     </div>
-    <div *ngSwitchCase="isEditMode == true">
-      edit
+    <div *ngSwitchCase="true">
+      <div (click)="toggleFormMode()">
+        Edit
+      </div>
+    </div>
     </div>
   </div>
 </app-form>

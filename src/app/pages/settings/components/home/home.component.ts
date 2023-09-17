@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   currentUser: any;
   validators = Validators;
   isFormValid: boolean = false;
-  isSubmitted: boolean = false;
   isEditMode: boolean = true;
   constructor(
     private themeService: ThemeService,
@@ -75,7 +74,7 @@ export class HomeComponent implements OnInit {
   }
   onFormSubmitted(data: any) {
     if (!this.isFormValid) return;
-    this.isSubmitted = true;
+    this.isEditMode = !this.isEditMode;
     this.updateInfo(data);
   }
   toggleFormMode(): void {
