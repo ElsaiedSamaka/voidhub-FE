@@ -118,8 +118,8 @@
                   </div>
                   <div class="col-span-2">
                     <div
-                      class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
-                      <h3 class="mb-4 text-xl font-semibold :text-white">General information</h3>
+                     [ngClass]="currentTheme=='dark'?'bg-[#18181b] border-white/10':'bg-white border-gray-200'" class="p-4 mb-4  border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
+                      <h3 class="mb-4 text-xl font-semibold ">General information</h3>
 <app-form [isDisabled]="isEditMode"
   [fields]="[
                           { name: 'firstname', label: 'firstname', id:'firstname', value:currentUser?.firstname, isSubmitted:isEditMode, size:80, maxlength:30 , minlength:1, type: 'text', required:true , validators: [validators.required] },
