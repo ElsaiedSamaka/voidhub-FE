@@ -6,7 +6,7 @@
       <!-- Right Content -->
       <!-- Left Content -->
       <div
-        class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
+        [ngClass]="currentTheme == 'dark'?'bg-[#18181b] border-white/10':'bg-white border-gray-200'" class="p-4 mb-4 border  rounded-lg shadow-sm 2xl:col-span-2  sm:p-6 ">
         <div class="items-center  sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
           <img class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0" [src]="currentUser?.user_img"
             [alt]="currentUser?.username">
@@ -38,29 +38,31 @@
       <!-- Left Content -->
       <!-- Langauage and mode settings -->
       <div
-        class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
-        <h3 class="mb-4 text-xl font-semibold :text-white">Language & Time</h3>
+     [ngClass]="currentTheme == 'dark'?'bg-[#18181b] border-white/10':'bg-white border-gray-200'"   class="p-4 mb-4 border rounded-lg shadow-sm 2xl:col-span-2 sm:p-6 ">
+        <h3 class="mb-4 text-xl font-semibold" [class.text-dark-secondary]="currentTheme =='dark'">Language & Time</h3>
         <div class="mb-4">
-          <label for="settings-language" class="block mb-2 text-sm font-medium text-gray-900 :text-white">Select
+          <label for="settings-language" class="block mb-2 text-sm font-medium"
+            [class.text-dark-secondary]="currentTheme=='dark'?'text-dark-secondary':'text-gray-800'">Select
             language</label>
           <select id="settings-language" name="countries"
-            class="bg-gray-50 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500">
+        [ngClass]="currentTheme =='dark'?'bg-gray-700 text-dark-secondary border-gray-600 placeholder-gray-400 ':'bg-gray-50 border-gray-300 text-gray-900'"    class=" sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
             <option>English (US)</option>
             <option>العربية (مصر)</option>
           </select>
         </div>
         <div class="mb-6">
-          <label for="settings-timezone" class="block mb-2 text-sm font-medium text-gray-900 :text-white">Mode
+          <label for="settings-timezone" class="block mb-2 text-sm font-medium"
+            [class.text-dark-secondary]="currentTheme=='dark'">Mode
             setting</label>
           <select id="settings-timezone" name="countries"
-            class="bg-gray-50 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500">
+         [ngClass]="currentTheme=='dark'?'bg-gray-700 text-dark-secondary border-gray-600 :':'bg-gray-50 border-gray-300'"   class=" sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500">
             <option>Dark theme</option>
             <option>Light theme</option>
           </select>
         </div>
         <div>
           <button
-            class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center :bg-primary-600 :hover:bg-primary-700 :focus:ring-primary-800">Save
+        [ngClass]="currentTheme=='dark'?'bg-red-600 hover:bg-red-700 focus:ring-red-800':'text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300'"    class="   focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Save
             all</button>
         </div>
       </div>
