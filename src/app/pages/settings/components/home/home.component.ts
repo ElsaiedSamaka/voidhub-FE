@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit {
         break;
     }
   }
-  onFormSubmitted(article: any) {
+  onFormSubmitted(data: any) {
     if (!this.isFormValid) return;
     // let tagsIds = this.receivedTags.map((tag) => tag.id);
     // let content = this.receivedHTMLContent;
