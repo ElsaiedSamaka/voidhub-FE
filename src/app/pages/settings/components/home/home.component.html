@@ -117,13 +117,14 @@
                     <div
                       class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
                       <h3 class="mb-4 text-xl font-semibold :text-white">General information</h3>
-<app-form [fields]="[
-                          { name: 'firstname', label: 'firstname', id:'firstname', value:currentUser?.firstname, size:80, maxlength:60 , minlength:10, type: 'text', required:true , validators: [validators.required] },
-                          { name: 'lastname', label: 'lastname', id:'lastname', value:currentUser?.lastname, size:80, maxlength:60 , minlength:10, type: 'text', required:true , validators: [validators.required] },
-                          { name: 'address', label: 'address', id:'address', type: 'text',value:currentUser?.address, size:80, required:true , validators: [validators.required] },
-                          { name: 'email', label: 'email', id:'email', type: 'email',value:currentUser?.email, required:true , size:80, validators: [validators.required] },
-                          { name: 'phonenumber', label: 'phonenumber', id:'phonenumber',value:currentUser?.phonenumber, type: 'number',size:80, required:true , validators: [validators.required] },
-                          { name: 'birthdate', label: 'birthdate', id:'birthdate', value:currentUser?.birthdate, type: 'date', required:true ,size:80, validators: [validators.required] },
+<app-form [isSubmitted]="isSubmitted"
+  [fields]="[
+                          { name: 'firstname', label: 'firstname', id:'firstname', value:currentUser?.firstname, isSubmitted:isSubmitted, size:80, maxlength:30 , minlength:1, type: 'text', required:true , validators: [validators.required] },
+                          { name: 'lastname', label: 'lastname', id:'lastname', value:currentUser?.lastname, isSubmitted:isSubmitted, size:80, maxlength:30 , minlength:1, type: 'text', required:true , validators: [validators.required] },
+                          { name: 'address', label: 'address', id:'address', type: 'text',value:currentUser?.address, isSubmitted:isSubmitted, size:80, required:true , validators: [validators.required] },
+                          { name: 'email', label: 'email', id:'email', type: 'email',value:currentUser?.email, isSubmitted:isSubmitted, required:true , maxlength:40 , size:80, validators: [validators.required] },
+                          { name: 'phonenumber', label: 'phonenumber', id:'phonenumber',value:currentUser?.phonenumber, isSubmitted:isSubmitted, type: 'number',size:80,maxlength:30 ,  required:true , validators: [validators.required] },
+                          { name: 'birthdate', label: 'birthdate', id:'birthdate', value:currentUser?.birthdate, isSubmitted:isSubmitted, type: 'date', required:true ,size:80, validators: [validators.required] },
                           
                         ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
   <div class="px-2 mr-2" form-actions>
@@ -131,7 +132,7 @@
       class="inline-flex  shrink-0 rounded-3xl border hover:border  mx-1 px-6 py-2.5 font-semibold text-gray-500 hover:text-black focus:outline-none active:text-white disabled:cursor-not-allowed">
       cancel
     </button>
-    <button type="submit" [disabled]="!isFormValid"
+    <button type="submit" [disabled]="!isFormValid || isSubmitted"
       [ngClass]="currentTheme == 'dark'?'bg-dark-primary  text-dark-secondary disabled:bg-dark-accent disabled:border-gray-200/10':'bg-light-primary  text-light-secondary disabled:bg-gray-100/10 disabled:border-gray-200/10 '"
       class=" inline-flex justify-center items-center space-x-2 border border-green-600 hover:bg-light-accent hover:cursor-pointer hover:text-gray-50 focus:ring-2 focus:ring-green-300  font-semibold rounded-3xl  px-5 py-2.5 text-center disabled:cursor-not-allowed">
       <span class="">Save</span>

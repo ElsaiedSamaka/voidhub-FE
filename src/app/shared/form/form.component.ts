@@ -10,6 +10,7 @@ export class FormComponent implements OnInit {
   @Input() fields: any[] = [];
   @Output() submitted = new EventEmitter<any>();
   @Output() formStatus = new EventEmitter<any>();
+  @Input() isSubmitted: boolean = false;
   form: FormGroup = new FormGroup({});
   constructor(private fb: FormBuilder) {}
 
