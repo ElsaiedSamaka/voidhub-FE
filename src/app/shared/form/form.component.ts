@@ -74,6 +74,8 @@ export class FormComponent implements OnInit, OnChanges {
     return formData;
   }
   togglePassword(): void {
-    this.togglePasswordState.emit(!this.showPassword);
+    if (!this.isDisabled) {
+      this.togglePasswordState.emit(!this.showPassword);
+    }
   }
 }
