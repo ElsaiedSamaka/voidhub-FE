@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -88,7 +88,20 @@ export class AuthService {
         })
       );
   }
-
+  // update password
+  updatePassword(
+    password: string,
+    passwordConfirmation: string
+  ): Observable<any> {
+    return this.http.put(
+      `${this.api_url}/api/auth/update-password`,
+      {
+        password: password,
+        passwordConfirmation: passwordConfirmation,
+      },
+      { withCredentials: true }
+    );
+  }
   googleLogin() {
     window.location.href = `${this.api_url}/api/auth/google`;
     this.signedin$.next(true);

@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
       complete: () => {},
     });
   }
-  updateProfileImg(): void {
+    updateProfileImg(): void {
     const currentUserID = this.currentUser.id;
     this.usersService.put(currentUserID, {}).subscribe({
       next: (response) => {
@@ -96,16 +96,29 @@ export class HomeComponent implements OnInit {
         break;
     }
   }
+  updatePassword(password: any, passwordConfirmation: any): void {
+    this.authService.updatePassword(password, passwordConfirmation).subscribe({
+      next: (response) => {
+        console.log('response', response);
+      },
+      error: (err) => {
+        console.log('err', err);
+      },
+      complete: () => {},
+    });
+  }
   onPasswordFormSubmitted(data: any) {
-    if (!this.isUserFormValid) return;
+    if (!this.isPasswordFormValid) return;
     this.isPasswordFormEditMode = !this.isPasswordFormEditMode;
-    // this.updateInfo(data);
+    // this.updatePassword(data,data);
     console.log('data', data);
   }
   togglePasswordFormMode(): void {
     this.isPasswordFormEditMode = !this.isPasswordFormEditMode;
   }
   togglePassword(value: any) {
-    this.showPassword = value;
+    setTimeout(() => {
+      this.showPassword = value;
+    }, 0);
   }
 }

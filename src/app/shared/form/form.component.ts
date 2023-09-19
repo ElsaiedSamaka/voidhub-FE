@@ -1,12 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -14,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
-export class FormComponent implements OnInit, OnChanges {
+export class FormComponent implements OnInit {
   @Input() fields: any[] = [];
   @Input() isDisabled: boolean = false;
   @Output() submitted = new EventEmitter<any>();
@@ -36,12 +28,7 @@ export class FormComponent implements OnInit, OnChanges {
     this.form = this.fb.group(group);
     this.emitFormStatus();
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.showPassword && changes.showPassword.currentValue) {
-      // Update the reply value
-      this.showPassword = changes.showPassword.currentValue;
-    }
-  }
+
   submitForm() {
     let model = this.prepareForm();
     if (this.form.valid) this.submitted.emit(model);
