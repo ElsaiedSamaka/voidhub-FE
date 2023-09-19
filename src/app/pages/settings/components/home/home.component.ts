@@ -13,8 +13,11 @@ export class HomeComponent implements OnInit {
   currentTheme: string = '';
   currentUser: any;
   validators = Validators;
-  isFormValid: boolean = false;
-  isEditMode: boolean = true;
+  isUserFormValid: boolean = false;
+  isPasswordFormValid: boolean = false;
+  isUserFormEditMode: boolean = true;
+  isPasswordFormEditMode: boolean = true;
+  showPassword: boolean = false;
   constructor(
     private themeService: ThemeService,
     private authService: AuthService,
@@ -59,25 +62,50 @@ export class HomeComponent implements OnInit {
       complete: () => {},
     });
   }
-  checkFormStatus(value: any) {
+  checkUserFormStatus(value: any) {
     switch (value) {
       case 'INVALID':
-        this.isFormValid = false;
+        this.isUserFormValid = false;
         break;
       case 'VALID':
-        this.isFormValid = true;
+        this.isUserFormValid = true;
         break;
 
       default:
         break;
     }
   }
-  onFormSubmitted(data: any) {
-    if (!this.isFormValid) return;
-    this.isEditMode = !this.isEditMode;
+  onUserFormSubmitted(data: any) {
+    if (!this.isUserFormValid) return;
+    this.isUserFormEditMode = !this.isUserFormEditMode;
     this.updateInfo(data);
   }
-  toggleFormMode(): void {
-    this.isEditMode = !this.isEditMode;
+  toggleUserFormMode(): void {
+    this.isUserFormEditMode = !this.isUserFormEditMode;
+  }
+  checkPasswordFormStatus(value: any) {
+    switch (value) {
+      case 'INVALID':
+        this.isPasswordFormValid = false;
+        break;
+      case 'VALID':
+        this.isPasswordFormValid = true;
+        break;
+
+      default:
+        break;
+    }
+  }
+  onPasswordFormSubmitted(data: any) {
+    if (!this.isUserFormValid) return;
+    this.isPasswordFormEditMode = !this.isPasswordFormEditMode;
+    // this.updateInfo(data);
+    console.log('data', data);
+  }
+  togglePasswordFormMode(): void {
+    this.isPasswordFormEditMode = !this.isPasswordFormEditMode;
+  }
+  togglePassword(value: any) {
+    this.showPassword = value;
   }
 }

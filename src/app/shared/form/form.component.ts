@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,11 +14,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnChanges {
   @Input() fields: any[] = [];
+  @Input() isDisabled: boolean = false;
   @Output() submitted = new EventEmitter<any>();
   @Output() formStatus = new EventEmitter<any>();
-  @Input() isDisabled: boolean = false;
+  @Output() togglePasswordState = new EventEmitter<boolean>();
+  @Input() showPassword: boolean = false;
+
   form: FormGroup = new FormGroup({});
   constructor(private fb: FormBuilder) {}
 
@@ -24,6 +35,12 @@ export class FormComponent implements OnInit {
     });
     this.form = this.fb.group(group);
     this.emitFormStatus();
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.showPassword && changes.showPassword.currentValue) {
+      // Update the reply value
+      this.showPassword = changes.showPassword.currentValue;
+    }
   }
   submitForm() {
     let model = this.prepareForm();
@@ -55,5 +72,8 @@ export class FormComponent implements OnInit {
       }
     });
     return formData;
+  }
+  togglePassword(): void {
+    this.togglePasswordState.emit(!this.showPassword);
   }
 }

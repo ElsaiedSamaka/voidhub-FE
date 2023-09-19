@@ -120,21 +120,21 @@
                     <div
                      [ngClass]="currentTheme=='dark'?'bg-[#18181b] border-white/10':'bg-white border-gray-200'" class="p-4 mb-4  border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
                       <h3 class="mb-4 text-xl font-semibold " [class.text-dark-secondary]="currentTheme=='dark'">General information</h3>
-<app-form [isDisabled]="isEditMode"
+<app-form [isDisabled]="isUserFormEditMode"
   [fields]="[
-                          { name: 'firstname', label: 'firstname', id:'firstname', value:currentUser?.firstname, isSubmitted:isEditMode, size:80, maxlength:30 , minlength:1, type: 'text', required:true , validators: [validators.required] },
-                          { name: 'lastname', label: 'lastname', id:'lastname', value:currentUser?.lastname, isSubmitted:isEditMode, size:80, maxlength:30 , minlength:1, type: 'text', required:true , validators: [validators.required] },
-                          { name: 'address', label: 'address', id:'address', type: 'text',value:currentUser?.address, isSubmitted:isEditMode, size:80, required:true , validators: [validators.required] },
-                          { name: 'email', label: 'email', id:'email', type: 'email',value:currentUser?.email, isSubmitted:isEditMode, required:true , maxlength:40 , size:80, validators: [validators.required] },
-                          { name: 'phonenumber', label: 'phonenumber', id:'phonenumber',value:currentUser?.phonenumber, isSubmitted:isEditMode, type: 'number',size:80,maxlength:30 ,  required:true , validators: [validators.required] },
-                          { name: 'birthdate', label: 'birthdate', id:'birthdate', value:currentUser?.birthdate, isSubmitted:isEditMode, type: 'date', required:true ,size:80, validators: [validators.required] },
+                          { name: 'firstname', label: 'firstname', id:'firstname', value:currentUser?.firstname, isSubmitted:isUserFormEditMode, size:80, maxlength:30 , minlength:1, type: 'text', required:true , validators: [validators.required] },
+                          { name: 'lastname', label: 'lastname', id:'lastname', value:currentUser?.lastname, isSubmitted:isUserFormEditMode, size:80, maxlength:30 , minlength:1, type: 'text', required:true , validators: [validators.required] },
+                          { name: 'address', label: 'address', id:'address', type: 'text',value:currentUser?.address, isSubmitted:isUserFormEditMode, size:80, required:true , validators: [validators.required] },
+                          { name: 'email', label: 'email', id:'email', type: 'email',value:currentUser?.email, isSubmitted:isUserFormEditMode, required:true , maxlength:40 , size:80, validators: [validators.required] },
+                          { name: 'phonenumber', label: 'phonenumber', id:'phonenumber',value:currentUser?.phonenumber, isSubmitted:isUserFormEditMode, type: 'number',size:80,maxlength:30 ,  required:true , validators: [validators.required] },
+                          { name: 'birthdate', label: 'birthdate', id:'birthdate', value:currentUser?.birthdate, isSubmitted:isUserFormEditMode, type: 'date', required:true ,size:80, validators: [validators.required] },
                           
-                        ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
+                        ]" (submitted)="onUserFormSubmitted($event)" (formStatus)="checkUserFormStatus($event)">
   <div class="px-2 ltr:mr-2 rtl:ml-2" form-actions>
-    <div [ngSwitch]="isEditMode">
+    <div [ngSwitch]="isUserFormEditMode">
       <div *ngSwitchCase="false">
       <button [ngClass]="currentTheme=='dark'?'border-white/10 hover:text-white':'hover:border-gray-300'"
-        (click)="toggleFormMode()"
+        (click)="toggleUserFormMode()"
       class="inline-flex  shrink-0 rounded-2xl border hover:border  mx-1 px-4 py-1.5 font-semibold text-gray-500 hover:text-black focus:outline-none active:text-white disabled:cursor-not-allowed">
       cancel
     </button>
@@ -145,7 +145,7 @@
     </button>
     </div>
     <div *ngSwitchCase="true">
-      <div class="min-[416px]:contents" (click)="toggleFormMode()">
+      <div class="min-[416px]:contents" (click)="toggleUserFormMode()">
         <div
           [ngClass]="currentTheme == 'dark' ?'text-zinc-400 ring-white/10 hover:bg-white/5 hover:text-white hover:ring-white/10 ':'bg-white ring-zinc-900/10 hover:bg-gray-50' "
           class="inline-flex gap-0.5 justify-center overflow-hidden  font-medium transition rounded-2xl py-1.5 px-4 ring-1 ring-inset hover:cursor-pointer ">
@@ -158,211 +158,43 @@
 </app-form>
               </div>
               <div
-                class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
-                <h3 class="mb-4 text-xl font-semibold :text-white">Password information</h3>
-                <form action="#">
-                  <div class="grid grid-cols-6 gap-6">
-                    <div class="col-span-6 sm:col-span-3">
-              <label for="current-password" class="block mb-2 text-sm font-medium text-gray-900 :text-white">Current
-                password</label>
-              <input type="text" name="current-password" id="current-password"
-                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
-                placeholder="••••••••" required>
-              </div>
-              <div class="col-span-6 sm:col-span-3">
-                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 :text-white">New
-                  password</label>
-                <input data-popover-target="popover-password" data-popover-placement="bottom" type="password" id="password"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-blue-500 :focus:border-blue-500"
-                  placeholder="••••••••" required>
-                <div data-popover id="popover-password" role="tooltip"
-                  class="absolute z-10 invisible inline-block text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 :bg-gray-800 :border-gray-600 :text-gray-400">
-                  <div class="p-3 space-y-2">
-                    <h3 class="font-semibold text-gray-900 :text-white">Must have at least 6 characters</h3>
-                    <div class="grid grid-cols-4 gap-2">
-                      <div class="h-1 bg-orange-300 :bg-orange-400"></div>
-                      <div class="h-1 bg-orange-300 :bg-orange-400"></div>
-                      <div class="h-1 bg-gray-200 :bg-gray-600"></div>
-                      <div class="h-1 bg-gray-200 :bg-gray-600"></div>
-                    </div>
-                    <p>It’s better to have:</p>
-                    <ul>
-                      <li class="flex items-center mb-1">
-                      <svg class="w-4 h-4 mr-2 text-green-400 :text-green-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clip-rule="evenodd"></path>
-                      </svg>
-                      Upper & lower case letters
-                      </li>
-                      <li class="flex items-center mb-1">
-                      <svg class="w-4 h-4 mr-2 text-gray-300 :text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                          clip-rule="evenodd"></path>
-                      </svg>
-                      A symbol (#$&)
-                      </li>
-                      <li class="flex items-center">
-                      <svg class="w-4 h-4 mr-2 text-gray-300 :text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                          clip-rule="evenodd"></path>
-                      </svg>
-                      A longer password (min. 12 chars.)
-                      </li>
-                      </ul>
-                      </div>
-                      <div data-popper-arrow></div>
-                      </div>
-                      </div>
-                      <div class="col-span-6 sm:col-span-3">
-              <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 :text-white">Confirm
-                password</label>
-              <input type="text" name="confirm-password" id="confirm-password"
-                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500"
-                placeholder="••••••••" required>
-              </div>
-              <div class="col-span-6 sm:col-full">
-                <button
-                  class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center :bg-primary-600 :hover:bg-primary-700 :focus:ring-primary-800"
-                  type="submit">Save all</button>
-              </div>
-              </div>
-              </form>
+           [ngClass]="currentTheme == 'dark'?'bg-[#18181b] border-white/10':'bg-white border-gray-200'"     class="p-4 mb-4 border rounded-lg shadow-sm 2xl:col-span-2 sm:p-6">
+                <h3 class="mb-4 text-xl font-semibold" [class.text-dark-secondary]="currentTheme=='dark'">Password information</h3>
+               <app-form [isDisabled]="isPasswordFormEditMode" [showPassword]="showPassword"
+  [fields]="[
+                          { name: 'currentpassword', label: 'currentpassword', id:'currentpassword', value:currentUser?.password, isSubmitted:isPasswordFormEditMode, size:80, maxlength:30 , minlength:1, type: 'password', toggable:true, required:true , validators: [validators.required] },
+                          { name: 'newpassword', label: 'newpassword', id:'newpassword', isSubmitted:isPasswordFormEditMode, size:80, maxlength:30 , minlength:1, type: 'password', required:true , validators: [validators.required] },
+                          { name: 'passwordconfirmation', label: 'passwordconfirmation', id:'passwordconfirmation', isSubmitted:isPasswordFormEditMode, size:80, maxlength:30 , minlength:1, type: 'password', required:true , validators: [validators.required] },
+                          
+                        ]"(submitted)="onPasswordFormSubmitted($event)" (formStatus)="checkPasswordFormStatus($event)" (togglePasswordState)="togglePassword($event)">
+<div class="px-2 ltr:mr-2 rtl:ml-2" form-actions>
+  <div [ngSwitch]="isPasswordFormEditMode">
+    <div *ngSwitchCase="false">
+      <button [ngClass]="currentTheme=='dark'?'border-white/10 hover:text-white':'hover:border-gray-300'"
+        (click)="togglePasswordFormMode()"
+        class="inline-flex  shrink-0 rounded-2xl border hover:border  mx-1 px-4 py-1.5 font-semibold text-gray-500 hover:text-black focus:outline-none active:text-white disabled:cursor-not-allowed">
+        cancel
+      </button>
+      <button type="submit" [disabled]="!isFormValid || isSubmitted"
+        [ngClass]="currentTheme == 'dark'?'bg-dark-primary  text-dark-secondary disabled:text-gray-700 disabled:bg-dark-accent disabled:border-gray-200/10':'bg-light-primary  text-light-secondary disabled:bg-gray-100/10 disabled:border-gray-200/10 '"
+        class=" inline-flex justify-center items-center space-x-2 border border-green-600 hover:bg-light-accent hover:cursor-pointer hover:text-gray-50 focus:ring-2 focus:ring-green-300  font-semibold rounded-2xl  px-4 py-1.5 text-center disabled:cursor-not-allowed">
+        <span class="">Save</span>
+      </button>
+    </div>
+    <div *ngSwitchCase="true">
+      <div class="min-[416px]:contents" (click)="togglePasswordFormMode()">
+        <div
+          [ngClass]="currentTheme == 'dark' ?'text-zinc-400 ring-white/10 hover:bg-white/5 hover:text-white hover:ring-white/10 ':'bg-white ring-zinc-900/10 hover:bg-gray-50' "
+          class="inline-flex gap-0.5 justify-center overflow-hidden  font-medium transition rounded-2xl py-1.5 px-4 ring-1 ring-inset hover:cursor-pointer ">
+          {{"update"|translate}}
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+              </app-form>
               </div>
               </div>
 
   </div>
   </section>
-<!-- notfictions and alerts settings -->
-<!-- <div class="grid grid-cols-1 px-4 xl:grid-cols-2 xl:gap-4">
-  <div
-    class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm :border-gray-700 sm:p-6 :bg-gray-800 xl:mb-0">
-    <div class="flow-root">
-      <h3 class="text-xl font-semibold :text-white">Alerts & Notifications</h3>
-      <p class="text-sm font-normal text-gray-500 :text-gray-400">You can set up Themesberg to get notifications</p>
-      <div class="divide-y divide-gray-200 :divide-gray-700">
-        Item 1
-        <div class="flex items-center justify-between py-4">
-          <div class="flex flex-col flex-grow">
-            <div class="text-lg font-semibold text-gray-900 :text-white">Company News</div>
-            <div class="text-base font-normal text-gray-500 :text-gray-400">Get Themesberg news, announcements, and
-              product updates</div>
-          </div>
-          <label for="company-news" class="relative flex items-center cursor-pointer">
-            <input type="checkbox" id="company-news" class="sr-only">
-            <span class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg :bg-gray-700 :border-gray-600"></span>
-          </label>
-          </div>
-        Item 2
-        <div class="flex items-center justify-between py-4">
-          <div class="flex flex-col flex-grow">
-            <div class="text-lg font-semibold text-gray-900 :text-white">Account Activity</div>
-            <div class="text-base font-normal text-gray-500 :text-gray-400">Get important notifications about you or
-              activity you've missed</div>
-          </div>
-          <label for="account-activity" class="relative flex items-center cursor-pointer">
-            <input type="checkbox" id="account-activity" class="sr-only" checked>
-            <span class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg :bg-gray-700 :border-gray-600"></span>
-          </label>
-          </div>
-        Item 3
-        <div class="flex items-center justify-between py-4">
-          <div class="flex flex-col flex-grow">
-            <div class="text-lg font-semibold text-gray-900 :text-white">Meetups Near You</div>
-            <div class="text-base font-normal text-gray-500 :text-gray-400">Get an email when a Dribbble Meetup is
-              posted close to my location</div>
-          </div>
-          <label for="meetups" class="relative flex items-center cursor-pointer">
-            <input type="checkbox" id="meetups" class="sr-only" checked>
-            <span class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg :bg-gray-700 :border-gray-600"></span>
-          </label>
-          </div>
-        Item 4
-        <div class="flex items-center justify-between pt-4">
-          <div class="flex flex-col flex-grow">
-            <div class="text-lg font-semibold text-gray-900 :text-white">New Messages</div>
-            <div class="text-base font-normal text-gray-500 :text-gray-400">Get Themsberg news, announcements, and
-              product updates</div>
-          </div>
-          <label for="new-messages" class="relative flex items-center cursor-pointer">
-            <input type="checkbox" id="new-messages" class="sr-only">
-            <span class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg :bg-gray-700 :border-gray-600"></span>
-          </label>
-        </div>
-      </div>
-      <div class="mt-6">
-        <button
-          class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center :bg-primary-600 :hover:bg-primary-700 :focus:ring-primary-800">Save
-          all</button>
-      </div>
-      </div>
-      </div>
-  <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm :border-gray-700 sm:p-6 :bg-gray-800 xl:mb-0">
-    <div class="flow-root">
-      <h3 class="text-xl font-semibold :text-white">Email Notifications</h3>
-      <p class="text-sm font-normal text-gray-500 :text-gray-400">You can set up Themesberg to get email
-        notifications </p>
-      <div class="divide-y divide-gray-200 :divide-gray-700">
-        Item 1
-        <div class="flex items-center justify-between py-4">
-          <div class="flex flex-col flex-grow">
-            <div class="text-lg font-semibold text-gray-900 :text-white">Rating reminders</div>
-            <div class="text-base font-normal text-gray-500 :text-gray-400">Send an email reminding me to rate an
-              item a week after purchase</div>
-          </div>
-          <label for="rating-reminders" class="relative flex items-center cursor-pointer">
-            <input type="checkbox" id="rating-reminders" class="sr-only">
-            <span class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg :bg-gray-700 :border-gray-600"></span>
-          </label>
-        </div>
-        Item 2
-        <div class="flex items-center justify-between py-4">
-          <div class="flex flex-col flex-grow">
-            <div class="text-lg font-semibold text-gray-900 :text-white">Item update notifications</div>
-            <div class="text-base font-normal text-gray-500 :text-gray-400">Send user and product notifications for
-              you</div>
-          </div>
-          <label for="item-update" class="relative flex items-center cursor-pointer">
-            <input type="checkbox" id="item-update" class="sr-only" checked>
-            <span class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg :bg-gray-700 :border-gray-600"></span>
-          </label>
-        </div>
-        Item 3
-        <div class="flex items-center justify-between py-4">
-          <div class="flex flex-col flex-grow">
-            <div class="text-lg font-semibold text-gray-900 :text-white">Item comment notifications</div>
-            <div class="text-base font-normal text-gray-500 :text-gray-400">Send me an email when someone comments
-              on one of my items</div>
-          </div>
-          <label for="item-comment" class="relative flex items-center cursor-pointer">
-            <input type="checkbox" id="item-comment" class="sr-only" checked>
-            <span
-              class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg :bg-gray-700 :border-gray-600"></span>
-          </label>
-        </div>
-        Item 4
-        <div class="flex items-center justify-between pt-4">
-          <div class="flex flex-col flex-grow">
-            <div class="text-lg font-semibold text-gray-900 :text-white">Buyer review notifications</div>
-            <div class="text-base font-normal text-gray-500 :text-gray-400">Send me an email when someone leaves a
-              review with their rating</div>
-          </div>
-          <label for="buyer-rev" class="relative flex items-center cursor-pointer">
-            <input type="checkbox" id="buyer-rev" class="sr-only">
-            <span class="h-6 bg-gray-200 border border-gray-200 rounded-full w-11 toggle-bg :bg-gray-700 :border-gray-600"></span>
-          </label>
-        </div>
-        </div>
-      <div class="mt-6">
-        <button
-          class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center :bg-primary-600 :hover:bg-primary-700 :focus:ring-primary-800">Save
-          all</button>
-      </div>
-    </div>
-    </div>
-</div> -->
