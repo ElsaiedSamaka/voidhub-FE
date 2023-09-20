@@ -31,17 +31,6 @@ export class HomeComponent implements OnInit {
       complete: () => {},
     });
   }
-  // updateProfileImg(): void {
-  //   const currentUserID = this.currentUser.id;
-  //   this.usersService.put(currentUserID, {}).subscribe({
-  //     next: (response) => {
-  //       console.log('response', response);
-  //     },
-  //     error: (err) => {
-  //       console.log('err', err);
-  //     },
-  //     complete: () => {},
-  //   });
-  // }
+  
 
 }

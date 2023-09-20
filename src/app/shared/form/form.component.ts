@@ -55,11 +55,9 @@ export class FormComponent implements OnInit {
   }
   prepareForm() {
     let formData = new FormData();
-    console.log('this.form.value', this.form.value);
     Object.entries(this.form.value).forEach(([key, value]) => {
       if (typeof value === 'string') {
         formData.append(key, value);
-        console.log('formData', formData);
       } else if (value instanceof Blob) {
         formData.append(key, value, value['name']);
       }

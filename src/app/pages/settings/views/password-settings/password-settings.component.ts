@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Validators } from 'ngx-editor';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/core/services/auth.service';
+import { MatchPassword } from 'src/core/validators/match-password';
 
 @Component({
   selector: 'app-password-settings',
@@ -11,28 +12,34 @@ export class PasswordSettingsComponent implements OnInit {
   @Input() currentTheme = '';
   @Input() currentUser = null;
   validators = Validators;
-  isPasswordFormValid: boolean = false;
   isPasswordFormEditMode: boolean = true;
   showPassword: boolean = false;
-  constructor(private authService: AuthService) {}
+  showPasswordConfirmation = false;
+  constructor(
+    private authService: AuthService,
+    private matchPassword: MatchPassword
+  ) {}
 
   ngOnInit() {}
-
-  checkPasswordFormStatus(value: any) {
-    switch (value) {
-      case 'INVALID':
-        this.isPasswordFormValid = false;
-        break;
-      case 'VALID':
-        this.isPasswordFormValid = true;
-        break;
-
-      default:
-        break;
-    }
-  }
-  updatePassword(data: any): void {
-    console.log('updatePassword', data);
+  passwordForm = new FormGroup(
+    {
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(25),
+      ]),
+      passwordConfirmation: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(25),
+      ]),
+    },
+    { validators: [this.matchPassword.validate] }
+  );
+ 
+  onPasswordFormSubmitted() {
+    if (this.passwordForm.invalid) return;
+    const data = this.passwordForm.value
     this.authService.updatePassword(data).subscribe({
       next: (response) => {
         console.log('response', response);
@@ -42,20 +49,6 @@ export class PasswordSettingsComponent implements OnInit {
       },
       complete: () => {},
     });
-  }
-  onPasswordFormSubmitted(data: any) {
-    console.log('onPasswordFormSubmitted', {
-      password: data.password,
-      passwordConfirmation: data.passwordConfirmation,
-    });
-    const { password, passwordConfirmation } = data;
-    if (!this.isPasswordFormValid) return;
-    // // Serialize the form data to JSON.
-    // const formData = JSON.stringify({
-    //   password: data.password,
-    //   passwordConfirmation: data.passwordConfirmation,
-    // });
-    this.updatePassword({ password, passwordConfirmation });
     this.isPasswordFormEditMode = !this.isPasswordFormEditMode;
   }
   togglePasswordFormMode(): void {

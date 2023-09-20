@@ -7,9 +7,10 @@ import { LangModeSettingsComponent } from './lang-mode-settings/lang-mode-settin
 import { ProfilePictureComponent } from './profile-picture/profile-picture.component';
 import { SocialSettingsComponent } from './social-settings/social-settings.component';
 import { PasswordSettingsComponent } from './password-settings/password-settings.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [SharedModule, TranslateModule, CommonModule],
+  imports: [SharedModule, TranslateModule, ReactiveFormsModule, CommonModule],
   declarations: [
     GeneralInfoComponent,
     ProfilePictureComponent,
