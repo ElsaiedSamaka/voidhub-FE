@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
       complete: () => {},
     });
   }
-    updateProfileImg(): void {
+  updateProfileImg(): void {
     const currentUserID = this.currentUser.id;
     this.usersService.put(currentUserID, {}).subscribe({
       next: (response) => {
@@ -96,8 +96,9 @@ export class HomeComponent implements OnInit {
         break;
     }
   }
-  updatePassword(password: any, passwordConfirmation: any): void {
-    this.authService.updatePassword(password, passwordConfirmation).subscribe({
+  updatePassword(data: any): void {
+    console.log('updatePassword', data);
+    this.authService.updatePassword(data).subscribe({
       next: (response) => {
         console.log('response', response);
       },
@@ -108,10 +109,19 @@ export class HomeComponent implements OnInit {
     });
   }
   onPasswordFormSubmitted(data: any) {
+    console.log('onPasswordFormSubmitted', {
+      password: data.password,
+      passwordConfirmation: data.passwordConfirmation,
+    });
+    const {password,passwordConfirmation} = data
     if (!this.isPasswordFormValid) return;
+    // // Serialize the form data to JSON.
+    // const formData = JSON.stringify({
+    //   password: data.password,
+    //   passwordConfirmation: data.passwordConfirmation,
+    // });
+    this.updatePassword({ password ,passwordConfirmation});
     this.isPasswordFormEditMode = !this.isPasswordFormEditMode;
-    // this.updatePassword(data,data);
-    console.log('data', data);
   }
   togglePasswordFormMode(): void {
     this.isPasswordFormEditMode = !this.isPasswordFormEditMode;

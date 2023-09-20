@@ -89,18 +89,10 @@ export class AuthService {
       );
   }
   // update password
-  updatePassword(
-    password: string,
-    passwordConfirmation: string
-  ): Observable<any> {
-    return this.http.put(
-      `${this.api_url}/api/auth/update-password`,
-      {
-        password: password,
-        passwordConfirmation: passwordConfirmation,
-      },
-      { withCredentials: true }
-    );
+  updatePassword(data: any): Observable<any> {
+    return this.http.put(`${this.api_url}/api/auth/update-password`, data, {
+      withCredentials: true,
+    });
   }
   googleLogin() {
     window.location.href = `${this.api_url}/api/auth/google`;

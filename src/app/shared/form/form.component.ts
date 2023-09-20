@@ -13,11 +13,13 @@ export class FormComponent implements OnInit {
   @Output() formStatus = new EventEmitter<any>();
   @Output() togglePasswordState = new EventEmitter<boolean>();
   @Input() showPassword: boolean = false;
+  @Input() enctype: string = '';
 
   form: FormGroup = new FormGroup({});
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
+    console.log('enctype', this.enctype);
     const group: any = {};
     this.fields.forEach((field) => {
       group[field.name] = [
@@ -30,8 +32,10 @@ export class FormComponent implements OnInit {
   }
 
   submitForm() {
-    let model = this.prepareForm();
-    if (this.form.valid) this.submitted.emit(model);
+    if (this.form.valid) {
+      const formData = this.prepareForm();
+      this.submitted.emit(formData);
+    }
   }
   emitFormStatus() {
     this.form.statusChanges.subscribe({
@@ -51,9 +55,11 @@ export class FormComponent implements OnInit {
   }
   prepareForm() {
     let formData = new FormData();
+    console.log('this.form.value', this.form.value);
     Object.entries(this.form.value).forEach(([key, value]) => {
       if (typeof value === 'string') {
         formData.append(key, value);
+        console.log('formData', formData);
       } else if (value instanceof Blob) {
         formData.append(key, value, value['name']);
       }

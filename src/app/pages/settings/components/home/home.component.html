@@ -129,7 +129,7 @@
                           { name: 'phonenumber', label: 'phonenumber', id:'phonenumber',value:currentUser?.phonenumber, isSubmitted:isUserFormEditMode, type: 'number',size:80,maxlength:30 ,  required:true , validators: [validators.required] },
                           { name: 'birthdate', label: 'birthdate', id:'birthdate', value:currentUser?.birthdate, isSubmitted:isUserFormEditMode, type: 'date', required:true ,size:80, validators: [validators.required] },
                           
-                        ]" (submitted)="onUserFormSubmitted($event)" (formStatus)="checkUserFormStatus($event)">
+                        ]" [enctype]="'application/x-www-form-urlencoded'" (submitted)="onUserFormSubmitted($event)" (formStatus)="checkUserFormStatus($event)">
   <div class="px-2 ltr:mr-2 rtl:ml-2" form-actions>
     <div [ngSwitch]="isUserFormEditMode">
       <div *ngSwitchCase="false">
@@ -164,9 +164,9 @@
   [fields]="[
                           { name: 'currentpassword', label: 'currentpassword', id:'currentpassword', value:currentUser?.password, isSubmitted:isPasswordFormEditMode, size:80, maxlength:30 , minlength:1, type: 'password', toggable:true, required:true , validators: [] },
                           { name: 'password', label: 'password', id:'password', isSubmitted:isPasswordFormEditMode, size:80, maxlength:30 , minlength:1, type: 'password', required:true , validators: [] },
-                          { name: 'passwordconfirmation', label: 'passwordconfirmation', id:'passwordconfirmation', isSubmitted:isPasswordFormEditMode, size:80, maxlength:30 , minlength:1, type: 'password', required:true , validators: [] },
+                          { name: 'passwordConfirmation', label: 'passwordConfirmation', id:'passwordConfirmation', isSubmitted:isPasswordFormEditMode, size:80, maxlength:30 , minlength:1, type: 'password', required:true , validators: [] },
                           
-                        ]"(submitted)="onPasswordFormSubmitted($event)" (formStatus)="checkPasswordFormStatus($event)" (togglePasswordState)="togglePassword($event)">
+                        ]"[enctype]="'application/json'" (submitted)="onPasswordFormSubmitted($event)" (formStatus)="checkPasswordFormStatus($event)" (togglePasswordState)="togglePassword($event)">
 <div class="px-2 ltr:mr-2 rtl:ml-2" form-actions>
   <div [ngSwitch]="isPasswordFormEditMode">
     <div *ngSwitchCase="false">

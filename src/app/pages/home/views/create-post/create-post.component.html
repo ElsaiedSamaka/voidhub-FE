@@ -32,7 +32,7 @@
             { name: 'file_img', label: 'file_img', id:'file_img', type: 'file', required:false },
             { name: 'title', label: 'title', type: 'text', maxlength:60 , minlength:10, autofocus:true, description:'title maxlength 60 char', required:true, validators: [validators.required] },
             
-          ]" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
+          ]" [enctype]="'multipart/form-data'" (submitted)="onFormSubmitted($event)" (formStatus)="checkFormStatus($event)">
           <ng-container form-extensions>
           <app-tags-input (tagsEmitter)="handleRecievedTags($event)" [currentTheme]="currentTheme"></app-tags-input>
         <app-editor (html)="handleHTML($event)"></app-editor>

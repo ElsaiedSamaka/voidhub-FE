@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="submitForm()" enctype="multipart/form-data">
+<form [formGroup]="form" (ngSubmit)="submitForm()" [enctype]="enctype">
   <div
     class="px-5 w-full h-full rounded-2xl">
   <div *ngFor="let field of fields">
