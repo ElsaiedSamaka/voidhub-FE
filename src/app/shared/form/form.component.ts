@@ -1,4 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +15,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() fields: any[] = [];
   @Input() isDisabled: boolean = false;
   @Output() submitted = new EventEmitter<any>();
@@ -19,7 +28,6 @@ export class FormComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    console.log('enctype', this.enctype);
     const group: any = {};
     this.fields.forEach((field) => {
       group[field.name] = [
@@ -28,9 +36,16 @@ export class FormComponent implements OnInit {
       ];
     });
     this.form = this.fb.group(group);
+    // this.emitFormStatus();
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.isDisabled && changes.isDisabled.currentValue) {
+      this.isDisabled = changes.isDisabled.currentValue;
+    }
+  }
+  ngAfterViewInit(): void {
     this.emitFormStatus();
   }
-
   submitForm() {
     if (this.form.valid) {
       const formData = this.prepareForm();

@@ -64,7 +64,6 @@ export class UsersService {
   put(id: string, item: any): Observable<any> {
     return this.apiService.put(`/api/users/${id}`, item).pipe(
       tap((updatedUser) => {
-        console.log('updatedUser', updatedUser);
         const index = this.users$.value.indexOf(id);
         this.users$.value.splice(index, 1, updatedUser);
       })

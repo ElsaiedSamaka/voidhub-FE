@@ -16,12 +16,11 @@ export class GeneralInfoComponent implements OnInit {
   constructor(private usersService: UsersService) {}
 
   ngOnInit() {}
+
   updateInfo(data: any): void {
     const currentUserID = this.currentUser.id;
     this.usersService.put(currentUserID, data).subscribe({
-      next: (response) => {
-        console.log('response', response);
-      },
+      next: (response) => {},
       error: (err) => {
         console.log('err', err);
       },
