@@ -20,7 +20,6 @@
         <div class="flex">
           <label *ngIf="label" [for]="name" [class.text-dark-secondary]="currentTheme=='dark'"
             class="block text-sm font-semibold" translate>
-            cover
             <input [id]="id" [name]="name" [placeholder]="placeholder" [type]="type"
               (change)="handleFileChange($event)" [class.border-[#303032]]="currentTheme == 'dark'"
            [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"   class="block w-full text-sm text-slate-500
