@@ -6,6 +6,7 @@ import { HttpLoaderFactory } from 'src/app/app.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { SettingsRoutingModule } from './settings-routing.module';
+import { ViewsModule } from './views/views.module';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { SettingsRoutingModule } from './settings-routing.module';
     CommonModule,
     SharedModule,
     SettingsRoutingModule,
+    ViewsModule
   ],
   declarations: [HomeComponent],
 })
