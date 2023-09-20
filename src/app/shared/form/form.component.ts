@@ -36,7 +36,6 @@ export class FormComponent implements OnInit, OnChanges, AfterViewInit {
       ];
     });
     this.form = this.fb.group(group);
-    // this.emitFormStatus();
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.isDisabled && changes.isDisabled.currentValue) {
