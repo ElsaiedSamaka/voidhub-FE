@@ -6,6 +6,7 @@ import { GeneralInfoComponent } from './general-info/general-info.component';
 import { LangModeSettingsComponent } from './lang-mode-settings/lang-mode-settings.component';
 import { ProfilePictureComponent } from './profile-picture/profile-picture.component';
 import { SocialSettingsComponent } from './social-settings/social-settings.component';
+import { PasswordSettingsComponent } from './password-settings/password-settings.component';
 
 @NgModule({
   imports: [SharedModule, TranslateModule, CommonModule],
@@ -14,12 +15,14 @@ import { SocialSettingsComponent } from './social-settings/social-settings.compo
     ProfilePictureComponent,
     LangModeSettingsComponent,
     SocialSettingsComponent,
+    PasswordSettingsComponent,
   ],
   exports: [
     GeneralInfoComponent,
     ProfilePictureComponent,
     LangModeSettingsComponent,
     SocialSettingsComponent,
+    PasswordSettingsComponent,
   ],
 })
 export class ViewsModule {}
