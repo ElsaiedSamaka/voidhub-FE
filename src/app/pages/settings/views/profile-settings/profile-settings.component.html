@@ -4,8 +4,8 @@
     <img class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0" [src]="currentUser?.user_img"
       [alt]="currentUser?.username">
     <div>
-      <h3 class="mb-1 text-xl font-bold text-gray-900 :text-white">Profile picture</h3>
-      <div class="mb-4 text-sm text-gray-500 :text-gray-400">
+      <h3 class="mb-1 text-xl font-bold" [class.text-dark-secondary]="currentTheme=='dark'">Profile picture</h3>
+      <div class="mb-4 text-sm text-gray-400 ">
         JPG, GIF or PNG. Max size of 800K
       </div>
       <div class="flex items-center space-x-4">
