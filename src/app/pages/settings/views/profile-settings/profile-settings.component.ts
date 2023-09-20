@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { UsersService } from 'src/core/services/users.service';
 
 @Component({
-  selector: 'app-profile-picture',
-  templateUrl: './profile-picture.component.html',
-  styleUrls: ['./profile-picture.component.css'],
+  selector: 'app-profile-settings',
+  templateUrl: './profile-settings.component.html',
+  styleUrls: ['./profile-settings.component.css'],
 })
-export class ProfilePictureComponent implements OnInit {
+export class ProfileSettingsComponent implements OnInit {
   @Input() currentTheme = '';
   @Input() currentUser = null;
   constructor(private usersService: UsersService) {}
