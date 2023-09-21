@@ -20,13 +20,14 @@ export class ProfileSettingsComponent implements OnInit {
   updateProfileImg(data:any): void {
     const currentUserID = this.currentUser.id;
     this.usersService.put(currentUserID, data).subscribe({
-      next: (response) => {
-        console.log('response', response);
-      },
+      next: (response) => {},
       error: (err) => {
+        this.toggleProfilePictureForm();
         console.log('err', err);
       },
-      complete: () => {},
+      complete: () => {
+        this.toggleProfilePictureForm();
+      },
     });
   }
   checkProfileFormStatus(value: any) {
