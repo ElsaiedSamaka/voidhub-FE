@@ -14,6 +14,7 @@ export class CreatePostComponent implements OnInit {
   showCreateNewPostModal: boolean = false;
   validators = Validators;
   isFormValid: boolean = false;
+  isFormSubmitted: boolean = false;
   receivedHTMLContent: string = '';
   receivedTags: any[] = [];
   showToast: boolean = false;
@@ -59,6 +60,7 @@ export class CreatePostComponent implements OnInit {
     article.append('content', content);
     article.append('userId', userId);
     article.append('isAnonymous', isAnonymous);
+    this.isFormSubmitted = true;
     this.postArticle(article);
   }
   handleRecievedTags(tags: any): void {
