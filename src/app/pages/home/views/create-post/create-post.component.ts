@@ -75,10 +75,12 @@ export class CreatePostComponent implements OnInit {
         this.toggleToast('success', 'post publish !');
       },
       error: (err) => {
+        this.isFormSubmitted = false;
         this.toggleToast('error', err.message);
         this.closeCreateNewPostModal();
       },
       complete: () => {
+        this.isFormSubmitted = false;
         this.closeCreateNewPostModal();
         // once a user post an article we wanna reset the array of the recieved tags and the html content
         this.receivedTags = [];
