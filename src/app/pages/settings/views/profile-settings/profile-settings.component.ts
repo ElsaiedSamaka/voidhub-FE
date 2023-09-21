@@ -11,6 +11,7 @@ export class ProfileSettingsComponent implements OnInit {
   @Input() currentTheme = '';
   @Input() currentUser = null;
   isProfileFormValid: boolean = false;
+  isProfileFormEditMode: boolean = false;
   validators = Validators;
   constructor(private usersService: UsersService) {}
 
@@ -44,5 +45,8 @@ export class ProfileSettingsComponent implements OnInit {
     if (!this.isProfileFormValid) return;
     // this.updateInfo(data);
     console.log('profile form data', data);
+  }
+  resetProfileForm(value: any) {
+    console.log('value of reseting form', value);
   }
 }

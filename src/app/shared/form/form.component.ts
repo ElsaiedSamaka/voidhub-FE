@@ -23,6 +23,7 @@ export class FormComponent implements OnInit, OnChanges, AfterViewInit {
   @Output() togglePasswordState = new EventEmitter<boolean>();
   @Input() showPassword: boolean = false;
   @Input() enctype: string = '';
+  @Output() resetFormEmitter: EventEmitter<any> = new EventEmitter<any>();
 
   form: FormGroup = new FormGroup({});
   constructor(private fb: FormBuilder) {}
@@ -82,5 +83,9 @@ export class FormComponent implements OnInit, OnChanges, AfterViewInit {
     if (!this.isDisabled) {
       this.togglePasswordState.emit(!this.showPassword);
     }
+  }
+  resetForm(): void {
+    this.form.reset();
+    // this.resetFormEmitter.emit()
   }
 }

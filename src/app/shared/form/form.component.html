@@ -1,6 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="submitForm()" [enctype]="enctype">
-  <div
-    class="px-5 w-full h-full rounded-2xl">
+
   <div *ngFor="let field of fields">
       <div [ngSwitch]="field.type">
         <div class="inline" *ngSwitchCase="'text'">
@@ -88,11 +87,10 @@
       </div>
       </div>
       </div>
-</div>
-<div class="px-5">
+<ng-container>
   <ng-content select="[form-extensions]"></ng-content>
-</div>
-<div class="flex justify-end mt-2">
+</ng-container>
+<ng-container>
   <ng-content select="[form-actions]"></ng-content>
-  </div>
+  </ng-container>
   </form>
