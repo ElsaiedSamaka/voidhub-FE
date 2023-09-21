@@ -21,14 +21,15 @@ export class ProfileSettingsComponent implements OnInit {
   updateProfileImg(data: any): void {
     const currentUserID = this.currentUser.id;
     this.isProfileFormSubmitted = true;
-
     this.usersService.put(currentUserID, data).subscribe({
       next: (response) => {},
       error: (err) => {
         this.toggleProfilePictureForm();
+        this.isProfileFormSubmitted = false;
         console.log('err', err);
       },
       complete: () => {
+        this.isProfileFormSubmitted = false;
         this.toggleProfilePictureForm();
       },
     });
