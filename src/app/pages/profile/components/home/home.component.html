@@ -1,6 +1,6 @@
 <div class="h-95">
 <div
-  class=" p-4 my-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
+ [ngClass]="currentTheme == 'dark'?'bg-[#18181b] border-white/10':'bg-white border-gray-200'" class=" p-4 my-4 border rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
   <div class="flex justify-between ">
     <div class="flex items-start sm:space-x-4 xl:space-x-0 2xl:space-x-4">
     <img class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0" [src]="currentUser?.user_img"
