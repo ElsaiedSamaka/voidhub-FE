@@ -1,5 +1,7 @@
-<div class="chat-container relative flex flex-col justify-between bg-gray-100 h-full w-full rounded-xl  shadow-lg">
-  <div class=" h-full overflow-y-scroll " [ngClass]="currentTheme == 'dark'?'bg-[#1e2022] ':''" #chatContainer>
+<div class="chat-container relative flex flex-col justify-between h-full w-full rounded-xl  shadow-lg"
+  [ngClass]="currentTheme == 'dark'?'bg-[#18181b] border-white/10':'bg-white border-gray-200'">
+  <div class=" h-full overflow-y-scroll "
+    [ngClass]="currentTheme == 'dark'?'bg-[#18181b] border-white/10':'bg-white border-gray-200'" #chatContainer>
     <div [ngClass]="currentTheme == 'dark'?' text-dark-secondary':'  text-light-secondary'"
       class="absolute w-full top-0 left-0 z-10 col-span-full backdrop-blur-3xl p-2">
       <div class="flex justify-between items-center">
