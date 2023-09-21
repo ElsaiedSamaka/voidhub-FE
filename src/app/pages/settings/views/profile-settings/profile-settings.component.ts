@@ -12,6 +12,7 @@ export class ProfileSettingsComponent implements OnInit {
   @Input() currentUser = null;
   isProfileFormValid: boolean = false;
   isProfileFormEditMode: boolean = false;
+  showProfilePicture: boolean = false;
   validators = Validators;
   constructor(private usersService: UsersService) {}
 
@@ -48,5 +49,8 @@ export class ProfileSettingsComponent implements OnInit {
   }
   resetProfileForm(value: any) {
     console.log('value of reseting form', value);
+  }
+  toggleProfilePictureForm() {
+    this.showProfilePicture = !this.showProfilePicture;
   }
 }
