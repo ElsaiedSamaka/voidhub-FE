@@ -13,12 +13,15 @@ export class ProfileSettingsComponent implements OnInit {
   isProfileFormValid: boolean = false;
   isProfileFormEditMode: boolean = false;
   showProfilePicture: boolean = false;
+  isProfileFormSubmitted: boolean = false;
   validators = Validators;
   constructor(private usersService: UsersService) {}
 
   ngOnInit() {}
-  updateProfileImg(data:any): void {
+  updateProfileImg(data: any): void {
     const currentUserID = this.currentUser.id;
+    this.isProfileFormSubmitted = true;
+
     this.usersService.put(currentUserID, data).subscribe({
       next: (response) => {},
       error: (err) => {
