@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { Validators } from 'ngx-editor';
 import { UsersService } from 'src/core/services/users.service';
 
@@ -7,7 +13,7 @@ import { UsersService } from 'src/core/services/users.service';
   templateUrl: './profile-settings.component.html',
   styleUrls: ['./profile-settings.component.css'],
 })
-export class ProfileSettingsComponent implements OnInit {
+export class ProfileSettingsComponent implements OnInit, OnChanges {
   @Input() currentTheme = '';
   @Input() currentUser = null;
   isProfileFormValid: boolean = false;
@@ -18,6 +24,12 @@ export class ProfileSettingsComponent implements OnInit {
   constructor(private usersService: UsersService) {}
 
   ngOnInit() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.currentUser) {
+      this.currentUser = changes.currentUser.currentValue;
+    }
+  }
+
   updateProfileImg(data: any): void {
     const currentUserID = this.currentUser.id;
     this.isProfileFormSubmitted = true;
