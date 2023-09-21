@@ -1,7 +1,7 @@
 <section class="flex h-[94vh] flex-col gap-2 pt-4 ">
   <div class="grid grid-cols-5 gap-4 h-full ">
     <div class="sm:col-span-2 xs:col-span-full h-full p-2 border rounded-lg rounded-b-none  "
-      [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'">
+      [ngClass]="currentTheme == 'dark'?'bg-[#18181b] border-white/10':'bg-white border-gray-200'">
     <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
       class="flex items-center justify-between border-b">
       <span [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''" class="text-xl font-semibold my-2">{{"Reading list"|translate}}</span>
