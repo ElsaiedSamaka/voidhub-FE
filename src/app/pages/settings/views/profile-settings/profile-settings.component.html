@@ -21,8 +21,8 @@
         </button>
         <div class="absolute bg-white border rounded-xl shadow-xl p-2 -left-5 top-10">
           <app-form [fields]="[
-                                                { name: 'file_img', label: 'file_img', id:'file_img', type: 'file', required:false },
-                                              ]" [enctype]="'multipart/form-data'"
+{ name: 'file_img', label: 'file_img', id:'file_img', type: 'file', required:false },
+ ]" [enctype]="'multipart/form-data'"
         (submitted)="onProfileFormSubmitted($event)" (formStatus)="checkProfileFormStatus($event)">
           <div class="my-2" form-actions>
             <button type="submit" [disabled]="!isProfileFormValid "
