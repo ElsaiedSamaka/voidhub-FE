@@ -19,7 +19,9 @@
           </svg>
           change picture
         </button>
-        <div class="absolute bg-white border rounded-xl shadow-xl p-2 -left-5 top-10" *ngIf="showProfilePicture">
+        <div
+          class="absolute bg-white border rounded-xl shadow-xl p-2 -left-5 top-10 hover:-translate-y-1 hover:scale-110 duration-300"
+          *ngIf="showProfilePicture">
           <app-form [fields]="[
 { name: 'file_img', label: 'file_img', id:'file_img', type: 'file', required:false },
  ]" [enctype]="'multipart/form-data'"
