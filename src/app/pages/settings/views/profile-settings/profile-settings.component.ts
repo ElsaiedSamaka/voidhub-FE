@@ -17,9 +17,9 @@ export class ProfileSettingsComponent implements OnInit {
   constructor(private usersService: UsersService) {}
 
   ngOnInit() {}
-  updateProfileImg(): void {
+  updateProfileImg(data:any): void {
     const currentUserID = this.currentUser.id;
-    this.usersService.put(currentUserID, {}).subscribe({
+    this.usersService.put(currentUserID, data).subscribe({
       next: (response) => {
         console.log('response', response);
       },
@@ -44,8 +44,7 @@ export class ProfileSettingsComponent implements OnInit {
   }
   onProfileFormSubmitted(data: any) {
     if (!this.isProfileFormValid) return;
-    // this.updateInfo(data);
-    console.log('profile form data', data);
+    this.updateProfileImg(data);
   }
   resetProfileForm(value: any) {
     console.log('value of reseting form', value);
