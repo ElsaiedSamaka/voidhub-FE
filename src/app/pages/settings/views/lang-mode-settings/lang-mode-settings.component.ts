@@ -16,7 +16,8 @@ export class LangModeSettingsComponent implements OnInit {
     //   this.currentTheme = theme;
     // });
   }
-  toggleTheme(themeToSet: string) {
+  toggleTheme(event: Event) {
+    const themeToSet = event.target['value'];
     this.themeService.setTheme(themeToSet);
   }
 }

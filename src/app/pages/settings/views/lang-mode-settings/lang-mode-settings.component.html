@@ -6,7 +6,7 @@
       [class.text-dark-secondary]="currentTheme=='dark'?'text-dark-secondary':'text-gray-800'">Select
       language</label>
     <select id="settings-language" name="countries"
-      [ngClass]="currentTheme =='dark'?'bg-gray-700 text-dark-secondary border-gray-600 placeholder-gray-400 ':'bg-gray-50 border-gray-300 text-gray-900'"
+      [ngClass]="currentTheme =='dark'?'bg-zinc-800 text-dark-secondary border-gray-600 placeholder-gray-400 ':'bg-gray-50 border-gray-300 text-gray-900'"
       class=" sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
       <option>English (US)</option>
       <option>العربية (مصر)</option>
@@ -16,11 +16,11 @@
     <label for="settings-timezone" class="block mb-2 text-sm font-medium"
       [class.text-dark-secondary]="currentTheme=='dark'">Mode
       setting</label>
-    <select id="settings-timezone" name="countries"
-      [ngClass]="currentTheme=='dark'?'bg-gray-700 text-dark-secondary border-gray-600 :':'bg-gray-50 border-gray-300'"
-      class=" sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500">
-      <option [defaultSelected]="currentTheme=='dark'">Dark theme</option>
-      <option [defaultSelected]="currentTheme=='light'">Light theme</option>
+    <select id="settings-timezone" name="countries" (change)="toggleTheme($event)"
+      [ngClass]="currentTheme=='dark'?'bg-zinc-800 focus:ring-zinc-900/10 text-dark-secondary border-white/10 :':'bg-gray-50 border-gray-300'"
+      class=" sm:text-sm rounded-lg focus:ring-white/10 focus:border-white/10 block w-full p-2.5 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500">
+      <option value="dark" [defaultSelected]="currentTheme=='dark'">Dark theme</option>
+      <option value="light" [defaultSelected]="currentTheme=='light'">Light theme</option>
     </select>
   </div>
   <div>
