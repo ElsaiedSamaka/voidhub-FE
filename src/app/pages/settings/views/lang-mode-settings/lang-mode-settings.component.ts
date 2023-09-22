@@ -11,11 +11,7 @@ export class LangModeSettingsComponent implements OnInit {
   @Input() currentUser = null;
   constructor(private themeService: ThemeService) {}
 
-  ngOnInit() {
-    // this.themeService.theme$.subscribe((theme) => {
-    //   this.currentTheme = theme;
-    // });
-  }
+  ngOnInit() {}
   toggleTheme(event: Event) {
     const themeToSet = event.target['value'];
     this.themeService.setTheme(themeToSet);
