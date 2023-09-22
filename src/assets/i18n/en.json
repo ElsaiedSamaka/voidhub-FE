@@ -93,5 +93,9 @@
     "Deactivate account": "Deactivate account",
     "Deactivate": "Deactivate",
     "deactivating will supsend your account untill you sign in again": "deactivating will supsend your account untill you sign in again",
-    "Delete account":"Delete account"
+    "Delete account": "Delete account",
+    "Delete": "Delete",
+    "permanently delete your account and all of it's content": "permanently delete your account and all of it's content",
+    "Profile picture":"Profile picture",
+    "Password information":"Password information"
 }

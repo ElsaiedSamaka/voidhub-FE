@@ -92,5 +92,8 @@
     "Deactivate": "تعطيل",
     "deactivating will supsend your account untill you sign in again": "تعطيل حسابك سيوقف الحساب الى ان تقوم باعادة التسجيل من جديد",
     "Delete account":"حذف الحساب",
-    "Delete":"حذف"
+    "Delete": "حذف",
+    "permanently delete your account and all of it's content": "الحذف النهائي لحسابك وكل محتوياته",
+    "Profile picture": "الصورة الشخصية",
+    "Password information": "معلومات كلمة المرور"
 }
