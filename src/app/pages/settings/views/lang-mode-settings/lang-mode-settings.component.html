@@ -8,8 +8,8 @@
     <select id="settings-language" name="countries" (change)="toggleLang($event)"
       [ngClass]="currentTheme =='dark'?'bg-zinc-800 text-dark-secondary border-gray-600 placeholder-gray-400 ':'bg-gray-50 border-gray-300 text-gray-900'"
       class=" sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
-      <option value="en">English (US)</option>
-      <option value="ar">العربية (مصر)</option>
+      <option value="en" [defaultSelected]="DEFAULT_LANGUAGE=='en'">English (US)</option>
+      <option value="ar" [defaultSelected]="DEFAULT_LANGUAGE=='ar'">العربية (مصر)</option>
     </select>
   </div>
   <div class="mb-6">
