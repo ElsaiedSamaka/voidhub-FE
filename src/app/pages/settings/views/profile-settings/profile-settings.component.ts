@@ -6,6 +6,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Validators } from 'ngx-editor';
+import { AuthService } from 'src/core/services/auth.service';
 import { UsersService } from 'src/core/services/users.service';
 
 @Component({
@@ -21,7 +22,10 @@ export class ProfileSettingsComponent implements OnInit, OnChanges {
   showProfilePicture: boolean = false;
   isProfileFormSubmitted: boolean = false;
   validators = Validators;
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {}
   ngOnChanges(changes: SimpleChanges): void {
@@ -33,7 +37,7 @@ export class ProfileSettingsComponent implements OnInit, OnChanges {
   updateProfileImg(data: any): void {
     const currentUserID = this.currentUser.id;
     this.isProfileFormSubmitted = true;
-    this.usersService.put(currentUserID, data).subscribe({
+    this.authService.updateAvatar(data).subscribe({
       next: (response) => {},
       error: (err) => {
         this.toggleProfilePictureForm();
@@ -68,5 +72,16 @@ export class ProfileSettingsComponent implements OnInit, OnChanges {
   }
   toggleProfilePictureForm() {
     this.showProfilePicture = !this.showProfilePicture;
+  }
+  subscribeToCurrentUser(): void {
+    this.authService.currentUser$.subscribe({
+      next: (currentUser) => {
+        this.currentUser = currentUser;
+      },
+      error: (err) => {
+        console.log('err', err);
+      },
+      complete: () => {},
+    });
   }
 }

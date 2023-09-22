@@ -94,6 +94,18 @@ export class AuthService {
       withCredentials: true,
     });
   }
+  // update avatar
+  updateAvatar(data: any): Observable<any> {
+    return this.http
+      .put(`${this.api_url}/api/auth/update-avatar`, data, {
+        withCredentials: true,
+      })
+      .pipe(
+        tap((updatedUser) => {
+          this.setCurrentUser(updatedUser);
+        })
+      );
+  }
   googleLogin() {
     window.location.href = `${this.api_url}/api/auth/google`;
     this.signedin$.next(true);
