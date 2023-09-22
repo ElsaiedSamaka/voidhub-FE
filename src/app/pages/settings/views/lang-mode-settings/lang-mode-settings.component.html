@@ -3,8 +3,7 @@
   <h3 class="mb-4 text-xl font-semibold" [class.text-dark-secondary]="currentTheme =='dark'">{{"Language & Mode"|translate}}</h3>
   <div class="mb-4">
     <label for="settings-language" class="block mb-2 text-sm font-medium"
-      [class.text-dark-secondary]="currentTheme=='dark'?'text-dark-secondary':'text-gray-800'">Select
-      language</label>
+      [class.text-dark-secondary]="currentTheme=='dark'?'text-dark-secondary':'text-gray-800'">{{"Select language"|translate}}</label>
     <select id="settings-language" name="countries" (change)="toggleLang($event)"
       [ngClass]="currentTheme =='dark'?'bg-zinc-800 text-dark-secondary border-gray-600 placeholder-gray-400 ':'bg-gray-50 border-gray-300 text-gray-900'"
       class=" sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
