@@ -19,8 +19,8 @@
     <select id="settings-timezone" name="countries"
       [ngClass]="currentTheme=='dark'?'bg-gray-700 text-dark-secondary border-gray-600 :':'bg-gray-50 border-gray-300'"
       class=" sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500">
-      <option>Dark theme</option>
-      <option>Light theme</option>
+      <option [defaultSelected]="currentTheme=='dark'">Dark theme</option>
+      <option [defaultSelected]="currentTheme=='light'">Light theme</option>
     </select>
   </div>
   <div>
