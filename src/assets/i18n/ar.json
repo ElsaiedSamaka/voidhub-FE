@@ -82,5 +82,6 @@
     "lastname": "الاسم الاخير",
     "address": "العنوان",
     "phonenumber": "رقم الجوال",
-    "birthdate": "تاريخ الميلاد"
+    "birthdate": "تاريخ الميلاد",
+    "Language & Mode":"اللغة والوضع"
 }

@@ -1,6 +1,6 @@
 <div [ngClass]="currentTheme == 'dark'?'bg-[#18181b] border-white/10':'bg-white border-gray-200'"
   class="p-4 mb-4 border rounded-lg shadow-sm 2xl:col-span-2 sm:p-6 ">
-  <h3 class="mb-4 text-xl font-semibold" [class.text-dark-secondary]="currentTheme =='dark'">Language & Time</h3>
+  <h3 class="mb-4 text-xl font-semibold" [class.text-dark-secondary]="currentTheme =='dark'">{{"Language & Mode"|translate}}</h3>
   <div class="mb-4">
     <label for="settings-language" class="block mb-2 text-sm font-medium"
       [class.text-dark-secondary]="currentTheme=='dark'?'text-dark-secondary':'text-gray-800'">Select

@@ -84,5 +84,6 @@
     "lastname": "lastname",
     "address": "address",
     "phonenumber": "phonenumber",
-    "birthdate": "birthdate"
+    "birthdate": "birthdate",
+    "Language & Mode": "Language & Mode"
 }
