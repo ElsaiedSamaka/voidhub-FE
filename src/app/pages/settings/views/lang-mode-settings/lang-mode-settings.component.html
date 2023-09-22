@@ -5,11 +5,11 @@
     <label for="settings-language" class="block mb-2 text-sm font-medium"
       [class.text-dark-secondary]="currentTheme=='dark'?'text-dark-secondary':'text-gray-800'">Select
       language</label>
-    <select id="settings-language" name="countries"
+    <select id="settings-language" name="countries" (change)="toggleLang($event)"
       [ngClass]="currentTheme =='dark'?'bg-zinc-800 text-dark-secondary border-gray-600 placeholder-gray-400 ':'bg-gray-50 border-gray-300 text-gray-900'"
       class=" sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
-      <option>English (US)</option>
-      <option>العربية (مصر)</option>
+      <option value="en">English (US)</option>
+      <option value="ar">العربية (مصر)</option>
     </select>
   </div>
   <div class="mb-6">
@@ -22,11 +22,5 @@
       <option value="dark" [defaultSelected]="currentTheme=='dark'">Dark theme</option>
       <option value="light" [defaultSelected]="currentTheme=='light'">Light theme</option>
     </select>
-  </div>
-  <div>
-    <button
-      [ngClass]="currentTheme=='dark'?'bg-red-600 hover:bg-red-700 focus:ring-red-800':'text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300'"
-      class="   focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Save
-      all</button>
   </div>
 </div>

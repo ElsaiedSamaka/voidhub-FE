@@ -16,4 +16,8 @@ export class LangModeSettingsComponent implements OnInit {
     const themeToSet = event.target['value'];
     this.themeService.setTheme(themeToSet);
   }
+  toggleLang(event: Event) {
+    const langToSet = event.target['value'];
+    console.log('langToSet', langToSet);
+  }
 }
