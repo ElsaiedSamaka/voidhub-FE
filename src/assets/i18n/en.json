@@ -88,5 +88,10 @@
     "Language & Mode": "Language & Mode",
     "General information": "General information",
     "Select language": "Select language",
-    "Mode setting": "Mode setting"
+    "Mode setting": "Mode setting",
+    "Advanced settings": "Advanced settings",
+    "Deactivate account": "Deactivate account",
+    "Deactivate": "Deactivate",
+    "deactivating will supsend your account untill you sign in again": "deactivating will supsend your account untill you sign in again",
+    "Delete account":"Delete account"
 }

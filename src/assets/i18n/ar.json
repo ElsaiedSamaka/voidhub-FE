@@ -86,5 +86,11 @@
     "Language & Mode": "اللغة والوضع",
     "General information": "معلومات عامة",
     "Select language": "اختر لغة",
-    "Mode setting":"الوضع الافتراضي"
+    "Mode setting": "الوضع الافتراضي",
+    "Advanced settings": "الاعدادات المتقدمة",
+    "Deactivate account": "تعطيل الحساب",
+    "Deactivate": "تعطيل",
+    "deactivating will supsend your account untill you sign in again": "تعطيل حسابك سيوقف الحساب الى ان تقوم باعادة التسجيل من جديد",
+    "Delete account":"حذف الحساب",
+    "Delete":"حذف"
 }
