@@ -13,8 +13,7 @@
   </div>
   <div class="mb-6">
     <label for="settings-timezone" class="block mb-2 text-sm font-medium"
-      [class.text-dark-secondary]="currentTheme=='dark'">Mode
-      setting</label>
+      [class.text-dark-secondary]="currentTheme=='dark'">{{"Mode setting"|translate}}</label>
     <select id="settings-timezone" name="countries" (change)="toggleTheme($event)"
       [ngClass]="currentTheme=='dark'?'bg-zinc-800 focus:ring-zinc-900/10 text-dark-secondary border-white/10 :':'bg-gray-50 border-gray-300'"
       class=" sm:text-sm rounded-lg focus:ring-white/10 focus:border-white/10 block w-full p-2.5 :placeholder-gray-400 :text-white :focus:ring-primary-500 :focus:border-primary-500">
