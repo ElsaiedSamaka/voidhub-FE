@@ -1,6 +1,6 @@
 <div [ngClass]="currentTheme=='dark'?'bg-[#18181b] border-white/10':'bg-white border-gray-200'"
   class="p-4 mb-4  border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 :border-gray-700 sm:p-6 :bg-gray-800">
-  <h3 class="mb-4 text-xl font-semibold " [class.text-dark-secondary]="currentTheme=='dark'">General information</h3>
+  <h3 class="mb-4 text-xl font-semibold " [class.text-dark-secondary]="currentTheme=='dark'">{{"General information"|translate}}</h3>
   <app-form [isDisabled]="isUserFormEditMode" [fields]="[
                                                                     { name: 'firstname', label: 'firstname', id:'firstname', value:currentUser?.firstname, isSubmitted:isUserFormEditMode, size:80, maxlength:30 , minlength:1, type: 'text', required:true , validators: [validators.required] },
                                                                     { name: 'lastname', label: 'lastname', id:'lastname', value:currentUser?.lastname, isSubmitted:isUserFormEditMode, size:80, maxlength:30 , minlength:1, type: 'text', required:true , validators: [validators.required] },

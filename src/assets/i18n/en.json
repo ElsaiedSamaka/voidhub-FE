@@ -85,5 +85,6 @@
     "address": "address",
     "phonenumber": "phonenumber",
     "birthdate": "birthdate",
-    "Language & Mode": "Language & Mode"
+    "Language & Mode": "Language & Mode",
+    "General information":"General information"
 }
