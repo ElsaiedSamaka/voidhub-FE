@@ -18,7 +18,7 @@ import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
   imports: [
-    TranslateModule.forRoot({
+    TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,

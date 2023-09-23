@@ -14,7 +14,7 @@ import { ViewsModule } from './views/views.module';
 
 @NgModule({
   imports: [
-    TranslateModule.forRoot({
+    TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
