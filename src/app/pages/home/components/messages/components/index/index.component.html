@@ -6,7 +6,7 @@
       class="flex items-center justify-between border-b">
       <span [ngClass]="currentTheme == 'dark'?'text-dark-secondary':''"
         class="text-xl font-semibold my-2">{{"Contacts"|translate}}</span>
-      <span>
+      <span class="relative group">
         <!-- settings icon -->
         <svg class="w-6 h-6 hover:cursor-pointer" routerLink="settings" fill="none" stroke="currentColor" stroke-width="1.5"
           viewBox="0 0 24 24"
@@ -16,6 +16,12 @@
         </path>
         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
       </svg>
+      <div id="tooltip-default" role="tooltip"
+        [ngClass]="currentTheme == 'dark'?'bg-[#232325] text-dark-secondary border-white/10':'bg-white text-black border-gray-200'"
+        class="absolute opacity-0 group-hover:opacity-100 top-6 z-10  inline-block px-3 py-2 text-sm font-medium  transition-opacity duration-300  rounded-lg shadow-md tooltip ">
+        {{"settings"|translate}}
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
         <!-- settings icon -->
       </span>
     </div>
