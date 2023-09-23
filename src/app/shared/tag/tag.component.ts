@@ -9,6 +9,7 @@ import { PostsService } from 'src/core/services/posts.service';
 export class TagComponent implements OnInit {
   @Input() tagObj: any;
   @Input() currentTheme: string = '';
+  selectedTags: any[] = [];
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {}
@@ -19,7 +20,10 @@ export class TagComponent implements OnInit {
     }
   }
   getPostsByTagId(tagId: any): void {
-    this.postsService.getPostsByTags([tagId]).subscribe({
+    this.selectedTags.push(tagId);
+    const tags = [...this.selectedTags]; // Create a new array copy
+    console.log('tags', tags);
+    this.postsService.getPostsByTags(tags).subscribe({
       next: (response) => {
         console.log('response', response);
       },
