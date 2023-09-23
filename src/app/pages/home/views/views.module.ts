@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpLoaderFactory } from 'src/app/app.module';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -28,6 +29,7 @@ import { TimelineComponent } from './timeline/timeline.component';
     CommonModule,
     FormsModule,
     SharedModule,
+    RouterModule,
   ],
   declarations: [
     CompanyCardComponent,
