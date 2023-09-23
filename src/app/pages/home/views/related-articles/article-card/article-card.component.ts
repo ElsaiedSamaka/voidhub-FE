@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ArticleCardComponent implements OnInit {
   @Input() currentTheme: string = '';
+  @Input() article: any;
 
   constructor() {}
 
