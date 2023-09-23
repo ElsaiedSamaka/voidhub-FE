@@ -3,7 +3,7 @@
       <span class="font-semibold" [class.text-dark-secondary]="currentTheme == 'dark'">{{"Related articles"|translate}}</span>
     </a></h2>
   <div [ngClass]="currentTheme == 'dark'?'border-white/5':''"
-    class="not-prose mt-4 grid grid-cols-1 gap-8 border-t pt-10 sm:grid-cols-2 xl:grid-cols-4">
+    class="not-prose mt-4 grid grid-cols-1 gap-8 border-t pt-10 sm:grid-cols-2 xl:grid-cols-3">
   <app-article-card *ngFor="let relatedArticle of relatedArticles" [currentTheme]="currentTheme"
     [currentUser]="currentUser" [article]="relatedArticle"></app-article-card>
   </div>
