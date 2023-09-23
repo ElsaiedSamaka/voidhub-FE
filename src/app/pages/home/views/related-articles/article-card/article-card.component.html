@@ -1,5 +1,6 @@
-<div [ngClass]="currentTheme=='dark'?'bg-white/2.5 hover:shadow-black/5':'bg-zinc-50 hover:shadow-zinc-900/5'"
-  class="group relative flex rounded-2xl  transition-shadow hover:shadow-md  ">
+<div
+  [ngClass]="currentTheme=='dark'?'bg-white/2.5 hover:shadow-black/5 hover:ring-white/20 ring-white/10':'bg-zinc-50 hover:shadow-zinc-900/5 hover:ring-zinc-900/10 ring-zinc-900/5'"
+  class="group relative flex rounded-2xl ring-1 ring-inset transition-shadow hover:shadow-md  hover:cursor-pointer">
   <!-- card decoration -->
   <ng-container [ngSwitch]="currentTheme">
     <div class="pointer-events-none" *ngSwitchCase="'light'">
@@ -79,10 +80,7 @@
     </div>
   </ng-container>
   <!-- card decoration -->
-  <div
-    [ngClass]="currentTheme=='dark'?'group-hover:ring-white/20 ring-white/10 ':'group-hover:ring-zinc-900/10 ring-zinc-900/7.5'"
-    class="absolute inset-0 rounded-2xl ring-1 ring-inset  ">
-  </div>
+  
   <div class="relative rounded-2xl px-4 pb-4 pt-8 w-full">
       <ng-container [ngSwitch]="article.isAnonymous">
         <div class="flex items-center group relative" *ngSwitchCase='false'>
