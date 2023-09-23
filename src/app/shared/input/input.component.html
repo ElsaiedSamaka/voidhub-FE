@@ -14,7 +14,7 @@
         [minlength]="minlength" [required]="required"  [pattern]="pattern"
         [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
             <p *ngIf="description" [ngClass]="currentTheme=='dark'?'text-dark-secondary':''"
-              class="input-description text-xs  border font-semibold text-right italic" translate>{{description}}</p>
+              class="input-description text-xs   font-semibold ltr:text-right rtl:text-left italic" translate>{{description}}</p>
     </div>
       <div *ngSwitchCase="'file'">
         <div class="flex">
