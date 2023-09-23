@@ -12,10 +12,14 @@
       </p>
       <!-- article title -->
     </figure>
-    <p [class.text-dark-secondary]="currentTheme == 'dark'" class="lead inline-flex gap-2"><i>{{"By."|translate}}</i><span
+    <p [class.text-dark-secondary]="currentTheme == 'dark'" class="lead inline-flex gap-2"><i>{{"By."|translate}}</i>
+      <ng-container [ngSwitch]="data.article.isAnonymous">
+        <span *ngSwitchCase="true" class="font-semibold hover:underline">{{"Anonymous"|translate}}</span>
+        <span *ngSwitchCase="false"
         class="font-semibold hover:underline">{{data.article.user?.username}}</span>
+      </ng-container>
       {{"on"|translate}}<b>{{data.article.createdAt | date}} </b> </p>
-    <div class="not-prose mb-16 mt-6 flex justify-between items-center">
+    <div class="not-prose mb-8 mt-6 flex justify-between items-center">
       <div>
         <!-- tags -->
         <app-tag [currentTheme]="currentTheme" *ngFor="let tag of data.article.tags" [name]="tag.name"></app-tag>
