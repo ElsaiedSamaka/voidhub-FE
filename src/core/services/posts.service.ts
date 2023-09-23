@@ -142,8 +142,8 @@ export class PostsService {
       })
     );
   }
-  getPostsByTagId(tagId: any): Observable<any[]> {
-    return this.apiService.get(`/api/posts/by-tag/${tagId}`).pipe(
+  getPostsByTags(tags: any[]): Observable<any[]> {
+    return this.apiService.post(`/api/posts/by-tag`, { tags }).pipe(
       tap((response) => {
         this.posts$.next(response);
       })

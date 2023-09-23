@@ -19,7 +19,7 @@ export class TagComponent implements OnInit {
     }
   }
   getPostsByTagId(tagId: any): void {
-    this.postsService.getPostsByTagId(tagId).subscribe({
+    this.postsService.getPostsByTags([tagId]).subscribe({
       next: (response) => {
         console.log('response', response);
       },
