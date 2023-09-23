@@ -102,7 +102,6 @@
     <h3 [ngClass]="currentTheme =='dark'?'text-white':'text-zinc-900'" class="mt-4 text-sm font-semibold leading-7 ">
       <a><span class="absolute inset-0 rounded-2xl"></span>{{article.title}}</a>
     </h3>
-    <p class="mt-1 text-sm text-zinc-600 :text-zinc-400">Learn about the contact model and how to create,
-      retrieve, update, delete, and list contacts.</p>
+          <app-truncated-text [htmlContent]="article.content" [currentTheme]="currentTheme"></app-truncated-text>
   </div>
 </div>
