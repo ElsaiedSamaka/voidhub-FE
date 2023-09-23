@@ -14,7 +14,7 @@
                   </span>
                   </div>
                   <!-- user popover -->
-                  <div *ngIf="showFollowingPopOver && currentUser.id != comment.userId" data-popover id="popover-user-profile"
+                  <!-- <div *ngIf="showFollowingPopOver && currentUser.id != comment.userId" data-popover id="popover-user-profile"
                     role="tooltip" [ngClass]="currentTheme=='dark'?'bg-zinc-900 text-dark-secondary':'bg-white text-gray-800'"
                     class="absolute shadow-xl opacity-0 group-hover:opacity-100 z-20 top-10 inline-block w-64 text-sm  transition-opacity duration-300   rounded-lg ">
                     <div class="p-3">
@@ -56,8 +56,9 @@
                       </ul>
                     </div>
                     <div data-popper-arrow></div>
-                  </div>
-                <!-- user popover -->
+                  </div> -->
+                  <app-user-popover [currentTheme]="currentTheme" [currentUser]="currentUser" [article]="comment"></app-user-popover>
+                  <!-- user popover -->
         </div>
           <div *ngSwitchCase="true">
             <div class=" inline-flex items-center justify-center">
