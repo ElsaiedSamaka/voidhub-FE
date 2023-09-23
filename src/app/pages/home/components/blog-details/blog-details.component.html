@@ -29,7 +29,7 @@
       <div
         [ngClass]="currentTheme=='dark'?'border-white/5 text-dark-secondary hover:text-gray-200 hover:bg-zinc-700/10':'hover:bg-zinc-50'"
         class="p-2 save-icon cursor-pointer rounded-full border ">
-        <svg class=" w-5 h-5 text-gray-300" [ngClass]="alreadySavedArticle ?'text-yellow-200 fill-current':''" fill="none"
+        <svg class=" w-5 h-5 text-gray-300 peer" [ngClass]="alreadySavedArticle ?'text-yellow-200 fill-current':''" fill="none"
           (click)="saveArticle($event)"
           stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -37,6 +37,12 @@
             d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z">
           </path>
         </svg>
+        <div id="tooltip-default" role="tooltip"
+          [ngClass]="currentTheme == 'dark'?'bg-[#232325] text-dark-secondary border-white/10':'bg-white text-black border-gray-200'"
+          class="absolute opacity-0 peer-hover:opacity-100 top-8 left-0 z-10  inline-block px-3 py-2 text-xs font-medium  transition-opacity duration-300  rounded-lg shadow-md tooltip ">
+          {{"unsave"|translate}}
+          <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
       </div>
       <!-- save article icon -->
     </div>
