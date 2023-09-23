@@ -18,7 +18,7 @@
             [src]="article.user?.user_img" alt="" />
                 <div class="ml-3 flex items-center">
                   <p [class.text-gray-200]="currentTheme=='dark'" class="text-base leading-6 font-medium"
-                    (mouseenter)="displayFollowingPopOver()" >
+                     >
                     {{article.user.email}}
                   </p>
                   <span class="text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150">
@@ -27,7 +27,7 @@
                   
                   </div>
                   <!-- user popover -->
-                  <div
+                  <!-- <div
                     *ngIf="showFollowingPopOver && currentUser.id != article.user.id" data-popover id="popover-user-profile"
                     role="tooltip"
                   [ngClass]="currentTheme=='dark'?'bg-zinc-900 text-dark-secondary':'bg-white text-gray-800'"
@@ -73,7 +73,8 @@
                     </ul>
                   </div>
                   <div data-popper-arrow></div>
-                </div>
+                </div> -->
+                <app-user-popover [currentTheme]="currentTheme" [currentUser]="currentUser" [article]="article"></app-user-popover>
                 <!-- user popover -->
         </div>
         

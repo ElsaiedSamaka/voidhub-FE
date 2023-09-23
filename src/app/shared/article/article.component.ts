@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { CommentsService } from 'src/core/services/comments.service';
 import { PostsService } from 'src/core/services/posts.service';
-import { UsersService } from 'src/core/services/users.service';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -32,8 +31,7 @@ export class ArticleComponent implements OnInit, OnChanges {
   constructor(
     private commentsService: CommentsService,
     private postsService: PostsService,
-    private dataService: DataService,
-    private usersService: UsersService
+    private dataService: DataService
   ) {}
 
   ngOnInit() {
@@ -42,9 +40,9 @@ export class ArticleComponent implements OnInit, OnChanges {
     this.loveCount = loveCount;
     this.noOfComments = comments.length;
     // check if current already follow the creator of the article
-    this.isFollowing();
-    this.followingCount = this.article.user.following.length;
-    this.followersCount = this.article.user.follower.length;
+    // this.isFollowing();
+    // this.followingCount = this.article.user.following.length;
+    // this.followersCount = this.article.user.follower.length;
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.article && changes.article.currentValue) {
@@ -52,12 +50,7 @@ export class ArticleComponent implements OnInit, OnChanges {
       this.article = changes.article.currentValue;
     }
   }
-  displayFollowingPopOver() {
-    this.showFollowingPopOver = true;
-  }
-  hideFollowingPopOver() {
-    this.showFollowingPopOver = false;
-  }
+
   toggleCommentSection(event: any) {
     event.stopPropagation();
     this.showCommentInput = !this.showCommentInput;
@@ -157,44 +150,5 @@ export class ArticleComponent implements OnInit, OnChanges {
     );
 
     return !!alreadyLovedArticle;
-  }
-  follow(event: any, followingId: any): void {
-    event.stopPropagation();
-    let followerId = this.currentUser.id;
-    const userToFollow = {
-      followerId: followerId,
-      followingId: followingId,
-    };
-    this.usersService.follow(userToFollow).subscribe({
-      next: () => {
-        this.isFollowing = () => true;
-        this.followersCount = this.followersCount + 1;
-      },
-      error: () => {},
-      complete: () => {},
-    });
-  }
-  unfollow(event: any, followingId: any): void {
-    event.stopPropagation();
-    let followerId = this.currentUser.id;
-    const userToUnFollow = {
-      followerId: followerId,
-      followingId: followingId,
-    };
-    this.usersService.unfollow(userToUnFollow).subscribe({
-      next: () => {
-        this.isFollowing = () => false;
-        this.followersCount = this.followersCount - 1;
-      },
-      error: () => {},
-      complete: () => {},
-    });
-  }
-  isFollowing(): boolean {
-    const currentUserID = this.currentUser.id;
-    const followingUsers = this.article.user.following.map(
-      (item) => item.followerId
-    );
-    return followingUsers.includes(currentUserID);
   }
 }
