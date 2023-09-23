@@ -5,8 +5,8 @@
 <app-user-card [currentTheme]="currentTheme" [currentUser]="currentUser"></app-user-card>
  <!-- user-card  -->
 </div>
-<section class="flex h-full flex-col mt-3">
-  <div class="grid grid-cols-4 gap-4 ">
+<section class="flex h-[70vh] overflow-scroll flex-col mt-3 ">
+  <div class="grid grid-cols-4 gap-4 h-full">
     <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
       class="xs:col-span-full  p-2 border rounded-lg ">
 <div class="p-1 h-full" #scrollContainer>
