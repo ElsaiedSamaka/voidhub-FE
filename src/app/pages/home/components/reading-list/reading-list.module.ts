@@ -13,6 +13,9 @@ import { ReadingListRoutingModule } from './reading-list-routing.module';
 
 @NgModule({
   imports: [
+    ReadingListRoutingModule,
+    SharedModule,
+    CommonModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -20,9 +23,6 @@ import { ReadingListRoutingModule } from './reading-list-routing.module';
         deps: [HttpClient],
       },
     }),
-    CommonModule,
-    SharedModule,
-    ReadingListRoutingModule,
   ],
   declarations: [
     HomeComponent,
