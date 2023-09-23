@@ -125,7 +125,7 @@
             <div class="flex items-center justify-between space-x-1 group">
               <a (click)="toggleCommentSection($event)"
               [ngClass]="currentTheme == 'dark'? ' text-dark-secondary border-white/5 hover:bg-zinc-700/10 hover:text-gray-100':' text-gray-500 hover:bg-zinc-50 hover:text-gray-800'"
-                class="p-2 save-icon cursor-pointer rounded-full border hover:border-yellow-300 ">
+                class="p-2 save-icon cursor-pointer rounded-full border hover:border-blue-400/10 ">
                 <svg class="h-5 w-5 text-blue-200 hover:text-blue-300" fill="none" stroke-linecap="round" stroke-linejoin="round"
                   stroke-width="2"
                   stroke="currentColor" viewBox="0 0 24 24">
@@ -141,7 +141,7 @@
             <div class=" flex items-center justify-between space-x-1">
               <a (click)="favArticle($event)"
                 [ngClass]="currentTheme == 'dark'? ' text-dark-secondary border-white/5 hover:bg-zinc-700/10 hover:text-gray-100':' text-gray-500 hover:bg-zinc-50 hover:text-gray-800'"
-                class="p-2 save-icon cursor-pointer rounded-full border hover:border-yellow-300 ">
+                class="p-2 save-icon cursor-pointer rounded-full border hover:border-red-400/10 ">
                 <svg class="h-5 w-5 text-red-300 hover:text-red-400" [ngClass]="articleAlreadyExistOnFaved()?'fill-current':'fill-none'"
                   stroke-linecap="round" stroke-linejoin="round"
                   stroke-width="2"
@@ -167,7 +167,7 @@
             <div class="  flex items-center justify-between space-x-1">
               <a (click)="saveArticle($event)"
                [ngClass]="currentTheme == 'dark'? ' text-dark-secondary border-white/5 hover:bg-zinc-700/10 hover:text-gray-100':' text-gray-500 hover:bg-zinc-50 hover:text-gray-800'"
-                class="p-2 save-icon cursor-pointer rounded-full border hover:border-yellow-300 ">
+                class="p-2 save-icon cursor-pointer rounded-full border hover:border-yellow-300/10 ">
                 <svg class="w-5 h-5 text-yellow-300 hover:text-yellow-400" [ngClass]="articleAlreadyExistOnSaved()?'fill-current':'fill-none'"
                   stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
