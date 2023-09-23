@@ -15,42 +15,7 @@
           </span>
         </div>
         <!-- user popover -->
-        <div *ngIf="showFollowingPopOver" data-popover id="popover-user-profile" role="tooltip"
-          [ngClass]="currentTheme=='dark'?'bg-zinc-900 text-dark-secondary':'bg-white text-gray-800'"
-          class="absolute shadow-xl z-20 top-10 inline-block w-64 text-sm  transition-opacity duration-300   rounded-lg opacity-100">
-          <div class="p-3">
-            <div class="flex items-center justify-between mb-2">
-              <a>
-                <img class="w-10 h-10 rounded-full" [src]="reply.user?.user_img" alt="">
-              </a>
-              <div>
-                <button type="button"
-                  class="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:ring-emerald-300 font-medium rounded-lg text-xs px-3 py-1.5 :bg-blue-600 :hover:bg-blue-700 focus:outline-none :focus:ring-blue-800">Follow</button>
-              </div>
-            </div>
-            <p class="text-base font-semibold leading-none">
-              <a>{{reply.user.email.split("@")[0]| uppercase}}</a>
-            </p>
-            <p class="mb-3 text-sm font-normal">
-              <a class="hover:underline">@{{reply.user.email}}</a>
-            </p>
-            <ul class="flex text-sm">
-              <li class="mr-2">
-                <a class="hover:underline">
-                  <span class="font-semibold">799</span>
-                  <span>{{"Following"|translate}}</span>
-                </a>
-              </li>
-              <li>
-                <a class="hover:underline">
-                  <span class="font-semibold">3,758</span>
-                  <span>{{"Followers"|translate}}</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div data-popper-arrow></div>
-        </div>
+                          <app-user-popover [currentTheme]="currentTheme" [currentUser]="currentUser" [article]="reply"></app-user-popover>
         <!-- user popover -->
         </div>
         <div *ngSwitchCase="true">
