@@ -10,6 +10,7 @@ export class TagComponent implements OnInit {
   @Input() tagObj: any;
   @Input() currentTheme: string = '';
   selectedTags: any[] = [];
+  selectedTagId: number | null = null;
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {}
@@ -18,11 +19,12 @@ export class TagComponent implements OnInit {
       // Update the tagObj value
       this.tagObj = changes.tagObj.currentValue;
     }
+    this.selectedTagId = null;
   }
   getPostsByTagId(tagId: any): void {
     this.selectedTags.push(tagId);
     const tags = [...this.selectedTags]; // Create a new array copy
-    console.log('tags', tags);
+    this.selectedTagId = tagId;
     this.postsService.getPostsByTags(tags).subscribe({
       next: (response) => {
         console.log('response', response);
