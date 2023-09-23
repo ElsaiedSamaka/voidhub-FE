@@ -8,6 +8,7 @@ import { PostsService } from 'src/core/services/posts.service';
 })
 export class RelatedArticlesComponent implements OnInit {
   @Input() currentTheme: string = '';
+  @Input() currentUser: Object = {};
   @Input() article: Object = {};
   relatedArticles: any[] = [];
   constructor(private postsService: PostsService) {}
