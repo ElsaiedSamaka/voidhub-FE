@@ -1,4 +1,4 @@
-<section class="flex h-[94vh] flex-col gap-2 pt-4 ">
+<!-- <section class="flex h-[94vh] flex-col gap-2 pt-4 ">
   <div class="py-4 px-4 mx-auto max-w-screen-2xl min-w-full text-center border rounded-lg lg:py-4 lg:px-12"
     [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'">
     <h1
@@ -63,4 +63,50 @@
                 asd
               </div>
             </div>
+          </section> -->
+          <section class="flex h-[94vh] flex-col gap-2 pt-4 ">
+            <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
+              class="py-8 px-4 mx-auto w-full h-full max-w-screen-2xl rounded-lg text-center border lg:py-16 lg:px-12"
+              [class.text-dark-secondary]="currentTheme=='dark'">
+              <svg class="mx-auto mb-4 w-10 h-10 text-emerald-400 animate-bounce" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512">
+                <path fill="currentColor"
+                  d="M331.8 224.1c28.29 0 54.88 10.99 74.86 30.97l19.59 19.59c40.01-17.74 71.25-53.3 81.62-96.65c5.725-23.92 5.34-47.08 .2148-68.4c-2.613-10.88-16.43-14.51-24.34-6.604l-68.9 68.9h-75.6V97.2l68.9-68.9c7.912-7.912 4.275-21.73-6.604-24.34c-21.32-5.125-44.48-5.51-68.4 .2148c-55.3 13.23-98.39 60.22-107.2 116.4C224.5 128.9 224.2 137 224.3 145l82.78 82.86C315.2 225.1 323.5 224.1 331.8 224.1zM384 278.6c-23.16-23.16-57.57-27.57-85.39-13.9L191.1 158L191.1 95.99l-127.1-95.99L0 63.1l96 127.1l62.04 .0077l106.7 106.6c-13.67 27.82-9.251 62.23 13.91 85.39l117 117.1c14.62 14.5 38.21 14.5 52.71-.0016l52.75-52.75c14.5-14.5 14.5-38.08-.0016-52.71L384 278.6zM227.9 307L168.7 247.9l-148.9 148.9c-26.37 26.37-26.37 69.08 0 95.45C32.96 505.4 50.21 512 67.5 512s34.54-6.592 47.72-19.78l119.1-119.1C225.5 352.3 222.6 329.4 227.9 307zM64 472c-13.25 0-24-10.75-24-24c0-13.26 10.75-24 24-24S88 434.7 88 448C88 461.3 77.25 472 64 472z" />
+              </svg>
+              <h1 class="mb-4 text-4xl font-bold tracking-tight leading-none  lg:mb-6 md:text-5xl xl:text-6xl">
+                Under construction</h1>
+              <p class="font-light text-gray-500 md:text-lg xl:text-xl dark:text-gray-400">companies page is under construction on
+                some
+                how
+                soon <span>!</span></p>
+            </div>
+            <!-- <form class="mx-6">
+                                    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only :text-white">Search</label>
+                                    <div class="relative">
+                                      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                        <svg class="w-4 h-4 text-gray-500 :text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                          fill="none" viewBox="0 0 20 20">
+                                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                        </svg>
+                                      </div>
+                                      <input type="search" id="default-search"
+                                        class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-zinc-500 focus:border-zinc-500 "
+                                        placeholder="Search Over 1 Million Jobs..." required>
+                                      <button type="submit"
+                                        class="text-white absolute right-2.5 bottom-2.5 bg-zinc-700 hover:bg-zinc-800 focus:ring-4 focus:outline-none focus:ring-zinc-300 font-medium rounded-full text-sm px-6 py-2">Search</button>
+                                    </div>
+                                  </form> -->
+          
+            <!-- <div class="grid grid-cols-5 gap-4 h-[73vh] ">
+                                  <ul class="col-span-2 p-2 border rounded-lg rounded-b-none overflow-y-scroll "
+                                    [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'">
+                                    <app-company-card [currentTheme]="currentTheme"></app-company-card>
+                                    <app-company-card [currentTheme]="currentTheme"></app-company-card>
+                                      </ul>
+                                        <div class="col-span-3 border rounded-lg rounded-b-none h-full overflow-y-scroll"
+                                          [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'">
+                                    asd
+                                  </div>
+                                </div> -->
           </section>
