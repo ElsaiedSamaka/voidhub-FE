@@ -24,6 +24,7 @@ import { LangSelectorComponent } from './lang-selector/lang-selector.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { ModalComponent } from './modal/modal.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NotificationIconComponent } from './navbar/notification-icon/notification-icon.component';
 import { SwitchThemeComponent } from './navbar/switch-theme/switch-theme.component';
 import { PopupComponent } from './popup/popup.component';
 import { ProseComponent } from './prose/prose.component';
@@ -78,6 +79,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     LangSelectorComponent,
     SearchModalComponent,
     UserPopoverComponent,
+    NotificationIconComponent,
   ],
   exports: [
     ModalComponent,
@@ -105,6 +107,7 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
     LangSelectorComponent,
     SearchModalComponent,
     UserPopoverComponent,
+    NotificationIconComponent,
   ],
   providers: [DataService],
 })
