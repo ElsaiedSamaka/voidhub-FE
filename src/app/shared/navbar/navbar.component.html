@@ -29,14 +29,16 @@
         aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"></path>
       </svg></button>
-    <a aria-label="Home" class="flex flex-row-reverse gap-1">
-      <pre class="text-xl typewriter">VoidHub</pre>
-      <svg class="h-6 font-bold text-emerald-400" fill="current" stroke="currentColor" stroke-width="2.5"
-        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5"></path>
-      </svg>
-    </a>
+      <div class="flex items-center justify-center rounded-3xl">
+        <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5"></path>
+        </svg>
+        <div class="typewriter font-bold text-2xl" [class.text-dark-secondary]="currentTheme=='dark'">
+          <pre>Void<span class="bg-emerald-300 rounded-sm text-white">Hub</span></pre>
+        </div>
+        </div>
     </div>
   <!-- Logo and title -->
   <!-- nav items -->
