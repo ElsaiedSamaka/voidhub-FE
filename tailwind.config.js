@@ -18,7 +18,7 @@ module.exports = {
         },
       },
       screens: {
-        xs: "375px",
+        xs: "300px",
       },
       direction: {
         rtl: "rtl", // Right-to-left
