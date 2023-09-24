@@ -22,17 +22,17 @@ rtlltr  [ngClass]="theme == 'dark'?'bg-[#1b1d1e] text-dark-secondary':'bg-gray-5
 </div>
 <!-- shap -->
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
-    <div class="flex flex-row items-center justify-center h-12 w-full my-2">
-      <div class="flex items-center justify-center rounded-3xl">
-        <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5"></path>
-        </svg>
+  <div class="flex flex-row items-center justify-center h-12 w-full my-2">
+    <div class="flex items-center justify-center rounded-3xl">
+      <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5"></path>
+      </svg>
+      <div class="typewriter font-bold text-2xl" [class.text-dark-secondary]="theme=='dark'">
+        <pre>Void<span class="bg-emerald-300 rounded-sm text-white">Hub</span></pre>
       </div>
-      <div class="typewriter ml-2 font-bold text-2xl">
-        <pre> VoidHub </pre>
-      </div>
+    </div>
     </div>
     <div
     [ngClass]="theme == 'dark'?'bg-dark-accent text-dark-secondary':'bg-white text-light-secondary'"
