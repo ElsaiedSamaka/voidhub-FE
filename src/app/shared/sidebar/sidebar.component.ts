@@ -45,8 +45,9 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.showSideBar.subscribe({
-      next: (res) => {
-        this.showSideBar = res;
+      next: (showSideBar) => {
+        console.log('showSideBar', showSideBar);
+        this.showSideBar = showSideBar;
       },
     });
     this.getAllTags();
