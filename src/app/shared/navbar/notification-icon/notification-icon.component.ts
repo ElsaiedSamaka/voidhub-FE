@@ -8,7 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NotificationIconComponent implements OnInit {
   @Input() currentUser: any = null;
   @Input() currentTheme: any = null;
+  showNotifcationDropDown:boolean = false
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() { }
+  toggleNotificationDropDown() {
+    this.showNotifcationDropDown = !this.showNotifcationDropDown
+  }
 }
