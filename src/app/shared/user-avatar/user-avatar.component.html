@@ -1,6 +1,7 @@
 <div class="user-avatar relative" (click)="toggleDropDownTree()">
   <ng-container *ngIf="currentUser.user_img;else noUserImg">
-    <div class="p-2 rounded-full border" [ngClass]="currentTheme=='dark'?'border-white/10':'border-zinc-900/10'">
+    <div class="p-2 rounded-full border"
+      [ngClass]="currentTheme=='dark'?'border-white/10 hover:border-white/50':'border-zinc-900/10 hover:border-zinc-950/5'">
     <img *ngIf="currentUser.user_img" id="avatarButton" type="button" data-dropdown-toggle="userDropdown"
       data-dropdown-placement="bottom-start" class="w-6 h-6 rounded-full cursor-pointer" [src]="currentUser.user_img"
       alt="User dropdown">
