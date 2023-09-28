@@ -41,7 +41,6 @@ export class IndexComponent implements OnInit {
     this.chatService.getConversations(this.currentUser.id);
     this.chatService.conversations$.pipe(debounceTime(100)).subscribe(() => {
       this.conversations = this.chatService.conversations$.value;
-      console.log('conversations', this.conversations);
     });
   }
   toggleConversationAction(event: any, index: any): void {
@@ -51,7 +50,6 @@ export class IndexComponent implements OnInit {
   }
   handleConversationRemove(id: any): void {
     this.chatService.deleteConversationById(id).subscribe((res) => {
-      console.log('res', res);
     });
   }
   joinConversation(conversationId: any): void {

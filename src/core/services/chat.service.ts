@@ -7,7 +7,6 @@ import { SocketService } from './socket.service';
   providedIn: 'root',
 })
 export class ChatService {
-  selectedContact;
   conversation$ = new BehaviorSubject<any[]>([]);
   conversations$ = new BehaviorSubject<any[]>([]);
 
@@ -44,7 +43,6 @@ export class ChatService {
       message: message,
     });
     this.socketService.socket.on('newMessage', (newMessage) => {
-      console.log('newMessage', newMessage);
       this.getConversations(this.authService.getCurrentUser().id);
       if (!this.conversation$.value['messages'].includes(newMessage)) {
         this.conversation$.value['messages'].push(newMessage);
@@ -56,14 +54,12 @@ export class ChatService {
       currentUserId: currentUserId,
     });
     this.socketService.socket.on('emittedConversation', (conversations) => {
-      // console.log('conversations', conversations);
       this.conversations$.next(conversations);
     });
   }
   getConversationById(id: string): Observable<any> {
     return this.apiService.get(`/api/conversations/${id}`).pipe(
       tap((res) => {
-        console.log('res', res);
         this.conversation$.next(res);
       })
     );
@@ -71,11 +67,9 @@ export class ChatService {
   deleteConversationById(id: string): Observable<any> {
     return this.apiService.delete(`/api/conversations/${id}`).pipe(
       tap((deleteItem) => {
-        console.log('deleteItem', deleteItem);
         let updatedItems = this.conversations$.value.filter(
           (item) => item.id != deleteItem.id
         );
-        console.log('updatedItems', updatedItems);
         this.conversations$.next(updatedItems);
       })
     );

@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/core/services/auth.service';
 import { LanguageService } from 'src/core/services/language.service';
 import { SocketService } from 'src/core/services/socket.service';
 import { LoadingService } from './shared/services/loading.service';
@@ -20,13 +21,20 @@ export class AppComponent implements OnInit {
     private languageService: LanguageService,
     private socketService: SocketService,
     private translate: TranslateService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private authService: AuthService
   ) {
     this.loading$ = this.loadingService.loading$;
   }
   ngOnInit(): void {
     this.themeService.getCurrentTheme();
     this.getCurrentLanguage();
+    // Listen for the newMessageNotification event
+    this.socketService.socket.on('newMessageNotification', (message) => {
+      // Handle the new message notification
+      console.log('New message notification:', message);
+      // Update your UI or show a notification
+    });
   }
   getCurrentLanguage(): void {
     this.languageService.currentLanguage$.subscribe((language) => {
