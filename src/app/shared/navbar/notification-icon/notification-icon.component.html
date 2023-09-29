@@ -13,7 +13,7 @@
 </button>
 </div>
 <!-- Dropdown menu -->
-<div id="dropdownNotification" *ngIf="showNotifcationDropDown"
+<div id="dropdownNotification" *ngIf="true"
  [ngClass]="currentTheme=='dark'?'bg-[#18181b] border-white/10 divide-white/10 text-dark-secondary':'bg-white border-zinc-900/10 divide-gray-100 text-zinc-900'" class="absolute -left-6 top-11  z-20  w-full max-w-lg divide-y border rounded-lg shadow-2xl"
   aria-labelledby="dropdownNotificationButton">
   <div class="block px-4 py-2 font-medium text-center rounded-t-lg"
@@ -22,7 +22,9 @@
   </div>
   <div class="h-[50vh] overflow-scroll divide-y"
     [ngClass]="currentTheme=='dark'?'divide-white/10 text-dark-secondary':'divide-gray-100 text-zinc-900'">
-    <a class="flex px-4 py-3 transition-all hover:text-emerald-500 hover:cursor-pointer duration-1000">
+  <ng-container *ngIf="newMessageNotifications">
+    <!-- <a class="flex px-4 py-3 transition-all hover:text-emerald-500 hover:cursor-pointer duration-1000"
+        *ngFor="let notification of newMessageNotifications">
       <div class="flex-shrink-0  relative">
         <img class="rounded-full w-11 h-11"
           src="https://res.cloudinary.com/dwi0qvtbe/image/upload/v1695691224/users_img/profile_zu3vqf.png" alt="Jese image">
@@ -43,8 +45,11 @@
           presentation?"</div>
         <div class="text-xs text-blue-500 ">a few moments ago</div>
       </div>
-    </a>
-    <a class="flex px-4 py-3 transition-all hover:text-emerald-500 hover:cursor-pointer duration-1000">
+    </a> -->
+    <pre *ngFor="let notification of newMessageNotifications">{{notification|json}}</pre>
+    
+    </ng-container>
+    <!-- <a class="flex px-4 py-3 transition-all hover:text-emerald-500 hover:cursor-pointer duration-1000">
       <div class="flex-shrink-0 relative">
         <img class="rounded-full w-11 h-11"
           src="https://res.cloudinary.com/dwi0qvtbe/image/upload/v1695691224/users_img/profile_zu3vqf.png" alt="Joseph image">
@@ -123,7 +128,7 @@
           learn how to implement the new design trend.</div>
         <div class="text-xs text-blue-500">3 hours ago</div>
       </div>
-    </a>
+    </a> -->
   </div>
   <a
     class="block py-2 text-sm font-medium text-center rounded-b-lg ">

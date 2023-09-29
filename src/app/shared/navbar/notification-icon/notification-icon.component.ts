@@ -9,6 +9,7 @@ import { SocketService } from 'src/core/services/socket.service';
 export class NotificationIconComponent implements OnInit {
   @Input() currentUser: any = null;
   @Input() currentTheme: any = null;
+  @Input() newMessageNotifications: any[] = [];
   showNotifcationDropDown: boolean = false;
   constructor(private socketService: SocketService) {}
 

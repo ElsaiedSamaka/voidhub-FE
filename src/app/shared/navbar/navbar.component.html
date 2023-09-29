@@ -54,7 +54,7 @@
     <!-- switch theme mode -->
         <ng-container *ngIf="currentUser; else noUser">
     <!-- notification  -->
-      <app-notification-icon [currentTheme]="currentTheme" [currentUser]="currentUser"></app-notification-icon>
+      <app-notification-icon [currentTheme]="currentTheme" [currentUser]="currentUser" [newMessageNotifications]="newMessageNotifications"></app-notification-icon>
     <!-- notification  -->
     <!-- user avatar -->
     <app-user-avatar [currentTheme]="currentTheme" [currentUser]="currentUser"></app-user-avatar>

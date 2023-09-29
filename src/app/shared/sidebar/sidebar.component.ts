@@ -67,7 +67,6 @@ export class SidebarComponent implements OnInit {
   handleNewMessageNotification() {
     // Listen for the newMessageNotification event
     this.socketService.socket.on('newMessageNotification', (message) => {
-      console.log('newMessageNotification', message);
       // Handle the new message notification
       this.newMessageNotifications.push(message);
       // Update your UI or show a notification
