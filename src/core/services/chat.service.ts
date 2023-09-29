@@ -44,9 +44,12 @@ export class ChatService {
     });
     this.socketService.socket.on('newMessage', (newMessage) => {
       this.getConversations(this.authService.getCurrentUser().id);
-      if (!this.conversation$.value['messages'].includes(newMessage)) {
-        this.conversation$.value['messages'].push(newMessage);
-      }
+      // so am gonna subscribe to conversation$ to get the latest and then check
+      this.conversation$.subscribe((conversation) => {
+        if (!conversation['messages'].includes(newMessage)) {
+          this.conversation$.value['messages'].push(newMessage);
+        }
+      });
     });
   }
   getConversations(currentUserId: number): void {
