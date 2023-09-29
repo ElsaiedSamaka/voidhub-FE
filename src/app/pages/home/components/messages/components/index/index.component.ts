@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { debounceTime } from 'rxjs';
 import { ThemeService } from 'src/app/shared/services/theme.service';
 import { AuthService } from 'src/core/services/auth.service';
@@ -9,7 +9,7 @@ import { ChatService } from 'src/core/services/chat.service';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css'],
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent implements OnInit, OnDestroy {
   currentTheme: string = '';
   currentUser: any;
   conversations: any[] = [];
@@ -35,6 +35,7 @@ export class IndexComponent implements OnInit {
       complete: () => {},
     });
     this.getConversations();
+    this.joinRooms();
   }
 
   getConversations() {
@@ -51,13 +52,20 @@ export class IndexComponent implements OnInit {
   handleConversationRemove(id: any): void {
     this.chatService.deleteConversationById(id).subscribe((res) => {});
   }
-  handleConversationMute(event: Event, conversationId: any) {
-    event.stopPropagation();
+
+  joinRooms(): void {
     const userId = this.currentUser.id;
-    this.chatService.leaveRoom(conversationId, userId);
+    this.conversations.map((conversation) => {
+      this.chatService.joinRoom(conversation.id, userId);
+    });
   }
-  joinConversation(conversationId: any): void {
+  ngOnDestroy() {
+    this.leaveRooms();
+  }
+  leaveRooms() {
     const userId = this.currentUser.id;
-    this.chatService.joinRoom(conversationId, userId);
+    this.conversations.map((conversation) => {
+      this.chatService.leaveRoom(conversation.id, userId);
+    });
   }
 }
