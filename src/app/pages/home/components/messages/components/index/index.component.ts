@@ -35,13 +35,13 @@ export class IndexComponent implements OnInit, OnDestroy {
       complete: () => {},
     });
     this.getConversations();
-    this.joinRooms();
   }
 
   getConversations() {
     this.chatService.getConversations(this.currentUser.id);
     this.chatService.conversations$.pipe(debounceTime(100)).subscribe(() => {
       this.conversations = this.chatService.conversations$.value;
+      this.joinRooms();
     });
   }
   toggleConversationAction(event: any, index: any): void {
@@ -54,8 +54,9 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   joinRooms(): void {
+    console.log('joinRooms called');
     const userId = this.currentUser.id;
-    this.conversations.map((conversation) => {
+    this.conversations.forEach((conversation) => {
       this.chatService.joinRoom(conversation.id, userId);
     });
   }
@@ -63,8 +64,9 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.leaveRooms();
   }
   leaveRooms() {
+    console.log('leaveRooms called');
     const userId = this.currentUser.id;
-    this.conversations.map((conversation) => {
+    this.conversations.forEach((conversation) => {
       this.chatService.leaveRoom(conversation.id, userId);
     });
   }

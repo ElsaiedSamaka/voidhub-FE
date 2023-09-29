@@ -75,6 +75,7 @@ export class ChatService {
     );
   }
   joinRoom(conversationId: any, userId: any) {
+    console.log('conversationId', conversationId);
     this.socketService.socket.emit('join', {
       conversationId: conversationId,
       userId: userId,
@@ -82,6 +83,7 @@ export class ChatService {
   }
 
   leaveRoom(conversationId: any, userId: any) {
+    console.log('conversationId', conversationId);
     this.socketService.socket.emit('leave', {
       conversationId: conversationId,
       userId: userId,
