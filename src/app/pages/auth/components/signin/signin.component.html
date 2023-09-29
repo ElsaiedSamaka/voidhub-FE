@@ -1,7 +1,11 @@
 <section class="relative h-screen w-full overflow-hidden"
 rtlltr  [ngClass]="theme == 'dark'?'bg-[#1b1d1e] text-dark-secondary':'bg-gray-50  text-light-secondary'">
 <!-- shap -->
+<!-- lang selector -->
+<div class="absolute top-5 left-5">
 <app-lang-selector></app-lang-selector>
+</div>
+<!-- lang selector -->
 <div class="pointer-events-none">
   <div
     class="absolute z-10 inset-0 rounded-2xl transition duration-300 [mask-image:linear-gradient(white,transparent)] group-hover:opacity-50">
