@@ -13,15 +13,10 @@ export class NotificationIconComponent implements OnInit {
   constructor(private socketService: SocketService) {}
 
   ngOnInit() {
-    this.emmitCurrentUser();
+
   }
   toggleNotificationDropDown() {
     this.showNotifcationDropDown = !this.showNotifcationDropDown;
   }
-  // emmit current User
-  emmitCurrentUser() {
-    this.socketService.socket.emit('currentUser', {
-      userId: this.currentUser.id,
-    });
-  }
+ 
 }

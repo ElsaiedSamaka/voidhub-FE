@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/core/services/auth.service';
+import { SocketService } from 'src/core/services/socket.service';
 
 @Component({
   selector: 'app-index',
@@ -8,7 +9,10 @@ import { AuthService } from 'src/core/services/auth.service';
 })
 export class IndexComponent implements OnInit {
   currentUser: any;
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private socketService: SocketService
+  ) {}
 
   ngOnInit() {
     this.authService.currentUser$.subscribe({
@@ -19,6 +23,13 @@ export class IndexComponent implements OnInit {
         console.log('err', err);
       },
       complete: () => {},
+    });
+    this.emmitCurrentUser();
+  }
+  // emmit current User
+  emmitCurrentUser() {
+    this.socketService.socket.emit('currentUser', {
+      userId: this.currentUser.id,
     });
   }
 }
