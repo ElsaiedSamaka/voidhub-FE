@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ThemeService } from '../services/theme.service';
+import { SocketService } from 'src/core/services/socket.service';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +8,18 @@ import { ThemeService } from '../services/theme.service';
 })
 export class HeaderComponent implements OnInit {
   @Input() currentUser: any = null;
-  currentTheme: string = '';
-  constructor(private themeService: ThemeService) {}
+  @Input() currentTheme: any = null;
+  constructor(private socketService: SocketService) {}
 
   ngOnInit() {
-    this.themeService.theme$.subscribe((theme) => {
-      this.currentTheme = theme;
+    this.handleNewMessageNotification();
+  }
+  handleNewMessageNotification() {
+    // Listen for the newMessageNotification event
+    this.socketService.socket.on('newMessageNotification', (message) => {
+      // Handle the new message notification
+      console.log('New message notification:', message);
+      // Update your UI or show a notification
     });
   }
 }

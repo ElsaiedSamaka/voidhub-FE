@@ -29,12 +29,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.themeService.getCurrentTheme();
     this.getCurrentLanguage();
-    // Listen for the newMessageNotification event
-    this.socketService.socket.on('newMessageNotification', (message) => {
-      // Handle the new message notification
-      console.log('New message notification:', message);
-      // Update your UI or show a notification
-    });
   }
   getCurrentLanguage(): void {
     this.languageService.currentLanguage$.subscribe((language) => {

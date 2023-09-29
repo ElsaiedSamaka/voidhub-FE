@@ -12,11 +12,8 @@ export class NotificationIconComponent implements OnInit {
   showNotifcationDropDown: boolean = false;
   constructor(private socketService: SocketService) {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
   toggleNotificationDropDown() {
     this.showNotifcationDropDown = !this.showNotifcationDropDown;
   }
- 
 }
