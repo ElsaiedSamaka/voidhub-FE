@@ -1,3 +1,12 @@
 {
-  "angular.enable-strict-mode-prompt": false
+  "angular.enable-strict-mode-prompt": false,
+  "peacock.color": "900C3F",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#bf1054",
+    "activityBar.background": "#bf1054",
+    "activityBarBadge.background": "#1a3b05",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799"
+  }
 }

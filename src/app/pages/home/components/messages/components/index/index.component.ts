@@ -49,10 +49,15 @@ export class IndexComponent implements OnInit {
     this.showConversationAction = !this.showConversationAction;
   }
   handleConversationRemove(id: any): void {
-    this.chatService.deleteConversationById(id).subscribe((res) => {
-    });
+    this.chatService.deleteConversationById(id).subscribe((res) => {});
+  }
+  handleConversationMute(event: Event, conversationId: any) {
+    event.stopPropagation();
+    const userId = this.currentUser.id;
+    this.chatService.leaveRoom(conversationId, userId);
   }
   joinConversation(conversationId: any): void {
-    this.chatService.joinRoom(conversationId);
+    const userId = this.currentUser.id;
+    this.chatService.joinRoom(conversationId, userId);
   }
 }

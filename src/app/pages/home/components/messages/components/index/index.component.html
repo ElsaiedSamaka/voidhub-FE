@@ -32,6 +32,7 @@
   <!-- conversations -->
       <ul class="h-[90%] overflow-y-scroll">
       <ng-container *ngIf="conversations.length > 0;else noconversationsfound">
+        <!-- conversation -->
         <li (click)="joinConversation(conversation.id)" [routerLink]="conversation.id" routerLinkActive="active"
           *ngFor="let conversation of conversations;let i=index"
           [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
@@ -67,6 +68,8 @@
                 [ngClass]="currentTheme=='dark'?'bg-zinc-900 text-dark-secondary':'bg-white text-gray-800'"
                 class="z-10 absolute rounded divide-y divide-gray-100 shadow ">
                 <ul class="py-1 text-sm  w-full" aria-labelledby="dropdownMenuIconHorizontalButton">
+                  <!-- conversation action -->
+                  <!-- conversation remove -->
                   <li>
                     <a role="button" (click)="handleConversationRemove(conversation.id)"
                       [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-800 text-gray-50':'hover:bg-zinc-50 text-gray-800'"
@@ -82,6 +85,8 @@
                       <span>{{"Remove"|translate}}</span>
                     </a>
                   </li>
+                  <!-- conversation remove -->
+                  <!-- conversation report  -->
                   <li>
                     <a role="button" (click)="handlePostReport($event)"
                       [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-800 text-gray-50':'hover:bg-zinc-50 text-gray-800'"
@@ -95,6 +100,25 @@
                       <span>{{"Report"|translate}}</span>
                     </a>
                   </li>
+                  <!-- conversation report  -->
+                  <!-- conversation mute -->
+                  <li>
+                    <a role="button" (click)="handleConversationMute($event,conversation.id)"
+                      [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-800 text-gray-50':'hover:bg-zinc-50 text-gray-800'"
+                      class=" inline-flex space-x-1 py-2 px-4 ">
+                      <span>
+                        <svg class="w-5 h-5 hover:text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9.143 17.082a24.248 24.248 0 003.844.148m-3.844-.148a23.856 23.856 0 01-5.455-1.31 8.964 8.964 0 002.3-5.542m3.155 6.852a3 3 0 005.667 1.97m1.965-2.277L21 21m-4.225-4.225a23.81 23.81 0 003.536-1.003A8.967 8.967 0 0118 9.75V9A6 6 0 006.53 6.53m10.245 10.245L6.53 6.53M3 3l3.53 3.53">
+                          </path>
+                        </svg>
+                      </span>
+                      <span>{{"Mute"|translate}}</span>
+                    </a>
+                  </li>
+                  <!-- conversation mute -->
+                  <!-- conversation action -->
                 </ul>
               </div>
           </div>
@@ -105,6 +129,7 @@
           <em>{{conversation.updatedAt |date}}</em>
         </div>
       </li>
+        <!-- conversation -->
       </ng-container>
       <ng-template #noconversationsfound>
         <div [ngClass]="currentTheme=='dark'?'text-dark-secondary':''"

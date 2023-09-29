@@ -74,16 +74,17 @@ export class ChatService {
       })
     );
   }
-  joinRoom(conversationId: any) {
+  joinRoom(conversationId: any, userId: any) {
     this.socketService.socket.emit('join', {
       conversationId: conversationId,
+      userId: userId,
     });
   }
 
-  // leaveRoom(userId, recipientId) {
-  //   this.socketService.socket.emit('leave', {
-  //     userId: userId,
-  //     recipientId: recipientId,
-  //   });
-  // }
+  leaveRoom(conversationId: any, userId: any) {
+    this.socketService.socket.emit('leave', {
+      conversationId: conversationId,
+      userId: userId,
+    });
+  }
 }
