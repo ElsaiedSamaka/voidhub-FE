@@ -12,14 +12,6 @@ export class HeaderComponent implements OnInit {
   constructor(private socketService: SocketService) {}
 
   ngOnInit() {
-    this.handleNewMessageNotification();
   }
-  handleNewMessageNotification() {
-    // Listen for the newMessageNotification event
-    this.socketService.socket.on('newMessageNotification', (message) => {
-      // Handle the new message notification
-      console.log('New message notification:', message);
-      // Update your UI or show a notification
-    });
-  }
+
 }

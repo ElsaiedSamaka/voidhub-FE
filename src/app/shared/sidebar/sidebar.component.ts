@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SocketService } from 'src/core/services/socket.service';
 import { TagsService } from 'src/core/services/tags.service';
 import { DataService } from '../services/data.service';
 
@@ -9,6 +10,8 @@ import { DataService } from '../services/data.service';
 })
 export class SidebarComponent implements OnInit {
   @Input() currentTheme: any = null;
+  newMessageNotifications: any[] = [];
+
   tags: any[] = [];
   subProgramsTree: any[] = [
     {
@@ -40,9 +43,9 @@ export class SidebarComponent implements OnInit {
   showSideBar: boolean = false;
   constructor(
     private dataService: DataService,
-    private tagsService: TagsService
+    private tagsService: TagsService,
+    private socketService: SocketService
   ) {}
-
   ngOnInit() {
     this.dataService.showSideBar.subscribe({
       next: (showSideBar) => {
@@ -50,13 +53,24 @@ export class SidebarComponent implements OnInit {
       },
     });
     this.getAllTags();
+    this.handleNewMessageNotification();
   }
+
   getAllTags(): void {
     this.tagsService.getAllTags().subscribe({
       next: (res) => {
         this.tags = res;
       },
       complete: () => {},
+    });
+  }
+  handleNewMessageNotification() {
+    // Listen for the newMessageNotification event
+    this.socketService.socket.on('newMessageNotification', (message) => {
+      console.log('newMessageNotification', message);
+      // Handle the new message notification
+      this.newMessageNotifications.push(message);
+      // Update your UI or show a notification
     });
   }
 }
