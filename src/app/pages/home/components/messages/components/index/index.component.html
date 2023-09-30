@@ -35,11 +35,11 @@
         <!-- conversation -->
         <li [routerLink]="conversation.id" routerLinkActive="active"
           *ngFor="let conversation of conversations;let i=index"
-          [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-zinc-900/5':'border-zinc-900/10 hover:bg-zinc-50'"
+          [ngClass]="currentTheme == 'dark'?'border-white/10 hover:bg-white/10':'border-zinc-900/10 hover:bg-zinc-50'"
         class=" w-full p-2 my-1 border rounded-lg hover:cursor-pointer ">
         <div class="flex justify-between space-x-2">
           <div class="inline-flex">
-            <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'"
+            <div [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-200/50'"
               class="p-3 border inline-flex rounded-full">
               <svg class="w-6 h-6 " fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -48,9 +48,9 @@
                 </path>
               </svg>
             </div>
-            <div class="flex-col ml-2" [ngClass]="currentTheme=='dark'?'text-dark-secondary':''">
-              <div class="flex space-x-1 text-emerald-500"><b>{{conversation.user1.email.split("@")[0]}} /
-                  {{conversation.user2.email.split("@")[0]}}</b>
+            <div class="flex-col ml-2" [ngClass]="currentTheme=='dark'?'text-dark-secondary':'text-zinc-900'">
+              <div class="flex space-x-1 text-emerald-500 font-normal">{{conversation.user1.email.split("@")[0]}} /
+                {{conversation.user2.email.split("@")[0]}}
               </div>
               <span>{{conversation.user1.email}}</span>
             </div>
@@ -125,8 +125,8 @@
         
         </div>
         <div [ngClass]="currentTheme=='dark'?'text-dark-secondary':''" class="p-2 flex justify-between items-center">
-          <h3 class="font-semibold text-lg">{{conversation.messages[conversation.messages.length - 1].message| slice:0:10}}</h3>
-          <em>{{conversation.updatedAt |date}}</em>
+          <h3 class=" text-lg">{{conversation.messages[conversation.messages.length - 1].message| slice:0:10}}</h3>
+          <em class="text-xs font-thin">{{conversation.updatedAt | date:"MMM dd, yyyy 'at' hh:mm a"}}</em>
         </div>
       </li>
         <!-- conversation -->

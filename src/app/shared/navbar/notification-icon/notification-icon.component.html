@@ -23,11 +23,11 @@
   <div class="h-[50vh] overflow-scroll divide-y"
     [ngClass]="currentTheme=='dark'?'divide-white/10 text-dark-secondary':'divide-gray-100 text-zinc-900'">
   <ng-container *ngIf="newMessageNotifications">
-    <!-- <a class="flex px-4 py-3 transition-all hover:text-emerald-500 hover:cursor-pointer duration-1000"
+    <a class="flex px-4 py-3 transition-all hover:text-emerald-500 hover:cursor-pointer duration-1000"
         *ngFor="let notification of newMessageNotifications">
       <div class="flex-shrink-0  relative">
         <img class="rounded-full w-11 h-11"
-          src="https://res.cloudinary.com/dwi0qvtbe/image/upload/v1695691224/users_img/profile_zu3vqf.png" alt="Jese image">
+          [src]="notification.sender.user_img" [alt]="notification.username">
         <div
           class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-blue-600 border border-white/10 rounded-full ">
           <svg class="w-2 h-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -40,14 +40,10 @@
         </div>
       </div>
       <div class="w-full pl-3">
-        <div class="text-sm mb-1.5 ">New message from <span class="font-semibold ">Jese Leos</span>: "Hey, what's up? All set
-          for the
-          presentation?"</div>
-        <div class="text-xs text-blue-500 ">a few moments ago</div>
+        <div class="text-sm mb-1.5 ">New message from <span class="font-semibold ">{{notification.sender.email}}</span>: "{{notification.message}}"</div>
+        <div class="text-xs text-blue-500 ">{{notification.createdAt|date:'short'}}</div>
       </div>
-    </a> -->
-    <pre *ngFor="let notification of newMessageNotifications">{{notification|json}}</pre>
-    
+    </a>
     </ng-container>
     <!-- <a class="flex px-4 py-3 transition-all hover:text-emerald-500 hover:cursor-pointer duration-1000">
       <div class="flex-shrink-0 relative">
