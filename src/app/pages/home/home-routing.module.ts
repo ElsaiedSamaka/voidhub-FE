@@ -34,6 +34,14 @@ const routes: Routes = [
         title: 'Messages',
       },
       {
+        path: 'notifications',
+        loadChildren: () =>
+          import('../../pages/notifications/notifications.module').then(
+            (m) => m.NotificationsModule
+          ),
+        title: 'Notifications',
+      },
+      {
         path: 'reading-list',
         loadChildren: () =>
           import('../home/components/reading-list/reading-list.module').then(
