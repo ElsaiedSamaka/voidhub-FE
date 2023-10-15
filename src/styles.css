@@ -22,7 +22,6 @@ body{
   box-sizing: border-box; /* Important !! */
   scrollbar-width: thin;
   scrollbar-color: gray white;
-  
   /* border-color: rgb(24 24 27 / 0.1); */
   /* border-color: rgb(255 255 255 / 0.1); */
 }
@@ -35,10 +34,11 @@ body{
 ::selection {
   color: #fff;
   background-color: #128644;
+  border-radius: 10px
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
