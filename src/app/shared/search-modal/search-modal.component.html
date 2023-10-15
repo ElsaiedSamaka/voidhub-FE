@@ -7,12 +7,13 @@
       id="headlessui-dialog-panel-:rp:" data-headlessui-state="open">
       <div role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-labelledby=":r0:-label"
         aria-owns=":r0:-list">
-        <form action="" novalidate="" role="search">
+        <form role="search">
           <div class="group relative flex h-12"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"
               class="pointer-events-none absolute left-3 top-0 h-full w-5 stroke-zinc-500">
               <path stroke-linecap="round" stroke-linejoin="round"
                 d="M12.01 12a4.25 4.25 0 1 0-6.02-6 4.25 4.25 0 0 0 6.02 6Zm0 0 3.24 3.25"></path>
-            </svg><input [ngClass]="currentTheme == 'dark'?'text-white':'text-zinc-900'"
+            </svg><input [(ngModel)]="t" (input)="handleTchange()" [ngModelOptions]="{standalone: true}"
+              [ngClass]="currentTheme == 'dark'?'text-white':'text-zinc-900'"
               class="flex-auto appearance-none bg-transparent pl-10 outline-none placeholder:text-emerald-50 focus:w-full focus:flex-none  sm:text-sm [&amp;::-webkit-search-cancel-button]:hidden [&amp;::-webkit-search-decoration]:hidden [&amp;::-webkit-search-results-button]:hidden [&amp;::-webkit-search-results-decoration]:hidden pr-4"
               aria-autocomplete="both" aria-labelledby=":r0:-label" id=":r0:-input" autocomplete="off" autocorrect="off"
               autocapitalize="off" enterkeyhint="go" spellcheck="false" placeholder="Find something..." maxlength="512"

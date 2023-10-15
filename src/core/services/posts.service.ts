@@ -156,4 +156,11 @@ export class PostsService {
       })
     );
   }
+  searchPosts(query: string): Observable<any[]> {
+    return this.apiService.get(`/api/posts/search?t=${query}`).pipe(
+      tap((response) => {
+        // this.posts$.next(response);
+      })
+    );
+  }
 }
