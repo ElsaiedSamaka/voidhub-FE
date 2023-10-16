@@ -54,7 +54,6 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   joinRooms(): void {
-    console.log('joinRooms called');
     const userId = this.currentUser.id;
     this.conversations.forEach((conversation) => {
       this.chatService.joinRoom(conversation.id, userId);
@@ -64,7 +63,6 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.leaveRooms();
   }
   leaveRooms() {
-    console.log('leaveRooms called');
     const userId = this.currentUser.id;
     this.conversations.forEach((conversation) => {
       this.chatService.leaveRoom(conversation.id, userId);

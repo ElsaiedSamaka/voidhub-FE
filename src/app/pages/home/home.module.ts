@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { IndexComponent } from './components/index/index.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { ViewsModule } from './views/views.module';
+import { LatestContactsComponent } from './views/latest-contacts/latest-contacts.component';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { ViewsModule } from './views/views.module';
     HomeComponent,
     BlogDetailsComponent,
     CompaniesComponent,
+    LatestContactsComponent,
   ],
   providers: [ArticleResolverService],
 })
