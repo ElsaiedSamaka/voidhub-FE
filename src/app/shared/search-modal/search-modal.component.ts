@@ -17,6 +17,7 @@ export class SearchModalComponent implements OnInit {
   @Input() currentTheme: string = '';
   @Output() dismiss = new EventEmitter<boolean>();
   t;
+  searchResults: any[] = [];
   constructor(private el: ElementRef, private postsService: PostsService) {}
 
   ngOnInit() {
@@ -29,10 +30,9 @@ export class SearchModalComponent implements OnInit {
     this.dismiss.emit(false);
   }
   handleTchange() {
-    console.log('[1;32m', this.t);
     this.postsService.searchPosts(this.t).subscribe({
       next: (response) => {
-        console.log('[1;32m', 'response [SearchModal]', response);
+        this.searchResults = response;
       },
     });
     // this.t = event.target.value;

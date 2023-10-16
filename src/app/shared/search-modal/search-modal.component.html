@@ -21,18 +21,26 @@
           <div
                  [ngClass]="currentTheme == 'dark'?'bg-white/2.5 border-zinc-100/5 ':'border-zinc-200 bg-white'"       class="border-t  empty:hidden ">
                         <ul role="listbox" aria-labelledby=":r0:-label" id=":r0:-list">
-                            <li class="group block px-4 py-3 hover:cursor-pointer"
+                          <ng-container *ngIf="searchResults.length > 0 ;else noResults">
+                            <li *ngFor="let result of searchResults " class="group block px-4 py-3 hover:cursor-pointer"
                               [ngClass]="currentTheme == 'dark'?'hover:bg-zinc-800/50':'hover:bg-gray-100'"
-                                aria-labelledby=":r19:-hierarchy :r19:-title" id=":r0:-item-0" role="option"
-                                aria-selected="true">
-                                <div id=":r19:-title" aria-hidden="true"
-                                [ngClass]="currentTheme=='dark'?'text-white':'text-zinc-900'"    class="text-sm font-medium  ">
-                                    <span>Test Article title</span>
-                                </div>
-                                <div id=":r19:-hierarchy" aria-hidden="true"
-                                    class="mt-1 truncate whitespace-nowrap text-2xs text-zinc-500"><span><span
-                                            class="">Guides</span></span><span class="sr-only">/</span></div>
+  aria-labelledby=":r19:-hierarchy :r19:-title" id=":r0:-item-0" role="option" aria-selected="true">
+  <div id=":r19:-title" aria-hidden="true" [ngClass]="currentTheme=='dark'?'text-white':'text-zinc-900'"
+    class="text-sm font-medium  ">
+    <span>{{result.title}}</span>
+  </div>
+  <div id=":r19:-hierarchy" aria-hidden="true" class="mt-1 truncate whitespace-nowrap text-2xs text-zinc-500">
+    <span><span class="" [innerHTML]="result.content"></span></span><span class="sr-only">/</span>
+  </div>
+  </li>
+                          </ng-container>
+                          <ng-template #noResults>
+                            <li class="group block px-4 py-3 hover:cursor-pointer">
+                              <div id=":r19:-title" aria-hidden="true" class="text-sm font-medium  ">
+                                <span>No results found</span>
+                              </div>
                             </li>
+                          </ng-template>
                         </ul>
                         </div>
         </form>
