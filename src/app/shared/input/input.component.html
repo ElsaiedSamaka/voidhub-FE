@@ -98,12 +98,11 @@
           class="block text-sm font-semibold " translate>{{label}}</label>
         <span *ngIf="required">*</span>
       </div>
-      <input [id]="id" [name]="name" [formControl]="control" [placeholder]="placeholder" [type]="type" [value]="value"
+      <input [id]="id" [name]="name" [formControl]="control" [type]="type"
         [class.border-[#303032]]="currentTheme == 'dark'" [class.ring-[#303032]]="currentTheme == 'dark'"
-       [class.bg-zinc-800]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  class="mt-1 rounded-xl border appearance-none ring-1 ring-zinc-900/10 text-sm  p-2 text-left w-full"
-        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''"  [maxlength]="maxlength"
-        [minlength]="minlength" [required]="required"  [pattern]="pattern"
-        [autocomplete]="autocomplete" [autofocus]="autofocus" [title]="title" />
+       [class.bg-zinc-800]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"  class="  border appearance-none ring-1 ring-zinc-900/10 text-sm  p-2 text-left w-full checked:bg-emerald-800"
+        [ngClass]="control.invalid && showErrors() ? 'border-2 border-red-500':''" 
+       />
     </div>
     <div *ngSwitchCase="'date'">
       <div class="flex">

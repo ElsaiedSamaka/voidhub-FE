@@ -75,11 +75,9 @@ rtlltr  [ngClass]="theme == 'dark'?'bg-[#1b1d1e] text-dark-secondary':'bg-gray-5
           </div>
           <div class="flex items-start">
             <div class="flex items-center h-5">
-              <input id="Rememberme" name="Rememberme" type="checkbox"
-                class="w-4 h-4 border border-gray-300 rounded  focus:ring-3 focus:ring-primary-300 ">
-            </div>
-            <div class="ml-3 ">
-              <label for="Rememberme" class="font-light ">{{'Remember me'|translate}}</label>
+              <app-input [control]="authForm.controls.rememberMe" [id]="'rememberMe'" [name]="'rememberMe'" [type]="'checkbox'">
+              </app-input>
+              <label for="rememberMe" class="font-light ml-3">{{'Remember me'|translate}}</label>
             </div>
           </div>
           <button type="submit" [disabled]="authForm.invalid"

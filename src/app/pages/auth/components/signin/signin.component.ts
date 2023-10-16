@@ -29,6 +29,7 @@ export class SigninComponent implements OnInit {
       Validators.minLength(8),
       Validators.maxLength(25),
     ]),
+    rememberMe: new FormControl(false),
   });
   constructor(
     private themeService: ThemeService,
@@ -52,7 +53,11 @@ export class SigninComponent implements OnInit {
     }
     this.loadingService.loading$.next(true);
     this.authService
-      .signin(this.authForm.value.email!, this.authForm.value.password!)
+      .signin(
+        this.authForm.value.email!,
+        this.authForm.value.password,
+        this.authForm.value.rememberMe
+      )
       .subscribe({
         next: (response) => {},
         error: (err) => {

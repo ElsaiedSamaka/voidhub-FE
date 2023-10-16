@@ -32,7 +32,12 @@ export class AuthService {
   }
   // signup will be called when the user submits the signup form
   // we will send the user's credentials to the server
-  signup(email: string, password: string, passwordConfirmation: string) {
+  signup(
+    email: string,
+    password: string,
+    passwordConfirmation: string,
+    rememberMe: boolean
+  ) {
     return this.http
       .post<any>(
         `${this.api_url}/api/auth/signup`,
@@ -40,6 +45,7 @@ export class AuthService {
           email: email,
           password: password,
           passwordConfirmation: passwordConfirmation,
+          rememberMe: rememberMe,
         },
         { withCredentials: true }
       )
@@ -71,13 +77,14 @@ export class AuthService {
   }
   // signin will be called when the user submits the signin form
   // we will send the user's credentials to the server
-  signin(email: string, password: string) {
+  signin(email: string, password: string, rememberMe: boolean) {
     return this.http
       .post<any>(
         `${this.api_url}/api/auth/signin`,
         {
           email: email,
           password: password,
+          rememberMe: rememberMe,
         },
         { withCredentials: true }
       )

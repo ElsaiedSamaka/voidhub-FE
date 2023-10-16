@@ -37,6 +37,7 @@ export class SignupComponent implements OnInit {
         Validators.minLength(8),
         Validators.maxLength(25),
       ]),
+      rememberMe: new FormControl(false),
     },
     { validators: [this.matchPassword.validate] }
   );
@@ -58,7 +59,8 @@ export class SignupComponent implements OnInit {
       .signup(
         this.authForm.value.email,
         this.authForm.value.password,
-        this.authForm.value.passwordConfirmation
+        this.authForm.value.passwordConfirmation,
+        this.authForm.value.rememberMe
       )
       .subscribe({
         next: (response) => {
