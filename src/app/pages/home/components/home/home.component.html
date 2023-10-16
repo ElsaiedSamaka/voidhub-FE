@@ -18,20 +18,7 @@
       <!-- latest contacts -->
       <hr class="border" [ngClass]="currentTheme == 'dark'?'border-white/10':'border-zinc-900/10'">
       <!-- Jobs For You -->
-      <div class="w-full max-w-md p-4 rounded-lg">
-        <div class="flex items-center justify-between mb-4">
-          <h5 [ngClass]="currentTheme=='dark'?'text-dark-secondary':''" class="text-xl font-bold leading-none ">{{"Jobs FYI"|translate}}</h5>
-          <a [routerLink]="['jobs']" class="text-sm font-semibold text-emerald-700 hover:underline hover:cursor-pointer">
-            {{"View all"|translate}}
-          </a>
-        </div>
-        <div class="flow-root h-[51vh] overflow-y-scroll">
-          <ul role="list" class=" h-[95%]">
-          <app-company-card [currentTheme]="currentTheme"></app-company-card>
-            
-          </ul>
-        </div>
-      </div>
+      <app-jops-fyi [currentTheme]="currentTheme" [currentUser]="currentUser"></app-jops-fyi>
       <!-- Jobs For You -->
       </div>
     <!-- left side info bar -->

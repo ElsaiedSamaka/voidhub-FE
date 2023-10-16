@@ -12,6 +12,7 @@ import { IndexComponent } from './components/index/index.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { ViewsModule } from './views/views.module';
 import { LatestContactsComponent } from './views/latest-contacts/latest-contacts.component';
+import { JopsFyiComponent } from './views/jops-fyi/jops-fyi.component';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { LatestContactsComponent } from './views/latest-contacts/latest-contacts
     BlogDetailsComponent,
     CompaniesComponent,
     LatestContactsComponent,
+    JopsFyiComponent,
   ],
   providers: [ArticleResolverService],
 })
