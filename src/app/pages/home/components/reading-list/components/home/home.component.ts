@@ -50,9 +50,9 @@ export class HomeComponent implements OnInit {
       complete: () => {},
     });
   }
-  unsave(event: any, id: any): void {
+  unsave(event: any, articleId: any): void {
     event.stopPropagation();
-    this.postsService.unsave(id).subscribe({
+    this.postsService.unsave(articleId, this.currentUser.id).subscribe({
       next: (savedArticles) => {
         this.savedArticles = this.postsService.savedPosts$.value;
       },

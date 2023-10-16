@@ -71,7 +71,7 @@ export class TimelineComponent implements OnInit, AfterViewInit {
         });
         break;
       case 'Following':
-        this.postsService.getMoreFollowingPosts().subscribe({
+        this.postsService.getMoreFollowingPosts(this.currentUser.id).subscribe({
           next: () => {},
           error: () => {},
           complete: () => {
@@ -95,7 +95,7 @@ export class TimelineComponent implements OnInit, AfterViewInit {
     });
   }
   getPostsByFollowing(): void {
-    this.postsService.getPostsByFollowing().subscribe({
+    this.postsService.getPostsByFollowing(this.currentUser.id).subscribe({
       next: (response) => {
         this.posts = this.postsService.posts$.value;
       },

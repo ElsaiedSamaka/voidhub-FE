@@ -83,9 +83,10 @@ export class ArticleComponent implements OnInit, OnChanges {
   saveArticle(event: any): void {
     event.stopPropagation();
     const articleId = this.article.id;
+    const userId = this.currentUser.id;
 
     if (!this.articleAlreadyExistOnSaved()) {
-      this.postsService.save(articleId).subscribe({
+      this.postsService.save(articleId, userId).subscribe({
         next: () => {},
         error: () => {},
         complete: () => {
@@ -94,7 +95,7 @@ export class ArticleComponent implements OnInit, OnChanges {
         },
       });
     } else {
-      this.postsService.unsave(articleId).subscribe({
+      this.postsService.unsave(articleId, userId).subscribe({
         next: () => {},
         error: () => {},
         complete: () => {
@@ -122,9 +123,10 @@ export class ArticleComponent implements OnInit, OnChanges {
   favArticle(event: any): void {
     event.stopPropagation();
     const articleId = this.article.id;
+    const userId = this.currentUser.id;
 
     if (!this.articleAlreadyExistOnFaved()) {
-      this.postsService.fav(articleId).subscribe({
+      this.postsService.fav(articleId, userId).subscribe({
         next: () => {},
         error: () => {},
         complete: () => {
@@ -133,7 +135,7 @@ export class ArticleComponent implements OnInit, OnChanges {
         },
       });
     } else {
-      this.postsService.unfav(articleId).subscribe({
+      this.postsService.unfav(articleId, userId).subscribe({
         next: () => {},
         error: () => {},
         complete: () => {

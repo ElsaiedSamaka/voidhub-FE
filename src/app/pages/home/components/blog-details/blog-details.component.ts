@@ -53,7 +53,7 @@ export class BlogDetailsComponent implements OnInit {
     event.stopPropagation();
     let articleId = this.data.article.id;
     if (!this.alreadySavedArticle) {
-      this.postsService.save(articleId).subscribe({
+      this.postsService.save(articleId, this.currentUser.id).subscribe({
         next: () => {},
         error: () => {},
         complete: () => {
@@ -62,7 +62,7 @@ export class BlogDetailsComponent implements OnInit {
         },
       });
     } else {
-      this.postsService.unsave(articleId).subscribe({
+      this.postsService.unsave(articleId, this.currentUser.id).subscribe({
         next: () => {},
         error: () => {},
         complete: () => {

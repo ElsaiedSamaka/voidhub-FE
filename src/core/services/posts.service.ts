@@ -41,7 +41,7 @@ export class PostsService {
       })
     );
   }
-  getMoreFollowingPosts(): Observable<any[]> {
+  getMoreFollowingPosts(userId: string): Observable<any[]> {
     if (this.currentPage >= this.totalPages) {
       // No more pages to fetch
       // console.log('this.currentPage >= this.totalPages - 1');
@@ -51,7 +51,9 @@ export class PostsService {
     const nextPage = this.currentPage + 1;
 
     return this.apiService
-      .get(`/api/posts/following?page=${nextPage}&size=5`)
+      .post(`/api/posts/following?page=${nextPage}&size=5`, {
+        userId,
+      })
       .pipe(
         tap((response) => {
           const { rows: morePosts } = response;
@@ -83,22 +85,24 @@ export class PostsService {
       })
     );
   }
-  save(id: string): Observable<any> {
-    return this.apiService.post(`/api/posts/${id}/save`).pipe(
+  save(articlId: string, userId: string): Observable<any> {
+    return this.apiService.post(`/api/posts/${articlId}/save`, { userId }).pipe(
       tap((savedPost) => {
         this.savedPosts$.value.push(savedPost);
       })
     );
   }
-  unsave(id: string): Observable<any> {
-    return this.apiService.delete(`/api/posts/${id}/unsave`).pipe(
-      tap((unsavedItem) => {
-        let updatedItems = this.savedPosts$.value.filter(
-          (item) => item.postId != unsavedItem.postId
-        );
-        this.savedPosts$.next(updatedItems);
-      })
-    );
+  unsave(articlId: string, userId: string): Observable<any> {
+    return this.apiService
+      .delete(`/api/posts/${articlId}/unsave`, { userId })
+      .pipe(
+        tap((unsavedItem) => {
+          let updatedItems = this.savedPosts$.value.filter(
+            (item) => item.postId != unsavedItem.postId
+          );
+          this.savedPosts$.next(updatedItems);
+        })
+      );
   }
   getSaved(): Observable<any[]> {
     return this.apiService.get('/api/posts/user/saved-posts').pipe(
@@ -107,22 +111,24 @@ export class PostsService {
       })
     );
   }
-  fav(id: string): Observable<any> {
-    return this.apiService.post(`/api/posts/${id}/fav`).pipe(
+  fav(articlId: string, userId: string): Observable<any> {
+    return this.apiService.post(`/api/posts/${articlId}/fav`, { userId }).pipe(
       tap((lovedPost) => {
         this.lovedPosts$.value.push(lovedPost);
       })
     );
   }
-  unfav(id: string): Observable<any> {
-    return this.apiService.delete(`/api/posts/${id}/unfav`).pipe(
-      tap((unlovedPost) => {
-        let updatedItems = this.lovedPosts$.value.filter(
-          (item) => item.postId != unlovedPost.postId
-        );
-        this.lovedPosts$.next(updatedItems);
-      })
-    );
+  unfav(articlId: string, userId: string): Observable<any> {
+    return this.apiService
+      .delete(`/api/posts/${articlId}/unfav`, { userId })
+      .pipe(
+        tap((unlovedPost) => {
+          let updatedItems = this.lovedPosts$.value.filter(
+            (item) => item.postId != unlovedPost.postId
+          );
+          this.lovedPosts$.next(updatedItems);
+        })
+      );
   }
   // put(id: string, item: any): Observable<any> {
   //   return this.apiService.put(`/api/posts/${id}`, item).pipe(
@@ -132,15 +138,17 @@ export class PostsService {
   //     })
   //   );
   // }
-  getPostsByFollowing(): Observable<any[]> {
-    return this.apiService.get(`/api/posts/following?page=${0}&size=${5}`).pipe(
-      tap((response) => {
-        const { rows: posts, totalPages, currentPage } = response;
-        this.posts$.next(posts);
-        this.totalPages = totalPages;
-        this.currentPage = currentPage;
-      })
-    );
+  getPostsByFollowing(userId: string): Observable<any[]> {
+    return this.apiService
+      .post(`/api/posts/following?page=${0}&size=${5}`, { userId })
+      .pipe(
+        tap((response) => {
+          const { rows: posts, totalPages, currentPage } = response;
+          this.posts$.next(posts);
+          this.totalPages = totalPages;
+          this.currentPage = currentPage;
+        })
+      );
   }
   getPostsByTags(tags: any[]): Observable<any[]> {
     return this.apiService.post(`/api/posts/by-tag`, { tags }).pipe(
