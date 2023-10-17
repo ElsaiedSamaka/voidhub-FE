@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { DataService } from 'src/app/shared/services/data.service';
 import { PostsService } from 'src/core/services/posts.service';
+import { SocketService } from 'src/core/services/socket.service';
 
 @Component({
   selector: 'app-create-post',
@@ -23,7 +24,8 @@ export class CreatePostComponent implements OnInit {
   postAs;
   constructor(
     private postsService: PostsService,
-    private dataService: DataService
+    private dataService: DataService,
+    private socketService: SocketService
   ) {}
 
   ngOnInit() {
@@ -85,6 +87,12 @@ export class CreatePostComponent implements OnInit {
         // once a user post an article we wanna reset the array of the recieved tags and the html content
         this.receivedTags = [];
         this.receivedHTMLContent = '';
+        if (!this.dataService.isAnonymous$.value) {
+          this.socketService.socket.emit('newPost', {
+            userId: this.currentUser.id,
+            article: article,
+          });
+        }
       },
     });
   }

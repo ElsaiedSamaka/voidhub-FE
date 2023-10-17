@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { ApiService } from './api.service';
+import { SocketService } from './socket.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,10 @@ export class PostsService {
   currentPage = 0; // Current page of posts
   totalPages = 0; // Total number of pages
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private socketService: SocketService
+  ) {}
   getAll(): Observable<any[]> {
     return this.apiService.get(`/api/posts?page=${0}&size=${5}`).pipe(
       tap((response) => {
@@ -115,12 +119,16 @@ export class PostsService {
     return this.apiService.post(`/api/posts/${articlId}/fav`, { userId }).pipe(
       tap((lovedPost) => {
         this.lovedPosts$.value.push(lovedPost);
+        this.socketService.socket.emit('newLike', {
+          userId,
+          articleId: articlId,
+        });
       })
     );
   }
   unfav(articlId: string, userId: string): Observable<any> {
     return this.apiService
-      .delete(`/api/posts/${articlId}/unfav`, { userId })
+      .post(`/api/posts/${articlId}/unfav`, { userId })
       .pipe(
         tap((unlovedPost) => {
           let updatedItems = this.lovedPosts$.value.filter(

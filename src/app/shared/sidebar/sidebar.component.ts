@@ -11,7 +11,7 @@ import { DataService } from '../services/data.service';
 export class SidebarComponent implements OnInit {
   @Input() currentTheme: any = null;
   newMessageNotifications: any[] = [];
-
+  newNotifications: any[] = [];
   tags: any[] = [];
   subProgramsTree: any[] = [
     {
@@ -54,6 +54,7 @@ export class SidebarComponent implements OnInit {
     });
     this.getAllTags();
     this.handleNewMessageNotification();
+    this.handleNewNotification();
   }
 
   getAllTags(): void {
@@ -70,6 +71,12 @@ export class SidebarComponent implements OnInit {
       // Handle the new message notification
       this.newMessageNotifications.push(message);
       // Update your UI or show a notification
+    });
+  }
+  handleNewNotification() {
+    this.socketService.socket.on('newNotification', (notification) => {
+      this.newNotifications.push(notification);
+      console.log('[1;32m', 'notification', notification);
     });
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 import { ApiService } from './api.service';
+import { SocketService } from './socket.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,10 @@ export class UsersService {
   users = this.users$.asObservable;
   data$ = new BehaviorSubject<any[]>([]);
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private socketService: SocketService
+  ) {}
   getAll(page?: number, size?: number): Observable<any[]> {
     return this.apiService.get(`/api/users?page=${page}&size=${size}`).pipe(
       tap((response) => {
@@ -72,12 +76,20 @@ export class UsersService {
   follow(item: any): Observable<any> {
     return this.apiService.post('/api/users/follow', item).pipe(
       tap((followedUser) => {
+        this.socketService.socket.emit('newFollow', {
+          userId: item.followerId,
+          followedUserId: item.followingId,
+        });
       })
     );
   }
   unfollow(item: any): Observable<any> {
     return this.apiService.post('/api/users/unfollow', item).pipe(
       tap((unFollowedUser) => {
+        this.socketService.socket.emit('unFollow', {
+          userId: item.followerId,
+          unfollowedUserId: item.followingId,
+        });
       })
     );
   }
@@ -87,9 +99,8 @@ export class UsersService {
       .pipe(tap((userfollowing) => {}));
   }
   getFollowers(): Observable<any[]> {
-    return this.apiService.get('/api/users/followers').pipe(
-      tap((userfollowers) => {
-      })
-    );
+    return this.apiService
+      .get('/api/users/followers')
+      .pipe(tap((userfollowers) => {}));
   }
 }

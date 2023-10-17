@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { ApiService } from './api.service';
+import { SocketService } from './socket.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommentsService {
   comments$ = new BehaviorSubject<any[]>([]);
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private socketService: SocketService
+  ) {}
   getAll(id: string): Observable<any[]> {
     return this.apiService.get(`/api/posts/${id}/comments`).pipe(
       tap((comments) => {
@@ -32,6 +36,10 @@ export class CommentsService {
     return this.apiService.post('/api/comments', item).pipe(
       tap((addedItem) => {
         this.comments$.value.push(addedItem);
+        this.socketService.socket.emit("newComment", {
+          userId: addedItem.userId,
+          article: addedItem.article,
+        })
       })
     );
   }
