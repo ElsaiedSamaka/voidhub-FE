@@ -68,6 +68,7 @@ export class ArticleComponent implements OnInit, OnChanges {
     let comment = {
       content: this.content,
       postId: articleId,
+      userId: this.currentUser.id,
       isAnonymous: isAnonymous,
     };
     this.commentsService.post(comment).subscribe({

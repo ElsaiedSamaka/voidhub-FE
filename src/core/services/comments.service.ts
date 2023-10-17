@@ -36,10 +36,10 @@ export class CommentsService {
     return this.apiService.post('/api/comments', item).pipe(
       tap((addedItem) => {
         this.comments$.value.push(addedItem);
-        this.socketService.socket.emit("newComment", {
-          userId: addedItem.userId,
-          article: addedItem.article,
-        })
+        this.socketService.socket.emit('newComment', {
+          userId: item.userId,
+          articleId: item.postId,
+        });
       })
     );
   }
