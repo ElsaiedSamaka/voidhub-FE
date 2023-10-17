@@ -27,7 +27,8 @@
   <div class="w-full">
   <input (mousedown)="handleTagsSearch($event)" type="search" name="tags" id="tags"
     [(ngModel)]="tag" (input)="handleTagsSearch($event)" (keydown)="handleSpacebarTab($event)"
-    [ngModelOptions]="{standalone: true}" class="w-full text-sm p-2  rounded-xl border border-white/10"
+    [ngModelOptions]="{standalone: true}" class="w-full text-sm p-2  rounded-xl border border-white/5"            class="mt-1 rounded-xl  border appearance-none ring-1 ring-zinc-900/10 text-sm   p-2 text-left w-full text-white0" [class.border-[#303032]] = "currentTheme == 'dark'" [class.ring-[#303032]]="currentTheme == 'dark'"
+   [class.bg-zinc-800]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"
       [class.bg-zinc-900]="currentTheme=='dark'" [class.text-white]="currentTheme=='dark'"
     maxlength="12">
     <!-- Dropdown menu -->
@@ -41,7 +42,7 @@
               <div class="flex items-center pl-2 rounded "
                 [ngClass]="theme == 'dark'?'hover:bg-gray-500':'hover:bg-gray-100'">
                 <input (change)="handleTagSelect($event)" [name]="tag.id" [id]="tag.id" [value]="tag.id" type="checkbox"
-                  class="sr-only w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2">
+ class="sr-only w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2">
                 <!-- -->
                 <label [for]="tag.id" class="w-full py-2 ml-2 text-sm font-medium rounded hover:cursor-pointer"
                   [ngClass]="theme == 'dark'?' text-dark-white':'bg-white text-light-secondary'">#{{tag.name}}</label>
